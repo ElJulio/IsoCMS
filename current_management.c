@@ -1,6 +1,7 @@
 
 #include "current_management.h"
 #include "ASIC_driver.h"
+#include "CAN.H"
 
 
 bit current_newValue_flg = 0;
@@ -15,7 +16,7 @@ bit current_isNewValueStored(void){
 	return current_newValue_flg;
 }
 
-int curruent_getResult(void){
+int current_getResult(void){
 
 	return current_result;
 }

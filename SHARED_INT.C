@@ -12,7 +12,7 @@
 // @Description   This file contains the Shared interrupt routines.
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016 13:09:02
+// @Date          17.06.2016 14:10:36
 //
 //****************************************************************************
 
@@ -110,7 +110,7 @@
 // @Parameters    None
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -128,6 +128,7 @@ void SHINT_vInit(void)
   ///  Configuration of the Shared  Interrupts:
   ///  -----------------------------------------------------------------------
   ///  - Timer 2 Interrupt is Selected
+  ///  - MultiCAN Node 0 Interrupt is Selected
 
 
   IEN0         |=  0x20;         // load interrupt enable register 0
@@ -173,7 +174,7 @@ void SHINT_vInit(void)
 // @Parameters    None
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -191,12 +192,21 @@ void SHINT_vInit(void)
 void SHINT_viXINTR5Isr(void) interrupt XINTR5INT
 {
 
+ubyte ubNSRL;
+ubyte ubResetLEC = 0x3F;
+
+ubyte ubTempMsgID = 0;
+volatile ubyte ubTempVarObjHandler = 0;
+un_32bit ulBit_Pos_Mask;
+
   // USER CODE BEGIN (SHINT_XINTR5Isr,2)
 
   // USER CODE END
 
   pushsyscon();                  // push the current RMAP
   RESET_RMAP();                  // resets RMAP
+
+  CAN_pushAMRegs();              // push the CAN Access Mediator Registers
 
   SFR_PAGE(_su0, SST1);          // switch to page 0
 
@@ -214,11 +224,165 @@ void SHINT_viXINTR5Isr(void) interrupt XINTR5INT
 
   }
 
+  //   MultiCAN Node 0 (SRN0) interrupt handling section...
+
+
+  //   Check Interrupt Request Register 2 Interrupt Flag 0
+  if (((IRCON2 & 0x01) != 0))
+  {
+
+    IRCON2 &= ~(ubyte)0x01; //   clear CANSRC0
+
+    //   ---------------------------------------------------------------------
+    //   Interrupts of CAN node 1
+    //   ---------------------------------------------------------------------
+
+    CAN_vWriteCANAddress(CAN_NSR1);
+    CAN_vReadEN();
+    ubNSRL = CAN_DATA0;
+
+    // USER CODE BEGIN (SRN0_NODE1,1)
+
+    // USER CODE END
+
+    //   ---------------------------------------------------------------------
+    //   CAN node 1 Transfer Interrupt
+    //   ---------------------------------------------------------------------
+
+    if (ubNSRL & 0x18)  // if TXOK or RXOK
+    {
+          ///  Note: The the successful transmission/reception of a frame, 
+          ///  can cause TXOK or RXOK Interrupt. User need to handle these in 
+          ///  user defined section.
+
+          // Indicates that a message has been transmitted/received successfully.
+          // TXOK = ubNSRL & 0x08
+          // RXOK = ubNSRL & 0x10
+
+      // USER CODE BEGIN (SRN0_NODE_1,5)
+
+      // USER CODE END
+    }
+
+    // USER CODE BEGIN (SRN0_NODE1,8)
+
+    // USER CODE END
+
+    //// Reset LEC, TXOK, RXOK, ALERT, EWRN, BOFF, LLE, LOE (if set)
+
+    CAN_vWriteCANAddress(CAN_NSR1); // Addressing CAN_NSR1
+    CAN_DATA0   =  ~(ubNSRL & ubResetLEC);       // load CAN_NSR1 status register[7-0]
+    CAN_vWriteEN(D0_VALID);  // Data0 Valid for
+                                 // transmission and Write is Enabled.
+
+    //   ---------------------------------------------------------------------
+    //   Interrupts of CAN Msg Obj x 
+    //   ---------------------------------------------------------------------
+
+    CAN_vWriteCANAddress(CAN_MSIMASK);    // set message index mask register
+    CAN_DATA0   =   0x83;        // set message index mask register
+    CAN_DATA1   =   0x00;        // set message index mask register
+    CAN_DATA2   =   0x00;        // set message index mask register
+    CAN_DATA3   =   0x00;        // set message index mask register
+
+    CAN_vWriteEN(ALL_DATA_VALID); // Write mode Enabled
+
+    // USER CODE BEGIN (SRN0,1)
+
+    // USER CODE END
+    CAN_vWriteCANAddress(CAN_MSID0);   // message index register
+    CAN_vReadEN();               // Read Mode is enabled
+
+    ubTempMsgID = CAN_DATA0;
+
+    if(ubTempMsgID != 0x20)
+    {
+      do
+      {
+      CAN_vWriteCANAddress(CAN_MOCTR(ubTempMsgID)); // Addressing CAN_MOCTRn
+      CAN_vReadEN();               // Read Mode is enabled
+      ubTempVarObjHandler = CAN_DATA0;
+
+      ulBit_Pos_Mask.ulVal = ((unsigned long) 1 << ubTempMsgID);
+      CAN_vWriteCANAddress(CAN_MSPND0); // Addressing CAN_MSPND0
+
+      CAN_DATA0 = ~ulBit_Pos_Mask.ubDB[0]; // clear message pending register
+      CAN_DATA1 = ~ulBit_Pos_Mask.ubDB[1]; // clear message pending register
+      CAN_DATA2 = ~ulBit_Pos_Mask.ubDB[2]; // clear message pending register
+      CAN_DATA3 = ~ulBit_Pos_Mask.ubDB[3]; // clear message pending register
+      CAN_vWriteEN(ALL_DATA_VALID);  // Write mode Enabled
+
+          ///  Note: Below commented code could be copied by the user to user 
+          ///  defined section for Interrupt handling.
+
+          ///  Handling of MO TXPND for transmit data/remote frames (Generic 
+          ///  Code).
+          ///  (ubTempVarObjHandle & MOSTAT_TXPND)
+
+          // if( ubTempVarObjHandler & MOSTAT_TXPND)   // if TXPND is set
+          // {
+          //// The transmission of the last message object was successful.
+          //// reset TXPND, NEWDAT
+          //    CAN_vWriteCANAddress(CAN_MOCTR(ubTempMsgID)); // Addressing CAN_MOCTRn
+          //
+          //    CAN_DATA0 = (MOSTAT_TXPND + MOSTAT_NEWDAT); // load CAN Data Register 0
+          //    CAN_DATA1 = 0x00; // load CAN Data Register 1
+          //    CAN_DATA2 = 0x00; // load CAN Data Register 2
+          //    CAN_DATA3 = 0x00; // load CAN Data Register 3
+          //    CAN_vWriteEN(ALL_DATA_VALID); // Writemode is Enabled
+          //
+          // }  // End of TXPNDn
+
+      // USER CODE BEGIN (SRN0_OBJ,2)
+       if( ubTempVarObjHandler & MOSTAT_TXPND)   // if TXPND is set
+       {
+      // The transmission of the last message object was successful.
+      // reset TXPND, NEWDAT
+          CAN_vWriteCANAddress(CAN_MOCTR(ubTempMsgID)); // Addressing CAN_MOCTRn
+
+          CAN_DATA0 = (MOSTAT_TXPND + MOSTAT_NEWDAT); // load CAN Data Register 0
+          CAN_DATA1 = 0x00; // load CAN Data Register 1
+          CAN_DATA2 = 0x00; // load CAN Data Register 2
+          CAN_DATA3 = 0x00; // load CAN Data Register 3
+          CAN_vWriteEN(ALL_DATA_VALID); // Writemode is Enabled
+
+       }  // End of TXPNDn
+      // USER CODE END
+
+      CAN_vWriteCANAddress(CAN_MSIMASK);    // set message index mask register
+      CAN_DATA0  =   0x83;       // set message index mask register
+      CAN_DATA1  =   0x00;       // set message index mask register
+      CAN_DATA2  =   0x00;       // set message index mask register
+      CAN_DATA3  =   0x00;       // set message index mask register
+
+      CAN_vWriteEN(ALL_DATA_VALID); // Write mode Enabled
+
+      // USER CODE BEGIN (SRN0,5)
+
+      // USER CODE END
+
+      CAN_vWriteCANAddress(CAN_MSID0);   // message index register
+      CAN_vReadEN();               // Read Mode is enabled
+      ubTempMsgID = CAN_DATA0;
+
+      }while (ubTempMsgID != 0x20); // end while
+
+    }  // end if
+
+    // USER CODE BEGIN (SHINT_XINTR5Isr,6)
+
+    // USER CODE END
+
+  }
+
+
   // USER CODE BEGIN (SHINT_XINTR5Isr,7)
 
   // USER CODE END
 
   SFR_PAGE(_su0, RST1);          // restore the old SCU page
+
+  CAN_popAMRegs();               // restore the CAN Access Mediator Registers
 
   popsyscon();                   // restore the old RMAP
 
@@ -253,7 +417,7 @@ void SHINT_viXINTR5Isr(void) interrupt XINTR5INT
 // @Parameters    None
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -272,10 +436,6 @@ int *get_current_values(void){
 }
 // USER CODE END
 
-
-/////////////////////////////////////////////////////////
-//	Timer T21
-/////////////////////////////////////////////////////////
 void SHINT_viXINTR8Isr(void) interrupt XINTR8INT
 {
   // USER CODE BEGIN (SHINT_XINTR8Isr,2)
@@ -336,7 +496,7 @@ void SHINT_viXINTR8Isr(void) interrupt XINTR8INT
 // @Parameters    None
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 

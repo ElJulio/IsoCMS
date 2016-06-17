@@ -1,0 +1,12 @@
+M:ITOA
+F:G$uitoa$0$0({2}DF,SV:S),Z,0,0,0,0,0
+F:G$itoa$0$0({2}DF,SV:S),Z,0,0,0,0,0
+S:Luitoa$string$1$1({3}DG,SC:S),E,0,0
+S:Luitoa$x$1$1({2}SI:S),E,0,0
+S:Luitoa$value$1$1({2}SI:U),R,0,0,[r2,r3]
+S:Luitoa$index$1$1({1}SC:U),R,0,0,[r4]
+S:Luitoa$i$1$1({1}SC:U),R,0,0,[r5]
+S:Luitoa$sloc0$1$0({3}DG,SC:S),E,0,0
+S:Litoa$string$1$1({3}DG,SC:S),E,0,0
+S:Litoa$x$1$1({2}SI:S),E,0,0
+S:Litoa$value$1$1({2}SI:S),R,0,0,[r2,r3]

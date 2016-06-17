@@ -1,0 +1,39 @@
+-myuxi
+-Y
+-a 0x0100
+-v 0x0600
+-w 0x8000
+-z
+-b HOME = 0x0000
+-b XSEG = 0xf000
+-b PSEG = 0xf000
+-b ISEG = 0x0080
+-b SSEG = 0x0080
+-bBSEG=0x20
+-bPSEG=0xF000
+-k C:/DAVE-Bench-201\SDCC_XC800\lib\small
+-k C:/DAVE-Bench-201\SDCC_XC800\bin\..\lib\small
+-l xc800
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+./ASIC_driver.rel
+./CAN.rel
+./CC6.rel
+./INT.rel
+./IO.rel
+./ITOA.rel
+./MAIN.rel
+./MemInitxc88x.rel
+./SHARED_INT.rel
+./T01.rel
+./T2.rel
+./T21.rel
+./UART.rel
+./current_controller.rel
+./current_management.rel
+./startupxc886.rel
+-o ./isocms_v_0_1.hex
+
+-e

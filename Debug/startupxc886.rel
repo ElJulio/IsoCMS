@@ -1,0 +1,53 @@
+;!FILE ../startupxc886.s
+XH
+H 2 areas 18 global symbols
+A _CODE size 0 flags 0 addr 0
+A startup_code size 3E flags 20 addr 0
+S __sdcc_external_startup Def0000
+S A$startupxc886$50 Def0003
+S A$startupxc886$51 Def0006
+S A$startupxc886$70 Def0023
+S A$startupxc886$52 Def0009
+S A$startupxc886$80 Def0037
+S A$startupxc886$71 Def0026
+S A$startupxc886$62 Def0015
+S A$startupxc886$53 Def000C
+S A$startupxc886$81 Def003A
+S A$startupxc886$72 Def0029
+S A$startupxc886$73 Def002C
+S A$startupxc886$64 Def0018
+S A$startupxc886$55 Def000F
+S A$startupxc886$65 Def001A
+S A$startupxc886$75 Def002F
+S A$startupxc886$66 Def001D
+S A$startupxc886$58 Def0011
+S A$startupxc886$49 Def0000
+S A$startupxc886$86 Def003D
+S A$startupxc886$77 Def0032
+S A$startupxc886$59 Def0013
+S A$startupxc886$78 Def0034
+S A$startupxc886$69 Def0020
+T 00 00
+R 00 00 00 01
+T 00 00 75 BF 01 43 B7 08 43 B7 04 43 B6 04 53 B6
+R 00 00 00 01
+T 00 0E F7 78 0A
+R 00 00 00 01
+T 00 11
+R 00 00 00 01
+T 00 11 D9 FE D8 FC
+R 00 00 00 01
+T 00 15
+R 00 00 00 01
+T 00 15 43 B6 02
+R 00 00 00 01
+T 00 18
+R 00 00 00 01
+T 00 18 E5 B6 20 E1 FB 30 E0 F5 43 B7 08 53 B7 FB
+R 00 00 00 01
+T 00 26 75 BB 98 53 B7 0F 43 B7 A0 43 B7 02
+R 00 00 00 01
+T 00 32
+R 00 00 00 01
+T 00 32 E5 B7 30 E0 FB 53 B7 F7 75 BF 00 22
+R 00 00 00 01

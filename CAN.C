@@ -12,7 +12,7 @@
 // @Description:  This file contains functions that use the CAN module.
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016 13:09:03
+// @Date          17.06.2016 14:10:38
 //
 //****************************************************************************
 
@@ -113,7 +113,7 @@
 // @Parameters    None
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -274,6 +274,7 @@ void CAN_vInit(void)
 
   ///  Allocate MOs for list 2:
     CAN_vSetListCommand(0x02000002);  // MO0 for list 2
+    CAN_vSetListCommand(0x02010002);  // MO1 for list 2
 
   ///  -----------------------------------------------------------------------
   ///  Configuration of the CAN Message Objects 0 - 31:
@@ -332,6 +333,7 @@ void CAN_vInit(void)
     CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
 
   ///  - use message pending register 0 bit position 0
+  ///  - transmit interrupt node pointer: MultiCAN SRN 0
 
   //--------------MOIPR0 = 0x00000000---------------------------------------
 
@@ -350,15 +352,93 @@ void CAN_vInit(void)
 
   ///  - this object is a STANDARD MESSAGE OBJECT
   ///  - 4 valid data bytes
+  ///  - enable transmit interrupt; bit TXPND is set after successful 
+  ///    transmission of a frame
 
-  //--------------MOFCR0 = 0x04000000---------------------------------------
+  //--------------MOFCR0 = 0x04020000---------------------------------------
 
-    CAN_vWriteAMData(0x04000000); // load MO0  function control register
+    CAN_vWriteAMData(0x04020000); // load MO0  function control register
 
   ///  -----------------------------------------------------------------------
   ///  Configuration of Message Object 1:
   ///  -----------------------------------------------------------------------
-  ///  - message object 1 is not valid
+  ///  - message object 1 is valid
+  ///  - message object is used as transmit object
+  ///  - this message object is assigned to list 2 (node 1)
+
+  //--------------MOCTR1 = 0x0EA80000---------------------------------------
+
+    CAN_vWriteCANAddress(CAN_MOCTR1); // Addressing MO1 control register
+
+    CAN_vWriteAMData(0x0EA80000); // load MO1 control register
+
+  //  CAN Address pointing to the CAN_MOAR1
+    CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
+
+  ///  - priority class 3; transmit acceptance filtering is based on the list 
+  ///    order (like class 1)
+  ///  - standard 11-bit identifier
+  ///  - identifier 11-bit:      0x070
+
+  //--------------MOAR1 = 0xC1C00000---------------------------------------
+
+    CAN_vWriteAMData(0xC1C00000); // load MO1 arbitration register
+
+  //  CAN Address pointing to the CAN_MODATAH1
+    CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
+
+
+  //--------------MODATAH1 = 0x00000000---------------------------------------
+
+    CAN_vWriteAMData(0x00000000); // load MO1 data register high
+
+  //  CAN Address pointing to the CAN_MODATAL1
+    CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
+
+  //--------------MODATAL1 = 0x00000000---------------------------------------
+
+    CAN_vWriteAMData(0x00000000); // load MO1 data register low
+
+  //  CAN Address pointing to the CAN_MOAMR1
+    CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
+
+  ///  - only accept receive frames with matching IDE bit
+  ///  - acceptance mask 11-bit: 0x7FF
+
+  //--------------CAN_MOAMR1 = 0x3FFFFFFF------------------------------------
+
+    CAN_vWriteAMData(0x3FFFFFFF); // load MO1 acceptance mask register
+
+  //  CAN Address pointing to the CAN_MOIPR1
+    CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
+
+  ///  - use message pending register 0 bit position 1
+  ///  - transmit interrupt node pointer: MultiCAN SRN 0
+
+  //--------------MOIPR1 = 0x00000100---------------------------------------
+
+    CAN_vWriteAMData(0x00000100); // load MO1 interrupt pointer register
+
+  //  CAN Address pointing to the CAN_MOFGPR1
+    CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
+
+
+  //--------------MOFGPR1 = 0x00000000---------------------------------------
+
+    CAN_vWriteAMData(0x00000000); // load MO1 FIFO/gateway pointer register
+
+  //  CAN Address pointing to the CAN_MOFCR1
+    CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
+
+  ///  - this object is a STANDARD MESSAGE OBJECT
+  ///  - 0 valid data bytes
+  ///  - enable transmit interrupt; bit TXPND is set after successful 
+  ///    transmission of a frame
+
+  //--------------MOFCR1 = 0x00020000---------------------------------------
+
+    CAN_vWriteAMData(0x00020000); // load MO1  function control register
+
   ///  -----------------------------------------------------------------------
   ///  Configuration of Message Object 2:
   ///  -----------------------------------------------------------------------
@@ -483,7 +563,7 @@ void CAN_vInit(void)
   ///  -----------------------------------------------------------------------
   ///  Configuration of the Interrupts:
   ///  -----------------------------------------------------------------------
-  ///  - CAN interrupt node 0 is disabled
+  ///  - CAN interrupt node 0 is enabled
   ///  - CAN interrupt node 1 is disabled
   ///  - CAN interrupt node 2 is disabled
   ///  - CAN interrupt node 3 is disabled
@@ -492,6 +572,7 @@ void CAN_vInit(void)
   ///  - CAN interrupt node 6 is disabled
   ///  - CAN interrupt node 7 is disabled
 
+  ///  MultiCAN Node 0 Interrupt enable bit is set in SHINT_vInit() function
 
   //   -----------------------------------------------------------------------
   //   Start the CAN Nodes:
@@ -542,7 +623,7 @@ void CAN_vInit(void)
 //                32-bit Data
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -594,7 +675,7 @@ void CAN_vWriteAMData(ulong ulValue)
 // @Parameters    None
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -629,7 +710,7 @@ return (ulData.ulVal);
 //                32-bit Data
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -667,7 +748,7 @@ void CAN_vSetListCommand(ulong ulVal)
 //                Pointer on a message object to be filled by this function
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -824,7 +905,7 @@ ubyte ubTemp;
 //                Number of the message object (0-31)
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -867,7 +948,7 @@ return(ubReturn);
 //                Number of the message object (0-31)
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -911,7 +992,7 @@ return(ubReturn);
 //                Number of the message object (0-31)
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -956,7 +1037,7 @@ void CAN_vTransmit(ubyte ubObjNr)
 //                Pointer on a message object
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -1133,7 +1214,7 @@ ubyte ubTemp;
 //                Pointer on a data buffer
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -1197,7 +1278,7 @@ void CAN_vLoadData(ubyte ubObjNr, ulong *ulpubData)
 //                Number of the message object (0-31)
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -1242,7 +1323,7 @@ return(ubReturn);
 //                Number of the message object (0-31)
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -1289,7 +1370,7 @@ return(ubReturn);
 //                Name of the node
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -1332,7 +1413,7 @@ return(ubReturn);
 //                Name of the node
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 

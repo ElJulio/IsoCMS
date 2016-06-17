@@ -8,8 +8,10 @@
 //////////////////////////////////////////////
 //	includes
 /////////////////////////////////////////////
+#include "MAIN.H"
 #include "current_controller.h"
 #include "current_management.h"
+
 
 //////////////////////////////////////////////
 //	global variable declaration
@@ -82,11 +84,21 @@ void current_controller_soft_reset(void){
 //	current_send_CAN_0x60
 /////////////////////////////////////////////
 void current_send_CAN_0x60(int current){
+	ulong cur = current;
+	ulong *cur_ptr = &cur;
+	if(CAN_ubRequestMsgObj(0)){
+		CAN_vLoadData(0,cur_ptr);
+		CAN_vTransmit(0);
+
+
+	}
+
+
 
 }
 //////////////////////////////////////////////
 //	current_send_CAN_0x70
 /////////////////////////////////////////////
 void current_send_CAN_0x70(void){
-
+	CAN_vTransmit(0);
 }

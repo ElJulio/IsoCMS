@@ -12,7 +12,7 @@
 // @Description:  This file contains functions that use the IR module.
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016 13:09:03
+// @Date          17.06.2016 14:10:36
 //
 //****************************************************************************
 
@@ -120,7 +120,7 @@
 // @Parameters    None
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -194,7 +194,7 @@ void INT_vInit(void)
 // @Parameters    None
 //
 //----------------------------------------------------------------------------
-// @Date          10.06.2016
+// @Date          17.06.2016
 //
 //****************************************************************************
 
@@ -206,22 +206,17 @@ void INT_vInit(void)
 //   Current selection is CHOICE 1.
 
 // USER CODE BEGIN (IR_IsrExt0,1)
-int temp_current_value= 0;//enthält den aktuell gemessenen Strom
-bit new_current_value_av = 0;
 
-bit get_new_new_current_value_av(){
-	return new_current_value_av;
-}
 
-int get_temp_current_value(){
 
-}
+
+
 // USER CODE END
 
 void INT_viExt0(void) interrupt EXT0INT
 {
   // USER CODE BEGIN (IR_IsrExt0,2)
-//xdata char test[8*sizeof(int)];
+
 
   // USER CODE END
 
@@ -234,8 +229,8 @@ void INT_viExt0(void) interrupt EXT0INT
 
   // USER CODE BEGIN (IR_IsrExt0,3)
 
-  temp_current_value = current_resultInterruptCall();
-  new_current_value_av = 1;
+current_resultInterruptCall();
+
 
 //  IO_vTogglePin(P1_6);
 //  result = current_resultInterruptCall();

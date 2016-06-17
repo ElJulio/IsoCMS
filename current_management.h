@@ -12,7 +12,7 @@
 #define CURRENT_WARNING_MIN_CURRENT 0x0004
 #define CURRENT_ERROR_NO_CONNECTION 0x0002
 
-bit CURRENT_isOverflow(void);
+bit current_isOverflow(void);
 bit current_isNewValueStored(void);
 int current_getResult(void);
 void current_resultInterruptCall(void);

@@ -8,7 +8,7 @@
 \par \plain\f4\fs22\cf0 Compiler: \tab\tab\b SDCC
 \par \plain\f4\fs22\cf0 Memory Model: \tab\b SMALL
 \par 
-\par \plain\f4\fs22\cf0 Date: \tab\tab\tab\b 10.06.2016 13:09:04
+\par \plain\f4\fs22\cf0 Date: \tab\tab\tab\b 17.06.2016 14:10:38
 \par 
 \par 
 \par \plain\f4\fs22\cf2\b Please read this document carefully and note
@@ -254,9 +254,26 @@
 \par
 \tab Configuration of the Shared  Interrupts:\par 
 \tab - Timer 2 Interrupt is Selected\par 
+\tab - MultiCAN Node 0 Interrupt is Selected\par 
 \par 
 \tab - Timer21 Interrupt is Selected\par 
 \tab - CCU6 Node 0 Interrupt is Selected\par 
+\par 
+\tab Note: The the successful transmission/reception of a frame,\par 
+\tab can cause TXOK or RXOK Interrupt. User need to handle these in\par 
+\tab user defined section.\par 
+\par 
+\tab \cf2Reset LEC, TXOK, RXOK, ALERT, EWRN, BOFF, LLE, LOE (if set)\cf0\par 
+\par 
+\tab Note: Below commented code could be copied by the user to user\par 
+\tab defined section for Interrupt handling.\par 
+\par 
+\tab Handling of MO TXPND for transmit data/remote frames (Generic\par 
+\tab Code).\par 
+\tab (ubTempVarObjHandle & MOSTAT_TXPND)\par 
+\par 
+\tab \cf2The transmission of the last message object was successful.\cf0\par 
+\tab \cf2reset TXPND, NEWDAT\cf0\par 
 \par 
 
 \par \plain\f4\fs20\cf0
@@ -2316,12 +2333,34 @@
 \tab - acceptance mask 11-bit: 0x7FF\par 
 \par 
 \tab - use message pending register 0 bit position 0\par 
+\tab - transmit interrupt node pointer: MultiCAN SRN 0\par 
 \par 
 \tab - this object is a STANDARD MESSAGE OBJECT\par 
 \tab - 4 valid data bytes\par 
+\tab - enable transmit interrupt; bit TXPND is set after successful\par 
+\tab transmission of a frame\par 
 \par 
 \tab Configuration of Message Object 1:\par 
-\tab - message object 1 is not valid\par 
+\tab - message object 1 is valid\par 
+\tab - message object is used as transmit object\par 
+\tab - this message object is assigned to list 2 (node 1)\par 
+\par 
+\tab - priority class 3; transmit acceptance filtering is based on the list\par 
+\tab order (like class 1)\par 
+\tab - standard 11-bit identifier\par 
+\tab - identifier 11-bit:      0x070\par 
+\par 
+\tab - only accept receive frames with matching IDE bit\par 
+\tab - acceptance mask 11-bit: 0x7FF\par 
+\par 
+\tab - use message pending register 0 bit position 1\par 
+\tab - transmit interrupt node pointer: MultiCAN SRN 0\par 
+\par 
+\tab - this object is a STANDARD MESSAGE OBJECT\par 
+\tab - 0 valid data bytes\par 
+\tab - enable transmit interrupt; bit TXPND is set after successful\par 
+\tab transmission of a frame\par 
+\par 
 \tab Configuration of Message Object 2:\par 
 \tab - message object 2 is not valid\par 
 \tab Configuration of Message Object 3:\par 
@@ -2384,7 +2423,7 @@
 \tab - message object 31 is not valid\par 
 \par 
 \tab Configuration of the Interrupts:\par 
-\tab - CAN interrupt node 0 is disabled\par 
+\tab - CAN interrupt node 0 is enabled\par 
 \tab - CAN interrupt node 1 is disabled\par 
 \tab - CAN interrupt node 2 is disabled\par 
 \tab - CAN interrupt node 3 is disabled\par 
@@ -2392,6 +2431,8 @@
 \tab - CAN interrupt node 5 is disabled\par 
 \tab - CAN interrupt node 6 is disabled\par 
 \tab - CAN interrupt node 7 is disabled\par 
+\par 
+\tab MultiCAN Node 0 Interrupt enable bit is set in SHINT_vInit() function\par 
 \par 
 
 }
