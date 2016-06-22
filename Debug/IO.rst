@@ -1341,7 +1341,7 @@
                            1341 ;	-----------------------------------------
                            1342 ;	 function IO_vInit
                            1343 ;	-----------------------------------------
-   13AF                    1344 _IO_vInit:
+   13AC                    1344 _IO_vInit:
                     0002   1345 	ar2 = 0x02
                     0003   1346 	ar3 = 0x03
                     0004   1347 	ar4 = 0x04
@@ -1352,13 +1352,13 @@
                     0001   1352 	ar1 = 0x01
                     0000   1353 	C$IO.C$160$1$1 ==.
                            1354 ;	../IO.C:160: P0_DIR        =  0x98;         // load direction register
-   13AF 75 86 98           1355 	mov	_P0_DIR,#0x98
+   13AC 75 86 98           1355 	mov	_P0_DIR,#0x98
                     0003   1356 	C$IO.C$191$1$1 ==.
                            1357 ;	../IO.C:191: P1_DIR        =  0xC0;         // load direction register
-   13B2 75 91 C0           1358 	mov	_P1_DIR,#0xC0
+   13AF 75 91 C0           1358 	mov	_P1_DIR,#0xC0
                     0006   1359 	C$IO.C$220$1$1 ==.
                     0006   1360 	XG$IO_vInit$0$0 ==.
-   13B5 22                 1361 	ret
+   13B2 22                 1361 	ret
                            1362 	.area CSEG    (CODE)
                            1363 	.area CONST   (CODE)
                            1364 	.area XINIT   (CODE)

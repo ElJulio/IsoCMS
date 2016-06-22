@@ -15,7 +15,7 @@
                              15 .area startup_code(code)
                              16 
                              17 .globl __sdcc_external_startup
-   1E09                      18 __sdcc_external_startup:
+   1E01                      18 __sdcc_external_startup:
                              19 
                     0001     20 XTAL = 1   ; set to 1 External oscillator
                              21 
@@ -46,42 +46,42 @@
                     00BB     46      PASSWD   = 0x00BB
                              47 
                     0001     48 .if XTAL                                         ; switch to external XTAL
-   1E09 75 BF 01             49      MOV     SCU_PAGE,#1
-   1E0C 43 B7 08             50      ORL     PLL_CON, #0x08  ; VCOBYP=1
-   1E0F 43 B7 04             51      ORL     PLL_CON, #0x04  ; OSCDISC = 1   _ _ _ NDIV, VCOBYP, OSCDISC, RESLD, LOCK
-   1E12 43 B6 04             52      ORL     OSC_CON, #0x04  ; OSCSS = 1     0, 0, 0, OSCPD, XPD, OSCSS, ORDRES, OSCR
-   1E15 53 B6 F7             53      ANL     OSC_CON, #0xF7  ; XPD = 0       power xtal
+   1E01 75 BF 01             49      MOV     SCU_PAGE,#1
+   1E04 43 B7 08             50      ORL     PLL_CON, #0x08  ; VCOBYP=1
+   1E07 43 B7 04             51      ORL     PLL_CON, #0x04  ; OSCDISC = 1   _ _ _ NDIV, VCOBYP, OSCDISC, RESLD, LOCK
+   1E0A 43 B6 04             52      ORL     OSC_CON, #0x04  ; OSCSS = 1     0, 0, 0, OSCPD, XPD, OSCSS, ORDRES, OSCR
+   1E0D 53 B6 F7             53      ANL     OSC_CON, #0xF7  ; XPD = 0       power xtal
                              54 
-   1E18 78 0A                55      MOV     R0,#10          ; delay around 1.5 ms
+   1E10 78 0A                55      MOV     R0,#10          ; delay around 1.5 ms
                              56 
-   1E1A                      57 DelayXTAL:
-   1E1A D9 FE                58 Delay1: DJNZ R1, Delay1
-   1E1C D8 FC                59         DJNZ R0, DelayXTAL
+   1E12                      57 DelayXTAL:
+   1E12 D9 FE                58 Delay1: DJNZ R1, Delay1
+   1E14 D8 FC                59         DJNZ R0, DelayXTAL
                              60                 
-   1E1E                      61 OSCR_NOTSET:
-   1E1E 43 B6 02             62      ORL     OSC_CON, #0x02  ; ORDRES = 1
-   1E21                      63 WAIT_ORDRES_0:
-   1E21 E5 B6                64      MOV A, OSC_CON
-   1E23 20 E1 FB             65      JB      ACC.1,WAIT_ORDRES_0
-   1E26 30 E0 F5             66      JNB     ACC.0,OSCR_NOTSET
+   1E16                      61 OSCR_NOTSET:
+   1E16 43 B6 02             62      ORL     OSC_CON, #0x02  ; ORDRES = 1
+   1E19                      63 WAIT_ORDRES_0:
+   1E19 E5 B6                64      MOV A, OSC_CON
+   1E1B 20 E1 FB             65      JB      ACC.1,WAIT_ORDRES_0
+   1E1E 30 E0 F5             66      JNB     ACC.0,OSCR_NOTSET
                              67                 
                              68      ; VCOBYP to change N-Divider
-   1E29 43 B7 08             69      ORL     PLL_CON, #0x08  ; VCOBYP = 1
-   1E2C 53 B7 FB             70      ANL     PLL_CON, #0xFB  ; OSCDISC = 0
-   1E2F 75 BB 98             71      MOV     PASSWD,  #0x98  ; open access to writing protected bit
-   1E32 53 B7 0F             72      ANL     PLL_CON, #0x0F
-   1E35 43 B7 A0             73      ORL     PLL_CON, #NDIV*16
+   1E21 43 B7 08             69      ORL     PLL_CON, #0x08  ; VCOBYP = 1
+   1E24 53 B7 FB             70      ANL     PLL_CON, #0xFB  ; OSCDISC = 0
+   1E27 75 BB 98             71      MOV     PASSWD,  #0x98  ; open access to writing protected bit
+   1E2A 53 B7 0F             72      ANL     PLL_CON, #0x0F
+   1E2D 43 B7 A0             73      ORL     PLL_CON, #NDIV*16
                              74 
-   1E38 43 B7 02             75      ORL     PLL_CON, #0x02  ; detect PLL lock
-   1E3B                      76 WAIT_LOCK:
-   1E3B E5 B7                77      MOV A, PLL_CON
-   1E3D 30 E0 FB             78      JNB     ACC.0, WAIT_LOCK
+   1E30 43 B7 02             75      ORL     PLL_CON, #0x02  ; detect PLL lock
+   1E33                      76 WAIT_LOCK:
+   1E33 E5 B7                77      MOV A, PLL_CON
+   1E35 30 E0 FB             78      JNB     ACC.0, WAIT_LOCK
                              79                     ; reconnect to PLL
-   1E40 53 B7 F7             80      ANL     PLL_CON, #0xF7  ; VCOBYP = 0
-   1E43 75 BF 00             81      MOV     SCU_PAGE,#0
+   1E38 53 B7 F7             80      ANL     PLL_CON, #0xF7  ; VCOBYP = 0
+   1E3B 75 BF 00             81      MOV     SCU_PAGE,#0
                              82 .endif
                              83 
                              84 
                              85 
-   1E46 22                   86 ret         ;End of __sdcc_external_startup
+   1E3E 22                   86 ret         ;End of __sdcc_external_startup
                              87 

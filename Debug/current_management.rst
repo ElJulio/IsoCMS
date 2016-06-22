@@ -1371,7 +1371,7 @@
                            1371 ;	-----------------------------------------
                            1372 ;	 function current_isOverflow
                            1373 ;	-----------------------------------------
-   1944                    1374 _current_isOverflow:
+   193C                    1374 _current_isOverflow:
                     0002   1375 	ar2 = 0x02
                     0003   1376 	ar3 = 0x03
                     0004   1377 	ar4 = 0x04
@@ -1382,10 +1382,10 @@
                     0001   1382 	ar1 = 0x01
                     0000   1383 	C$current_management.c$12$1$1 ==.
                            1384 ;	../current_management.c:12: return current_overflow_flg;
-   1944 A2 0A              1385 	mov	c,_current_overflow_flg
+   193C A2 0A              1385 	mov	c,_current_overflow_flg
                     0002   1386 	C$current_management.c$13$1$1 ==.
                     0002   1387 	XG$current_isOverflow$0$0 ==.
-   1946 22                 1388 	ret
+   193E 22                 1388 	ret
                            1389 ;------------------------------------------------------------
                            1390 ;Allocation info for local variables in function 'current_isNewValueStored'
                            1391 ;------------------------------------------------------------
@@ -1396,13 +1396,13 @@
                            1396 ;	-----------------------------------------
                            1397 ;	 function current_isNewValueStored
                            1398 ;	-----------------------------------------
-   1947                    1399 _current_isNewValueStored:
+   193F                    1399 _current_isNewValueStored:
                     0003   1400 	C$current_management.c$16$1$1 ==.
                            1401 ;	../current_management.c:16: return current_newValue_flg;
-   1947 A2 09              1402 	mov	c,_current_newValue_flg
+   193F A2 09              1402 	mov	c,_current_newValue_flg
                     0005   1403 	C$current_management.c$17$1$1 ==.
                     0005   1404 	XG$current_isNewValueStored$0$0 ==.
-   1949 22                 1405 	ret
+   1941 22                 1405 	ret
                            1406 ;------------------------------------------------------------
                            1407 ;Allocation info for local variables in function 'current_getResult'
                            1408 ;------------------------------------------------------------
@@ -1413,14 +1413,14 @@
                            1413 ;	-----------------------------------------
                            1414 ;	 function current_getResult
                            1415 ;	-----------------------------------------
-   194A                    1416 _current_getResult:
+   1942                    1416 _current_getResult:
                     0006   1417 	C$current_management.c$21$1$1 ==.
                            1418 ;	../current_management.c:21: return current_result;
-   194A 85 1C 82           1419 	mov	dpl,_current_result
-   194D 85 1D 83           1420 	mov	dph,(_current_result + 1)
+   1942 85 1C 82           1419 	mov	dpl,_current_result
+   1945 85 1D 83           1420 	mov	dph,(_current_result + 1)
                     000C   1421 	C$current_management.c$22$1$1 ==.
                     000C   1422 	XG$current_getResult$0$0 ==.
-   1950 22                 1423 	ret
+   1948 22                 1423 	ret
                            1424 ;------------------------------------------------------------
                            1425 ;Allocation info for local variables in function 'current_init'
                            1426 ;------------------------------------------------------------
@@ -1431,83 +1431,83 @@
                            1431 ;	-----------------------------------------
                            1432 ;	 function current_init
                            1433 ;	-----------------------------------------
-   1951                    1434 _current_init:
+   1949                    1434 _current_init:
                     000D   1435 	C$current_management.c$26$1$1 ==.
                            1436 ;	../current_management.c:26: asic_stopCLK();
-   1951 12 02 11           1437 	lcall	_asic_stopCLK
+   1949 12 02 0E           1437 	lcall	_asic_stopCLK
                     0010   1438 	C$current_management.c$27$1$1 ==.
                            1439 ;	../current_management.c:27: asic_reg(ASIC_REGISTER_CRA);
-   1954 75 82 01           1440 	mov	dpl,#0x01
-   1957 12 01 68           1441 	lcall	_asic_reg
+   194C 75 82 01           1440 	mov	dpl,#0x01
+   194F 12 01 65           1441 	lcall	_asic_reg
                     0016   1442 	C$current_management.c$28$1$1 ==.
                            1443 ;	../current_management.c:28: asic_dir(ASIC_WRITE);
-   195A 75 82 00           1444 	mov	dpl,#0x00
-   195D 12 01 64           1445 	lcall	_asic_dir
+   1952 75 82 00           1444 	mov	dpl,#0x00
+   1955 12 01 61           1445 	lcall	_asic_dir
                     001C   1446 	C$current_management.c$29$1$1 ==.
                            1447 ;	../current_management.c:29: asic_len(ASIC_LENG_CRA);
-   1960 75 82 11           1448 	mov	dpl,#0x11
-   1963 12 02 09           1449 	lcall	_asic_len
+   1958 75 82 11           1448 	mov	dpl,#0x11
+   195B 12 02 06           1449 	lcall	_asic_len
                     0022   1450 	C$current_management.c$30$1$1 ==.
                            1451 ;	../current_management.c:30: asic_datL(CRA_CRM_RSHL_RSHH|CRA_GN_50|CRA_OSF_4MHz|CRA_OSR_64|CRA_MM_4|CRA_CRN_1024);
-   1966 90 03 4A           1452 	mov	dptr,#0x034A
-   1969 12 01 D4           1453 	lcall	_asic_datL
+   195E 90 03 4A           1452 	mov	dptr,#0x034A
+   1961 12 01 D1           1453 	lcall	_asic_datL
                     0028   1454 	C$current_management.c$31$1$1 ==.
                            1455 ;	../current_management.c:31: asic_send();
-   196C 12 02 32           1456 	lcall	_asic_send
+   1964 12 02 2F           1456 	lcall	_asic_send
                     002B   1457 	C$current_management.c$33$1$1 ==.
                            1458 ;	../current_management.c:33: asic_dir(ASIC_READ);
-   196F 75 82 01           1459 	mov	dpl,#0x01
-   1972 12 01 64           1460 	lcall	_asic_dir
+   1967 75 82 01           1459 	mov	dpl,#0x01
+   196A 12 01 61           1460 	lcall	_asic_dir
                     0031   1461 	C$current_management.c$34$1$1 ==.
                            1462 ;	../current_management.c:34: asic_send();
-   1975 12 02 32           1463 	lcall	_asic_send
+   196D 12 02 2F           1463 	lcall	_asic_send
                     0034   1464 	C$current_management.c$35$1$1 ==.
                            1465 ;	../current_management.c:35: if(asic_getDataL()!=(CRA_CRM_RSHL_RSHH|CRA_GN_50|CRA_OSF_4MHz|CRA_OSR_64|CRA_MM_4|CRA_CRN_1024)){
-   1978 12 02 24           1466 	lcall	_asic_getDataL
-   197B AA 82              1467 	mov	r2,dpl
-   197D AB 83              1468 	mov	r3,dph
-   197F BA 4A 05           1469 	cjne	r2,#0x4A,00111$
-   1982 BB 03 02           1470 	cjne	r3,#0x03,00111$
-   1985 80 02              1471 	sjmp	00102$
-   1987                    1472 00111$:
+   1970 12 02 21           1466 	lcall	_asic_getDataL
+   1973 AA 82              1467 	mov	r2,dpl
+   1975 AB 83              1468 	mov	r3,dph
+   1977 BA 4A 05           1469 	cjne	r2,#0x4A,00111$
+   197A BB 03 02           1470 	cjne	r3,#0x03,00111$
+   197D 80 02              1471 	sjmp	00102$
+   197F                    1472 00111$:
                     0043   1473 	C$current_management.c$36$2$2 ==.
                            1474 ;	../current_management.c:36: return 1;
-   1987 D3                 1475 	setb	c
-   1988 22                 1476 	ret
-   1989                    1477 00102$:
+   197F D3                 1475 	setb	c
+   1980 22                 1476 	ret
+   1981                    1477 00102$:
                     0045   1478 	C$current_management.c$39$1$1 ==.
                            1479 ;	../current_management.c:39: asic_reg(ASIC_REGISTER_OPM);
-   1989 75 82 00           1480 	mov	dpl,#0x00
-   198C 12 01 68           1481 	lcall	_asic_reg
+   1981 75 82 00           1480 	mov	dpl,#0x00
+   1984 12 01 65           1481 	lcall	_asic_reg
                     004B   1482 	C$current_management.c$40$1$1 ==.
                            1483 ;	../current_management.c:40: asic_dir(ASIC_WRITE);
-   198F 75 82 00           1484 	mov	dpl,#0x00
-   1992 12 01 64           1485 	lcall	_asic_dir
+   1987 75 82 00           1484 	mov	dpl,#0x00
+   198A 12 01 61           1485 	lcall	_asic_dir
                     0051   1486 	C$current_management.c$41$1$1 ==.
                            1487 ;	../current_management.c:41: asic_len(ASIC_LENG_OPM);
-   1995 75 82 04           1488 	mov	dpl,#0x04
-   1998 12 02 09           1489 	lcall	_asic_len
+   198D 75 82 04           1488 	mov	dpl,#0x04
+   1990 12 02 06           1489 	lcall	_asic_len
                     0057   1490 	C$current_management.c$42$1$1 ==.
                            1491 ;	../current_management.c:42: asic_datL(0x0001);
-   199B 90 00 01           1492 	mov	dptr,#0x0001
-   199E 12 01 D4           1493 	lcall	_asic_datL
+   1993 90 00 01           1492 	mov	dptr,#0x0001
+   1996 12 01 D1           1493 	lcall	_asic_datL
                     005D   1494 	C$current_management.c$43$1$1 ==.
                            1495 ;	../current_management.c:43: asic_send();
-   19A1 12 02 32           1496 	lcall	_asic_send
+   1999 12 02 2F           1496 	lcall	_asic_send
                     0060   1497 	C$current_management.c$44$1$1 ==.
                            1498 ;	../current_management.c:44: while(asic_isBusy());
-   19A4                    1499 00103$:
-   19A4 12 02 15           1500 	lcall	_asic_isBusy
-   19A7 40 FB              1501 	jc	00103$
+   199C                    1499 00103$:
+   199C 12 02 12           1500 	lcall	_asic_isBusy
+   199F 40 FB              1501 	jc	00103$
                     0065   1502 	C$current_management.c$45$1$1 ==.
                            1503 ;	../current_management.c:45: asic_startCLK();
-   19A9 12 02 0D           1504 	lcall	_asic_startCLK
+   19A1 12 02 0A           1504 	lcall	_asic_startCLK
                     0068   1505 	C$current_management.c$46$1$1 ==.
                            1506 ;	../current_management.c:46: return 0;
-   19AC C3                 1507 	clr	c
+   19A4 C3                 1507 	clr	c
                     0069   1508 	C$current_management.c$47$1$1 ==.
                     0069   1509 	XG$current_init$0$0 ==.
-   19AD 22                 1510 	ret
+   19A5 22                 1510 	ret
                            1511 ;------------------------------------------------------------
                            1512 ;Allocation info for local variables in function 'current_resultInterruptCall'
                            1513 ;------------------------------------------------------------
@@ -1518,72 +1518,72 @@
                            1518 ;	-----------------------------------------
                            1519 ;	 function current_resultInterruptCall
                            1520 ;	-----------------------------------------
-   19AE                    1521 _current_resultInterruptCall:
+   19A6                    1521 _current_resultInterruptCall:
                     006A   1522 	C$current_management.c$54$1$1 ==.
                            1523 ;	../current_management.c:54: asic_reg(ASIC_REGISTER_MSR);
-   19AE 75 82 04           1524 	mov	dpl,#0x04
-   19B1 12 01 68           1525 	lcall	_asic_reg
+   19A6 75 82 04           1524 	mov	dpl,#0x04
+   19A9 12 01 65           1525 	lcall	_asic_reg
                     0070   1526 	C$current_management.c$55$1$1 ==.
                            1527 ;	../current_management.c:55: asic_dir(ASIC_READ);
-   19B4 75 82 01           1528 	mov	dpl,#0x01
-   19B7 12 01 64           1529 	lcall	_asic_dir
+   19AC 75 82 01           1528 	mov	dpl,#0x01
+   19AF 12 01 61           1529 	lcall	_asic_dir
                     0076   1530 	C$current_management.c$56$1$1 ==.
                            1531 ;	../current_management.c:56: asic_len(ASIC_LENG_MSR);
-   19BA 75 82 12           1532 	mov	dpl,#0x12
-   19BD 12 02 09           1533 	lcall	_asic_len
+   19B2 75 82 12           1532 	mov	dpl,#0x12
+   19B5 12 02 06           1533 	lcall	_asic_len
                     007C   1534 	C$current_management.c$57$1$1 ==.
                            1535 ;	../current_management.c:57: asic_send();
-   19C0 12 02 32           1536 	lcall	_asic_send
+   19B8 12 02 2F           1536 	lcall	_asic_send
                     007F   1537 	C$current_management.c$59$1$1 ==.
                            1538 ;	../current_management.c:59: current_result = 2.03*(asic_getDataL()+4); //get testresult
-   19C3 12 02 24           1539 	lcall	_asic_getDataL
-   19C6 E5 82              1540 	mov	a,dpl
-   19C8 85 83 F0           1541 	mov	b,dph
-   19CB 24 04              1542 	add	a,#0x04
-   19CD F5 82              1543 	mov	dpl,a
-   19CF E4                 1544 	clr	a
-   19D0 35 F0              1545 	addc	a,b
-   19D2 F5 83              1546 	mov	dph,a
-   19D4 12 1C CF           1547 	lcall	___uint2fs
-   19D7 AA 82              1548 	mov	r2,dpl
-   19D9 AB 83              1549 	mov	r3,dph
-   19DB AC F0              1550 	mov	r4,b
-   19DD FD                 1551 	mov	r5,a
-   19DE C0 02              1552 	push	ar2
-   19E0 C0 03              1553 	push	ar3
-   19E2 C0 04              1554 	push	ar4
-   19E4 C0 05              1555 	push	ar5
-   19E6 90 EB 85           1556 	mov	dptr,#0xEB85
-   19E9 75 F0 01           1557 	mov	b,#0x01
-   19EC 74 40              1558 	mov	a,#0x40
-   19EE 12 1A 44           1559 	lcall	___fsmul
-   19F1 AA 82              1560 	mov	r2,dpl
-   19F3 AB 83              1561 	mov	r3,dph
-   19F5 AC F0              1562 	mov	r4,b
-   19F7 FD                 1563 	mov	r5,a
-   19F8 E5 81              1564 	mov	a,sp
-   19FA 24 FC              1565 	add	a,#0xfc
-   19FC F5 81              1566 	mov	sp,a
-   19FE 8A 82              1567 	mov	dpl,r2
-   1A00 8B 83              1568 	mov	dph,r3
-   1A02 8C F0              1569 	mov	b,r4
-   1A04 ED                 1570 	mov	a,r5
-   1A05 12 1C 9B           1571 	lcall	___fs2sint
-   1A08 85 82 1C           1572 	mov	_current_result,dpl
-   1A0B 85 83 1D           1573 	mov	(_current_result + 1),dph
+   19BB 12 02 21           1539 	lcall	_asic_getDataL
+   19BE E5 82              1540 	mov	a,dpl
+   19C0 85 83 F0           1541 	mov	b,dph
+   19C3 24 04              1542 	add	a,#0x04
+   19C5 F5 82              1543 	mov	dpl,a
+   19C7 E4                 1544 	clr	a
+   19C8 35 F0              1545 	addc	a,b
+   19CA F5 83              1546 	mov	dph,a
+   19CC 12 1C C7           1547 	lcall	___uint2fs
+   19CF AA 82              1548 	mov	r2,dpl
+   19D1 AB 83              1549 	mov	r3,dph
+   19D3 AC F0              1550 	mov	r4,b
+   19D5 FD                 1551 	mov	r5,a
+   19D6 C0 02              1552 	push	ar2
+   19D8 C0 03              1553 	push	ar3
+   19DA C0 04              1554 	push	ar4
+   19DC C0 05              1555 	push	ar5
+   19DE 90 EB 85           1556 	mov	dptr,#0xEB85
+   19E1 75 F0 01           1557 	mov	b,#0x01
+   19E4 74 40              1558 	mov	a,#0x40
+   19E6 12 1A 3C           1559 	lcall	___fsmul
+   19E9 AA 82              1560 	mov	r2,dpl
+   19EB AB 83              1561 	mov	r3,dph
+   19ED AC F0              1562 	mov	r4,b
+   19EF FD                 1563 	mov	r5,a
+   19F0 E5 81              1564 	mov	a,sp
+   19F2 24 FC              1565 	add	a,#0xfc
+   19F4 F5 81              1566 	mov	sp,a
+   19F6 8A 82              1567 	mov	dpl,r2
+   19F8 8B 83              1568 	mov	dph,r3
+   19FA 8C F0              1569 	mov	b,r4
+   19FC ED                 1570 	mov	a,r5
+   19FD 12 1C 93           1571 	lcall	___fs2sint
+   1A00 85 82 1C           1572 	mov	_current_result,dpl
+   1A03 85 83 1D           1573 	mov	(_current_result + 1),dph
                     00CA   1574 	C$current_management.c$60$1$1 ==.
                            1575 ;	../current_management.c:60: current_overflow_flg = asic_getDataH()&0x2; // ist 1
-   1A0E 12 02 2B           1576 	lcall	_asic_getDataH
-   1A11 AA 82              1577 	mov	r2,dpl
-   1A13 EA                 1578 	mov	a,r2
-   1A14 A2 E1              1579 	mov	c,acc[1]
-   1A16 92 0A              1580 	mov	_current_overflow_flg,c
+   1A06 12 02 28           1576 	lcall	_asic_getDataH
+   1A09 AA 82              1577 	mov	r2,dpl
+   1A0B EA                 1578 	mov	a,r2
+   1A0C A2 E1              1579 	mov	c,acc[1]
+   1A0E 92 0A              1580 	mov	_current_overflow_flg,c
                     00D4   1581 	C$current_management.c$61$1$1 ==.
                            1582 ;	../current_management.c:61: current_newValue_flg = 1; //Ein neuer wert wurde gespeichert
-   1A18 D2 09              1583 	setb	_current_newValue_flg
+   1A10 D2 09              1583 	setb	_current_newValue_flg
                     00D6   1584 	C$current_management.c$63$1$1 ==.
                     00D6   1585 	XG$current_resultInterruptCall$0$0 ==.
-   1A1A 22                 1586 	ret
+   1A12 22                 1586 	ret
                            1587 	.area CSEG    (CODE)
                            1588 	.area CONST   (CODE)
                            1589 	.area XINIT   (CODE)

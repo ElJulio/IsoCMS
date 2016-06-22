@@ -154,7 +154,7 @@ void MAIN_vInit(void)
   INT_vInit();
 
   ///  Initialization of module 'UART (Serial Interface)'
-  UART_vInit();
+  //UART_vInit();
 
   ///  Initialization of module 'Timer 0/1'
   T01_vInit();

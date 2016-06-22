@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 2.9.0 #5416 (Feb  7 2011) (MSVC)
-                              4 ; This file was generated Fri Jun 17 16:20:56 2016
+                              4 ; This file was generated Wed Jun 22 13:13:11 2016
                               5 ;--------------------------------------------------------
                               6 	.module current_controller
                               7 	.optsdcc -mxc800 --model-small
@@ -1350,36 +1350,36 @@
                            1350 	.area GSFINAL (CODE)
                            1351 	.area GSINIT  (CODE)
                     0000   1352 	G$current_send_CAN_0x70$0$0 ==.
-                    0000   1353 	C$current_controller.c$19$1$1 ==.
-                           1354 ;	../current_controller.c:19: long current_sum = 0;
+                    0000   1353 	C$current_controller.c$20$2$1 ==.
+                           1354 ;	../current_controller.c:20: long current_sum = 0;
    0000 E4                 1355 	clr	a
    0001 F5*00              1356 	mov	_current_sum,a
    0003 F5*01              1357 	mov	(_current_sum + 1),a
    0005 F5*02              1358 	mov	(_current_sum + 2),a
    0007 F5*03              1359 	mov	(_current_sum + 3),a
                     0009   1360 	G$current_send_CAN_0x70$0$0 ==.
-                    0009   1361 	C$current_controller.c$20$1$1 ==.
-                           1362 ;	../current_controller.c:20: long current_final_result = 0;							//
+                    0009   1361 	C$current_controller.c$21$2$1 ==.
+                           1362 ;	../current_controller.c:21: long current_final_result = 0;							//
    0009 E4                 1363 	clr	a
    000A F5*04              1364 	mov	_current_final_result,a
    000C F5*05              1365 	mov	(_current_final_result + 1),a
    000E F5*06              1366 	mov	(_current_final_result + 2),a
    0010 F5*07              1367 	mov	(_current_final_result + 3),a
                     0012   1368 	G$current_send_CAN_0x70$0$0 ==.
-                    0012   1369 	C$current_controller.c$21$1$1 ==.
-                           1370 ;	../current_controller.c:21: unsigned int current_value_counter = 0;					//counter für die Anzahl der gespeicherten Ströme
+                    0012   1369 	C$current_controller.c$22$2$1 ==.
+                           1370 ;	../current_controller.c:22: unsigned int current_value_counter = 0;					//counter für die Anzahl der gespeicherten Ströme
    0012 E4                 1371 	clr	a
    0013 F5*08              1372 	mov	_current_value_counter,a
    0015 F5*09              1373 	mov	(_current_value_counter + 1),a
                     0017   1374 	G$current_send_CAN_0x70$0$0 ==.
-                    0017   1375 	C$current_controller.c$22$1$1 ==.
-                           1376 ;	../current_controller.c:22: unsigned short current_error00_counter = 0;				//Error counter für Maximalwerte
+                    0017   1375 	C$current_controller.c$23$2$1 ==.
+                           1376 ;	../current_controller.c:23: unsigned short current_error00_counter = 0;				//Error counter für Maximalwerte
    0017 E4                 1377 	clr	a
    0018 F5*0A              1378 	mov	_current_error00_counter,a
    001A F5*0B              1379 	mov	(_current_error00_counter + 1),a
                     001C   1380 	G$current_send_CAN_0x70$0$0 ==.
-                    001C   1381 	C$current_controller.c$23$1$1 ==.
-                           1382 ;	../current_controller.c:23: unsigned short current_error01_counter = 0; 			//Error counter für keine neue Werte vom IMH-A-1500
+                    001C   1381 	C$current_controller.c$24$2$1 ==.
+                           1382 ;	../current_controller.c:24: unsigned short current_error01_counter = 0; 			//Error counter für keine neue Werte vom IMH-A-1500
    001C E4                 1383 	clr	a
    001D F5*0C              1384 	mov	_current_error01_counter,a
    001F F5*0D              1385 	mov	(_current_error01_counter + 1),a
@@ -1397,8 +1397,8 @@
                            1397 ;------------------------------------------------------------
                            1398 ;------------------------------------------------------------
                     0000   1399 	G$current_evaluation$0$0 ==.
-                    0000   1400 	C$current_controller.c$35$0$0 ==.
-                           1401 ;	../current_controller.c:35: void current_evaluation(void){
+                    0000   1400 	C$current_controller.c$36$0$0 ==.
+                           1401 ;	../current_controller.c:36: void current_evaluation(void){
                            1402 ;	-----------------------------------------
                            1403 ;	 function current_evaluation
                            1404 ;	-----------------------------------------
@@ -1411,25 +1411,25 @@
                     0007   1411 	ar7 = 0x07
                     0000   1412 	ar0 = 0x00
                     0001   1413 	ar1 = 0x01
-                    0000   1414 	C$current_controller.c$37$1$1 ==.
-                           1415 ;	../current_controller.c:37: if(current_isNewValueStored()){
+                    0000   1414 	C$current_controller.c$38$1$1 ==.
+                           1415 ;	../current_controller.c:38: if(current_isNewValueStored()){
    0000 12s00r00           1416 	lcall	_current_isNewValueStored
    0003 40 03              1417 	jc	00121$
    0005 02s00r8E           1418 	ljmp	00109$
    0008                    1419 00121$:
-                    0008   1420 	C$current_controller.c$38$2$2 ==.
-                           1421 ;	../current_controller.c:38: save_act_current(current_getResult());
+                    0008   1420 	C$current_controller.c$39$2$2 ==.
+                           1421 ;	../current_controller.c:39: save_act_current(current_getResult());
    0008 12s00r00           1422 	lcall	_current_getResult
    000B 12s00rB0           1423 	lcall	_save_act_current
-                    000E   1424 	C$current_controller.c$39$2$2 ==.
-                           1425 ;	../current_controller.c:39: current_value_counter ++; 						//Anzahl der gespeicherten Werte
+                    000E   1424 	C$current_controller.c$40$2$2 ==.
+                           1425 ;	../current_controller.c:40: current_value_counter ++; 						//Anzahl der gespeicherten Werte
    000E 05*08              1426 	inc	_current_value_counter
    0010 E4                 1427 	clr	a
    0011 B5*08 02           1428 	cjne	a,_current_value_counter,00122$
    0014 05*09              1429 	inc	(_current_value_counter + 1)
    0016                    1430 00122$:
-                    0016   1431 	C$current_controller.c$40$2$2 ==.
-                           1432 ;	../current_controller.c:40: if(current_getResult() > MAXPOSCURRENT ||		//Test auf überschreitung der Maximalwerte
+                    0016   1431 	C$current_controller.c$41$2$2 ==.
+                           1432 ;	../current_controller.c:41: if(current_getResult() > MAXPOSCURRENT ||		//Test auf überschreitung der Maximalwerte
    0016 12s00r00           1433 	lcall	_current_getResult
    0019 AA 82              1434 	mov	r2,dpl
    001B AB 83              1435 	mov	r3,dph
@@ -1441,8 +1441,8 @@
    0025 63 F0 80           1441 	xrl	b,#0x80
    0028 95 F0              1442 	subb	a,b
    002A 40 17              1443 	jc	00101$
-                    002C   1444 	C$current_controller.c$41$2$2 ==.
-                           1445 ;	../current_controller.c:41: current_getResult() < MAXNEGCURRENT ||
+                    002C   1444 	C$current_controller.c$42$2$2 ==.
+                           1445 ;	../current_controller.c:42: current_getResult() < MAXNEGCURRENT ||
    002C 12s00r00           1446 	lcall	_current_getResult
    002F AA 82              1447 	mov	r2,dpl
    0031 AB 83              1448 	mov	r3,dph
@@ -1453,33 +1453,33 @@
    0038 64 80              1453 	xrl	a,#0x80
    003A 94 0A              1454 	subb	a,#0x0a
    003C 40 05              1455 	jc	00101$
-                    003E   1456 	C$current_controller.c$42$2$2 ==.
-                           1457 ;	../current_controller.c:42: current_isOverflow()){
+                    003E   1456 	C$current_controller.c$43$2$2 ==.
+                           1457 ;	../current_controller.c:43: current_isOverflow()){
    003E 12s00r00           1458 	lcall	_current_isOverflow
    0041 50 0A              1459 	jnc	00102$
    0043                    1460 00101$:
-                    0043   1461 	C$current_controller.c$44$3$3 ==.
-                           1462 ;	../current_controller.c:44: current_error00_counter ++;					//Error counter für Maximalwerte
+                    0043   1461 	C$current_controller.c$45$3$3 ==.
+                           1462 ;	../current_controller.c:45: current_error00_counter ++;					//Error counter für Maximalwerte
    0043 05*0A              1463 	inc	_current_error00_counter
    0045 E4                 1464 	clr	a
    0046 B5*0A 09           1465 	cjne	a,_current_error00_counter,00103$
    0049 05*0B              1466 	inc	(_current_error00_counter + 1)
    004B 80 05              1467 	sjmp	00103$
    004D                    1468 00102$:
-                    004D   1469 	C$current_controller.c$47$3$4 ==.
-                           1470 ;	../current_controller.c:47: current_error00_counter = 0;
+                    004D   1469 	C$current_controller.c$48$3$4 ==.
+                           1470 ;	../current_controller.c:48: current_error00_counter = 0;
    004D E4                 1471 	clr	a
    004E F5*0A              1472 	mov	_current_error00_counter,a
    0050 F5*0B              1473 	mov	(_current_error00_counter + 1),a
    0052                    1474 00103$:
-                    0052   1475 	C$current_controller.c$49$2$2 ==.
-                           1476 ;	../current_controller.c:49: if(current_value_counter == 500){
+                    0052   1475 	C$current_controller.c$50$2$2 ==.
+                           1476 ;	../current_controller.c:50: if(current_value_counter == 500){
    0052 74 F4              1477 	mov	a,#0xF4
    0054 B5*08 30           1478 	cjne	a,_current_value_counter,00107$
    0057 74 01              1479 	mov	a,#0x01
    0059 B5*09 2B           1480 	cjne	a,(_current_value_counter + 1),00107$
-                    005C   1481 	C$current_controller.c$50$2$1 ==.
-                           1482 ;	../current_controller.c:50: current_final_result = current_sum/500;		//Mittelwert über die gemessenen Ströme ermitteln
+                    005C   1481 	C$current_controller.c$51$2$1 ==.
+                           1482 ;	../current_controller.c:51: current_final_result = current_sum/500;		//Mittelwert über die gemessenen Ströme ermitteln
    005C 75*00 F4           1483 	mov	__divslong_PARM_2,#0xF4
    005F 75*01 01           1484 	mov	(__divslong_PARM_2 + 1),#0x01
    0062 75*02 00           1485 	mov	(__divslong_PARM_2 + 2),#0x00
@@ -1489,34 +1489,34 @@
    006E 85*02 F0           1489 	mov	b,(_current_sum + 2)
    0071 E5*03              1490 	mov	a,(_current_sum + 3)
    0073 12s00r00           1491 	lcall	__divslong
-                    0076   1492 	C$current_controller.c$51$3$5 ==.
-                           1493 ;	../current_controller.c:51: current_send_CAN_0x60(current_final_result);//Strom in Can Message 0x60 speichern und senden
+                    0076   1492 	C$current_controller.c$52$3$5 ==.
+                           1493 ;	../current_controller.c:52: current_send_CAN_0x60(current_final_result);//Strom in Can Message 0x60 speichern und senden
    0076 85 82*04           1494 	mov	_current_final_result,dpl
    0079 85 83*05           1495 	mov	(_current_final_result + 1),dph
    007C 85 F0*06           1496 	mov	(_current_final_result + 2),b
    007F F5*07              1497 	mov	(_current_final_result + 3),a
    0081 12s00rE6           1498 	lcall	_current_send_CAN_0x60
-                    0084   1499 	C$current_controller.c$52$3$5 ==.
-                           1500 ;	../current_controller.c:52: current_controller_soft_reset();			//Rücksetzen des Value counters und des Ergebnisses und der Summe
+                    0084   1499 	C$current_controller.c$53$3$5 ==.
+                           1500 ;	../current_controller.c:53: current_controller_soft_reset();			//Rücksetzen des Value counters und des Ergebnisses und der Summe
    0084 12s00rCF           1501 	lcall	_current_controller_soft_reset
    0087                    1502 00107$:
-                    0087   1503 	C$current_controller.c$55$2$2 ==.
-                           1504 ;	../current_controller.c:55: current_error01_counter = 0;					//Rücksetzen Error counter für keine neue Werte vom IMH-A-1500
+                    0087   1503 	C$current_controller.c$56$2$2 ==.
+                           1504 ;	../current_controller.c:56: current_error01_counter = 0;					//Rücksetzen Error counter für keine neue Werte vom IMH-A-1500
    0087 E4                 1505 	clr	a
    0088 F5*0C              1506 	mov	_current_error01_counter,a
    008A F5*0D              1507 	mov	(_current_error01_counter + 1),a
    008C 80 08              1508 	sjmp	00110$
    008E                    1509 00109$:
-                    008E   1510 	C$current_controller.c$59$2$6 ==.
-                           1511 ;	../current_controller.c:59: current_error01_counter ++;
+                    008E   1510 	C$current_controller.c$60$2$6 ==.
+                           1511 ;	../current_controller.c:60: current_error01_counter ++;
    008E 05*0C              1512 	inc	_current_error01_counter
    0090 E4                 1513 	clr	a
    0091 B5*0C 02           1514 	cjne	a,_current_error01_counter,00129$
    0094 05*0D              1515 	inc	(_current_error01_counter + 1)
    0096                    1516 00129$:
    0096                    1517 00110$:
-                    0096   1518 	C$current_controller.c$63$1$1 ==.
-                           1519 ;	../current_controller.c:63: if(current_error00_counter == 5||current_error01_counter == 5){
+                    0096   1518 	C$current_controller.c$64$1$1 ==.
+                           1519 ;	../current_controller.c:64: if(current_error00_counter == 5||current_error01_counter == 5){
    0096 74 05              1520 	mov	a,#0x05
    0098 B5*0A 06           1521 	cjne	a,_current_error00_counter,00130$
    009B E4                 1522 	clr	a
@@ -1532,9 +1532,9 @@
    00AC 22                 1532 	ret
    00AD                    1533 00132$:
    00AD                    1534 00111$:
-                    00AD   1535 	C$current_controller.c$65$2$7 ==.
-                           1536 ;	../current_controller.c:65: current_send_CAN_0x70();
-                    00AD   1537 	C$current_controller.c$68$2$1 ==.
+                    00AD   1535 	C$current_controller.c$66$2$7 ==.
+                           1536 ;	../current_controller.c:66: current_send_CAN_0x70();
+                    00AD   1537 	C$current_controller.c$69$2$1 ==.
                     00AD   1538 	XG$current_evaluation$0$0 ==.
    00AD 02s01r16           1539 	ljmp	_current_send_CAN_0x70
                            1540 ;------------------------------------------------------------
@@ -1543,15 +1543,15 @@
                            1543 ;current                   Allocated to registers r2 r3 
                            1544 ;------------------------------------------------------------
                     00B0   1545 	G$save_act_current$0$0 ==.
-                    00B0   1546 	C$current_controller.c$72$2$1 ==.
-                           1547 ;	../current_controller.c:72: void save_act_current(int current){
+                    00B0   1546 	C$current_controller.c$73$2$1 ==.
+                           1547 ;	../current_controller.c:73: void save_act_current(int current){
                            1548 ;	-----------------------------------------
                            1549 ;	 function save_act_current
                            1550 ;	-----------------------------------------
    00B0                    1551 _save_act_current:
    00B0 AA 82              1552 	mov	r2,dpl
-                    00B2   1553 	C$current_controller.c$73$1$1 ==.
-                           1554 ;	../current_controller.c:73: current_sum += current;
+                    00B2   1553 	C$current_controller.c$74$1$1 ==.
+                           1554 ;	../current_controller.c:74: current_sum += current;
    00B2 E5 83              1555 	mov	a,dph
    00B4 FB                 1556 	mov	r3,a
    00B5 33                 1557 	rlc	a
@@ -1570,7 +1570,7 @@
    00C9 ED                 1570 	mov	a,r5
    00CA 35*03              1571 	addc	a,(_current_sum + 3)
    00CC F5*03              1572 	mov	(_current_sum + 3),a
-                    00CE   1573 	C$current_controller.c$74$1$1 ==.
+                    00CE   1573 	C$current_controller.c$75$1$1 ==.
                     00CE   1574 	XG$save_act_current$0$0 ==.
    00CE 22                 1575 	ret
                            1576 ;------------------------------------------------------------
@@ -1578,16 +1578,16 @@
                            1578 ;------------------------------------------------------------
                            1579 ;------------------------------------------------------------
                     00CF   1580 	G$current_controller_soft_reset$0$0 ==.
-                    00CF   1581 	C$current_controller.c$78$1$1 ==.
-                           1582 ;	../current_controller.c:78: void current_controller_soft_reset(void){
+                    00CF   1581 	C$current_controller.c$79$1$1 ==.
+                           1582 ;	../current_controller.c:79: void current_controller_soft_reset(void){
                            1583 ;	-----------------------------------------
                            1584 ;	 function current_controller_soft_reset
                            1585 ;	-----------------------------------------
    00CF                    1586 _current_controller_soft_reset:
-                    00CF   1587 	C$current_controller.c$79$1$1 ==.
-                           1588 ;	../current_controller.c:79: current_sum = 0;
-                    00CF   1589 	C$current_controller.c$80$1$1 ==.
-                           1590 ;	../current_controller.c:80: current_final_result = 0;
+                    00CF   1587 	C$current_controller.c$80$1$1 ==.
+                           1588 ;	../current_controller.c:80: current_sum = 0;
+                    00CF   1589 	C$current_controller.c$81$1$1 ==.
+                           1590 ;	../current_controller.c:81: current_final_result = 0;
    00CF E4                 1591 	clr	a
    00D0 F5*00              1592 	mov	_current_sum,a
    00D2 F5*01              1593 	mov	(_current_sum + 1),a
@@ -1597,12 +1597,12 @@
    00DA F5*05              1597 	mov	(_current_final_result + 1),a
    00DC F5*06              1598 	mov	(_current_final_result + 2),a
    00DE F5*07              1599 	mov	(_current_final_result + 3),a
-                    00E0   1600 	C$current_controller.c$81$1$1 ==.
-                           1601 ;	../current_controller.c:81: current_value_counter = 0;
+                    00E0   1600 	C$current_controller.c$82$1$1 ==.
+                           1601 ;	../current_controller.c:82: current_value_counter = 0;
    00E0 E4                 1602 	clr	a
    00E1 F5*08              1603 	mov	_current_value_counter,a
    00E3 F5*09              1604 	mov	(_current_value_counter + 1),a
-                    00E5   1605 	C$current_controller.c$82$1$1 ==.
+                    00E5   1605 	C$current_controller.c$83$1$1 ==.
                     00E5   1606 	XG$current_controller_soft_reset$0$0 ==.
    00E5 22                 1607 	ret
                            1608 ;------------------------------------------------------------
@@ -1613,16 +1613,16 @@
                            1613 ;cur_ptr                   Allocated to registers 
                            1614 ;------------------------------------------------------------
                     00E6   1615 	G$current_send_CAN_0x60$0$0 ==.
-                    00E6   1616 	C$current_controller.c$86$1$1 ==.
-                           1617 ;	../current_controller.c:86: void current_send_CAN_0x60(int current){
+                    00E6   1616 	C$current_controller.c$87$1$1 ==.
+                           1617 ;	../current_controller.c:87: void current_send_CAN_0x60(int current){
                            1618 ;	-----------------------------------------
                            1619 ;	 function current_send_CAN_0x60
                            1620 ;	-----------------------------------------
    00E6                    1621 _current_send_CAN_0x60:
    00E6 AA 82              1622 	mov	r2,dpl
    00E8 AB 83              1623 	mov	r3,dph
-                    00EA   1624 	C$current_controller.c$87$1$1 ==.
-                           1625 ;	../current_controller.c:87: ulong cur = current;
+                    00EA   1624 	C$current_controller.c$88$1$1 ==.
+                           1625 ;	../current_controller.c:88: ulong cur = current;
    00EA 8A*0E              1626 	mov	_current_send_CAN_0x60_cur_1_1,r2
    00EC EB                 1627 	mov	a,r3
    00ED F5*0F              1628 	mov	(_current_send_CAN_0x60_cur_1_1 + 1),a
@@ -1630,47 +1630,51 @@
    00F0 95 E0              1630 	subb	a,acc
    00F2 F5*10              1631 	mov	(_current_send_CAN_0x60_cur_1_1 + 2),a
    00F4 F5*11              1632 	mov	(_current_send_CAN_0x60_cur_1_1 + 3),a
-                    00F6   1633 	C$current_controller.c$88$1$1 ==.
-                           1634 ;	../current_controller.c:88: ulong *cur_ptr = &cur;
-                    00F6   1635 	C$current_controller.c$89$1$1 ==.
-                           1636 ;	../current_controller.c:89: if(CAN_ubRequestMsgObj(0)){
+                    00F6   1633 	C$current_controller.c$89$1$1 ==.
+                           1634 ;	../current_controller.c:89: ulong *cur_ptr = &cur;
+                    00F6   1635 	C$current_controller.c$90$1$1 ==.
+                           1636 ;	../current_controller.c:90: if(CAN_ubRequestMsgObj(0)){
    00F6 75 82 00           1637 	mov	dpl,#0x00
    00F9 12s00r00           1638 	lcall	_CAN_ubRequestMsgObj
    00FC E5 82              1639 	mov	a,dpl
    00FE 60 15              1640 	jz	00103$
-                    0100   1641 	C$current_controller.c$90$2$2 ==.
-                           1642 ;	../current_controller.c:90: CAN_vLoadData(0,cur_ptr);
+                    0100   1641 	C$current_controller.c$91$2$2 ==.
+                           1642 ;	../current_controller.c:91: CAN_vLoadData(0,cur_ptr);
    0100 75*00r0E           1643 	mov	_CAN_vLoadData_PARM_2,#_current_send_CAN_0x60_cur_1_1
    0103 75*01s00           1644 	mov	(_CAN_vLoadData_PARM_2 + 1),#(_current_send_CAN_0x60_cur_1_1 >> 8)
    0106 75*02 40           1645 	mov	(_CAN_vLoadData_PARM_2 + 2),#0x40
    0109 75 82 00           1646 	mov	dpl,#0x00
    010C 12s00r00           1647 	lcall	_CAN_vLoadData
-                    010F   1648 	C$current_controller.c$91$2$2 ==.
-                           1649 ;	../current_controller.c:91: CAN_vTransmit(0);
-   010F 75 82 00           1650 	mov	dpl,#0x00
-                    0112   1651 	C$current_controller.c$98$2$1 ==.
-                    0112   1652 	XG$current_send_CAN_0x60$0$0 ==.
-   0112 02s00r00           1653 	ljmp	_CAN_vTransmit
-   0115                    1654 00103$:
-   0115 22                 1655 	ret
-                           1656 ;------------------------------------------------------------
-                           1657 ;Allocation info for local variables in function 'current_send_CAN_0x70'
-                           1658 ;------------------------------------------------------------
-                           1659 ;------------------------------------------------------------
-                    0116   1660 	G$current_send_CAN_0x70$0$0 ==.
-                    0116   1661 	C$current_controller.c$102$2$1 ==.
-                           1662 ;	../current_controller.c:102: void current_send_CAN_0x70(void){
-                           1663 ;	-----------------------------------------
-                           1664 ;	 function current_send_CAN_0x70
-                           1665 ;	-----------------------------------------
-   0116                    1666 _current_send_CAN_0x70:
-                    0116   1667 	C$current_controller.c$103$1$1 ==.
-                           1668 ;	../current_controller.c:103: CAN_vTransmit(0);
-   0116 75 82 00           1669 	mov	dpl,#0x00
-                    0119   1670 	C$current_controller.c$104$1$1 ==.
-                    0119   1671 	XG$current_send_CAN_0x70$0$0 ==.
-   0119 02s00r00           1672 	ljmp	_CAN_vTransmit
-                           1673 	.area CSEG    (CODE)
-                           1674 	.area CONST   (CODE)
-                           1675 	.area XINIT   (CODE)
-                           1676 	.area CABS    (ABS,CODE)
+                    010F   1648 	C$current_controller.c$92$2$2 ==.
+                           1649 ;	../current_controller.c:92: IO_vResetPin(P0_7);
+   010F C2 87              1650 	clr	_P0_7
+                    0111   1651 	C$current_controller.c$93$2$2 ==.
+                           1652 ;	../current_controller.c:93: IO_vResetPin(P1_7);
+   0111 C2 97              1653 	clr	_P1_7
+                    0113   1654 	C$current_controller.c$94$2$2 ==.
+                           1655 ;	../current_controller.c:94: IO_vResetPin(P1_6);
+   0113 C2 96              1656 	clr	_P1_6
+   0115                    1657 00103$:
+                    0115   1658 	C$current_controller.c$102$2$1 ==.
+                    0115   1659 	XG$current_send_CAN_0x60$0$0 ==.
+   0115 22                 1660 	ret
+                           1661 ;------------------------------------------------------------
+                           1662 ;Allocation info for local variables in function 'current_send_CAN_0x70'
+                           1663 ;------------------------------------------------------------
+                           1664 ;------------------------------------------------------------
+                    0116   1665 	G$current_send_CAN_0x70$0$0 ==.
+                    0116   1666 	C$current_controller.c$106$2$1 ==.
+                           1667 ;	../current_controller.c:106: void current_send_CAN_0x70(void){
+                           1668 ;	-----------------------------------------
+                           1669 ;	 function current_send_CAN_0x70
+                           1670 ;	-----------------------------------------
+   0116                    1671 _current_send_CAN_0x70:
+                    0116   1672 	C$current_controller.c$108$2$1 ==.
+                           1673 ;	../current_controller.c:108: }
+                    0116   1674 	C$current_controller.c$108$2$1 ==.
+                    0116   1675 	XG$current_send_CAN_0x70$0$0 ==.
+   0116 22                 1676 	ret
+                           1677 	.area CSEG    (CODE)
+                           1678 	.area CONST   (CODE)
+                           1679 	.area XINIT   (CODE)
+                           1680 	.area CABS    (ABS,CODE)

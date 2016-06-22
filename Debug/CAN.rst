@@ -1393,7 +1393,7 @@
                            1393 ;	-----------------------------------------
                            1394 ;	 function CAN_vInit
                            1395 ;	-----------------------------------------
-   04C8                    1396 _CAN_vInit:
+   04C5                    1396 _CAN_vInit:
                     0002   1397 	ar2 = 0x02
                     0003   1398 	ar3 = 0x03
                     0004   1399 	ar4 = 0x04
@@ -1404,310 +1404,310 @@
                     0001   1404 	ar1 = 0x01
                     0000   1405 	C$CAN.C$140$1$1 ==.
                            1406 ;	../CAN.C:140: CAN_vWriteCANAddress(CAN_PANCTR); // Addressing CAN_PANCTR
-   04C8 75 D9 71           1407 	mov	_CAN_ADL,#0x71
-   04CB 75 DA 00           1408 	mov	_CAN_ADH,#0x00
+   04C5 75 D9 71           1407 	mov	_CAN_ADL,#0x71
+   04C8 75 DA 00           1408 	mov	_CAN_ADH,#0x00
                     0006   1409 	C$CAN.C$141$1$1 ==.
                            1410 ;	../CAN.C:141: CAN_DATA1 = CAN_PANCTR_BUSY;
-   04CE 75 DC 01           1411 	mov	_CAN_DATA1,#0x01
+   04CB 75 DC 01           1411 	mov	_CAN_DATA1,#0x01
                     0009   1412 	C$CAN.C$142$1$1 ==.
                            1413 ;	../CAN.C:142: while(CAN_DATA1 & CAN_PANCTR_BUSY){ // wait until Panel has finished the 
-   04D1                    1414 00101$:
-   04D1 E5 DC              1415 	mov	a,_CAN_DATA1
-   04D3 30 E0 05           1416 	jnb	acc.0,00103$
+   04CE                    1414 00101$:
+   04CE E5 DC              1415 	mov	a,_CAN_DATA1
+   04D0 30 E0 05           1416 	jnb	acc.0,00103$
                     000E   1417 	C$CAN.C$144$2$2 ==.
                            1418 ;	../CAN.C:144: CAN_ADCON &= ~0x01;       
-   04D6 53 D8 FE           1419 	anl	_CAN_ADCON,#0xFE
-   04D9 80 F6              1420 	sjmp	00101$
-   04DB                    1421 00103$:
+   04D3 53 D8 FE           1419 	anl	_CAN_ADCON,#0xFE
+   04D6 80 F6              1420 	sjmp	00101$
+   04D8                    1421 00103$:
                     0013   1422 	C$CAN.C$156$1$1 ==.
                            1423 ;	../CAN.C:156: CAN_vWriteCANAddress(CAN_NCR0); // Addressing CAN_NCR0
-   04DB 75 D9 80           1424 	mov	_CAN_ADL,#0x80
-   04DE 75 DA 00           1425 	mov	_CAN_ADH,#0x00
+   04D8 75 D9 80           1424 	mov	_CAN_ADL,#0x80
+   04DB 75 DA 00           1425 	mov	_CAN_ADH,#0x00
                     0019   1426 	C$CAN.C$157$1$1 ==.
                            1427 ;	../CAN.C:157: CAN_DATA0 = 0x41;            // load NODE 0 control register[7-0]
-   04E1 75 DB 41           1428 	mov	_CAN_DATA0,#0x41
+   04DE 75 DB 41           1428 	mov	_CAN_DATA0,#0x41
                     001C   1429 	C$CAN.C$158$1$1 ==.
                            1430 ;	../CAN.C:158: CAN_vWriteEN(D0_VALID+ADR_INC); // Data0 is Valid for transmission and 
-   04E4 75 D8 15           1431 	mov	_CAN_ADCON,#0x15
-   04E7                    1432 00104$:
-   04E7 E5 D8              1433 	mov	a,_CAN_ADCON
-   04E9 20 E1 FB           1434 	jb	acc.1,00104$
+   04E1 75 D8 15           1431 	mov	_CAN_ADCON,#0x15
+   04E4                    1432 00104$:
+   04E4 E5 D8              1433 	mov	a,_CAN_ADCON
+   04E6 20 E1 FB           1434 	jb	acc.1,00104$
                     0024   1435 	C$CAN.C$173$1$1 ==.
                            1436 ;	../CAN.C:173: CAN_vWriteCANAddress(CAN_NCR1); // Addressing CAN_NCR1
-   04EC 75 D9 C0           1437 	mov	_CAN_ADL,#0xC0
-   04EF 75 DA 00           1438 	mov	_CAN_ADH,#0x00
+   04E9 75 D9 C0           1437 	mov	_CAN_ADL,#0xC0
+   04EC 75 DA 00           1438 	mov	_CAN_ADH,#0x00
                     002A   1439 	C$CAN.C$174$1$1 ==.
                            1440 ;	../CAN.C:174: CAN_DATA0 = 0x43;            // load NODE 1 control register[7-0]
-   04F2 75 DB 43           1441 	mov	_CAN_DATA0,#0x43
+   04EF 75 DB 43           1441 	mov	_CAN_DATA0,#0x43
                     002D   1442 	C$CAN.C$175$1$1 ==.
                            1443 ;	../CAN.C:175: CAN_vWriteEN(D0_VALID+ADR_INC); // Data0 is Valid for transmission and 
-   04F5 75 D8 15           1444 	mov	_CAN_ADCON,#0x15
-   04F8                    1445 00107$:
-   04F8 E5 D8              1446 	mov	a,_CAN_ADCON
-   04FA 20 E1 FB           1447 	jb	acc.1,00107$
+   04F2 75 D8 15           1444 	mov	_CAN_ADCON,#0x15
+   04F5                    1445 00107$:
+   04F5 E5 D8              1446 	mov	a,_CAN_ADCON
+   04F7 20 E1 FB           1447 	jb	acc.1,00107$
                     0035   1448 	C$CAN.C$180$1$1 ==.
                            1449 ;	../CAN.C:180: CAN_ADCON = ADR_INC;         // Auto Increment the current address(+1)
-   04FD 75 D8 04           1450 	mov	_CAN_ADCON,#0x04
+   04FA 75 D8 04           1450 	mov	_CAN_ADCON,#0x04
                     0038   1451 	C$CAN.C$185$1$1 ==.
                            1452 ;	../CAN.C:185: CAN_DATA0 = 0x00;            // load NIPR1_LECINP, NIPR1_ALINP
-   0500 75 DB 00           1453 	mov	_CAN_DATA0,#0x00
+   04FD 75 DB 00           1453 	mov	_CAN_DATA0,#0x00
                     003B   1454 	C$CAN.C$186$1$1 ==.
                            1455 ;	../CAN.C:186: CAN_DATA1 = 0x00;            // load NIPR1_CFCINP, NIPR1_TRINP
-   0503 75 DC 00           1456 	mov	_CAN_DATA1,#0x00
+   0500 75 DC 00           1456 	mov	_CAN_DATA1,#0x00
                     003E   1457 	C$CAN.C$187$1$1 ==.
                            1458 ;	../CAN.C:187: CAN_vWriteEN(D0_VALID+D1_VALID+ADR_INC); // Data0 and Data1 are Valid for 
-   0506 75 D8 35           1459 	mov	_CAN_ADCON,#0x35
-   0509                    1460 00110$:
-   0509 E5 D8              1461 	mov	a,_CAN_ADCON
-   050B 20 E1 FB           1462 	jb	acc.1,00110$
+   0503 75 D8 35           1459 	mov	_CAN_ADCON,#0x35
+   0506                    1460 00110$:
+   0506 E5 D8              1461 	mov	a,_CAN_ADCON
+   0508 20 E1 FB           1462 	jb	acc.1,00110$
                     0046   1463 	C$CAN.C$201$1$1 ==.
                            1464 ;	../CAN.C:201: CAN_DATA0 = 0x03;            // Receive Select NPCR1_RXSEL
-   050E 75 DB 03           1465 	mov	_CAN_DATA0,#0x03
+   050B 75 DB 03           1465 	mov	_CAN_DATA0,#0x03
                     0049   1466 	C$CAN.C$202$1$1 ==.
                            1467 ;	../CAN.C:202: CAN_DATA1 = 0x00;            // Loop-back mode is disabled
-   0511 75 DC 00           1468 	mov	_CAN_DATA1,#0x00
+   050E 75 DC 00           1468 	mov	_CAN_DATA1,#0x00
                     004C   1469 	C$CAN.C$203$1$1 ==.
                            1470 ;	../CAN.C:203: CAN_vWriteEN(D0_VALID+D1_VALID+ADR_INC);  //  Data0 & 1 are Valid for 
-   0514 75 D8 35           1471 	mov	_CAN_ADCON,#0x35
-   0517                    1472 00113$:
-   0517 E5 D8              1473 	mov	a,_CAN_ADCON
-   0519 20 E1 FB           1474 	jb	acc.1,00113$
+   0511 75 D8 35           1471 	mov	_CAN_ADCON,#0x35
+   0514                    1472 00113$:
+   0514 E5 D8              1473 	mov	a,_CAN_ADCON
+   0516 20 E1 FB           1474 	jb	acc.1,00113$
                     0054   1475 	C$CAN.C$221$1$1 ==.
                            1476 ;	../CAN.C:221: CAN_DATA0 = 0x5F;            // load NBTR1_SJW, BRP
-   051C 75 DB 5F           1477 	mov	_CAN_DATA0,#0x5F
+   0519 75 DB 5F           1477 	mov	_CAN_DATA0,#0x5F
                     0057   1478 	C$CAN.C$222$1$1 ==.
                            1479 ;	../CAN.C:222: CAN_DATA1 = 0x18;            // load NBTR1_DIV8, TSEG2, TSEG1
-   051F 75 DC 18           1480 	mov	_CAN_DATA1,#0x18
+   051C 75 DC 18           1480 	mov	_CAN_DATA1,#0x18
                     005A   1481 	C$CAN.C$223$1$1 ==.
                            1482 ;	../CAN.C:223: CAN_vWriteEN(D0_VALID+D1_VALID+ADR_INC);  // Data0, 1 are valid for 
-   0522 75 D8 35           1483 	mov	_CAN_ADCON,#0x35
-   0525                    1484 00116$:
-   0525 E5 D8              1485 	mov	a,_CAN_ADCON
-   0527 20 E1 FB           1486 	jb	acc.1,00116$
+   051F 75 D8 35           1483 	mov	_CAN_ADCON,#0x35
+   0522                    1484 00116$:
+   0522 E5 D8              1485 	mov	a,_CAN_ADCON
+   0524 20 E1 FB           1486 	jb	acc.1,00116$
                     0062   1487 	C$CAN.C$234$1$1 ==.
                            1488 ;	../CAN.C:234: CAN_DATA2 = 0x60;            // load NECNT1_EWRNLVL register
-   052A 75 DD 60           1489 	mov	_CAN_DATA2,#0x60
+   0527 75 DD 60           1489 	mov	_CAN_DATA2,#0x60
                     0065   1490 	C$CAN.C$235$1$1 ==.
                            1491 ;	../CAN.C:235: CAN_vWriteEN(D2_VALID+ADR_INC); // Data2 is Valid for transmission, Auto 
-   052D 75 D8 45           1492 	mov	_CAN_ADCON,#0x45
-   0530                    1493 00119$:
-   0530 E5 D8              1494 	mov	a,_CAN_ADCON
-   0532 20 E1 FB           1495 	jb	acc.1,00119$
+   052A 75 D8 45           1492 	mov	_CAN_ADCON,#0x45
+   052D                    1493 00119$:
+   052D E5 D8              1494 	mov	a,_CAN_ADCON
+   052F 20 E1 FB           1495 	jb	acc.1,00119$
                     006D   1496 	C$CAN.C$248$1$1 ==.
                            1497 ;	../CAN.C:248: CAN_DATA0 = 0x00;            // load NFCR1_CFCL
-   0535 75 DB 00           1498 	mov	_CAN_DATA0,#0x00
+   0532 75 DB 00           1498 	mov	_CAN_DATA0,#0x00
                     0070   1499 	C$CAN.C$249$1$1 ==.
                            1500 ;	../CAN.C:249: CAN_DATA1 = 0x00;            // load NFCR1_CFCH
-   0538 75 DC 00           1501 	mov	_CAN_DATA1,#0x00
+   0535 75 DC 00           1501 	mov	_CAN_DATA1,#0x00
                     0073   1502 	C$CAN.C$250$1$1 ==.
                            1503 ;	../CAN.C:250: CAN_DATA2 = 0x00;            // load NFCR1_CFCOV, CFCIE, CFMOD, CFSEL
-   053B 75 DD 00           1504 	mov	_CAN_DATA2,#0x00
+   0538 75 DD 00           1504 	mov	_CAN_DATA2,#0x00
                     0076   1505 	C$CAN.C$251$1$1 ==.
                            1506 ;	../CAN.C:251: CAN_vWriteEN(D0_VALID+D1_VALID+D2_VALID); // Data0, 1, 2 are valid for 
-   053E 75 D8 71           1507 	mov	_CAN_ADCON,#0x71
-   0541                    1508 00122$:
-   0541 E5 D8              1509 	mov	a,_CAN_ADCON
-   0543 20 E1 FB           1510 	jb	acc.1,00122$
+   053B 75 D8 71           1507 	mov	_CAN_ADCON,#0x71
+   053E                    1508 00122$:
+   053E E5 D8              1509 	mov	a,_CAN_ADCON
+   0540 20 E1 FB           1510 	jb	acc.1,00122$
                     007E   1511 	C$CAN.C$261$1$1 ==.
                            1512 ;	../CAN.C:261: SFR_PAGE(_pp2, noSST);       // switch to page 2
-   0546 75 B2 02           1513 	mov	_PORT_PAGE,#0x02
+   0543 75 B2 02           1513 	mov	_PORT_PAGE,#0x02
                     0081   1514 	C$CAN.C$262$1$1 ==.
                            1515 ;	../CAN.C:262: P1_ALTSEL0      |= 0x08;    //  set AltSel0 
-   0549 43 90 08           1516 	orl	_P1_ALTSEL0,#0x08
+   0546 43 90 08           1516 	orl	_P1_ALTSEL0,#0x08
                     0084   1517 	C$CAN.C$263$1$1 ==.
                            1518 ;	../CAN.C:263: P1_ALTSEL1      |= 0x08;    //  set AltSel1
-   054C 43 91 08           1519 	orl	_P1_ALTSEL1,#0x08
+   0549 43 91 08           1519 	orl	_P1_ALTSEL1,#0x08
                     0087   1520 	C$CAN.C$265$1$1 ==.
                            1521 ;	../CAN.C:265: SFR_PAGE(_pp0, noSST);       // switch to page 0
-   054F 75 B2 00           1522 	mov	_PORT_PAGE,#0x00
+   054C 75 B2 00           1522 	mov	_PORT_PAGE,#0x00
                     008A   1523 	C$CAN.C$266$1$1 ==.
                            1524 ;	../CAN.C:266: P1_DIR          |= 0x08;        //  set Direction as Output
-   0552 43 91 08           1525 	orl	_P1_DIR,#0x08
+   054F 43 91 08           1525 	orl	_P1_DIR,#0x08
                     008D   1526 	C$CAN.C$273$1$1 ==.
                            1527 ;	../CAN.C:273: CAN_vWriteCANAddress(CAN_PANCTR); // Addressing CAN_PANCTR
-   0555 75 D9 71           1528 	mov	_CAN_ADL,#0x71
-   0558 75 DA 00           1529 	mov	_CAN_ADH,#0x00
+   0552 75 D9 71           1528 	mov	_CAN_ADL,#0x71
+   0555 75 DA 00           1529 	mov	_CAN_ADH,#0x00
                     0093   1530 	C$CAN.C$276$1$1 ==.
                            1531 ;	../CAN.C:276: CAN_vSetListCommand(0x02000002);  // MO0 for list 2
-   055B 90 00 02           1532 	mov	dptr,#(0x02&0x00ff)
-   055E E4                 1533 	clr	a
-   055F F5 F0              1534 	mov	b,a
-   0561 74 02              1535 	mov	a,#0x02
-   0563 12 06 A4           1536 	lcall	_CAN_vSetListCommand
+   0558 90 00 02           1532 	mov	dptr,#(0x02&0x00ff)
+   055B E4                 1533 	clr	a
+   055C F5 F0              1534 	mov	b,a
+   055E 74 02              1535 	mov	a,#0x02
+   0560 12 06 A1           1536 	lcall	_CAN_vSetListCommand
                     009E   1537 	C$CAN.C$277$1$1 ==.
                            1538 ;	../CAN.C:277: CAN_vSetListCommand(0x02010002);  // MO1 for list 2
-   0566 90 00 02           1539 	mov	dptr,#0x0002
-   0569 75 F0 01           1540 	mov	b,#0x01
-   056C 74 02              1541 	mov	a,#0x02
-   056E 12 06 A4           1542 	lcall	_CAN_vSetListCommand
+   0563 90 00 02           1539 	mov	dptr,#0x0002
+   0566 75 F0 01           1540 	mov	b,#0x01
+   0569 74 02              1541 	mov	a,#0x02
+   056B 12 06 A1           1542 	lcall	_CAN_vSetListCommand
                     00A9   1543 	C$CAN.C$291$1$1 ==.
                            1544 ;	../CAN.C:291: CAN_vWriteCANAddress(CAN_MOCTR0); // Addressing MO0 control register
-   0571 75 D9 07           1545 	mov	_CAN_ADL,#0x07
-   0574 75 DA 04           1546 	mov	_CAN_ADH,#0x04
+   056E 75 D9 07           1545 	mov	_CAN_ADL,#0x07
+   0571 75 DA 04           1546 	mov	_CAN_ADH,#0x04
                     00AF   1547 	C$CAN.C$293$1$1 ==.
                            1548 ;	../CAN.C:293: CAN_vWriteAMData(0x0EA80000); // load MO0 control register
-   0577 90 00 00           1549 	mov	dptr,#0x0000
-   057A 75 F0 A8           1550 	mov	b,#0xA8
-   057D 74 0E              1551 	mov	a,#0x0E
-   057F 12 06 60           1552 	lcall	_CAN_vWriteAMData
+   0574 90 00 00           1549 	mov	dptr,#0x0000
+   0577 75 F0 A8           1550 	mov	b,#0xA8
+   057A 74 0E              1551 	mov	a,#0x0E
+   057C 12 06 5D           1552 	lcall	_CAN_vWriteAMData
                     00BA   1553 	C$CAN.C$296$1$1 ==.
                            1554 ;	../CAN.C:296: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   0582 75 D8 08           1555 	mov	_CAN_ADCON,#0x08
+   057F 75 D8 08           1555 	mov	_CAN_ADCON,#0x08
                     00BD   1556 	C$CAN.C$305$1$1 ==.
                            1557 ;	../CAN.C:305: CAN_vWriteAMData(0xC1800000); // load MO0 arbitration register
-   0585 90 00 00           1558 	mov	dptr,#0x0000
-   0588 75 F0 80           1559 	mov	b,#0x80
-   058B 74 C1              1560 	mov	a,#0xC1
-   058D 12 06 60           1561 	lcall	_CAN_vWriteAMData
+   0582 90 00 00           1558 	mov	dptr,#0x0000
+   0585 75 F0 80           1559 	mov	b,#0x80
+   0588 74 C1              1560 	mov	a,#0xC1
+   058A 12 06 5D           1561 	lcall	_CAN_vWriteAMData
                     00C8   1562 	C$CAN.C$308$1$1 ==.
                            1563 ;	../CAN.C:308: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   0590 75 D8 08           1564 	mov	_CAN_ADCON,#0x08
+   058D 75 D8 08           1564 	mov	_CAN_ADCON,#0x08
                     00CB   1565 	C$CAN.C$313$1$1 ==.
                            1566 ;	../CAN.C:313: CAN_vWriteAMData(0x00000000); // load MO0 data register high
-   0593 90 00 00           1567 	mov	dptr,#(0x00&0x00ff)
-   0596 E4                 1568 	clr	a
-   0597 F5 F0              1569 	mov	b,a
-   0599 12 06 60           1570 	lcall	_CAN_vWriteAMData
+   0590 90 00 00           1567 	mov	dptr,#(0x00&0x00ff)
+   0593 E4                 1568 	clr	a
+   0594 F5 F0              1569 	mov	b,a
+   0596 12 06 5D           1570 	lcall	_CAN_vWriteAMData
                     00D4   1571 	C$CAN.C$316$1$1 ==.
                            1572 ;	../CAN.C:316: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   059C 75 D8 08           1573 	mov	_CAN_ADCON,#0x08
+   0599 75 D8 08           1573 	mov	_CAN_ADCON,#0x08
                     00D7   1574 	C$CAN.C$320$1$1 ==.
                            1575 ;	../CAN.C:320: CAN_vWriteAMData(0x00000000); // load MO0 data register low
-   059F 90 00 00           1576 	mov	dptr,#(0x00&0x00ff)
-   05A2 E4                 1577 	clr	a
-   05A3 F5 F0              1578 	mov	b,a
-   05A5 12 06 60           1579 	lcall	_CAN_vWriteAMData
+   059C 90 00 00           1576 	mov	dptr,#(0x00&0x00ff)
+   059F E4                 1577 	clr	a
+   05A0 F5 F0              1578 	mov	b,a
+   05A2 12 06 5D           1579 	lcall	_CAN_vWriteAMData
                     00E0   1580 	C$CAN.C$323$1$1 ==.
                            1581 ;	../CAN.C:323: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   05A8 75 D8 08           1582 	mov	_CAN_ADCON,#0x08
+   05A5 75 D8 08           1582 	mov	_CAN_ADCON,#0x08
                     00E3   1583 	C$CAN.C$330$1$1 ==.
                            1584 ;	../CAN.C:330: CAN_vWriteAMData(0x3FFFFFFF); // load MO0 acceptance mask register
-   05AB 90 FF FF           1585 	mov	dptr,#0xFFFF
-   05AE 75 F0 FF           1586 	mov	b,#0xFF
-   05B1 74 3F              1587 	mov	a,#0x3F
-   05B3 12 06 60           1588 	lcall	_CAN_vWriteAMData
+   05A8 90 FF FF           1585 	mov	dptr,#0xFFFF
+   05AB 75 F0 FF           1586 	mov	b,#0xFF
+   05AE 74 3F              1587 	mov	a,#0x3F
+   05B0 12 06 5D           1588 	lcall	_CAN_vWriteAMData
                     00EE   1589 	C$CAN.C$333$1$1 ==.
                            1590 ;	../CAN.C:333: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   05B6 75 D8 08           1591 	mov	_CAN_ADCON,#0x08
+   05B3 75 D8 08           1591 	mov	_CAN_ADCON,#0x08
                     00F1   1592 	C$CAN.C$340$1$1 ==.
                            1593 ;	../CAN.C:340: CAN_vWriteAMData(0x00000000); // load MO0 interrupt pointer register
-   05B9 90 00 00           1594 	mov	dptr,#(0x00&0x00ff)
-   05BC E4                 1595 	clr	a
-   05BD F5 F0              1596 	mov	b,a
-   05BF 12 06 60           1597 	lcall	_CAN_vWriteAMData
+   05B6 90 00 00           1594 	mov	dptr,#(0x00&0x00ff)
+   05B9 E4                 1595 	clr	a
+   05BA F5 F0              1596 	mov	b,a
+   05BC 12 06 5D           1597 	lcall	_CAN_vWriteAMData
                     00FA   1598 	C$CAN.C$343$1$1 ==.
                            1599 ;	../CAN.C:343: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   05C2 75 D8 08           1600 	mov	_CAN_ADCON,#0x08
+   05BF 75 D8 08           1600 	mov	_CAN_ADCON,#0x08
                     00FD   1601 	C$CAN.C$348$1$1 ==.
                            1602 ;	../CAN.C:348: CAN_vWriteAMData(0x00000000); // load MO0 FIFO/gateway pointer register
-   05C5 90 00 00           1603 	mov	dptr,#(0x00&0x00ff)
-   05C8 E4                 1604 	clr	a
-   05C9 F5 F0              1605 	mov	b,a
-   05CB 12 06 60           1606 	lcall	_CAN_vWriteAMData
+   05C2 90 00 00           1603 	mov	dptr,#(0x00&0x00ff)
+   05C5 E4                 1604 	clr	a
+   05C6 F5 F0              1605 	mov	b,a
+   05C8 12 06 5D           1606 	lcall	_CAN_vWriteAMData
                     0106   1607 	C$CAN.C$351$1$1 ==.
                            1608 ;	../CAN.C:351: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   05CE 75 D8 08           1609 	mov	_CAN_ADCON,#0x08
+   05CB 75 D8 08           1609 	mov	_CAN_ADCON,#0x08
                     0109   1610 	C$CAN.C$360$1$1 ==.
                            1611 ;	../CAN.C:360: CAN_vWriteAMData(0x04020000); // load MO0  function control register
-   05D1 90 00 00           1612 	mov	dptr,#0x0000
-   05D4 75 F0 02           1613 	mov	b,#0x02
-   05D7 74 04              1614 	mov	a,#0x04
-   05D9 12 06 60           1615 	lcall	_CAN_vWriteAMData
+   05CE 90 00 00           1612 	mov	dptr,#0x0000
+   05D1 75 F0 02           1613 	mov	b,#0x02
+   05D4 74 04              1614 	mov	a,#0x04
+   05D6 12 06 5D           1615 	lcall	_CAN_vWriteAMData
                     0114   1616 	C$CAN.C$371$1$1 ==.
                            1617 ;	../CAN.C:371: CAN_vWriteCANAddress(CAN_MOCTR1); // Addressing MO1 control register
-   05DC 75 D9 0F           1618 	mov	_CAN_ADL,#0x0F
-   05DF 75 DA 04           1619 	mov	_CAN_ADH,#0x04
+   05D9 75 D9 0F           1618 	mov	_CAN_ADL,#0x0F
+   05DC 75 DA 04           1619 	mov	_CAN_ADH,#0x04
                     011A   1620 	C$CAN.C$373$1$1 ==.
                            1621 ;	../CAN.C:373: CAN_vWriteAMData(0x0EA80000); // load MO1 control register
-   05E2 90 00 00           1622 	mov	dptr,#0x0000
-   05E5 75 F0 A8           1623 	mov	b,#0xA8
-   05E8 74 0E              1624 	mov	a,#0x0E
-   05EA 12 06 60           1625 	lcall	_CAN_vWriteAMData
+   05DF 90 00 00           1622 	mov	dptr,#0x0000
+   05E2 75 F0 A8           1623 	mov	b,#0xA8
+   05E5 74 0E              1624 	mov	a,#0x0E
+   05E7 12 06 5D           1625 	lcall	_CAN_vWriteAMData
                     0125   1626 	C$CAN.C$376$1$1 ==.
                            1627 ;	../CAN.C:376: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   05ED 75 D8 08           1628 	mov	_CAN_ADCON,#0x08
+   05EA 75 D8 08           1628 	mov	_CAN_ADCON,#0x08
                     0128   1629 	C$CAN.C$385$1$1 ==.
                            1630 ;	../CAN.C:385: CAN_vWriteAMData(0xC1C00000); // load MO1 arbitration register
-   05F0 90 00 00           1631 	mov	dptr,#0x0000
-   05F3 75 F0 C0           1632 	mov	b,#0xC0
-   05F6 74 C1              1633 	mov	a,#0xC1
-   05F8 12 06 60           1634 	lcall	_CAN_vWriteAMData
+   05ED 90 00 00           1631 	mov	dptr,#0x0000
+   05F0 75 F0 C0           1632 	mov	b,#0xC0
+   05F3 74 C1              1633 	mov	a,#0xC1
+   05F5 12 06 5D           1634 	lcall	_CAN_vWriteAMData
                     0133   1635 	C$CAN.C$388$1$1 ==.
                            1636 ;	../CAN.C:388: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   05FB 75 D8 08           1637 	mov	_CAN_ADCON,#0x08
+   05F8 75 D8 08           1637 	mov	_CAN_ADCON,#0x08
                     0136   1638 	C$CAN.C$393$1$1 ==.
                            1639 ;	../CAN.C:393: CAN_vWriteAMData(0x00000000); // load MO1 data register high
-   05FE 90 00 00           1640 	mov	dptr,#(0x00&0x00ff)
-   0601 E4                 1641 	clr	a
-   0602 F5 F0              1642 	mov	b,a
-   0604 12 06 60           1643 	lcall	_CAN_vWriteAMData
+   05FB 90 00 00           1640 	mov	dptr,#(0x00&0x00ff)
+   05FE E4                 1641 	clr	a
+   05FF F5 F0              1642 	mov	b,a
+   0601 12 06 5D           1643 	lcall	_CAN_vWriteAMData
                     013F   1644 	C$CAN.C$396$1$1 ==.
                            1645 ;	../CAN.C:396: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   0607 75 D8 08           1646 	mov	_CAN_ADCON,#0x08
+   0604 75 D8 08           1646 	mov	_CAN_ADCON,#0x08
                     0142   1647 	C$CAN.C$400$1$1 ==.
                            1648 ;	../CAN.C:400: CAN_vWriteAMData(0x00000000); // load MO1 data register low
-   060A 90 00 00           1649 	mov	dptr,#(0x00&0x00ff)
-   060D E4                 1650 	clr	a
-   060E F5 F0              1651 	mov	b,a
-   0610 12 06 60           1652 	lcall	_CAN_vWriteAMData
+   0607 90 00 00           1649 	mov	dptr,#(0x00&0x00ff)
+   060A E4                 1650 	clr	a
+   060B F5 F0              1651 	mov	b,a
+   060D 12 06 5D           1652 	lcall	_CAN_vWriteAMData
                     014B   1653 	C$CAN.C$403$1$1 ==.
                            1654 ;	../CAN.C:403: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   0613 75 D8 08           1655 	mov	_CAN_ADCON,#0x08
+   0610 75 D8 08           1655 	mov	_CAN_ADCON,#0x08
                     014E   1656 	C$CAN.C$410$1$1 ==.
                            1657 ;	../CAN.C:410: CAN_vWriteAMData(0x3FFFFFFF); // load MO1 acceptance mask register
-   0616 90 FF FF           1658 	mov	dptr,#0xFFFF
-   0619 75 F0 FF           1659 	mov	b,#0xFF
-   061C 74 3F              1660 	mov	a,#0x3F
-   061E 12 06 60           1661 	lcall	_CAN_vWriteAMData
+   0613 90 FF FF           1658 	mov	dptr,#0xFFFF
+   0616 75 F0 FF           1659 	mov	b,#0xFF
+   0619 74 3F              1660 	mov	a,#0x3F
+   061B 12 06 5D           1661 	lcall	_CAN_vWriteAMData
                     0159   1662 	C$CAN.C$413$1$1 ==.
                            1663 ;	../CAN.C:413: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   0621 75 D8 08           1664 	mov	_CAN_ADCON,#0x08
+   061E 75 D8 08           1664 	mov	_CAN_ADCON,#0x08
                     015C   1665 	C$CAN.C$420$1$1 ==.
                            1666 ;	../CAN.C:420: CAN_vWriteAMData(0x00000100); // load MO1 interrupt pointer register
-   0624 90 01 00           1667 	mov	dptr,#0x0100
-   0627 E4                 1668 	clr	a
-   0628 F5 F0              1669 	mov	b,a
-   062A 12 06 60           1670 	lcall	_CAN_vWriteAMData
+   0621 90 01 00           1667 	mov	dptr,#0x0100
+   0624 E4                 1668 	clr	a
+   0625 F5 F0              1669 	mov	b,a
+   0627 12 06 5D           1670 	lcall	_CAN_vWriteAMData
                     0165   1671 	C$CAN.C$423$1$1 ==.
                            1672 ;	../CAN.C:423: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   062D 75 D8 08           1673 	mov	_CAN_ADCON,#0x08
+   062A 75 D8 08           1673 	mov	_CAN_ADCON,#0x08
                     0168   1674 	C$CAN.C$428$1$1 ==.
                            1675 ;	../CAN.C:428: CAN_vWriteAMData(0x00000000); // load MO1 FIFO/gateway pointer register
-   0630 90 00 00           1676 	mov	dptr,#(0x00&0x00ff)
-   0633 E4                 1677 	clr	a
-   0634 F5 F0              1678 	mov	b,a
-   0636 12 06 60           1679 	lcall	_CAN_vWriteAMData
+   062D 90 00 00           1676 	mov	dptr,#(0x00&0x00ff)
+   0630 E4                 1677 	clr	a
+   0631 F5 F0              1678 	mov	b,a
+   0633 12 06 5D           1679 	lcall	_CAN_vWriteAMData
                     0171   1680 	C$CAN.C$431$1$1 ==.
                            1681 ;	../CAN.C:431: CAN_ADCON = ADR_DEC;         // Auto Decrement the current address(-1)
-   0639 75 D8 08           1682 	mov	_CAN_ADCON,#0x08
+   0636 75 D8 08           1682 	mov	_CAN_ADCON,#0x08
                     0174   1683 	C$CAN.C$440$1$1 ==.
                            1684 ;	../CAN.C:440: CAN_vWriteAMData(0x00020000); // load MO1  function control register
-   063C 90 00 00           1685 	mov	dptr,#0x0000
-   063F 75 F0 02           1686 	mov	b,#0x02
-   0642 E4                 1687 	clr	a
-   0643 12 06 60           1688 	lcall	_CAN_vWriteAMData
+   0639 90 00 00           1685 	mov	dptr,#0x0000
+   063C 75 F0 02           1686 	mov	b,#0x02
+   063F E4                 1687 	clr	a
+   0640 12 06 5D           1688 	lcall	_CAN_vWriteAMData
                     017E   1689 	C$CAN.C$584$1$1 ==.
                            1690 ;	../CAN.C:584: CAN_vWriteCANAddress(CAN_NCR1); // Addressing CAN_NCR1
-   0646 75 D9 C0           1691 	mov	_CAN_ADL,#0xC0
-   0649 75 DA 00           1692 	mov	_CAN_ADH,#0x00
+   0643 75 D9 C0           1691 	mov	_CAN_ADL,#0xC0
+   0646 75 DA 00           1692 	mov	_CAN_ADH,#0x00
                     0184   1693 	C$CAN.C$585$1$1 ==.
                            1694 ;	../CAN.C:585: CAN_vReadEN();               // Read Mode is Enabled
-   064C 75 D8 00           1695 	mov	_CAN_ADCON,#0x00
-   064F                    1696 00125$:
-   064F E5 D8              1697 	mov	a,_CAN_ADCON
-   0651 20 E1 FB           1698 	jb	acc.1,00125$
+   0649 75 D8 00           1695 	mov	_CAN_ADCON,#0x00
+   064C                    1696 00125$:
+   064C E5 D8              1697 	mov	a,_CAN_ADCON
+   064E 20 E1 FB           1698 	jb	acc.1,00125$
                     018C   1699 	C$CAN.C$586$1$1 ==.
                            1700 ;	../CAN.C:586: CAN_DATA0  &= ~0x41;         // reset INIT and CCE
-   0654 53 DB BE           1701 	anl	_CAN_DATA0,#0xBE
+   0651 53 DB BE           1701 	anl	_CAN_DATA0,#0xBE
                     018F   1702 	C$CAN.C$587$1$1 ==.
                            1703 ;	../CAN.C:587: CAN_vWriteEN(D0_VALID);      // Data0 is Valid for transmission and Write 
-   0657 75 D8 11           1704 	mov	_CAN_ADCON,#0x11
-   065A                    1705 00128$:
-   065A E5 D8              1706 	mov	a,_CAN_ADCON
-   065C 20 E1 FB           1707 	jb	acc.1,00128$
+   0654 75 D8 11           1704 	mov	_CAN_ADCON,#0x11
+   0657                    1705 00128$:
+   0657 E5 D8              1706 	mov	a,_CAN_ADCON
+   0659 20 E1 FB           1707 	jb	acc.1,00128$
                     0197   1708 	C$CAN.C$595$1$1 ==.
                     0197   1709 	XG$CAN_vInit$0$0 ==.
-   065F 22                 1710 	ret
+   065C 22                 1710 	ret
                            1711 ;------------------------------------------------------------
                            1712 ;Allocation info for local variables in function 'CAN_vWriteAMData'
                            1713 ;------------------------------------------------------------
@@ -1720,38 +1720,38 @@
                            1720 ;	-----------------------------------------
                            1721 ;	 function CAN_vWriteAMData
                            1722 ;	-----------------------------------------
-   0660                    1723 _CAN_vWriteAMData:
-   0660 AA 82              1724 	mov	r2,dpl
-   0662 AB 83              1725 	mov	r3,dph
-   0664 AC F0              1726 	mov	r4,b
-   0666 FD                 1727 	mov	r5,a
+   065D                    1723 _CAN_vWriteAMData:
+   065D AA 82              1724 	mov	r2,dpl
+   065F AB 83              1725 	mov	r3,dph
+   0661 AC F0              1726 	mov	r4,b
+   0663 FD                 1727 	mov	r5,a
                     019F   1728 	C$CAN.C$637$1$1 ==.
                            1729 ;	../CAN.C:637: ulData.ulVal = ulValue;
-   0667 8A 23              1730 	mov	_CAN_vWriteAMData_ulData_1_1,r2
-   0669 8B 24              1731 	mov	(_CAN_vWriteAMData_ulData_1_1 + 1),r3
-   066B 8C 25              1732 	mov	(_CAN_vWriteAMData_ulData_1_1 + 2),r4
-   066D 8D 26              1733 	mov	(_CAN_vWriteAMData_ulData_1_1 + 3),r5
+   0664 8A 23              1730 	mov	_CAN_vWriteAMData_ulData_1_1,r2
+   0666 8B 24              1731 	mov	(_CAN_vWriteAMData_ulData_1_1 + 1),r3
+   0668 8C 25              1732 	mov	(_CAN_vWriteAMData_ulData_1_1 + 2),r4
+   066A 8D 26              1733 	mov	(_CAN_vWriteAMData_ulData_1_1 + 3),r5
                     01A7   1734 	C$CAN.C$639$1$1 ==.
                            1735 ;	../CAN.C:639: CAN_DATA0 = ulData.ubDB[0]; // load CAN Data Register 0
-   066F 85 23 DB           1736 	mov	_CAN_DATA0,_CAN_vWriteAMData_ulData_1_1
+   066C 85 23 DB           1736 	mov	_CAN_DATA0,_CAN_vWriteAMData_ulData_1_1
                     01AA   1737 	C$CAN.C$640$1$1 ==.
                            1738 ;	../CAN.C:640: CAN_DATA1 = ulData.ubDB[1]; // load CAN Data Register 1
-   0672 85 24 DC           1739 	mov	_CAN_DATA1,(_CAN_vWriteAMData_ulData_1_1 + 0x0001)
+   066F 85 24 DC           1739 	mov	_CAN_DATA1,(_CAN_vWriteAMData_ulData_1_1 + 0x0001)
                     01AD   1740 	C$CAN.C$641$1$1 ==.
                            1741 ;	../CAN.C:641: CAN_DATA2 = ulData.ubDB[2]; // load CAN Data Register 2
-   0675 85 25 DD           1742 	mov	_CAN_DATA2,(_CAN_vWriteAMData_ulData_1_1 + 0x0002)
+   0672 85 25 DD           1742 	mov	_CAN_DATA2,(_CAN_vWriteAMData_ulData_1_1 + 0x0002)
                     01B0   1743 	C$CAN.C$642$1$1 ==.
                            1744 ;	../CAN.C:642: CAN_DATA3 = ulData.ubDB[3]; // load CAN Data Register 3
-   0678 85 26 DE           1745 	mov	_CAN_DATA3,(_CAN_vWriteAMData_ulData_1_1 + 0x0003)
+   0675 85 26 DE           1745 	mov	_CAN_DATA3,(_CAN_vWriteAMData_ulData_1_1 + 0x0003)
                     01B3   1746 	C$CAN.C$643$1$1 ==.
                            1747 ;	../CAN.C:643: CAN_vWriteEN(ALL_DATA_VALID); // Writemode is Enabled
-   067B 75 D8 F1           1748 	mov	_CAN_ADCON,#0xF1
-   067E                    1749 00101$:
-   067E E5 D8              1750 	mov	a,_CAN_ADCON
-   0680 20 E1 FB           1751 	jb	acc.1,00101$
+   0678 75 D8 F1           1748 	mov	_CAN_ADCON,#0xF1
+   067B                    1749 00101$:
+   067B E5 D8              1750 	mov	a,_CAN_ADCON
+   067D 20 E1 FB           1751 	jb	acc.1,00101$
                     01BB   1752 	C$CAN.C$644$1$1 ==.
                     01BB   1753 	XG$CAN_vWriteAMData$0$0 ==.
-   0683 22                 1754 	ret
+   0680 22                 1754 	ret
                            1755 ;------------------------------------------------------------
                            1756 ;Allocation info for local variables in function 'CAN_ulGetCANData'
                            1757 ;------------------------------------------------------------
@@ -1763,34 +1763,34 @@
                            1763 ;	-----------------------------------------
                            1764 ;	 function CAN_ulGetCANData
                            1765 ;	-----------------------------------------
-   0684                    1766 _CAN_ulGetCANData:
+   0681                    1766 _CAN_ulGetCANData:
                     01BC   1767 	C$CAN.C$690$1$1 ==.
                            1768 ;	../CAN.C:690: CAN_vReadEN();  // Readmode is Enabled
-   0684 75 D8 00           1769 	mov	_CAN_ADCON,#0x00
-   0687                    1770 00101$:
-   0687 E5 D8              1771 	mov	a,_CAN_ADCON
-   0689 20 E1 FB           1772 	jb	acc.1,00101$
+   0681 75 D8 00           1769 	mov	_CAN_ADCON,#0x00
+   0684                    1770 00101$:
+   0684 E5 D8              1771 	mov	a,_CAN_ADCON
+   0686 20 E1 FB           1772 	jb	acc.1,00101$
                     01C4   1773 	C$CAN.C$691$1$1 ==.
                            1774 ;	../CAN.C:691: ulData.ubDB[0] = CAN_DATA0; // Read CAN Data Register 0
-   068C 85 DB 27           1775 	mov	_CAN_ulGetCANData_ulData_1_1,_CAN_DATA0
+   0689 85 DB 27           1775 	mov	_CAN_ulGetCANData_ulData_1_1,_CAN_DATA0
                     01C7   1776 	C$CAN.C$692$1$1 ==.
                            1777 ;	../CAN.C:692: ulData.ubDB[1] = CAN_DATA1; // Read CAN Data Register 1
-   068F 85 DC 28           1778 	mov	(_CAN_ulGetCANData_ulData_1_1 + 0x0001),_CAN_DATA1
+   068C 85 DC 28           1778 	mov	(_CAN_ulGetCANData_ulData_1_1 + 0x0001),_CAN_DATA1
                     01CA   1779 	C$CAN.C$693$1$1 ==.
                            1780 ;	../CAN.C:693: ulData.ubDB[2] = CAN_DATA2; // Read CAN Data Register 2
-   0692 85 DD 29           1781 	mov	(_CAN_ulGetCANData_ulData_1_1 + 0x0002),_CAN_DATA2
+   068F 85 DD 29           1781 	mov	(_CAN_ulGetCANData_ulData_1_1 + 0x0002),_CAN_DATA2
                     01CD   1782 	C$CAN.C$694$1$1 ==.
                            1783 ;	../CAN.C:694: ulData.ubDB[3] = CAN_DATA3; // Read CAN Data Register 3
-   0695 85 DE 2A           1784 	mov	(_CAN_ulGetCANData_ulData_1_1 + 0x0003),_CAN_DATA3
+   0692 85 DE 2A           1784 	mov	(_CAN_ulGetCANData_ulData_1_1 + 0x0003),_CAN_DATA3
                     01D0   1785 	C$CAN.C$695$1$1 ==.
                            1786 ;	../CAN.C:695: return (ulData.ulVal);
-   0698 85 27 82           1787 	mov	dpl,_CAN_ulGetCANData_ulData_1_1
-   069B 85 28 83           1788 	mov	dph,(_CAN_ulGetCANData_ulData_1_1 + 1)
-   069E 85 29 F0           1789 	mov	b,(_CAN_ulGetCANData_ulData_1_1 + 2)
-   06A1 E5 2A              1790 	mov	a,(_CAN_ulGetCANData_ulData_1_1 + 3)
+   0695 85 27 82           1787 	mov	dpl,_CAN_ulGetCANData_ulData_1_1
+   0698 85 28 83           1788 	mov	dph,(_CAN_ulGetCANData_ulData_1_1 + 1)
+   069B 85 29 F0           1789 	mov	b,(_CAN_ulGetCANData_ulData_1_1 + 2)
+   069E E5 2A              1790 	mov	a,(_CAN_ulGetCANData_ulData_1_1 + 3)
                     01DB   1791 	C$CAN.C$696$1$1 ==.
                     01DB   1792 	XG$CAN_ulGetCANData$0$0 ==.
-   06A3 22                 1793 	ret
+   06A0 22                 1793 	ret
                            1794 ;------------------------------------------------------------
                            1795 ;Allocation info for local variables in function 'CAN_vSetListCommand'
                            1796 ;------------------------------------------------------------
@@ -1802,26 +1802,26 @@
                            1802 ;	-----------------------------------------
                            1803 ;	 function CAN_vSetListCommand
                            1804 ;	-----------------------------------------
-   06A4                    1805 _CAN_vSetListCommand:
+   06A1                    1805 _CAN_vSetListCommand:
                     01DC   1806 	C$CAN.C$723$1$1 ==.
                            1807 ;	../CAN.C:723: CAN_vWriteAMData(ulVal);  // - load Panel Control Register
-   06A4 12 06 60           1808 	lcall	_CAN_vWriteAMData
+   06A1 12 06 5D           1808 	lcall	_CAN_vWriteAMData
                     01DF   1809 	C$CAN.C$724$1$1 ==.
                            1810 ;	../CAN.C:724: CAN_DATA1 = CAN_PANCTR_BUSY;
-   06A7 75 DC 01           1811 	mov	_CAN_DATA1,#0x01
+   06A4 75 DC 01           1811 	mov	_CAN_DATA1,#0x01
                     01E2   1812 	C$CAN.C$725$1$1 ==.
                            1813 ;	../CAN.C:725: while(CAN_DATA1 & CAN_PANCTR_BUSY){ // wait until Panel has finished the 
-   06AA                    1814 00101$:
-   06AA E5 DC              1815 	mov	a,_CAN_DATA1
-   06AC 30 E0 05           1816 	jnb	acc.0,00104$
+   06A7                    1814 00101$:
+   06A7 E5 DC              1815 	mov	a,_CAN_DATA1
+   06A9 30 E0 05           1816 	jnb	acc.0,00104$
                     01E7   1817 	C$CAN.C$727$2$2 ==.
                            1818 ;	../CAN.C:727: CAN_ADCON &= ~0x01;       
-   06AF 53 D8 FE           1819 	anl	_CAN_ADCON,#0xFE
-   06B2 80 F6              1820 	sjmp	00101$
-   06B4                    1821 00104$:
+   06AC 53 D8 FE           1819 	anl	_CAN_ADCON,#0xFE
+   06AF 80 F6              1820 	sjmp	00101$
+   06B1                    1821 00104$:
                     01EC   1822 	C$CAN.C$729$1$1 ==.
                     01EC   1823 	XG$CAN_vSetListCommand$0$0 ==.
-   06B4 22                 1824 	ret
+   06B1 22                 1824 	ret
                            1825 ;------------------------------------------------------------
                            1826 ;Allocation info for local variables in function 'CAN_vGetMsgObj'
                            1827 ;------------------------------------------------------------
@@ -1838,774 +1838,774 @@
                            1838 ;	-----------------------------------------
                            1839 ;	 function CAN_vGetMsgObj
                            1840 ;	-----------------------------------------
-   06B5                    1841 _CAN_vGetMsgObj:
-   06B5 AA 82              1842 	mov	r2,dpl
+   06B2                    1841 _CAN_vGetMsgObj:
+   06B2 AA 82              1842 	mov	r2,dpl
                     01EF   1843 	C$CAN.C$763$1$1 ==.
                            1844 ;	../CAN.C:763: CAN_pushAMRegs();    //   PUSH the CAN Access Mediator Register
-   06B7                    1845 00101$:
-   06B7 E5 D8              1846 	mov	a,_CAN_ADCON
-   06B9 20 E1 FB           1847 	jb	acc.1,00101$
-   06BC C0 D9 C0 DA C0 DB  1848 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   06B4                    1845 00101$:
+   06B4 E5 D8              1846 	mov	a,_CAN_ADCON
+   06B6 20 E1 FB           1847 	jb	acc.1,00101$
+   06B9 C0 D9 C0 DA C0 DB  1848 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     0200   1849 	C$CAN.C$767$1$1 ==.
                            1850 ;	../CAN.C:767: CAN_vWriteCANAddress(CAN_MOFCR(ubObjNr));
-   06C8 EA                 1851 	mov	a,r2
-   06C9 C4                 1852 	swap	a
-   06CA 03                 1853 	rr	a
-   06CB 54 F8              1854 	anl	a,#0xf8
-   06CD F5 32              1855 	mov	_CAN_vGetMsgObj_sloc1_1_0,a
-   06CF 85 32 D9           1856 	mov	_CAN_ADL,_CAN_vGetMsgObj_sloc1_1_0
-   06D2 EA                 1857 	mov	a,r2
-   06D3 75 F0 08           1858 	mov	b,#0x08
-   06D6 A4                 1859 	mul	ab
-   06D7 FA                 1860 	mov	r2,a
-   06D8 AC F0              1861 	mov	r4,b
-   06DA 8A 05              1862 	mov	ar5,r2
-   06DC 74 04              1863 	mov	a,#0x04
-   06DE 2C                 1864 	add	a,r4
-   06DF FE                 1865 	mov	r6,a
-   06E0 7D 00              1866 	mov	r5,#0x00
-   06E2 8E DA              1867 	mov	_CAN_ADH,r6
+   06C5 EA                 1851 	mov	a,r2
+   06C6 C4                 1852 	swap	a
+   06C7 03                 1853 	rr	a
+   06C8 54 F8              1854 	anl	a,#0xf8
+   06CA F5 32              1855 	mov	_CAN_vGetMsgObj_sloc1_1_0,a
+   06CC 85 32 D9           1856 	mov	_CAN_ADL,_CAN_vGetMsgObj_sloc1_1_0
+   06CF EA                 1857 	mov	a,r2
+   06D0 75 F0 08           1858 	mov	b,#0x08
+   06D3 A4                 1859 	mul	ab
+   06D4 FA                 1860 	mov	r2,a
+   06D5 AC F0              1861 	mov	r4,b
+   06D7 8A 05              1862 	mov	ar5,r2
+   06D9 74 04              1863 	mov	a,#0x04
+   06DB 2C                 1864 	add	a,r4
+   06DC FE                 1865 	mov	r6,a
+   06DD 7D 00              1866 	mov	r5,#0x00
+   06DF 8E DA              1867 	mov	_CAN_ADH,r6
                     021C   1868 	C$CAN.C$768$1$1 ==.
                            1869 ;	../CAN.C:768: CAN_vReadEN();   // Readmode is Enabled
-   06E4 75 D8 00           1870 	mov	_CAN_ADCON,#0x00
-   06E7                    1871 00104$:
-   06E7 E5 D8              1872 	mov	a,_CAN_ADCON
-   06E9 20 E1 FB           1873 	jb	acc.1,00104$
+   06E1 75 D8 00           1870 	mov	_CAN_ADCON,#0x00
+   06E4                    1871 00104$:
+   06E4 E5 D8              1872 	mov	a,_CAN_ADCON
+   06E6 20 E1 FB           1873 	jb	acc.1,00104$
                     0224   1874 	C$CAN.C$770$1$1 ==.
                            1875 ;	../CAN.C:770: pstObj->ubMOdlc  =  CAN_DATA3;//MOFCRn[31-24] DLC
-   06EC AD 2B              1876 	mov	r5,_CAN_vGetMsgObj_PARM_2
-   06EE AE 2C              1877 	mov	r6,(_CAN_vGetMsgObj_PARM_2 + 1)
-   06F0 AF 2D              1878 	mov	r7,(_CAN_vGetMsgObj_PARM_2 + 2)
-   06F2 8D 82              1879 	mov	dpl,r5
-   06F4 8E 83              1880 	mov	dph,r6
-   06F6 8F F0              1881 	mov	b,r7
-   06F8 E5 DE              1882 	mov	a,_CAN_DATA3
-   06FA 12 1B E3           1883 	lcall	__gptrput
+   06E9 AD 2B              1876 	mov	r5,_CAN_vGetMsgObj_PARM_2
+   06EB AE 2C              1877 	mov	r6,(_CAN_vGetMsgObj_PARM_2 + 1)
+   06ED AF 2D              1878 	mov	r7,(_CAN_vGetMsgObj_PARM_2 + 2)
+   06EF 8D 82              1879 	mov	dpl,r5
+   06F1 8E 83              1880 	mov	dph,r6
+   06F3 8F F0              1881 	mov	b,r7
+   06F5 E5 DE              1882 	mov	a,_CAN_DATA3
+   06F7 12 1B DB           1883 	lcall	__gptrput
                     0235   1884 	C$CAN.C$773$1$1 ==.
                            1885 ;	../CAN.C:773: CAN_vWriteCANAddress(CAN_MODATAL(ubObjNr));
-   06FD 74 04              1886 	mov	a,#0x04
-   06FF 25 32              1887 	add	a,_CAN_vGetMsgObj_sloc1_1_0
-   0701 F5 D9              1888 	mov	_CAN_ADL,a
-   0703 74 04              1889 	mov	a,#0x04
-   0705 2A                 1890 	add	a,r2
-   0706 74 04              1891 	mov	a,#0x04
-   0708 3C                 1892 	addc	a,r4
-   0709 F9                 1893 	mov	r1,a
-   070A 78 00              1894 	mov	r0,#0x00
-   070C 89 DA              1895 	mov	_CAN_ADH,r1
+   06FA 74 04              1886 	mov	a,#0x04
+   06FC 25 32              1887 	add	a,_CAN_vGetMsgObj_sloc1_1_0
+   06FE F5 D9              1888 	mov	_CAN_ADL,a
+   0700 74 04              1889 	mov	a,#0x04
+   0702 2A                 1890 	add	a,r2
+   0703 74 04              1891 	mov	a,#0x04
+   0705 3C                 1892 	addc	a,r4
+   0706 F9                 1893 	mov	r1,a
+   0707 78 00              1894 	mov	r0,#0x00
+   0709 89 DA              1895 	mov	_CAN_ADH,r1
                     0246   1896 	C$CAN.C$775$1$1 ==.
                            1897 ;	../CAN.C:775: CAN_vReadEN();  // Readmode is Enabled
-   070E 75 D8 00           1898 	mov	_CAN_ADCON,#0x00
-   0711                    1899 00107$:
-   0711 E5 D8              1900 	mov	a,_CAN_ADCON
-   0713 20 E1 FB           1901 	jb	acc.1,00107$
+   070B 75 D8 00           1898 	mov	_CAN_ADCON,#0x00
+   070E                    1899 00107$:
+   070E E5 D8              1900 	mov	a,_CAN_ADCON
+   0710 20 E1 FB           1901 	jb	acc.1,00107$
                     024E   1902 	C$CAN.C$776$1$1 ==.
                            1903 ;	../CAN.C:776: pstObj->ulDATAL.ubDB[0] = CAN_DATA0; // Read CAN Data Register 0
-   0716 74 0A              1904 	mov	a,#0x0A
-   0718 2D                 1905 	add	a,r5
-   0719 F8                 1906 	mov	r0,a
-   071A E4                 1907 	clr	a
-   071B 3E                 1908 	addc	a,r6
-   071C F9                 1909 	mov	r1,a
-   071D 8F 03              1910 	mov	ar3,r7
-   071F 88 82              1911 	mov	dpl,r0
-   0721 89 83              1912 	mov	dph,r1
-   0723 8B F0              1913 	mov	b,r3
-   0725 E5 DB              1914 	mov	a,_CAN_DATA0
-   0727 12 1B E3           1915 	lcall	__gptrput
+   0713 74 0A              1904 	mov	a,#0x0A
+   0715 2D                 1905 	add	a,r5
+   0716 F8                 1906 	mov	r0,a
+   0717 E4                 1907 	clr	a
+   0718 3E                 1908 	addc	a,r6
+   0719 F9                 1909 	mov	r1,a
+   071A 8F 03              1910 	mov	ar3,r7
+   071C 88 82              1911 	mov	dpl,r0
+   071E 89 83              1912 	mov	dph,r1
+   0720 8B F0              1913 	mov	b,r3
+   0722 E5 DB              1914 	mov	a,_CAN_DATA0
+   0724 12 1B DB           1915 	lcall	__gptrput
                     0262   1916 	C$CAN.C$777$1$1 ==.
                            1917 ;	../CAN.C:777: pstObj->ulDATAL.ubDB[1] = CAN_DATA1; // Read CAN Data Register 1
-   072A 74 0A              1918 	mov	a,#0x0A
-   072C 2D                 1919 	add	a,r5
-   072D F5 2F              1920 	mov	_CAN_vGetMsgObj_sloc0_1_0,a
-   072F E4                 1921 	clr	a
-   0730 3E                 1922 	addc	a,r6
-   0731 F5 30              1923 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 1),a
-   0733 8F 31              1924 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 2),r7
-   0735 74 01              1925 	mov	a,#0x01
-   0737 25 2F              1926 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   0739 FB                 1927 	mov	r3,a
-   073A E4                 1928 	clr	a
-   073B 35 30              1929 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   073D F8                 1930 	mov	r0,a
-   073E A9 31              1931 	mov	r1,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   0740 8B 82              1932 	mov	dpl,r3
-   0742 88 83              1933 	mov	dph,r0
-   0744 89 F0              1934 	mov	b,r1
-   0746 E5 DC              1935 	mov	a,_CAN_DATA1
-   0748 12 1B E3           1936 	lcall	__gptrput
+   0727 74 0A              1918 	mov	a,#0x0A
+   0729 2D                 1919 	add	a,r5
+   072A F5 2F              1920 	mov	_CAN_vGetMsgObj_sloc0_1_0,a
+   072C E4                 1921 	clr	a
+   072D 3E                 1922 	addc	a,r6
+   072E F5 30              1923 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 1),a
+   0730 8F 31              1924 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 2),r7
+   0732 74 01              1925 	mov	a,#0x01
+   0734 25 2F              1926 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   0736 FB                 1927 	mov	r3,a
+   0737 E4                 1928 	clr	a
+   0738 35 30              1929 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   073A F8                 1930 	mov	r0,a
+   073B A9 31              1931 	mov	r1,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   073D 8B 82              1932 	mov	dpl,r3
+   073F 88 83              1933 	mov	dph,r0
+   0741 89 F0              1934 	mov	b,r1
+   0743 E5 DC              1935 	mov	a,_CAN_DATA1
+   0745 12 1B DB           1936 	lcall	__gptrput
                     0283   1937 	C$CAN.C$778$1$1 ==.
                            1938 ;	../CAN.C:778: pstObj->ulDATAL.ubDB[2] = CAN_DATA2; // Read CAN Data Register 2
-   074B 74 02              1939 	mov	a,#0x02
-   074D 25 2F              1940 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   074F FB                 1941 	mov	r3,a
-   0750 E4                 1942 	clr	a
-   0751 35 30              1943 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   0753 F8                 1944 	mov	r0,a
-   0754 A9 31              1945 	mov	r1,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   0756 8B 82              1946 	mov	dpl,r3
-   0758 88 83              1947 	mov	dph,r0
-   075A 89 F0              1948 	mov	b,r1
-   075C E5 DD              1949 	mov	a,_CAN_DATA2
-   075E 12 1B E3           1950 	lcall	__gptrput
+   0748 74 02              1939 	mov	a,#0x02
+   074A 25 2F              1940 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   074C FB                 1941 	mov	r3,a
+   074D E4                 1942 	clr	a
+   074E 35 30              1943 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   0750 F8                 1944 	mov	r0,a
+   0751 A9 31              1945 	mov	r1,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   0753 8B 82              1946 	mov	dpl,r3
+   0755 88 83              1947 	mov	dph,r0
+   0757 89 F0              1948 	mov	b,r1
+   0759 E5 DD              1949 	mov	a,_CAN_DATA2
+   075B 12 1B DB           1950 	lcall	__gptrput
                     0299   1951 	C$CAN.C$779$1$1 ==.
                            1952 ;	../CAN.C:779: pstObj->ulDATAL.ubDB[3] = CAN_DATA3; // Read CAN Data Register 3
-   0761 74 03              1953 	mov	a,#0x03
-   0763 25 2F              1954 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   0765 FB                 1955 	mov	r3,a
-   0766 E4                 1956 	clr	a
-   0767 35 30              1957 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   0769 F8                 1958 	mov	r0,a
-   076A A9 31              1959 	mov	r1,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   076C 8B 82              1960 	mov	dpl,r3
-   076E 88 83              1961 	mov	dph,r0
-   0770 89 F0              1962 	mov	b,r1
-   0772 E5 DE              1963 	mov	a,_CAN_DATA3
-   0774 12 1B E3           1964 	lcall	__gptrput
+   075E 74 03              1953 	mov	a,#0x03
+   0760 25 2F              1954 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   0762 FB                 1955 	mov	r3,a
+   0763 E4                 1956 	clr	a
+   0764 35 30              1957 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   0766 F8                 1958 	mov	r0,a
+   0767 A9 31              1959 	mov	r1,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   0769 8B 82              1960 	mov	dpl,r3
+   076B 88 83              1961 	mov	dph,r0
+   076D 89 F0              1962 	mov	b,r1
+   076F E5 DE              1963 	mov	a,_CAN_DATA3
+   0771 12 1B DB           1964 	lcall	__gptrput
                     02AF   1965 	C$CAN.C$782$1$1 ==.
                            1966 ;	../CAN.C:782: CAN_ADCON = ADR_INC;
-   0777 75 D8 04           1967 	mov	_CAN_ADCON,#0x04
+   0774 75 D8 04           1967 	mov	_CAN_ADCON,#0x04
                     02B2   1968 	C$CAN.C$786$1$1 ==.
                            1969 ;	../CAN.C:786: CAN_vReadEN();  // Readmode is Enabled
-   077A 75 D8 00           1970 	mov	_CAN_ADCON,#0x00
+   0777 75 D8 00           1970 	mov	_CAN_ADCON,#0x00
                     02B5   1971 	C$CAN.C$880$1$1 ==.
                            1972 ;	../CAN.C:880: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
                     02B5   1973 	C$CAN.C$786$1$1 ==.
                            1974 ;	../CAN.C:786: CAN_vReadEN();  // Readmode is Enabled
-   077D                    1975 00110$:
-   077D E5 D8              1976 	mov	a,_CAN_ADCON
-   077F 20 E1 FB           1977 	jb	acc.1,00110$
+   077A                    1975 00110$:
+   077A E5 D8              1976 	mov	a,_CAN_ADCON
+   077C 20 E1 FB           1977 	jb	acc.1,00110$
                     02BA   1978 	C$CAN.C$787$1$1 ==.
                            1979 ;	../CAN.C:787: pstObj->ulDATAH.ubDB[0] = CAN_DATA0; // Read CAN Data Register 0
-   0782 74 0E              1980 	mov	a,#0x0E
-   0784 2D                 1981 	add	a,r5
-   0785 F8                 1982 	mov	r0,a
-   0786 E4                 1983 	clr	a
-   0787 3E                 1984 	addc	a,r6
-   0788 F9                 1985 	mov	r1,a
-   0789 8F 03              1986 	mov	ar3,r7
-   078B 88 82              1987 	mov	dpl,r0
-   078D 89 83              1988 	mov	dph,r1
-   078F 8B F0              1989 	mov	b,r3
-   0791 E5 DB              1990 	mov	a,_CAN_DATA0
-   0793 12 1B E3           1991 	lcall	__gptrput
+   077F 74 0E              1980 	mov	a,#0x0E
+   0781 2D                 1981 	add	a,r5
+   0782 F8                 1982 	mov	r0,a
+   0783 E4                 1983 	clr	a
+   0784 3E                 1984 	addc	a,r6
+   0785 F9                 1985 	mov	r1,a
+   0786 8F 03              1986 	mov	ar3,r7
+   0788 88 82              1987 	mov	dpl,r0
+   078A 89 83              1988 	mov	dph,r1
+   078C 8B F0              1989 	mov	b,r3
+   078E E5 DB              1990 	mov	a,_CAN_DATA0
+   0790 12 1B DB           1991 	lcall	__gptrput
                     02CE   1992 	C$CAN.C$788$1$1 ==.
                            1993 ;	../CAN.C:788: pstObj->ulDATAH.ubDB[1] = CAN_DATA1; // Read CAN Data Register 1
-   0796 74 0E              1994 	mov	a,#0x0E
-   0798 2D                 1995 	add	a,r5
-   0799 FB                 1996 	mov	r3,a
-   079A E4                 1997 	clr	a
-   079B 3E                 1998 	addc	a,r6
-   079C F8                 1999 	mov	r0,a
-   079D 8F 01              2000 	mov	ar1,r7
-   079F C0 05              2001 	push	ar5
-   07A1 C0 06              2002 	push	ar6
-   07A3 C0 07              2003 	push	ar7
-   07A5 74 01              2004 	mov	a,#0x01
-   07A7 2B                 2005 	add	a,r3
-   07A8 FD                 2006 	mov	r5,a
-   07A9 E4                 2007 	clr	a
-   07AA 38                 2008 	addc	a,r0
-   07AB FE                 2009 	mov	r6,a
-   07AC 89 07              2010 	mov	ar7,r1
-   07AE 8D 82              2011 	mov	dpl,r5
-   07B0 8E 83              2012 	mov	dph,r6
-   07B2 8F F0              2013 	mov	b,r7
-   07B4 E5 DC              2014 	mov	a,_CAN_DATA1
-   07B6 12 1B E3           2015 	lcall	__gptrput
+   0793 74 0E              1994 	mov	a,#0x0E
+   0795 2D                 1995 	add	a,r5
+   0796 FB                 1996 	mov	r3,a
+   0797 E4                 1997 	clr	a
+   0798 3E                 1998 	addc	a,r6
+   0799 F8                 1999 	mov	r0,a
+   079A 8F 01              2000 	mov	ar1,r7
+   079C C0 05              2001 	push	ar5
+   079E C0 06              2002 	push	ar6
+   07A0 C0 07              2003 	push	ar7
+   07A2 74 01              2004 	mov	a,#0x01
+   07A4 2B                 2005 	add	a,r3
+   07A5 FD                 2006 	mov	r5,a
+   07A6 E4                 2007 	clr	a
+   07A7 38                 2008 	addc	a,r0
+   07A8 FE                 2009 	mov	r6,a
+   07A9 89 07              2010 	mov	ar7,r1
+   07AB 8D 82              2011 	mov	dpl,r5
+   07AD 8E 83              2012 	mov	dph,r6
+   07AF 8F F0              2013 	mov	b,r7
+   07B1 E5 DC              2014 	mov	a,_CAN_DATA1
+   07B3 12 1B DB           2015 	lcall	__gptrput
                     02F1   2016 	C$CAN.C$789$1$1 ==.
                            2017 ;	../CAN.C:789: pstObj->ulDATAH.ubDB[2] = CAN_DATA2; // Read CAN Data Register 2
-   07B9 74 02              2018 	mov	a,#0x02
-   07BB 2B                 2019 	add	a,r3
-   07BC FD                 2020 	mov	r5,a
-   07BD E4                 2021 	clr	a
-   07BE 38                 2022 	addc	a,r0
-   07BF FE                 2023 	mov	r6,a
-   07C0 89 07              2024 	mov	ar7,r1
-   07C2 8D 82              2025 	mov	dpl,r5
-   07C4 8E 83              2026 	mov	dph,r6
-   07C6 8F F0              2027 	mov	b,r7
-   07C8 E5 DD              2028 	mov	a,_CAN_DATA2
-   07CA 12 1B E3           2029 	lcall	__gptrput
+   07B6 74 02              2018 	mov	a,#0x02
+   07B8 2B                 2019 	add	a,r3
+   07B9 FD                 2020 	mov	r5,a
+   07BA E4                 2021 	clr	a
+   07BB 38                 2022 	addc	a,r0
+   07BC FE                 2023 	mov	r6,a
+   07BD 89 07              2024 	mov	ar7,r1
+   07BF 8D 82              2025 	mov	dpl,r5
+   07C1 8E 83              2026 	mov	dph,r6
+   07C3 8F F0              2027 	mov	b,r7
+   07C5 E5 DD              2028 	mov	a,_CAN_DATA2
+   07C7 12 1B DB           2029 	lcall	__gptrput
                     0305   2030 	C$CAN.C$790$1$1 ==.
                            2031 ;	../CAN.C:790: pstObj->ulDATAH.ubDB[3] = CAN_DATA3; // Read CAN Data Register 3
-   07CD 74 03              2032 	mov	a,#0x03
-   07CF 2B                 2033 	add	a,r3
-   07D0 FB                 2034 	mov	r3,a
-   07D1 E4                 2035 	clr	a
-   07D2 38                 2036 	addc	a,r0
-   07D3 F8                 2037 	mov	r0,a
-   07D4 8B 82              2038 	mov	dpl,r3
-   07D6 88 83              2039 	mov	dph,r0
-   07D8 89 F0              2040 	mov	b,r1
-   07DA E5 DE              2041 	mov	a,_CAN_DATA3
-   07DC 12 1B E3           2042 	lcall	__gptrput
+   07CA 74 03              2032 	mov	a,#0x03
+   07CC 2B                 2033 	add	a,r3
+   07CD FB                 2034 	mov	r3,a
+   07CE E4                 2035 	clr	a
+   07CF 38                 2036 	addc	a,r0
+   07D0 F8                 2037 	mov	r0,a
+   07D1 8B 82              2038 	mov	dpl,r3
+   07D3 88 83              2039 	mov	dph,r0
+   07D5 89 F0              2040 	mov	b,r1
+   07D7 E5 DE              2041 	mov	a,_CAN_DATA3
+   07D9 12 1B DB           2042 	lcall	__gptrput
                     0317   2043 	C$CAN.C$793$1$1 ==.
                            2044 ;	../CAN.C:793: CAN_vWriteCANAddress(CAN_MOCTR(ubObjNr));
-   07DF 74 07              2045 	mov	a,#0x07
-   07E1 25 32              2046 	add	a,_CAN_vGetMsgObj_sloc1_1_0
-   07E3 F5 D9              2047 	mov	_CAN_ADL,a
-   07E5 74 07              2048 	mov	a,#0x07
-   07E7 2A                 2049 	add	a,r2
-   07E8 74 04              2050 	mov	a,#0x04
-   07EA 3C                 2051 	addc	a,r4
-   07EB FD                 2052 	mov	r5,a
-   07EC 7B 00              2053 	mov	r3,#0x00
-   07EE 8D DA              2054 	mov	_CAN_ADH,r5
+   07DC 74 07              2045 	mov	a,#0x07
+   07DE 25 32              2046 	add	a,_CAN_vGetMsgObj_sloc1_1_0
+   07E0 F5 D9              2047 	mov	_CAN_ADL,a
+   07E2 74 07              2048 	mov	a,#0x07
+   07E4 2A                 2049 	add	a,r2
+   07E5 74 04              2050 	mov	a,#0x04
+   07E7 3C                 2051 	addc	a,r4
+   07E8 FD                 2052 	mov	r5,a
+   07E9 7B 00              2053 	mov	r3,#0x00
+   07EB 8D DA              2054 	mov	_CAN_ADH,r5
                     0328   2055 	C$CAN.C$794$1$1 ==.
                            2056 ;	../CAN.C:794: CAN_vReadEN();   // Readmode is Enabled
-   07F0 75 D8 00           2057 	mov	_CAN_ADCON,#0x00
+   07ED 75 D8 00           2057 	mov	_CAN_ADCON,#0x00
                     032B   2058 	C$CAN.C$880$1$1 ==.
                            2059 ;	../CAN.C:880: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   07F3 D0 07              2060 	pop	ar7
-   07F5 D0 06              2061 	pop	ar6
-   07F7 D0 05              2062 	pop	ar5
+   07F0 D0 07              2060 	pop	ar7
+   07F2 D0 06              2061 	pop	ar6
+   07F4 D0 05              2062 	pop	ar5
                     0331   2063 	C$CAN.C$794$1$1 ==.
                            2064 ;	../CAN.C:794: CAN_vReadEN();   // Readmode is Enabled
-   07F9                    2065 00113$:
-   07F9 E5 D8              2066 	mov	a,_CAN_ADCON
-   07FB 20 E1 FB           2067 	jb	acc.1,00113$
+   07F6                    2065 00113$:
+   07F6 E5 D8              2066 	mov	a,_CAN_ADCON
+   07F8 20 E1 FB           2067 	jb	acc.1,00113$
                     0336   2068 	C$CAN.C$796$1$1 ==.
                            2069 ;	../CAN.C:796: if(CAN_DATA1 & 0x08)   // if transmit object (MOSTAT_DIR)
-   07FE E5 DC              2070 	mov	a,_CAN_DATA1
-   0800 30 E3 28           2071 	jnb	acc.3,00117$
+   07FB E5 DC              2070 	mov	a,_CAN_DATA1
+   07FD 30 E3 28           2071 	jnb	acc.3,00117$
                     033B   2072 	C$CAN.C$798$1$1 ==.
                            2073 ;	../CAN.C:798: pstObj->ubMOcfg  = (pstObj->ubMOcfg | 0x08);  // set DIR
-   0803 C0 02              2074 	push	ar2
-   0805 C0 04              2075 	push	ar4
-   0807 74 01              2076 	mov	a,#0x01
-   0809 2D                 2077 	add	a,r5
-   080A FB                 2078 	mov	r3,a
-   080B E4                 2079 	clr	a
-   080C 3E                 2080 	addc	a,r6
-   080D F8                 2081 	mov	r0,a
-   080E 8F 01              2082 	mov	ar1,r7
-   0810 8B 82              2083 	mov	dpl,r3
-   0812 88 83              2084 	mov	dph,r0
-   0814 89 F0              2085 	mov	b,r1
-   0816 12 1D 2A           2086 	lcall	__gptrget
-   0819 FA                 2087 	mov	r2,a
-   081A 43 02 08           2088 	orl	ar2,#0x08
-   081D 8B 82              2089 	mov	dpl,r3
-   081F 88 83              2090 	mov	dph,r0
-   0821 89 F0              2091 	mov	b,r1
-   0823 EA                 2092 	mov	a,r2
-   0824 12 1B E3           2093 	lcall	__gptrput
+   0800 C0 02              2074 	push	ar2
+   0802 C0 04              2075 	push	ar4
+   0804 74 01              2076 	mov	a,#0x01
+   0806 2D                 2077 	add	a,r5
+   0807 FB                 2078 	mov	r3,a
+   0808 E4                 2079 	clr	a
+   0809 3E                 2080 	addc	a,r6
+   080A F8                 2081 	mov	r0,a
+   080B 8F 01              2082 	mov	ar1,r7
+   080D 8B 82              2083 	mov	dpl,r3
+   080F 88 83              2084 	mov	dph,r0
+   0811 89 F0              2085 	mov	b,r1
+   0813 12 1D 22           2086 	lcall	__gptrget
+   0816 FA                 2087 	mov	r2,a
+   0817 43 02 08           2088 	orl	ar2,#0x08
+   081A 8B 82              2089 	mov	dpl,r3
+   081C 88 83              2090 	mov	dph,r0
+   081E 89 F0              2091 	mov	b,r1
+   0820 EA                 2092 	mov	a,r2
+   0821 12 1B DB           2093 	lcall	__gptrput
                     035F   2094 	C$CAN.C$880$1$1 ==.
                            2095 ;	../CAN.C:880: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0827 D0 04              2096 	pop	ar4
-   0829 D0 02              2097 	pop	ar2
+   0824 D0 04              2096 	pop	ar4
+   0826 D0 02              2097 	pop	ar2
                     0363   2098 	C$CAN.C$798$1$1 ==.
                            2099 ;	../CAN.C:798: pstObj->ubMOcfg  = (pstObj->ubMOcfg | 0x08);  // set DIR
-   082B                    2100 00117$:
+   0828                    2100 00117$:
                     0363   2101 	C$CAN.C$804$1$1 ==.
                            2102 ;	../CAN.C:804: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   082B 75 D8 08           2103 	mov	_CAN_ADCON,#0x08
+   0828 75 D8 08           2103 	mov	_CAN_ADCON,#0x08
                     0366   2104 	C$CAN.C$805$1$1 ==.
                            2105 ;	../CAN.C:805: CAN_vReadEN();   // ReadMode is Enabled
-   082E 75 D8 00           2106 	mov	_CAN_ADCON,#0x00
-   0831                    2107 00118$:
-   0831 E5 D8              2108 	mov	a,_CAN_ADCON
-   0833 20 E1 FB           2109 	jb	acc.1,00118$
+   082B 75 D8 00           2106 	mov	_CAN_ADCON,#0x00
+   082E                    2107 00118$:
+   082E E5 D8              2108 	mov	a,_CAN_ADCON
+   0830 20 E1 FB           2109 	jb	acc.1,00118$
                     036E   2110 	C$CAN.C$807$1$1 ==.
                            2111 ;	../CAN.C:807: if(CAN_DATA3 & 0x20)   // if extended identifier
-   0836 E5 DE              2112 	mov	a,_CAN_DATA3
-   0838 20 E5 03           2113 	jb	acc.5,00162$
-   083B 02 09 49           2114 	ljmp	00128$
-   083E                    2115 00162$:
+   0833 E5 DE              2112 	mov	a,_CAN_DATA3
+   0835 20 E5 03           2113 	jb	acc.5,00162$
+   0838 02 09 46           2114 	ljmp	00128$
+   083B                    2115 00162$:
                     0376   2116 	C$CAN.C$811$1$1 ==.
                            2117 ;	../CAN.C:811: pstObj->ulID.ubDB[0] = CAN_DATA0;   // MOARn[7-0]
-   083E C0 02              2118 	push	ar2
-   0840 C0 04              2119 	push	ar4
-   0842 74 02              2120 	mov	a,#0x02
-   0844 2D                 2121 	add	a,r5
-   0845 FB                 2122 	mov	r3,a
-   0846 E4                 2123 	clr	a
-   0847 3E                 2124 	addc	a,r6
-   0848 F8                 2125 	mov	r0,a
-   0849 8F 01              2126 	mov	ar1,r7
-   084B 8B 82              2127 	mov	dpl,r3
-   084D 88 83              2128 	mov	dph,r0
-   084F 89 F0              2129 	mov	b,r1
-   0851 E5 DB              2130 	mov	a,_CAN_DATA0
-   0853 12 1B E3           2131 	lcall	__gptrput
+   083B C0 02              2118 	push	ar2
+   083D C0 04              2119 	push	ar4
+   083F 74 02              2120 	mov	a,#0x02
+   0841 2D                 2121 	add	a,r5
+   0842 FB                 2122 	mov	r3,a
+   0843 E4                 2123 	clr	a
+   0844 3E                 2124 	addc	a,r6
+   0845 F8                 2125 	mov	r0,a
+   0846 8F 01              2126 	mov	ar1,r7
+   0848 8B 82              2127 	mov	dpl,r3
+   084A 88 83              2128 	mov	dph,r0
+   084C 89 F0              2129 	mov	b,r1
+   084E E5 DB              2130 	mov	a,_CAN_DATA0
+   0850 12 1B DB           2131 	lcall	__gptrput
                     038E   2132 	C$CAN.C$812$2$3 ==.
                            2133 ;	../CAN.C:812: pstObj->ulID.ubDB[1] = CAN_DATA1;   // MOARn[15-8]
-   0856 74 02              2134 	mov	a,#0x02
-   0858 2D                 2135 	add	a,r5
-   0859 F5 2F              2136 	mov	_CAN_vGetMsgObj_sloc0_1_0,a
-   085B E4                 2137 	clr	a
-   085C 3E                 2138 	addc	a,r6
-   085D F5 30              2139 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 1),a
-   085F 8F 31              2140 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 2),r7
-   0861 74 01              2141 	mov	a,#0x01
-   0863 25 2F              2142 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   0865 FA                 2143 	mov	r2,a
-   0866 E4                 2144 	clr	a
-   0867 35 30              2145 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   0869 FC                 2146 	mov	r4,a
-   086A AB 31              2147 	mov	r3,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   086C 8A 82              2148 	mov	dpl,r2
-   086E 8C 83              2149 	mov	dph,r4
-   0870 8B F0              2150 	mov	b,r3
-   0872 E5 DC              2151 	mov	a,_CAN_DATA1
-   0874 12 1B E3           2152 	lcall	__gptrput
+   0853 74 02              2134 	mov	a,#0x02
+   0855 2D                 2135 	add	a,r5
+   0856 F5 2F              2136 	mov	_CAN_vGetMsgObj_sloc0_1_0,a
+   0858 E4                 2137 	clr	a
+   0859 3E                 2138 	addc	a,r6
+   085A F5 30              2139 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 1),a
+   085C 8F 31              2140 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 2),r7
+   085E 74 01              2141 	mov	a,#0x01
+   0860 25 2F              2142 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   0862 FA                 2143 	mov	r2,a
+   0863 E4                 2144 	clr	a
+   0864 35 30              2145 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   0866 FC                 2146 	mov	r4,a
+   0867 AB 31              2147 	mov	r3,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   0869 8A 82              2148 	mov	dpl,r2
+   086B 8C 83              2149 	mov	dph,r4
+   086D 8B F0              2150 	mov	b,r3
+   086F E5 DC              2151 	mov	a,_CAN_DATA1
+   0871 12 1B DB           2152 	lcall	__gptrput
                     03AF   2153 	C$CAN.C$813$2$3 ==.
                            2154 ;	../CAN.C:813: pstObj->ulID.ubDB[2] = CAN_DATA2;   // MOARn[23-16]
-   0877 74 02              2155 	mov	a,#0x02
-   0879 25 2F              2156 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   087B FA                 2157 	mov	r2,a
-   087C E4                 2158 	clr	a
-   087D 35 30              2159 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   087F FB                 2160 	mov	r3,a
-   0880 AC 31              2161 	mov	r4,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   0882 8A 82              2162 	mov	dpl,r2
-   0884 8B 83              2163 	mov	dph,r3
-   0886 8C F0              2164 	mov	b,r4
-   0888 E5 DD              2165 	mov	a,_CAN_DATA2
-   088A 12 1B E3           2166 	lcall	__gptrput
+   0874 74 02              2155 	mov	a,#0x02
+   0876 25 2F              2156 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   0878 FA                 2157 	mov	r2,a
+   0879 E4                 2158 	clr	a
+   087A 35 30              2159 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   087C FB                 2160 	mov	r3,a
+   087D AC 31              2161 	mov	r4,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   087F 8A 82              2162 	mov	dpl,r2
+   0881 8B 83              2163 	mov	dph,r3
+   0883 8C F0              2164 	mov	b,r4
+   0885 E5 DD              2165 	mov	a,_CAN_DATA2
+   0887 12 1B DB           2166 	lcall	__gptrput
                     03C5   2167 	C$CAN.C$814$2$3 ==.
                            2168 ;	../CAN.C:814: pstObj->ulID.ubDB[3] = (CAN_DATA3 & 0x1f);  // MOARn[31-24]
-   088D 74 03              2169 	mov	a,#0x03
-   088F 25 2F              2170 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   0891 FA                 2171 	mov	r2,a
-   0892 E4                 2172 	clr	a
-   0893 35 30              2173 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   0895 FB                 2174 	mov	r3,a
-   0896 AC 31              2175 	mov	r4,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   0898 74 1F              2176 	mov	a,#0x1F
-   089A 55 DE              2177 	anl	a,_CAN_DATA3
-   089C F8                 2178 	mov	r0,a
-   089D 8A 82              2179 	mov	dpl,r2
-   089F 8B 83              2180 	mov	dph,r3
-   08A1 8C F0              2181 	mov	b,r4
-   08A3 12 1B E3           2182 	lcall	__gptrput
+   088A 74 03              2169 	mov	a,#0x03
+   088C 25 2F              2170 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   088E FA                 2171 	mov	r2,a
+   088F E4                 2172 	clr	a
+   0890 35 30              2173 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   0892 FB                 2174 	mov	r3,a
+   0893 AC 31              2175 	mov	r4,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   0895 74 1F              2176 	mov	a,#0x1F
+   0897 55 DE              2177 	anl	a,_CAN_DATA3
+   0899 F8                 2178 	mov	r0,a
+   089A 8A 82              2179 	mov	dpl,r2
+   089C 8B 83              2180 	mov	dph,r3
+   089E 8C F0              2181 	mov	b,r4
+   08A0 12 1B DB           2182 	lcall	__gptrput
                     03DE   2183 	C$CAN.C$817$2$3 ==.
                            2184 ;	../CAN.C:817: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   08A6 75 D8 08           2185 	mov	_CAN_ADCON,#0x08
+   08A3 75 D8 08           2185 	mov	_CAN_ADCON,#0x08
                     03E1   2186 	C$CAN.C$820$2$3 ==.
                            2187 ;	../CAN.C:820: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   08A9 75 D8 08           2188 	mov	_CAN_ADCON,#0x08
+   08A6 75 D8 08           2188 	mov	_CAN_ADCON,#0x08
                     03E4   2189 	C$CAN.C$823$2$3 ==.
                            2190 ;	../CAN.C:823: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   08AC 75 D8 08           2191 	mov	_CAN_ADCON,#0x08
+   08A9 75 D8 08           2191 	mov	_CAN_ADCON,#0x08
                     03E7   2192 	C$CAN.C$825$2$3 ==.
                            2193 ;	../CAN.C:825: CAN_vReadEN();   // ReadMode is Enabled
-   08AF 75 D8 00           2194 	mov	_CAN_ADCON,#0x00
+   08AC 75 D8 00           2194 	mov	_CAN_ADCON,#0x00
                     03EA   2195 	C$CAN.C$880$1$1 ==.
                            2196 ;	../CAN.C:880: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   08B2 D0 04              2197 	pop	ar4
-   08B4 D0 02              2198 	pop	ar2
+   08AF D0 04              2197 	pop	ar4
+   08B1 D0 02              2198 	pop	ar2
                     03EE   2199 	C$CAN.C$825$2$3 ==.
                            2200 ;	../CAN.C:825: CAN_vReadEN();   // ReadMode is Enabled
-   08B6                    2201 00121$:
-   08B6 E5 D8              2202 	mov	a,_CAN_ADCON
-   08B8 20 E1 FB           2203 	jb	acc.1,00121$
+   08B3                    2201 00121$:
+   08B3 E5 D8              2202 	mov	a,_CAN_ADCON
+   08B5 20 E1 FB           2203 	jb	acc.1,00121$
                     03F3   2204 	C$CAN.C$828$1$1 ==.
                            2205 ;	../CAN.C:828: pstObj->ulMask.ubDB[0] = CAN_DATA0;   // MOAMRn[7-0]
-   08BB C0 02              2206 	push	ar2
-   08BD C0 04              2207 	push	ar4
-   08BF 74 06              2208 	mov	a,#0x06
-   08C1 2D                 2209 	add	a,r5
-   08C2 FB                 2210 	mov	r3,a
-   08C3 E4                 2211 	clr	a
-   08C4 3E                 2212 	addc	a,r6
-   08C5 F8                 2213 	mov	r0,a
-   08C6 8F 01              2214 	mov	ar1,r7
-   08C8 8B 82              2215 	mov	dpl,r3
-   08CA 88 83              2216 	mov	dph,r0
-   08CC 89 F0              2217 	mov	b,r1
-   08CE E5 DB              2218 	mov	a,_CAN_DATA0
-   08D0 12 1B E3           2219 	lcall	__gptrput
+   08B8 C0 02              2206 	push	ar2
+   08BA C0 04              2207 	push	ar4
+   08BC 74 06              2208 	mov	a,#0x06
+   08BE 2D                 2209 	add	a,r5
+   08BF FB                 2210 	mov	r3,a
+   08C0 E4                 2211 	clr	a
+   08C1 3E                 2212 	addc	a,r6
+   08C2 F8                 2213 	mov	r0,a
+   08C3 8F 01              2214 	mov	ar1,r7
+   08C5 8B 82              2215 	mov	dpl,r3
+   08C7 88 83              2216 	mov	dph,r0
+   08C9 89 F0              2217 	mov	b,r1
+   08CB E5 DB              2218 	mov	a,_CAN_DATA0
+   08CD 12 1B DB           2219 	lcall	__gptrput
                     040B   2220 	C$CAN.C$829$2$3 ==.
                            2221 ;	../CAN.C:829: pstObj->ulMask.ubDB[1] = CAN_DATA1;   // MOAMRn[15-8]
-   08D3 74 06              2222 	mov	a,#0x06
-   08D5 2D                 2223 	add	a,r5
-   08D6 F5 2F              2224 	mov	_CAN_vGetMsgObj_sloc0_1_0,a
-   08D8 E4                 2225 	clr	a
-   08D9 3E                 2226 	addc	a,r6
-   08DA F5 30              2227 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 1),a
-   08DC 8F 31              2228 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 2),r7
-   08DE 74 01              2229 	mov	a,#0x01
-   08E0 25 2F              2230 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   08E2 FA                 2231 	mov	r2,a
-   08E3 E4                 2232 	clr	a
-   08E4 35 30              2233 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   08E6 FC                 2234 	mov	r4,a
-   08E7 AB 31              2235 	mov	r3,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   08E9 8A 82              2236 	mov	dpl,r2
-   08EB 8C 83              2237 	mov	dph,r4
-   08ED 8B F0              2238 	mov	b,r3
-   08EF E5 DC              2239 	mov	a,_CAN_DATA1
-   08F1 12 1B E3           2240 	lcall	__gptrput
+   08D0 74 06              2222 	mov	a,#0x06
+   08D2 2D                 2223 	add	a,r5
+   08D3 F5 2F              2224 	mov	_CAN_vGetMsgObj_sloc0_1_0,a
+   08D5 E4                 2225 	clr	a
+   08D6 3E                 2226 	addc	a,r6
+   08D7 F5 30              2227 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 1),a
+   08D9 8F 31              2228 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 2),r7
+   08DB 74 01              2229 	mov	a,#0x01
+   08DD 25 2F              2230 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   08DF FA                 2231 	mov	r2,a
+   08E0 E4                 2232 	clr	a
+   08E1 35 30              2233 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   08E3 FC                 2234 	mov	r4,a
+   08E4 AB 31              2235 	mov	r3,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   08E6 8A 82              2236 	mov	dpl,r2
+   08E8 8C 83              2237 	mov	dph,r4
+   08EA 8B F0              2238 	mov	b,r3
+   08EC E5 DC              2239 	mov	a,_CAN_DATA1
+   08EE 12 1B DB           2240 	lcall	__gptrput
                     042C   2241 	C$CAN.C$830$2$3 ==.
                            2242 ;	../CAN.C:830: pstObj->ulMask.ubDB[2] = CAN_DATA2;   // MOAMRn[23-16]
-   08F4 74 02              2243 	mov	a,#0x02
-   08F6 25 2F              2244 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   08F8 FA                 2245 	mov	r2,a
-   08F9 E4                 2246 	clr	a
-   08FA 35 30              2247 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   08FC FB                 2248 	mov	r3,a
-   08FD AC 31              2249 	mov	r4,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   08FF 8A 82              2250 	mov	dpl,r2
-   0901 8B 83              2251 	mov	dph,r3
-   0903 8C F0              2252 	mov	b,r4
-   0905 E5 DD              2253 	mov	a,_CAN_DATA2
-   0907 12 1B E3           2254 	lcall	__gptrput
+   08F1 74 02              2243 	mov	a,#0x02
+   08F3 25 2F              2244 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   08F5 FA                 2245 	mov	r2,a
+   08F6 E4                 2246 	clr	a
+   08F7 35 30              2247 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   08F9 FB                 2248 	mov	r3,a
+   08FA AC 31              2249 	mov	r4,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   08FC 8A 82              2250 	mov	dpl,r2
+   08FE 8B 83              2251 	mov	dph,r3
+   0900 8C F0              2252 	mov	b,r4
+   0902 E5 DD              2253 	mov	a,_CAN_DATA2
+   0904 12 1B DB           2254 	lcall	__gptrput
                     0442   2255 	C$CAN.C$831$2$3 ==.
                            2256 ;	../CAN.C:831: pstObj->ulMask.ubDB[3] = (CAN_DATA3 & 0x1f);      // MOAMRn[31-24]
-   090A 74 03              2257 	mov	a,#0x03
-   090C 25 2F              2258 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   090E FA                 2259 	mov	r2,a
-   090F E4                 2260 	clr	a
-   0910 35 30              2261 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   0912 FB                 2262 	mov	r3,a
-   0913 AC 31              2263 	mov	r4,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   0915 74 1F              2264 	mov	a,#0x1F
-   0917 55 DE              2265 	anl	a,_CAN_DATA3
-   0919 8A 82              2266 	mov	dpl,r2
-   091B 8B 83              2267 	mov	dph,r3
-   091D 8C F0              2268 	mov	b,r4
-   091F 12 1B E3           2269 	lcall	__gptrput
+   0907 74 03              2257 	mov	a,#0x03
+   0909 25 2F              2258 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   090B FA                 2259 	mov	r2,a
+   090C E4                 2260 	clr	a
+   090D 35 30              2261 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   090F FB                 2262 	mov	r3,a
+   0910 AC 31              2263 	mov	r4,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   0912 74 1F              2264 	mov	a,#0x1F
+   0914 55 DE              2265 	anl	a,_CAN_DATA3
+   0916 8A 82              2266 	mov	dpl,r2
+   0918 8B 83              2267 	mov	dph,r3
+   091A 8C F0              2268 	mov	b,r4
+   091C 12 1B DB           2269 	lcall	__gptrput
                     045A   2270 	C$CAN.C$833$2$3 ==.
                            2271 ;	../CAN.C:833: pstObj->ubMOcfg  = (pstObj->ubMOcfg | 0x04);      // set IDE 29-bit
-   0922 74 01              2272 	mov	a,#0x01
-   0924 2D                 2273 	add	a,r5
-   0925 FA                 2274 	mov	r2,a
-   0926 E4                 2275 	clr	a
-   0927 3E                 2276 	addc	a,r6
-   0928 FB                 2277 	mov	r3,a
-   0929 8F 04              2278 	mov	ar4,r7
-   092B 8A 82              2279 	mov	dpl,r2
-   092D 8B 83              2280 	mov	dph,r3
-   092F 8C F0              2281 	mov	b,r4
-   0931 12 1D 2A           2282 	lcall	__gptrget
-   0934 F8                 2283 	mov	r0,a
-   0935 43 00 04           2284 	orl	ar0,#0x04
-   0938 8A 82              2285 	mov	dpl,r2
-   093A 8B 83              2286 	mov	dph,r3
-   093C 8C F0              2287 	mov	b,r4
-   093E E8                 2288 	mov	a,r0
-   093F 12 1B E3           2289 	lcall	__gptrput
-   0942 D0 04              2290 	pop	ar4
-   0944 D0 02              2291 	pop	ar2
-   0946 02 0A E4           2292 	ljmp	00129$
-   0949                    2293 00128$:
+   091F 74 01              2272 	mov	a,#0x01
+   0921 2D                 2273 	add	a,r5
+   0922 FA                 2274 	mov	r2,a
+   0923 E4                 2275 	clr	a
+   0924 3E                 2276 	addc	a,r6
+   0925 FB                 2277 	mov	r3,a
+   0926 8F 04              2278 	mov	ar4,r7
+   0928 8A 82              2279 	mov	dpl,r2
+   092A 8B 83              2280 	mov	dph,r3
+   092C 8C F0              2281 	mov	b,r4
+   092E 12 1D 22           2282 	lcall	__gptrget
+   0931 F8                 2283 	mov	r0,a
+   0932 43 00 04           2284 	orl	ar0,#0x04
+   0935 8A 82              2285 	mov	dpl,r2
+   0937 8B 83              2286 	mov	dph,r3
+   0939 8C F0              2287 	mov	b,r4
+   093B E8                 2288 	mov	a,r0
+   093C 12 1B DB           2289 	lcall	__gptrput
+   093F D0 04              2290 	pop	ar4
+   0941 D0 02              2291 	pop	ar2
+   0943 02 0A E1           2292 	ljmp	00129$
+   0946                    2293 00128$:
                     0481   2294 	C$CAN.C$838$1$1 ==.
                            2295 ;	../CAN.C:838: pstObj->ulID.ubDB[0] = (CAN_DATA2 & 0xFC) >> 2;   // MOARn[23-16]
-   0949 C0 02              2296 	push	ar2
-   094B C0 04              2297 	push	ar4
-   094D 74 02              2298 	mov	a,#0x02
-   094F 2D                 2299 	add	a,r5
-   0950 FB                 2300 	mov	r3,a
-   0951 E4                 2301 	clr	a
-   0952 3E                 2302 	addc	a,r6
-   0953 F8                 2303 	mov	r0,a
-   0954 8F 01              2304 	mov	ar1,r7
-   0956 74 FC              2305 	mov	a,#0xFC
-   0958 55 DD              2306 	anl	a,_CAN_DATA2
-   095A 03                 2307 	rr	a
-   095B 03                 2308 	rr	a
-   095C 54 3F              2309 	anl	a,#0x3f
-   095E 8B 82              2310 	mov	dpl,r3
-   0960 88 83              2311 	mov	dph,r0
-   0962 89 F0              2312 	mov	b,r1
-   0964 12 1B E3           2313 	lcall	__gptrput
+   0946 C0 02              2296 	push	ar2
+   0948 C0 04              2297 	push	ar4
+   094A 74 02              2298 	mov	a,#0x02
+   094C 2D                 2299 	add	a,r5
+   094D FB                 2300 	mov	r3,a
+   094E E4                 2301 	clr	a
+   094F 3E                 2302 	addc	a,r6
+   0950 F8                 2303 	mov	r0,a
+   0951 8F 01              2304 	mov	ar1,r7
+   0953 74 FC              2305 	mov	a,#0xFC
+   0955 55 DD              2306 	anl	a,_CAN_DATA2
+   0957 03                 2307 	rr	a
+   0958 03                 2308 	rr	a
+   0959 54 3F              2309 	anl	a,#0x3f
+   095B 8B 82              2310 	mov	dpl,r3
+   095D 88 83              2311 	mov	dph,r0
+   095F 89 F0              2312 	mov	b,r1
+   0961 12 1B DB           2313 	lcall	__gptrput
                     049F   2314 	C$CAN.C$839$2$4 ==.
                            2315 ;	../CAN.C:839: pstObj->ulID.ubDB[1] = (CAN_DATA3 & 0x1f);        // MOARn[31-24]
-   0967 74 02              2316 	mov	a,#0x02
-   0969 2D                 2317 	add	a,r5
-   096A F5 2F              2318 	mov	_CAN_vGetMsgObj_sloc0_1_0,a
-   096C E4                 2319 	clr	a
-   096D 3E                 2320 	addc	a,r6
-   096E F5 30              2321 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 1),a
-   0970 8F 31              2322 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 2),r7
-   0972 74 01              2323 	mov	a,#0x01
-   0974 25 2F              2324 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   0976 F5 33              2325 	mov	_CAN_vGetMsgObj_sloc2_1_0,a
-   0978 E4                 2326 	clr	a
-   0979 35 30              2327 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   097B F5 34              2328 	mov	(_CAN_vGetMsgObj_sloc2_1_0 + 1),a
-   097D 85 31 35           2329 	mov	(_CAN_vGetMsgObj_sloc2_1_0 + 2),(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   0980 74 1F              2330 	mov	a,#0x1F
-   0982 55 DE              2331 	anl	a,_CAN_DATA3
-   0984 85 33 82           2332 	mov	dpl,_CAN_vGetMsgObj_sloc2_1_0
-   0987 85 34 83           2333 	mov	dph,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
-   098A 85 35 F0           2334 	mov	b,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
-   098D 12 1B E3           2335 	lcall	__gptrput
+   0964 74 02              2316 	mov	a,#0x02
+   0966 2D                 2317 	add	a,r5
+   0967 F5 2F              2318 	mov	_CAN_vGetMsgObj_sloc0_1_0,a
+   0969 E4                 2319 	clr	a
+   096A 3E                 2320 	addc	a,r6
+   096B F5 30              2321 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 1),a
+   096D 8F 31              2322 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 2),r7
+   096F 74 01              2323 	mov	a,#0x01
+   0971 25 2F              2324 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   0973 F5 33              2325 	mov	_CAN_vGetMsgObj_sloc2_1_0,a
+   0975 E4                 2326 	clr	a
+   0976 35 30              2327 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   0978 F5 34              2328 	mov	(_CAN_vGetMsgObj_sloc2_1_0 + 1),a
+   097A 85 31 35           2329 	mov	(_CAN_vGetMsgObj_sloc2_1_0 + 2),(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   097D 74 1F              2330 	mov	a,#0x1F
+   097F 55 DE              2331 	anl	a,_CAN_DATA3
+   0981 85 33 82           2332 	mov	dpl,_CAN_vGetMsgObj_sloc2_1_0
+   0984 85 34 83           2333 	mov	dph,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
+   0987 85 35 F0           2334 	mov	b,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
+   098A 12 1B DB           2335 	lcall	__gptrput
                     04C8   2336 	C$CAN.C$840$2$4 ==.
                            2337 ;	../CAN.C:840: pstObj->ulID.ubDB[2] = 0x00;    // MOARn[15-8]
-   0990 74 02              2338 	mov	a,#0x02
-   0992 25 2F              2339 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   0994 FB                 2340 	mov	r3,a
-   0995 E4                 2341 	clr	a
-   0996 35 30              2342 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   0998 FC                 2343 	mov	r4,a
-   0999 AA 31              2344 	mov	r2,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   099B 8B 82              2345 	mov	dpl,r3
-   099D 8C 83              2346 	mov	dph,r4
-   099F 8A F0              2347 	mov	b,r2
-   09A1 E4                 2348 	clr	a
-   09A2 12 1B E3           2349 	lcall	__gptrput
+   098D 74 02              2338 	mov	a,#0x02
+   098F 25 2F              2339 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   0991 FB                 2340 	mov	r3,a
+   0992 E4                 2341 	clr	a
+   0993 35 30              2342 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   0995 FC                 2343 	mov	r4,a
+   0996 AA 31              2344 	mov	r2,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   0998 8B 82              2345 	mov	dpl,r3
+   099A 8C 83              2346 	mov	dph,r4
+   099C 8A F0              2347 	mov	b,r2
+   099E E4                 2348 	clr	a
+   099F 12 1B DB           2349 	lcall	__gptrput
                     04DD   2350 	C$CAN.C$841$2$4 ==.
                            2351 ;	../CAN.C:841: pstObj->ulID.ubDB[3] = 0x00;    // MOARn[15-8]
-   09A5 74 03              2352 	mov	a,#0x03
-   09A7 25 2F              2353 	add	a,_CAN_vGetMsgObj_sloc0_1_0
-   09A9 FA                 2354 	mov	r2,a
-   09AA E4                 2355 	clr	a
-   09AB 35 30              2356 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   09AD FB                 2357 	mov	r3,a
-   09AE AC 31              2358 	mov	r4,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   09B0 8A 82              2359 	mov	dpl,r2
-   09B2 8B 83              2360 	mov	dph,r3
-   09B4 8C F0              2361 	mov	b,r4
-   09B6 E4                 2362 	clr	a
-   09B7 12 1B E3           2363 	lcall	__gptrput
+   09A2 74 03              2352 	mov	a,#0x03
+   09A4 25 2F              2353 	add	a,_CAN_vGetMsgObj_sloc0_1_0
+   09A6 FA                 2354 	mov	r2,a
+   09A7 E4                 2355 	clr	a
+   09A8 35 30              2356 	addc	a,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   09AA FB                 2357 	mov	r3,a
+   09AB AC 31              2358 	mov	r4,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   09AD 8A 82              2359 	mov	dpl,r2
+   09AF 8B 83              2360 	mov	dph,r3
+   09B1 8C F0              2361 	mov	b,r4
+   09B3 E4                 2362 	clr	a
+   09B4 12 1B DB           2363 	lcall	__gptrput
                     04F2   2364 	C$CAN.C$844$2$4 ==.
                            2365 ;	../CAN.C:844: ubTemp = ((pstObj->ulID.ubDB[1]) & 0x03) << 6;
-   09BA 85 33 82           2366 	mov	dpl,_CAN_vGetMsgObj_sloc2_1_0
-   09BD 85 34 83           2367 	mov	dph,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
-   09C0 85 35 F0           2368 	mov	b,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
-   09C3 12 1D 2A           2369 	lcall	__gptrget
-   09C6 54 03              2370 	anl	a,#0x03
-   09C8 03                 2371 	rr	a
-   09C9 03                 2372 	rr	a
-   09CA 54 C0              2373 	anl	a,#0xc0
-   09CC F5 2E              2374 	mov	_CAN_vGetMsgObj_ubTemp_1_1,a
+   09B7 85 33 82           2366 	mov	dpl,_CAN_vGetMsgObj_sloc2_1_0
+   09BA 85 34 83           2367 	mov	dph,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
+   09BD 85 35 F0           2368 	mov	b,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
+   09C0 12 1D 22           2369 	lcall	__gptrget
+   09C3 54 03              2370 	anl	a,#0x03
+   09C5 03                 2371 	rr	a
+   09C6 03                 2372 	rr	a
+   09C7 54 C0              2373 	anl	a,#0xc0
+   09C9 F5 2E              2374 	mov	_CAN_vGetMsgObj_ubTemp_1_1,a
                     0506   2375 	C$CAN.C$845$2$4 ==.
                            2376 ;	../CAN.C:845: pstObj->ulID.ubDB[1] = (pstObj->ulID.ubDB[1] >> 2);
-   09CE 85 33 82           2377 	mov	dpl,_CAN_vGetMsgObj_sloc2_1_0
-   09D1 85 34 83           2378 	mov	dph,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
-   09D4 85 35 F0           2379 	mov	b,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
-   09D7 12 1D 2A           2380 	lcall	__gptrget
-   09DA 03                 2381 	rr	a
-   09DB 03                 2382 	rr	a
-   09DC 54 3F              2383 	anl	a,#0x3f
-   09DE 85 33 82           2384 	mov	dpl,_CAN_vGetMsgObj_sloc2_1_0
-   09E1 85 34 83           2385 	mov	dph,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
-   09E4 85 35 F0           2386 	mov	b,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
-   09E7 12 1B E3           2387 	lcall	__gptrput
+   09CB 85 33 82           2377 	mov	dpl,_CAN_vGetMsgObj_sloc2_1_0
+   09CE 85 34 83           2378 	mov	dph,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
+   09D1 85 35 F0           2379 	mov	b,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
+   09D4 12 1D 22           2380 	lcall	__gptrget
+   09D7 03                 2381 	rr	a
+   09D8 03                 2382 	rr	a
+   09D9 54 3F              2383 	anl	a,#0x3f
+   09DB 85 33 82           2384 	mov	dpl,_CAN_vGetMsgObj_sloc2_1_0
+   09DE 85 34 83           2385 	mov	dph,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
+   09E1 85 35 F0           2386 	mov	b,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
+   09E4 12 1B DB           2387 	lcall	__gptrput
                     0522   2388 	C$CAN.C$846$2$4 ==.
                            2389 ;	../CAN.C:846: pstObj->ulID.ubDB[0] = (pstObj->ulID.ubDB[0] + ubTemp);
-   09EA 74 02              2390 	mov	a,#0x02
-   09EC 2D                 2391 	add	a,r5
-   09ED FA                 2392 	mov	r2,a
-   09EE E4                 2393 	clr	a
-   09EF 3E                 2394 	addc	a,r6
-   09F0 FB                 2395 	mov	r3,a
-   09F1 8F 04              2396 	mov	ar4,r7
-   09F3 8A 82              2397 	mov	dpl,r2
-   09F5 8B 83              2398 	mov	dph,r3
-   09F7 8C F0              2399 	mov	b,r4
-   09F9 12 1D 2A           2400 	lcall	__gptrget
-   09FC F8                 2401 	mov	r0,a
-   09FD E5 2E              2402 	mov	a,_CAN_vGetMsgObj_ubTemp_1_1
-   09FF 28                 2403 	add	a,r0
-   0A00 F8                 2404 	mov	r0,a
-   0A01 8A 82              2405 	mov	dpl,r2
-   0A03 8B 83              2406 	mov	dph,r3
-   0A05 8C F0              2407 	mov	b,r4
-   0A07 12 1B E3           2408 	lcall	__gptrput
+   09E7 74 02              2390 	mov	a,#0x02
+   09E9 2D                 2391 	add	a,r5
+   09EA FA                 2392 	mov	r2,a
+   09EB E4                 2393 	clr	a
+   09EC 3E                 2394 	addc	a,r6
+   09ED FB                 2395 	mov	r3,a
+   09EE 8F 04              2396 	mov	ar4,r7
+   09F0 8A 82              2397 	mov	dpl,r2
+   09F2 8B 83              2398 	mov	dph,r3
+   09F4 8C F0              2399 	mov	b,r4
+   09F6 12 1D 22           2400 	lcall	__gptrget
+   09F9 F8                 2401 	mov	r0,a
+   09FA E5 2E              2402 	mov	a,_CAN_vGetMsgObj_ubTemp_1_1
+   09FC 28                 2403 	add	a,r0
+   09FD F8                 2404 	mov	r0,a
+   09FE 8A 82              2405 	mov	dpl,r2
+   0A00 8B 83              2406 	mov	dph,r3
+   0A02 8C F0              2407 	mov	b,r4
+   0A04 12 1B DB           2408 	lcall	__gptrput
                     0542   2409 	C$CAN.C$849$2$4 ==.
                            2410 ;	../CAN.C:849: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0A0A 75 D8 08           2411 	mov	_CAN_ADCON,#0x08
+   0A07 75 D8 08           2411 	mov	_CAN_ADCON,#0x08
                     0545   2412 	C$CAN.C$852$2$4 ==.
                            2413 ;	../CAN.C:852: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0A0D 75 D8 08           2414 	mov	_CAN_ADCON,#0x08
+   0A0A 75 D8 08           2414 	mov	_CAN_ADCON,#0x08
                     0548   2415 	C$CAN.C$855$2$4 ==.
                            2416 ;	../CAN.C:855: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0A10 75 D8 08           2417 	mov	_CAN_ADCON,#0x08
+   0A0D 75 D8 08           2417 	mov	_CAN_ADCON,#0x08
                     054B   2418 	C$CAN.C$857$2$4 ==.
                            2419 ;	../CAN.C:857: CAN_vReadEN();   // ReadMode is Enabled
-   0A13 75 D8 00           2420 	mov	_CAN_ADCON,#0x00
+   0A10 75 D8 00           2420 	mov	_CAN_ADCON,#0x00
                     054E   2421 	C$CAN.C$880$1$1 ==.
                            2422 ;	../CAN.C:880: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0A16 D0 04              2423 	pop	ar4
-   0A18 D0 02              2424 	pop	ar2
+   0A13 D0 04              2423 	pop	ar4
+   0A15 D0 02              2424 	pop	ar2
                     0552   2425 	C$CAN.C$857$2$4 ==.
                            2426 ;	../CAN.C:857: CAN_vReadEN();   // ReadMode is Enabled
-   0A1A                    2427 00124$:
-   0A1A E5 D8              2428 	mov	a,_CAN_ADCON
-   0A1C 20 E1 FB           2429 	jb	acc.1,00124$
+   0A17                    2427 00124$:
+   0A17 E5 D8              2428 	mov	a,_CAN_ADCON
+   0A19 20 E1 FB           2429 	jb	acc.1,00124$
                     0557   2430 	C$CAN.C$861$1$1 ==.
                            2431 ;	../CAN.C:861: pstObj->ulMask.ubDB[0] = (CAN_DATA2 & 0xFC) >> 2;   // MOARn[23-16]
-   0A1F C0 02              2432 	push	ar2
-   0A21 C0 04              2433 	push	ar4
-   0A23 74 06              2434 	mov	a,#0x06
-   0A25 2D                 2435 	add	a,r5
-   0A26 FB                 2436 	mov	r3,a
-   0A27 E4                 2437 	clr	a
-   0A28 3E                 2438 	addc	a,r6
-   0A29 F8                 2439 	mov	r0,a
-   0A2A 8F 01              2440 	mov	ar1,r7
-   0A2C 74 FC              2441 	mov	a,#0xFC
-   0A2E 55 DD              2442 	anl	a,_CAN_DATA2
-   0A30 03                 2443 	rr	a
-   0A31 03                 2444 	rr	a
-   0A32 54 3F              2445 	anl	a,#0x3f
-   0A34 8B 82              2446 	mov	dpl,r3
-   0A36 88 83              2447 	mov	dph,r0
-   0A38 89 F0              2448 	mov	b,r1
-   0A3A 12 1B E3           2449 	lcall	__gptrput
+   0A1C C0 02              2432 	push	ar2
+   0A1E C0 04              2433 	push	ar4
+   0A20 74 06              2434 	mov	a,#0x06
+   0A22 2D                 2435 	add	a,r5
+   0A23 FB                 2436 	mov	r3,a
+   0A24 E4                 2437 	clr	a
+   0A25 3E                 2438 	addc	a,r6
+   0A26 F8                 2439 	mov	r0,a
+   0A27 8F 01              2440 	mov	ar1,r7
+   0A29 74 FC              2441 	mov	a,#0xFC
+   0A2B 55 DD              2442 	anl	a,_CAN_DATA2
+   0A2D 03                 2443 	rr	a
+   0A2E 03                 2444 	rr	a
+   0A2F 54 3F              2445 	anl	a,#0x3f
+   0A31 8B 82              2446 	mov	dpl,r3
+   0A33 88 83              2447 	mov	dph,r0
+   0A35 89 F0              2448 	mov	b,r1
+   0A37 12 1B DB           2449 	lcall	__gptrput
                     0575   2450 	C$CAN.C$862$2$4 ==.
                            2451 ;	../CAN.C:862: pstObj->ulMask.ubDB[1] = (CAN_DATA3 & 0x1f);        // MOARn[31-24]
-   0A3D 74 06              2452 	mov	a,#0x06
-   0A3F 2D                 2453 	add	a,r5
-   0A40 F5 33              2454 	mov	_CAN_vGetMsgObj_sloc2_1_0,a
-   0A42 E4                 2455 	clr	a
-   0A43 3E                 2456 	addc	a,r6
-   0A44 F5 34              2457 	mov	(_CAN_vGetMsgObj_sloc2_1_0 + 1),a
-   0A46 8F 35              2458 	mov	(_CAN_vGetMsgObj_sloc2_1_0 + 2),r7
-   0A48 74 01              2459 	mov	a,#0x01
-   0A4A 25 33              2460 	add	a,_CAN_vGetMsgObj_sloc2_1_0
-   0A4C F5 2F              2461 	mov	_CAN_vGetMsgObj_sloc0_1_0,a
-   0A4E E4                 2462 	clr	a
-   0A4F 35 34              2463 	addc	a,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
-   0A51 F5 30              2464 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 1),a
-   0A53 85 35 31           2465 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 2),(_CAN_vGetMsgObj_sloc2_1_0 + 2)
-   0A56 74 1F              2466 	mov	a,#0x1F
-   0A58 55 DE              2467 	anl	a,_CAN_DATA3
-   0A5A 85 2F 82           2468 	mov	dpl,_CAN_vGetMsgObj_sloc0_1_0
-   0A5D 85 30 83           2469 	mov	dph,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   0A60 85 31 F0           2470 	mov	b,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   0A63 12 1B E3           2471 	lcall	__gptrput
+   0A3A 74 06              2452 	mov	a,#0x06
+   0A3C 2D                 2453 	add	a,r5
+   0A3D F5 33              2454 	mov	_CAN_vGetMsgObj_sloc2_1_0,a
+   0A3F E4                 2455 	clr	a
+   0A40 3E                 2456 	addc	a,r6
+   0A41 F5 34              2457 	mov	(_CAN_vGetMsgObj_sloc2_1_0 + 1),a
+   0A43 8F 35              2458 	mov	(_CAN_vGetMsgObj_sloc2_1_0 + 2),r7
+   0A45 74 01              2459 	mov	a,#0x01
+   0A47 25 33              2460 	add	a,_CAN_vGetMsgObj_sloc2_1_0
+   0A49 F5 2F              2461 	mov	_CAN_vGetMsgObj_sloc0_1_0,a
+   0A4B E4                 2462 	clr	a
+   0A4C 35 34              2463 	addc	a,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
+   0A4E F5 30              2464 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 1),a
+   0A50 85 35 31           2465 	mov	(_CAN_vGetMsgObj_sloc0_1_0 + 2),(_CAN_vGetMsgObj_sloc2_1_0 + 2)
+   0A53 74 1F              2466 	mov	a,#0x1F
+   0A55 55 DE              2467 	anl	a,_CAN_DATA3
+   0A57 85 2F 82           2468 	mov	dpl,_CAN_vGetMsgObj_sloc0_1_0
+   0A5A 85 30 83           2469 	mov	dph,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   0A5D 85 31 F0           2470 	mov	b,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   0A60 12 1B DB           2471 	lcall	__gptrput
                     059E   2472 	C$CAN.C$863$2$4 ==.
                            2473 ;	../CAN.C:863: pstObj->ulMask.ubDB[2] = 0x00;    // MOARn[15-8]
-   0A66 74 02              2474 	mov	a,#0x02
-   0A68 25 33              2475 	add	a,_CAN_vGetMsgObj_sloc2_1_0
-   0A6A FB                 2476 	mov	r3,a
-   0A6B E4                 2477 	clr	a
-   0A6C 35 34              2478 	addc	a,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
-   0A6E FC                 2479 	mov	r4,a
-   0A6F AA 35              2480 	mov	r2,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
-   0A71 8B 82              2481 	mov	dpl,r3
-   0A73 8C 83              2482 	mov	dph,r4
-   0A75 8A F0              2483 	mov	b,r2
-   0A77 E4                 2484 	clr	a
-   0A78 12 1B E3           2485 	lcall	__gptrput
+   0A63 74 02              2474 	mov	a,#0x02
+   0A65 25 33              2475 	add	a,_CAN_vGetMsgObj_sloc2_1_0
+   0A67 FB                 2476 	mov	r3,a
+   0A68 E4                 2477 	clr	a
+   0A69 35 34              2478 	addc	a,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
+   0A6B FC                 2479 	mov	r4,a
+   0A6C AA 35              2480 	mov	r2,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
+   0A6E 8B 82              2481 	mov	dpl,r3
+   0A70 8C 83              2482 	mov	dph,r4
+   0A72 8A F0              2483 	mov	b,r2
+   0A74 E4                 2484 	clr	a
+   0A75 12 1B DB           2485 	lcall	__gptrput
                     05B3   2486 	C$CAN.C$864$2$4 ==.
                            2487 ;	../CAN.C:864: pstObj->ulMask.ubDB[3] = 0x00;    // MOARn[15-8]
-   0A7B 74 03              2488 	mov	a,#0x03
-   0A7D 25 33              2489 	add	a,_CAN_vGetMsgObj_sloc2_1_0
-   0A7F FA                 2490 	mov	r2,a
-   0A80 E4                 2491 	clr	a
-   0A81 35 34              2492 	addc	a,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
-   0A83 FB                 2493 	mov	r3,a
-   0A84 AC 35              2494 	mov	r4,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
-   0A86 8A 82              2495 	mov	dpl,r2
-   0A88 8B 83              2496 	mov	dph,r3
-   0A8A 8C F0              2497 	mov	b,r4
-   0A8C E4                 2498 	clr	a
-   0A8D 12 1B E3           2499 	lcall	__gptrput
+   0A78 74 03              2488 	mov	a,#0x03
+   0A7A 25 33              2489 	add	a,_CAN_vGetMsgObj_sloc2_1_0
+   0A7C FA                 2490 	mov	r2,a
+   0A7D E4                 2491 	clr	a
+   0A7E 35 34              2492 	addc	a,(_CAN_vGetMsgObj_sloc2_1_0 + 1)
+   0A80 FB                 2493 	mov	r3,a
+   0A81 AC 35              2494 	mov	r4,(_CAN_vGetMsgObj_sloc2_1_0 + 2)
+   0A83 8A 82              2495 	mov	dpl,r2
+   0A85 8B 83              2496 	mov	dph,r3
+   0A87 8C F0              2497 	mov	b,r4
+   0A89 E4                 2498 	clr	a
+   0A8A 12 1B DB           2499 	lcall	__gptrput
                     05C8   2500 	C$CAN.C$867$2$4 ==.
                            2501 ;	../CAN.C:867: ubTemp = ((pstObj->ulMask.ubDB[1]) & 0x03) << 6;
-   0A90 85 2F 82           2502 	mov	dpl,_CAN_vGetMsgObj_sloc0_1_0
-   0A93 85 30 83           2503 	mov	dph,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   0A96 85 31 F0           2504 	mov	b,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   0A99 12 1D 2A           2505 	lcall	__gptrget
-   0A9C 54 03              2506 	anl	a,#0x03
-   0A9E 03                 2507 	rr	a
-   0A9F 03                 2508 	rr	a
-   0AA0 54 C0              2509 	anl	a,#0xc0
-   0AA2 F5 2E              2510 	mov	_CAN_vGetMsgObj_ubTemp_1_1,a
+   0A8D 85 2F 82           2502 	mov	dpl,_CAN_vGetMsgObj_sloc0_1_0
+   0A90 85 30 83           2503 	mov	dph,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   0A93 85 31 F0           2504 	mov	b,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   0A96 12 1D 22           2505 	lcall	__gptrget
+   0A99 54 03              2506 	anl	a,#0x03
+   0A9B 03                 2507 	rr	a
+   0A9C 03                 2508 	rr	a
+   0A9D 54 C0              2509 	anl	a,#0xc0
+   0A9F F5 2E              2510 	mov	_CAN_vGetMsgObj_ubTemp_1_1,a
                     05DC   2511 	C$CAN.C$868$2$4 ==.
                            2512 ;	../CAN.C:868: pstObj->ulMask.ubDB[1] = (pstObj->ulMask.ubDB[1] >> 2);
-   0AA4 85 2F 82           2513 	mov	dpl,_CAN_vGetMsgObj_sloc0_1_0
-   0AA7 85 30 83           2514 	mov	dph,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   0AAA 85 31 F0           2515 	mov	b,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   0AAD 12 1D 2A           2516 	lcall	__gptrget
-   0AB0 03                 2517 	rr	a
-   0AB1 03                 2518 	rr	a
-   0AB2 54 3F              2519 	anl	a,#0x3f
-   0AB4 85 2F 82           2520 	mov	dpl,_CAN_vGetMsgObj_sloc0_1_0
-   0AB7 85 30 83           2521 	mov	dph,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
-   0ABA 85 31 F0           2522 	mov	b,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
-   0ABD 12 1B E3           2523 	lcall	__gptrput
+   0AA1 85 2F 82           2513 	mov	dpl,_CAN_vGetMsgObj_sloc0_1_0
+   0AA4 85 30 83           2514 	mov	dph,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   0AA7 85 31 F0           2515 	mov	b,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   0AAA 12 1D 22           2516 	lcall	__gptrget
+   0AAD 03                 2517 	rr	a
+   0AAE 03                 2518 	rr	a
+   0AAF 54 3F              2519 	anl	a,#0x3f
+   0AB1 85 2F 82           2520 	mov	dpl,_CAN_vGetMsgObj_sloc0_1_0
+   0AB4 85 30 83           2521 	mov	dph,(_CAN_vGetMsgObj_sloc0_1_0 + 1)
+   0AB7 85 31 F0           2522 	mov	b,(_CAN_vGetMsgObj_sloc0_1_0 + 2)
+   0ABA 12 1B DB           2523 	lcall	__gptrput
                     05F8   2524 	C$CAN.C$869$2$4 ==.
                            2525 ;	../CAN.C:869: pstObj->ulMask.ubDB[0] = (pstObj->ulMask.ubDB[0] + ubTemp);
-   0AC0 74 06              2526 	mov	a,#0x06
-   0AC2 2D                 2527 	add	a,r5
-   0AC3 FA                 2528 	mov	r2,a
-   0AC4 E4                 2529 	clr	a
-   0AC5 3E                 2530 	addc	a,r6
-   0AC6 FB                 2531 	mov	r3,a
-   0AC7 8F 04              2532 	mov	ar4,r7
-   0AC9 8A 82              2533 	mov	dpl,r2
-   0ACB 8B 83              2534 	mov	dph,r3
-   0ACD 8C F0              2535 	mov	b,r4
-   0ACF 12 1D 2A           2536 	lcall	__gptrget
-   0AD2 F8                 2537 	mov	r0,a
-   0AD3 E5 2E              2538 	mov	a,_CAN_vGetMsgObj_ubTemp_1_1
-   0AD5 28                 2539 	add	a,r0
-   0AD6 F8                 2540 	mov	r0,a
-   0AD7 8A 82              2541 	mov	dpl,r2
-   0AD9 8B 83              2542 	mov	dph,r3
-   0ADB 8C F0              2543 	mov	b,r4
-   0ADD 12 1B E3           2544 	lcall	__gptrput
+   0ABD 74 06              2526 	mov	a,#0x06
+   0ABF 2D                 2527 	add	a,r5
+   0AC0 FA                 2528 	mov	r2,a
+   0AC1 E4                 2529 	clr	a
+   0AC2 3E                 2530 	addc	a,r6
+   0AC3 FB                 2531 	mov	r3,a
+   0AC4 8F 04              2532 	mov	ar4,r7
+   0AC6 8A 82              2533 	mov	dpl,r2
+   0AC8 8B 83              2534 	mov	dph,r3
+   0ACA 8C F0              2535 	mov	b,r4
+   0ACC 12 1D 22           2536 	lcall	__gptrget
+   0ACF F8                 2537 	mov	r0,a
+   0AD0 E5 2E              2538 	mov	a,_CAN_vGetMsgObj_ubTemp_1_1
+   0AD2 28                 2539 	add	a,r0
+   0AD3 F8                 2540 	mov	r0,a
+   0AD4 8A 82              2541 	mov	dpl,r2
+   0AD6 8B 83              2542 	mov	dph,r3
+   0AD8 8C F0              2543 	mov	b,r4
+   0ADA 12 1B DB           2544 	lcall	__gptrput
                     0618   2545 	C$CAN.C$880$1$1 ==.
                            2546 ;	../CAN.C:880: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0AE0 D0 04              2547 	pop	ar4
-   0AE2 D0 02              2548 	pop	ar2
+   0ADD D0 04              2547 	pop	ar4
+   0ADF D0 02              2548 	pop	ar2
                     061C   2549 	C$CAN.C$869$1$1 ==.
                            2550 ;	../CAN.C:869: pstObj->ulMask.ubDB[0] = (pstObj->ulMask.ubDB[0] + ubTemp);
-   0AE4                    2551 00129$:
+   0AE1                    2551 00129$:
                     061C   2552 	C$CAN.C$874$1$1 ==.
                            2553 ;	../CAN.C:874: CAN_vWriteCANAddress(CAN_MOIPR(ubObjNr));
-   0AE4 74 02              2554 	mov	a,#0x02
-   0AE6 25 32              2555 	add	a,_CAN_vGetMsgObj_sloc1_1_0
-   0AE8 F5 D9              2556 	mov	_CAN_ADL,a
-   0AEA 74 02              2557 	mov	a,#0x02
-   0AEC 2A                 2558 	add	a,r2
-   0AED 74 04              2559 	mov	a,#0x04
-   0AEF 3C                 2560 	addc	a,r4
-   0AF0 FC                 2561 	mov	r4,a
-   0AF1 7A 00              2562 	mov	r2,#0x00
-   0AF3 8C DA              2563 	mov	_CAN_ADH,r4
+   0AE1 74 02              2554 	mov	a,#0x02
+   0AE3 25 32              2555 	add	a,_CAN_vGetMsgObj_sloc1_1_0
+   0AE5 F5 D9              2556 	mov	_CAN_ADL,a
+   0AE7 74 02              2557 	mov	a,#0x02
+   0AE9 2A                 2558 	add	a,r2
+   0AEA 74 04              2559 	mov	a,#0x04
+   0AEC 3C                 2560 	addc	a,r4
+   0AED FC                 2561 	mov	r4,a
+   0AEE 7A 00              2562 	mov	r2,#0x00
+   0AF0 8C DA              2563 	mov	_CAN_ADH,r4
                     062D   2564 	C$CAN.C$875$1$1 ==.
                            2565 ;	../CAN.C:875: CAN_vReadEN();   // Readmode is Enabled
-   0AF5 75 D8 00           2566 	mov	_CAN_ADCON,#0x00
-   0AF8                    2567 00130$:
-   0AF8 E5 D8              2568 	mov	a,_CAN_ADCON
-   0AFA 20 E1 FB           2569 	jb	acc.1,00130$
+   0AF2 75 D8 00           2566 	mov	_CAN_ADCON,#0x00
+   0AF5                    2567 00130$:
+   0AF5 E5 D8              2568 	mov	a,_CAN_ADCON
+   0AF7 20 E1 FB           2569 	jb	acc.1,00130$
                     0635   2570 	C$CAN.C$877$1$1 ==.
                            2571 ;	../CAN.C:877: pstObj->uwCounter.ubDB[0] = CAN_DATA2;  // MOIPRn[16-23]
-   0AFD 74 12              2572 	mov	a,#0x12
-   0AFF 2D                 2573 	add	a,r5
-   0B00 FA                 2574 	mov	r2,a
-   0B01 E4                 2575 	clr	a
-   0B02 3E                 2576 	addc	a,r6
-   0B03 FB                 2577 	mov	r3,a
-   0B04 8F 04              2578 	mov	ar4,r7
-   0B06 8A 82              2579 	mov	dpl,r2
-   0B08 8B 83              2580 	mov	dph,r3
-   0B0A 8C F0              2581 	mov	b,r4
-   0B0C E5 DD              2582 	mov	a,_CAN_DATA2
-   0B0E 12 1B E3           2583 	lcall	__gptrput
+   0AFA 74 12              2572 	mov	a,#0x12
+   0AFC 2D                 2573 	add	a,r5
+   0AFD FA                 2574 	mov	r2,a
+   0AFE E4                 2575 	clr	a
+   0AFF 3E                 2576 	addc	a,r6
+   0B00 FB                 2577 	mov	r3,a
+   0B01 8F 04              2578 	mov	ar4,r7
+   0B03 8A 82              2579 	mov	dpl,r2
+   0B05 8B 83              2580 	mov	dph,r3
+   0B07 8C F0              2581 	mov	b,r4
+   0B09 E5 DD              2582 	mov	a,_CAN_DATA2
+   0B0B 12 1B DB           2583 	lcall	__gptrput
                     0649   2584 	C$CAN.C$878$1$1 ==.
                            2585 ;	../CAN.C:878: pstObj->uwCounter.ubDB[1] = CAN_DATA3;  // MOIPRn[31-24]
-   0B11 74 12              2586 	mov	a,#0x12
-   0B13 2D                 2587 	add	a,r5
-   0B14 FD                 2588 	mov	r5,a
-   0B15 E4                 2589 	clr	a
-   0B16 3E                 2590 	addc	a,r6
-   0B17 FE                 2591 	mov	r6,a
-   0B18 0D                 2592 	inc	r5
-   0B19 BD 00 01           2593 	cjne	r5,#0x00,00166$
-   0B1C 0E                 2594 	inc	r6
-   0B1D                    2595 00166$:
-   0B1D 8D 82              2596 	mov	dpl,r5
-   0B1F 8E 83              2597 	mov	dph,r6
-   0B21 8F F0              2598 	mov	b,r7
-   0B23 E5 DE              2599 	mov	a,_CAN_DATA3
-   0B25 12 1B E3           2600 	lcall	__gptrput
+   0B0E 74 12              2586 	mov	a,#0x12
+   0B10 2D                 2587 	add	a,r5
+   0B11 FD                 2588 	mov	r5,a
+   0B12 E4                 2589 	clr	a
+   0B13 3E                 2590 	addc	a,r6
+   0B14 FE                 2591 	mov	r6,a
+   0B15 0D                 2592 	inc	r5
+   0B16 BD 00 01           2593 	cjne	r5,#0x00,00166$
+   0B19 0E                 2594 	inc	r6
+   0B1A                    2595 00166$:
+   0B1A 8D 82              2596 	mov	dpl,r5
+   0B1C 8E 83              2597 	mov	dph,r6
+   0B1E 8F F0              2598 	mov	b,r7
+   0B20 E5 DE              2599 	mov	a,_CAN_DATA3
+   0B22 12 1B DB           2600 	lcall	__gptrput
                     0660   2601 	C$CAN.C$880$1$1 ==.
                            2602 ;	../CAN.C:880: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0B28 D0 DE D0 DD D0 DC  2603 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   0B25 D0 DE D0 DD D0 DC  2603 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     066C   2604 	C$CAN.C$881$1$1 ==.
                     066C   2605 	XG$CAN_vGetMsgObj$0$0 ==.
-   0B34 22                 2606 	ret
+   0B31 22                 2606 	ret
                            2607 ;------------------------------------------------------------
                            2608 ;Allocation info for local variables in function 'CAN_ubRequestMsgObj'
                            2609 ;------------------------------------------------------------
@@ -2618,71 +2618,71 @@
                            2616 ;	-----------------------------------------
                            2617 ;	 function CAN_ubRequestMsgObj
                            2618 ;	-----------------------------------------
-   0B35                    2619 _CAN_ubRequestMsgObj:
-   0B35 AA 82              2620 	mov	r2,dpl
+   0B32                    2619 _CAN_ubRequestMsgObj:
+   0B32 AA 82              2620 	mov	r2,dpl
                     066F   2621 	C$CAN.C$918$1$1 ==.
                            2622 ;	../CAN.C:918: ubyte ubReturn = 0;
-   0B37 7B 00              2623 	mov	r3,#0x00
+   0B34 7B 00              2623 	mov	r3,#0x00
                     0671   2624 	C$CAN.C$920$1$1 ==.
                            2625 ;	../CAN.C:920: CAN_pushAMRegs();    //   PUSH the CAN Access Mediator Register
-   0B39                    2626 00101$:
-   0B39 E5 D8              2627 	mov	a,_CAN_ADCON
-   0B3B 20 E1 FB           2628 	jb	acc.1,00101$
-   0B3E C0 D9 C0 DA C0 DB  2629 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   0B36                    2626 00101$:
+   0B36 E5 D8              2627 	mov	a,_CAN_ADCON
+   0B38 20 E1 FB           2628 	jb	acc.1,00101$
+   0B3B C0 D9 C0 DA C0 DB  2629 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     0682   2630 	C$CAN.C$922$1$1 ==.
                            2631 ;	../CAN.C:922: CAN_vWriteCANAddress(CAN_MOCTR(ubObjNr));
-   0B4A EA                 2632 	mov	a,r2
-   0B4B C4                 2633 	swap	a
-   0B4C 03                 2634 	rr	a
-   0B4D 54 F8              2635 	anl	a,#0xf8
-   0B4F FC                 2636 	mov	r4,a
-   0B50 74 07              2637 	mov	a,#0x07
-   0B52 2C                 2638 	add	a,r4
-   0B53 F5 D9              2639 	mov	_CAN_ADL,a
-   0B55 EA                 2640 	mov	a,r2
-   0B56 75 F0 08           2641 	mov	b,#0x08
-   0B59 A4                 2642 	mul	ab
-   0B5A 24 07              2643 	add	a,#0x07
-   0B5C 74 04              2644 	mov	a,#0x04
-   0B5E 35 F0              2645 	addc	a,b
-   0B60 FC                 2646 	mov	r4,a
-   0B61 7A 00              2647 	mov	r2,#0x00
-   0B63 8C DA              2648 	mov	_CAN_ADH,r4
+   0B47 EA                 2632 	mov	a,r2
+   0B48 C4                 2633 	swap	a
+   0B49 03                 2634 	rr	a
+   0B4A 54 F8              2635 	anl	a,#0xf8
+   0B4C FC                 2636 	mov	r4,a
+   0B4D 74 07              2637 	mov	a,#0x07
+   0B4F 2C                 2638 	add	a,r4
+   0B50 F5 D9              2639 	mov	_CAN_ADL,a
+   0B52 EA                 2640 	mov	a,r2
+   0B53 75 F0 08           2641 	mov	b,#0x08
+   0B56 A4                 2642 	mul	ab
+   0B57 24 07              2643 	add	a,#0x07
+   0B59 74 04              2644 	mov	a,#0x04
+   0B5B 35 F0              2645 	addc	a,b
+   0B5D FC                 2646 	mov	r4,a
+   0B5E 7A 00              2647 	mov	r2,#0x00
+   0B60 8C DA              2648 	mov	_CAN_ADH,r4
                     069D   2649 	C$CAN.C$923$1$1 ==.
                            2650 ;	../CAN.C:923: CAN_vReadEN();   // Readmode is Enabled
-   0B65 75 D8 00           2651 	mov	_CAN_ADCON,#0x00
-   0B68                    2652 00104$:
-   0B68 E5 D8              2653 	mov	a,_CAN_ADCON
-   0B6A 20 E1 FB           2654 	jb	acc.1,00104$
+   0B62 75 D8 00           2651 	mov	_CAN_ADCON,#0x00
+   0B65                    2652 00104$:
+   0B65 E5 D8              2653 	mov	a,_CAN_ADCON
+   0B67 20 E1 FB           2654 	jb	acc.1,00104$
                     06A5   2655 	C$CAN.C$925$1$1 ==.
                            2656 ;	../CAN.C:925: if((CAN_DATA1 & 0x01) == 0)         // if reset TXRQ
-   0B6D E5 DC              2657 	mov	a,_CAN_DATA1
-   0B6F 20 E0 16           2658 	jb	acc.0,00111$
+   0B6A E5 DC              2657 	mov	a,_CAN_DATA1
+   0B6C 20 E0 16           2658 	jb	acc.0,00111$
                     06AA   2659 	C$CAN.C$927$2$2 ==.
                            2660 ;	../CAN.C:927: CAN_vWriteCANData(0x00000020);  // reset MSGVAL
-   0B72 75 DB 20           2661 	mov	_CAN_DATA0,#0x20
-   0B75 75 DC 00           2662 	mov	_CAN_DATA1,#0x00
-   0B78 75 DD 00           2663 	mov	_CAN_DATA2,#0x00
-   0B7B 75 DE 00           2664 	mov	_CAN_DATA3,#0x00
-   0B7E 75 D8 F1           2665 	mov	_CAN_ADCON,#0xF1
-   0B81                    2666 00107$:
-   0B81 E5 D8              2667 	mov	a,_CAN_ADCON
-   0B83 20 E1 FB           2668 	jb	acc.1,00107$
+   0B6F 75 DB 20           2661 	mov	_CAN_DATA0,#0x20
+   0B72 75 DC 00           2662 	mov	_CAN_DATA1,#0x00
+   0B75 75 DD 00           2663 	mov	_CAN_DATA2,#0x00
+   0B78 75 DE 00           2664 	mov	_CAN_DATA3,#0x00
+   0B7B 75 D8 F1           2665 	mov	_CAN_ADCON,#0xF1
+   0B7E                    2666 00107$:
+   0B7E E5 D8              2667 	mov	a,_CAN_ADCON
+   0B80 20 E1 FB           2668 	jb	acc.1,00107$
                     06BE   2669 	C$CAN.C$928$2$2 ==.
                            2670 ;	../CAN.C:928: ubReturn = 1;
-   0B86 7B 01              2671 	mov	r3,#0x01
-   0B88                    2672 00111$:
+   0B83 7B 01              2671 	mov	r3,#0x01
+   0B85                    2672 00111$:
                     06C0   2673 	C$CAN.C$930$1$1 ==.
                            2674 ;	../CAN.C:930: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0B88 D0 DE D0 DD D0 DC  2675 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   0B85 D0 DE D0 DD D0 DC  2675 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     06CC   2676 	C$CAN.C$932$1$1 ==.
                            2677 ;	../CAN.C:932: return(ubReturn);
-   0B94 8B 82              2678 	mov	dpl,r3
+   0B91 8B 82              2678 	mov	dpl,r3
                     06CE   2679 	C$CAN.C$933$1$1 ==.
                     06CE   2680 	XG$CAN_ubRequestMsgObj$0$0 ==.
-   0B96 22                 2681 	ret
+   0B93 22                 2681 	ret
                            2682 ;------------------------------------------------------------
                            2683 ;Allocation info for local variables in function 'CAN_ubNewData'
                            2684 ;------------------------------------------------------------
@@ -2695,61 +2695,61 @@
                            2691 ;	-----------------------------------------
                            2692 ;	 function CAN_ubNewData
                            2693 ;	-----------------------------------------
-   0B97                    2694 _CAN_ubNewData:
-   0B97 AA 82              2695 	mov	r2,dpl
+   0B94                    2694 _CAN_ubNewData:
+   0B94 AA 82              2695 	mov	r2,dpl
                     06D1   2696 	C$CAN.C$961$1$1 ==.
                            2697 ;	../CAN.C:961: ubyte ubReturn = 0;
-   0B99 7B 00              2698 	mov	r3,#0x00
+   0B96 7B 00              2698 	mov	r3,#0x00
                     06D3   2699 	C$CAN.C$963$1$1 ==.
                            2700 ;	../CAN.C:963: CAN_pushAMRegs();    //   PUSH the CAN Access Mediator Register
-   0B9B                    2701 00101$:
-   0B9B E5 D8              2702 	mov	a,_CAN_ADCON
-   0B9D 20 E1 FB           2703 	jb	acc.1,00101$
-   0BA0 C0 D9 C0 DA C0 DB  2704 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   0B98                    2701 00101$:
+   0B98 E5 D8              2702 	mov	a,_CAN_ADCON
+   0B9A 20 E1 FB           2703 	jb	acc.1,00101$
+   0B9D C0 D9 C0 DA C0 DB  2704 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     06E4   2705 	C$CAN.C$965$1$1 ==.
                            2706 ;	../CAN.C:965: CAN_vWriteCANAddress(CAN_MOCTR(ubObjNr));
-   0BAC EA                 2707 	mov	a,r2
-   0BAD C4                 2708 	swap	a
-   0BAE 03                 2709 	rr	a
-   0BAF 54 F8              2710 	anl	a,#0xf8
-   0BB1 FC                 2711 	mov	r4,a
-   0BB2 74 07              2712 	mov	a,#0x07
-   0BB4 2C                 2713 	add	a,r4
-   0BB5 F5 D9              2714 	mov	_CAN_ADL,a
-   0BB7 EA                 2715 	mov	a,r2
-   0BB8 75 F0 08           2716 	mov	b,#0x08
-   0BBB A4                 2717 	mul	ab
-   0BBC 24 07              2718 	add	a,#0x07
-   0BBE 74 04              2719 	mov	a,#0x04
-   0BC0 35 F0              2720 	addc	a,b
-   0BC2 FC                 2721 	mov	r4,a
-   0BC3 7A 00              2722 	mov	r2,#0x00
-   0BC5 8C DA              2723 	mov	_CAN_ADH,r4
+   0BA9 EA                 2707 	mov	a,r2
+   0BAA C4                 2708 	swap	a
+   0BAB 03                 2709 	rr	a
+   0BAC 54 F8              2710 	anl	a,#0xf8
+   0BAE FC                 2711 	mov	r4,a
+   0BAF 74 07              2712 	mov	a,#0x07
+   0BB1 2C                 2713 	add	a,r4
+   0BB2 F5 D9              2714 	mov	_CAN_ADL,a
+   0BB4 EA                 2715 	mov	a,r2
+   0BB5 75 F0 08           2716 	mov	b,#0x08
+   0BB8 A4                 2717 	mul	ab
+   0BB9 24 07              2718 	add	a,#0x07
+   0BBB 74 04              2719 	mov	a,#0x04
+   0BBD 35 F0              2720 	addc	a,b
+   0BBF FC                 2721 	mov	r4,a
+   0BC0 7A 00              2722 	mov	r2,#0x00
+   0BC2 8C DA              2723 	mov	_CAN_ADH,r4
                     06FF   2724 	C$CAN.C$966$1$1 ==.
                            2725 ;	../CAN.C:966: CAN_vReadEN();   // Readmode is Enabled
-   0BC7 75 D8 00           2726 	mov	_CAN_ADCON,#0x00
-   0BCA                    2727 00104$:
-   0BCA E5 D8              2728 	mov	a,_CAN_ADCON
-   0BCC 20 E1 FB           2729 	jb	acc.1,00104$
+   0BC4 75 D8 00           2726 	mov	_CAN_ADCON,#0x00
+   0BC7                    2727 00104$:
+   0BC7 E5 D8              2728 	mov	a,_CAN_ADCON
+   0BC9 20 E1 FB           2729 	jb	acc.1,00104$
                     0707   2730 	C$CAN.C$967$1$1 ==.
                            2731 ;	../CAN.C:967: if(CAN_DATA0 & 0x08)   // if NEWDAT
-   0BCF E5 DB              2732 	mov	a,_CAN_DATA0
-   0BD1 30 E3 02           2733 	jnb	acc.3,00108$
+   0BCC E5 DB              2732 	mov	a,_CAN_DATA0
+   0BCE 30 E3 02           2733 	jnb	acc.3,00108$
                     070C   2734 	C$CAN.C$969$2$2 ==.
                            2735 ;	../CAN.C:969: ubReturn = 1;
-   0BD4 7B 01              2736 	mov	r3,#0x01
-   0BD6                    2737 00108$:
+   0BD1 7B 01              2736 	mov	r3,#0x01
+   0BD3                    2737 00108$:
                     070E   2738 	C$CAN.C$971$1$1 ==.
                            2739 ;	../CAN.C:971: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0BD6 D0 DE D0 DD D0 DC  2740 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   0BD3 D0 DE D0 DD D0 DC  2740 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     071A   2741 	C$CAN.C$973$1$1 ==.
                            2742 ;	../CAN.C:973: return(ubReturn);
-   0BE2 8B 82              2743 	mov	dpl,r3
+   0BDF 8B 82              2743 	mov	dpl,r3
                     071C   2744 	C$CAN.C$974$1$1 ==.
                     071C   2745 	XG$CAN_ubNewData$0$0 ==.
-   0BE4 22                 2746 	ret
+   0BE1 22                 2746 	ret
                            2747 ;------------------------------------------------------------
                            2748 ;Allocation info for local variables in function 'CAN_vTransmit'
                            2749 ;------------------------------------------------------------
@@ -2761,51 +2761,51 @@
                            2755 ;	-----------------------------------------
                            2756 ;	 function CAN_vTransmit
                            2757 ;	-----------------------------------------
-   0BE5                    2758 _CAN_vTransmit:
-   0BE5 AA 82              2759 	mov	r2,dpl
+   0BE2                    2758 _CAN_vTransmit:
+   0BE2 AA 82              2759 	mov	r2,dpl
                     071F   2760 	C$CAN.C$1005$1$1 ==.
                            2761 ;	../CAN.C:1005: CAN_pushAMRegs();    //   PUSH the CAN Access Mediator Register
-   0BE7                    2762 00101$:
-   0BE7 E5 D8              2763 	mov	a,_CAN_ADCON
-   0BE9 20 E1 FB           2764 	jb	acc.1,00101$
-   0BEC C0 D9 C0 DA C0 DB  2765 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   0BE4                    2762 00101$:
+   0BE4 E5 D8              2763 	mov	a,_CAN_ADCON
+   0BE6 20 E1 FB           2764 	jb	acc.1,00101$
+   0BE9 C0 D9 C0 DA C0 DB  2765 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     0730   2766 	C$CAN.C$1007$1$1 ==.
                            2767 ;	../CAN.C:1007: CAN_vWriteCANAddress(CAN_MOCTR(ubObjNr));  //Addressing CAN_MOCTR register
-   0BF8 EA                 2768 	mov	a,r2
-   0BF9 C4                 2769 	swap	a
-   0BFA 03                 2770 	rr	a
-   0BFB 54 F8              2771 	anl	a,#0xf8
-   0BFD FB                 2772 	mov	r3,a
-   0BFE 74 07              2773 	mov	a,#0x07
-   0C00 2B                 2774 	add	a,r3
-   0C01 F5 D9              2775 	mov	_CAN_ADL,a
-   0C03 EA                 2776 	mov	a,r2
-   0C04 75 F0 08           2777 	mov	b,#0x08
-   0C07 A4                 2778 	mul	ab
-   0C08 24 07              2779 	add	a,#0x07
-   0C0A 74 04              2780 	mov	a,#0x04
-   0C0C 35 F0              2781 	addc	a,b
-   0C0E FB                 2782 	mov	r3,a
-   0C0F 7A 00              2783 	mov	r2,#0x00
-   0C11 8B DA              2784 	mov	_CAN_ADH,r3
+   0BF5 EA                 2768 	mov	a,r2
+   0BF6 C4                 2769 	swap	a
+   0BF7 03                 2770 	rr	a
+   0BF8 54 F8              2771 	anl	a,#0xf8
+   0BFA FB                 2772 	mov	r3,a
+   0BFB 74 07              2773 	mov	a,#0x07
+   0BFD 2B                 2774 	add	a,r3
+   0BFE F5 D9              2775 	mov	_CAN_ADL,a
+   0C00 EA                 2776 	mov	a,r2
+   0C01 75 F0 08           2777 	mov	b,#0x08
+   0C04 A4                 2778 	mul	ab
+   0C05 24 07              2779 	add	a,#0x07
+   0C07 74 04              2780 	mov	a,#0x04
+   0C09 35 F0              2781 	addc	a,b
+   0C0B FB                 2782 	mov	r3,a
+   0C0C 7A 00              2783 	mov	r2,#0x00
+   0C0E 8B DA              2784 	mov	_CAN_ADH,r3
                     074B   2785 	C$CAN.C$1008$1$1 ==.
                            2786 ;	../CAN.C:1008: CAN_vWriteCANData(0x07200000);      // set TXRQ,TXEN0,TXEN1,MSGVAL
-   0C13 75 DB 00           2787 	mov	_CAN_DATA0,#0x00
-   0C16 75 DC 00           2788 	mov	_CAN_DATA1,#0x00
-   0C19 75 DD 20           2789 	mov	_CAN_DATA2,#0x20
-   0C1C 75 DE 07           2790 	mov	_CAN_DATA3,#0x07
-   0C1F 75 D8 F1           2791 	mov	_CAN_ADCON,#0xF1
-   0C22                    2792 00104$:
-   0C22 E5 D8              2793 	mov	a,_CAN_ADCON
-   0C24 20 E1 FB           2794 	jb	acc.1,00104$
+   0C10 75 DB 00           2787 	mov	_CAN_DATA0,#0x00
+   0C13 75 DC 00           2788 	mov	_CAN_DATA1,#0x00
+   0C16 75 DD 20           2789 	mov	_CAN_DATA2,#0x20
+   0C19 75 DE 07           2790 	mov	_CAN_DATA3,#0x07
+   0C1C 75 D8 F1           2791 	mov	_CAN_ADCON,#0xF1
+   0C1F                    2792 00104$:
+   0C1F E5 D8              2793 	mov	a,_CAN_ADCON
+   0C21 20 E1 FB           2794 	jb	acc.1,00104$
                     075F   2795 	C$CAN.C$1010$1$1 ==.
                            2796 ;	../CAN.C:1010: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0C27 D0 DE D0 DD D0 DC  2797 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   0C24 D0 DE D0 DD D0 DC  2797 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     076B   2798 	C$CAN.C$1012$1$1 ==.
                     076B   2799 	XG$CAN_vTransmit$0$0 ==.
-   0C33 22                 2800 	ret
+   0C30 22                 2800 	ret
                            2801 ;------------------------------------------------------------
                            2802 ;Allocation info for local variables in function 'CAN_vConfigMsgObj'
                            2803 ;------------------------------------------------------------
@@ -2820,723 +2820,723 @@
                            2812 ;	-----------------------------------------
                            2813 ;	 function CAN_vConfigMsgObj
                            2814 ;	-----------------------------------------
-   0C34                    2815 _CAN_vConfigMsgObj:
-   0C34 AA 82              2816 	mov	r2,dpl
+   0C31                    2815 _CAN_vConfigMsgObj:
+   0C31 AA 82              2816 	mov	r2,dpl
                     076E   2817 	C$CAN.C$1052$1$1 ==.
                            2818 ;	../CAN.C:1052: CAN_pushAMRegs();    //   PUSH the CAN Access Mediator Register
-   0C36                    2819 00101$:
-   0C36 E5 D8              2820 	mov	a,_CAN_ADCON
-   0C38 20 E1 FB           2821 	jb	acc.1,00101$
-   0C3B C0 D9 C0 DA C0 DB  2822 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   0C33                    2819 00101$:
+   0C33 E5 D8              2820 	mov	a,_CAN_ADCON
+   0C35 20 E1 FB           2821 	jb	acc.1,00101$
+   0C38 C0 D9 C0 DA C0 DB  2822 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     077F   2823 	C$CAN.C$1054$1$1 ==.
                            2824 ;	../CAN.C:1054: CAN_vWriteCANAddress(CAN_MOCTR(ubObjNr));  // Addressing CAN_MOCTRn register
-   0C47 EA                 2825 	mov	a,r2
-   0C48 C4                 2826 	swap	a
-   0C49 03                 2827 	rr	a
-   0C4A 54 F8              2828 	anl	a,#0xf8
-   0C4C FB                 2829 	mov	r3,a
-   0C4D 74 07              2830 	mov	a,#0x07
-   0C4F 2B                 2831 	add	a,r3
-   0C50 F5 D9              2832 	mov	_CAN_ADL,a
-   0C52 EA                 2833 	mov	a,r2
-   0C53 75 F0 08           2834 	mov	b,#0x08
-   0C56 A4                 2835 	mul	ab
-   0C57 FA                 2836 	mov	r2,a
-   0C58 AC F0              2837 	mov	r4,b
-   0C5A 74 07              2838 	mov	a,#0x07
-   0C5C 2A                 2839 	add	a,r2
-   0C5D 74 04              2840 	mov	a,#0x04
-   0C5F 3C                 2841 	addc	a,r4
-   0C60 FE                 2842 	mov	r6,a
-   0C61 7D 00              2843 	mov	r5,#0x00
-   0C63 8E DA              2844 	mov	_CAN_ADH,r6
+   0C44 EA                 2825 	mov	a,r2
+   0C45 C4                 2826 	swap	a
+   0C46 03                 2827 	rr	a
+   0C47 54 F8              2828 	anl	a,#0xf8
+   0C49 FB                 2829 	mov	r3,a
+   0C4A 74 07              2830 	mov	a,#0x07
+   0C4C 2B                 2831 	add	a,r3
+   0C4D F5 D9              2832 	mov	_CAN_ADL,a
+   0C4F EA                 2833 	mov	a,r2
+   0C50 75 F0 08           2834 	mov	b,#0x08
+   0C53 A4                 2835 	mul	ab
+   0C54 FA                 2836 	mov	r2,a
+   0C55 AC F0              2837 	mov	r4,b
+   0C57 74 07              2838 	mov	a,#0x07
+   0C59 2A                 2839 	add	a,r2
+   0C5A 74 04              2840 	mov	a,#0x04
+   0C5C 3C                 2841 	addc	a,r4
+   0C5D FE                 2842 	mov	r6,a
+   0C5E 7D 00              2843 	mov	r5,#0x00
+   0C60 8E DA              2844 	mov	_CAN_ADH,r6
                     079D   2845 	C$CAN.C$1055$1$1 ==.
                            2846 ;	../CAN.C:1055: CAN_vWriteCANData(0x00000020);      // reset MSGVAL
-   0C65 75 DB 20           2847 	mov	_CAN_DATA0,#0x20
-   0C68 75 DC 00           2848 	mov	_CAN_DATA1,#0x00
-   0C6B 75 DD 00           2849 	mov	_CAN_DATA2,#0x00
-   0C6E 75 DE 00           2850 	mov	_CAN_DATA3,#0x00
-   0C71 75 D8 F1           2851 	mov	_CAN_ADCON,#0xF1
-   0C74                    2852 00104$:
-   0C74 E5 D8              2853 	mov	a,_CAN_ADCON
-   0C76 20 E1 FB           2854 	jb	acc.1,00104$
+   0C62 75 DB 20           2847 	mov	_CAN_DATA0,#0x20
+   0C65 75 DC 00           2848 	mov	_CAN_DATA1,#0x00
+   0C68 75 DD 00           2849 	mov	_CAN_DATA2,#0x00
+   0C6B 75 DE 00           2850 	mov	_CAN_DATA3,#0x00
+   0C6E 75 D8 F1           2851 	mov	_CAN_ADCON,#0xF1
+   0C71                    2852 00104$:
+   0C71 E5 D8              2853 	mov	a,_CAN_ADCON
+   0C73 20 E1 FB           2854 	jb	acc.1,00104$
                     07B1   2855 	C$CAN.C$1059$1$1 ==.
                            2856 ;	../CAN.C:1059: CAN_vWriteCANAddress(CAN_MOAR(ubObjNr));
-   0C79 74 06              2857 	mov	a,#0x06
-   0C7B 2B                 2858 	add	a,r3
-   0C7C F5 D9              2859 	mov	_CAN_ADL,a
-   0C7E 74 06              2860 	mov	a,#0x06
-   0C80 2A                 2861 	add	a,r2
-   0C81 74 04              2862 	mov	a,#0x04
-   0C83 3C                 2863 	addc	a,r4
-   0C84 FE                 2864 	mov	r6,a
-   0C85 8E DA              2865 	mov	_CAN_ADH,r6
+   0C76 74 06              2857 	mov	a,#0x06
+   0C78 2B                 2858 	add	a,r3
+   0C79 F5 D9              2859 	mov	_CAN_ADL,a
+   0C7B 74 06              2860 	mov	a,#0x06
+   0C7D 2A                 2861 	add	a,r2
+   0C7E 74 04              2862 	mov	a,#0x04
+   0C80 3C                 2863 	addc	a,r4
+   0C81 FE                 2864 	mov	r6,a
+   0C82 8E DA              2865 	mov	_CAN_ADH,r6
                     07BF   2866 	C$CAN.C$1061$1$1 ==.
                            2867 ;	../CAN.C:1061: if(pstObj->ubMOcfg & 0x04)                 // extended identifier
-   0C87 AD 36              2868 	mov	r5,_CAN_vConfigMsgObj_PARM_2
-   0C89 AE 37              2869 	mov	r6,(_CAN_vConfigMsgObj_PARM_2 + 1)
-   0C8B AF 38              2870 	mov	r7,(_CAN_vConfigMsgObj_PARM_2 + 2)
-   0C8D C0 03              2871 	push	ar3
-   0C8F 74 01              2872 	mov	a,#0x01
-   0C91 2D                 2873 	add	a,r5
-   0C92 F8                 2874 	mov	r0,a
-   0C93 E4                 2875 	clr	a
-   0C94 3E                 2876 	addc	a,r6
-   0C95 F9                 2877 	mov	r1,a
-   0C96 8F 03              2878 	mov	ar3,r7
-   0C98 88 82              2879 	mov	dpl,r0
-   0C9A 89 83              2880 	mov	dph,r1
-   0C9C 8B F0              2881 	mov	b,r3
-   0C9E 12 1D 2A           2882 	lcall	__gptrget
-   0CA1 F8                 2883 	mov	r0,a
-   0CA2 D0 03              2884 	pop	ar3
-   0CA4 20 E2 03           2885 	jb	acc.2,00196$
-   0CA7 02 0D B6           2886 	ljmp	00132$
-   0CAA                    2887 00196$:
+   0C84 AD 36              2868 	mov	r5,_CAN_vConfigMsgObj_PARM_2
+   0C86 AE 37              2869 	mov	r6,(_CAN_vConfigMsgObj_PARM_2 + 1)
+   0C88 AF 38              2870 	mov	r7,(_CAN_vConfigMsgObj_PARM_2 + 2)
+   0C8A C0 03              2871 	push	ar3
+   0C8C 74 01              2872 	mov	a,#0x01
+   0C8E 2D                 2873 	add	a,r5
+   0C8F F8                 2874 	mov	r0,a
+   0C90 E4                 2875 	clr	a
+   0C91 3E                 2876 	addc	a,r6
+   0C92 F9                 2877 	mov	r1,a
+   0C93 8F 03              2878 	mov	ar3,r7
+   0C95 88 82              2879 	mov	dpl,r0
+   0C97 89 83              2880 	mov	dph,r1
+   0C99 8B F0              2881 	mov	b,r3
+   0C9B 12 1D 22           2882 	lcall	__gptrget
+   0C9E F8                 2883 	mov	r0,a
+   0C9F D0 03              2884 	pop	ar3
+   0CA1 20 E2 03           2885 	jb	acc.2,00196$
+   0CA4 02 0D B3           2886 	ljmp	00132$
+   0CA7                    2887 00196$:
                     07E2   2888 	C$CAN.C$1063$2$2 ==.
                            2889 ;	../CAN.C:1063: CAN_vReadEN();  // Read mode is enabled
-   0CAA 75 D8 00           2890 	mov	_CAN_ADCON,#0x00
-   0CAD                    2891 00107$:
-   0CAD E5 D8              2892 	mov	a,_CAN_ADCON
-   0CAF 20 E1 FB           2893 	jb	acc.1,00107$
+   0CA7 75 D8 00           2890 	mov	_CAN_ADCON,#0x00
+   0CAA                    2891 00107$:
+   0CAA E5 D8              2892 	mov	a,_CAN_ADCON
+   0CAC 20 E1 FB           2893 	jb	acc.1,00107$
                     07EA   2894 	C$CAN.C$1065$1$1 ==.
                            2895 ;	../CAN.C:1065: CAN_DATA3  &= ~0x1F;    //MOARn[31-24]
-   0CB2 C0 03              2896 	push	ar3
-   0CB4 53 DE E0           2897 	anl	_CAN_DATA3,#0xE0
+   0CAF C0 03              2896 	push	ar3
+   0CB1 53 DE E0           2897 	anl	_CAN_DATA3,#0xE0
                     07EF   2898 	C$CAN.C$1069$2$2 ==.
                            2899 ;	../CAN.C:1069: CAN_DATA0 = pstObj->ulID.ubDB[0];   //MOARn[7-0]
-   0CB7 74 02              2900 	mov	a,#0x02
-   0CB9 2D                 2901 	add	a,r5
-   0CBA F8                 2902 	mov	r0,a
-   0CBB E4                 2903 	clr	a
-   0CBC 3E                 2904 	addc	a,r6
-   0CBD F9                 2905 	mov	r1,a
-   0CBE 8F 03              2906 	mov	ar3,r7
-   0CC0 88 82              2907 	mov	dpl,r0
-   0CC2 89 83              2908 	mov	dph,r1
-   0CC4 8B F0              2909 	mov	b,r3
-   0CC6 12 1D 2A           2910 	lcall	__gptrget
-   0CC9 F5 DB              2911 	mov	_CAN_DATA0,a
+   0CB4 74 02              2900 	mov	a,#0x02
+   0CB6 2D                 2901 	add	a,r5
+   0CB7 F8                 2902 	mov	r0,a
+   0CB8 E4                 2903 	clr	a
+   0CB9 3E                 2904 	addc	a,r6
+   0CBA F9                 2905 	mov	r1,a
+   0CBB 8F 03              2906 	mov	ar3,r7
+   0CBD 88 82              2907 	mov	dpl,r0
+   0CBF 89 83              2908 	mov	dph,r1
+   0CC1 8B F0              2909 	mov	b,r3
+   0CC3 12 1D 22           2910 	lcall	__gptrget
+   0CC6 F5 DB              2911 	mov	_CAN_DATA0,a
                     0803   2912 	C$CAN.C$1070$2$2 ==.
                            2913 ;	../CAN.C:1070: CAN_DATA1 = pstObj->ulID.ubDB[1];   //MOARn[15-8]
-   0CCB 74 02              2914 	mov	a,#0x02
-   0CCD 2D                 2915 	add	a,r5
-   0CCE F5 3A              2916 	mov	_CAN_vConfigMsgObj_sloc0_1_0,a
-   0CD0 E4                 2917 	clr	a
-   0CD1 3E                 2918 	addc	a,r6
-   0CD2 F5 3B              2919 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 1),a
-   0CD4 8F 3C              2920 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 2),r7
-   0CD6 74 01              2921 	mov	a,#0x01
-   0CD8 25 3A              2922 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
-   0CDA FB                 2923 	mov	r3,a
-   0CDB E4                 2924 	clr	a
-   0CDC 35 3B              2925 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
-   0CDE F8                 2926 	mov	r0,a
-   0CDF A9 3C              2927 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
-   0CE1 8B 82              2928 	mov	dpl,r3
-   0CE3 88 83              2929 	mov	dph,r0
-   0CE5 89 F0              2930 	mov	b,r1
-   0CE7 12 1D 2A           2931 	lcall	__gptrget
-   0CEA F5 DC              2932 	mov	_CAN_DATA1,a
+   0CC8 74 02              2914 	mov	a,#0x02
+   0CCA 2D                 2915 	add	a,r5
+   0CCB F5 3A              2916 	mov	_CAN_vConfigMsgObj_sloc0_1_0,a
+   0CCD E4                 2917 	clr	a
+   0CCE 3E                 2918 	addc	a,r6
+   0CCF F5 3B              2919 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 1),a
+   0CD1 8F 3C              2920 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 2),r7
+   0CD3 74 01              2921 	mov	a,#0x01
+   0CD5 25 3A              2922 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
+   0CD7 FB                 2923 	mov	r3,a
+   0CD8 E4                 2924 	clr	a
+   0CD9 35 3B              2925 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
+   0CDB F8                 2926 	mov	r0,a
+   0CDC A9 3C              2927 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
+   0CDE 8B 82              2928 	mov	dpl,r3
+   0CE0 88 83              2929 	mov	dph,r0
+   0CE2 89 F0              2930 	mov	b,r1
+   0CE4 12 1D 22           2931 	lcall	__gptrget
+   0CE7 F5 DC              2932 	mov	_CAN_DATA1,a
                     0824   2933 	C$CAN.C$1071$2$2 ==.
                            2934 ;	../CAN.C:1071: CAN_DATA2 = pstObj->ulID.ubDB[2];   //MOARn[16-23]
-   0CEC 74 02              2935 	mov	a,#0x02
-   0CEE 25 3A              2936 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
-   0CF0 FB                 2937 	mov	r3,a
-   0CF1 E4                 2938 	clr	a
-   0CF2 35 3B              2939 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
-   0CF4 F8                 2940 	mov	r0,a
-   0CF5 A9 3C              2941 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
-   0CF7 8B 82              2942 	mov	dpl,r3
-   0CF9 88 83              2943 	mov	dph,r0
-   0CFB 89 F0              2944 	mov	b,r1
-   0CFD 12 1D 2A           2945 	lcall	__gptrget
-   0D00 F5 DD              2946 	mov	_CAN_DATA2,a
+   0CE9 74 02              2935 	mov	a,#0x02
+   0CEB 25 3A              2936 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
+   0CED FB                 2937 	mov	r3,a
+   0CEE E4                 2938 	clr	a
+   0CEF 35 3B              2939 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
+   0CF1 F8                 2940 	mov	r0,a
+   0CF2 A9 3C              2941 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
+   0CF4 8B 82              2942 	mov	dpl,r3
+   0CF6 88 83              2943 	mov	dph,r0
+   0CF8 89 F0              2944 	mov	b,r1
+   0CFA 12 1D 22           2945 	lcall	__gptrget
+   0CFD F5 DD              2946 	mov	_CAN_DATA2,a
                     083A   2947 	C$CAN.C$1072$2$2 ==.
                            2948 ;	../CAN.C:1072: CAN_DATA3 |= ( 0x20 | ((pstObj->ulID.ubDB[3]) & 0x1F)); //MOARn[31-24]
-   0D02 74 03              2949 	mov	a,#0x03
-   0D04 25 3A              2950 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
-   0D06 FB                 2951 	mov	r3,a
-   0D07 E4                 2952 	clr	a
-   0D08 35 3B              2953 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
-   0D0A F8                 2954 	mov	r0,a
-   0D0B A9 3C              2955 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
-   0D0D 8B 82              2956 	mov	dpl,r3
-   0D0F 88 83              2957 	mov	dph,r0
-   0D11 89 F0              2958 	mov	b,r1
-   0D13 12 1D 2A           2959 	lcall	__gptrget
-   0D16 FB                 2960 	mov	r3,a
-   0D17 74 1F              2961 	mov	a,#0x1F
-   0D19 5B                 2962 	anl	a,r3
-   0D1A F5 F0              2963 	mov	b,a
-   0D1C 74 20              2964 	mov	a,#0x20
-   0D1E 45 F0              2965 	orl	a,b
-   0D20 42 DE              2966 	orl	_CAN_DATA3,a
+   0CFF 74 03              2949 	mov	a,#0x03
+   0D01 25 3A              2950 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
+   0D03 FB                 2951 	mov	r3,a
+   0D04 E4                 2952 	clr	a
+   0D05 35 3B              2953 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
+   0D07 F8                 2954 	mov	r0,a
+   0D08 A9 3C              2955 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
+   0D0A 8B 82              2956 	mov	dpl,r3
+   0D0C 88 83              2957 	mov	dph,r0
+   0D0E 89 F0              2958 	mov	b,r1
+   0D10 12 1D 22           2959 	lcall	__gptrget
+   0D13 FB                 2960 	mov	r3,a
+   0D14 74 1F              2961 	mov	a,#0x1F
+   0D16 5B                 2962 	anl	a,r3
+   0D17 F5 F0              2963 	mov	b,a
+   0D19 74 20              2964 	mov	a,#0x20
+   0D1B 45 F0              2965 	orl	a,b
+   0D1D 42 DE              2966 	orl	_CAN_DATA3,a
                     085A   2967 	C$CAN.C$1074$2$2 ==.
                            2968 ;	../CAN.C:1074: CAN_vWriteEN(ALL_DATA_VALID); // Write mode is enabled
-   0D22 75 D8 F1           2969 	mov	_CAN_ADCON,#0xF1
+   0D1F 75 D8 F1           2969 	mov	_CAN_ADCON,#0xF1
                     085D   2970 	C$CAN.C$1193$1$1 ==.
                            2971 ;	../CAN.C:1193: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0D25 D0 03              2972 	pop	ar3
+   0D22 D0 03              2972 	pop	ar3
                     085F   2973 	C$CAN.C$1074$2$2 ==.
                            2974 ;	../CAN.C:1074: CAN_vWriteEN(ALL_DATA_VALID); // Write mode is enabled
-   0D27                    2975 00110$:
-   0D27 E5 D8              2976 	mov	a,_CAN_ADCON
-   0D29 20 E1 FB           2977 	jb	acc.1,00110$
+   0D24                    2975 00110$:
+   0D24 E5 D8              2976 	mov	a,_CAN_ADCON
+   0D26 20 E1 FB           2977 	jb	acc.1,00110$
                     0864   2978 	C$CAN.C$1077$2$2 ==.
                            2979 ;	../CAN.C:1077: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0D2C 75 D8 08           2980 	mov	_CAN_ADCON,#0x08
+   0D29 75 D8 08           2980 	mov	_CAN_ADCON,#0x08
                     0867   2981 	C$CAN.C$1080$2$2 ==.
                            2982 ;	../CAN.C:1080: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0D2F 75 D8 08           2983 	mov	_CAN_ADCON,#0x08
+   0D2C 75 D8 08           2983 	mov	_CAN_ADCON,#0x08
                     086A   2984 	C$CAN.C$1083$2$2 ==.
                            2985 ;	../CAN.C:1083: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0D32 75 D8 08           2986 	mov	_CAN_ADCON,#0x08
+   0D2F 75 D8 08           2986 	mov	_CAN_ADCON,#0x08
                     086D   2987 	C$CAN.C$1085$2$2 ==.
                            2988 ;	../CAN.C:1085: CAN_vReadEN();  // Read mode is enabled
-   0D35 75 D8 00           2989 	mov	_CAN_ADCON,#0x00
-   0D38                    2990 00113$:
-   0D38 E5 D8              2991 	mov	a,_CAN_ADCON
-   0D3A 20 E1 FB           2992 	jb	acc.1,00113$
+   0D32 75 D8 00           2989 	mov	_CAN_ADCON,#0x00
+   0D35                    2990 00113$:
+   0D35 E5 D8              2991 	mov	a,_CAN_ADCON
+   0D37 20 E1 FB           2992 	jb	acc.1,00113$
                     0875   2993 	C$CAN.C$1087$1$1 ==.
                            2994 ;	../CAN.C:1087: CAN_DATA3  &= ~0x1F;    //MOAMRn[31-24]
-   0D3D C0 03              2995 	push	ar3
-   0D3F 53 DE E0           2996 	anl	_CAN_DATA3,#0xE0
+   0D3A C0 03              2995 	push	ar3
+   0D3C 53 DE E0           2996 	anl	_CAN_DATA3,#0xE0
                     087A   2997 	C$CAN.C$1091$2$2 ==.
                            2998 ;	../CAN.C:1091: CAN_DATA0 = pstObj->ulMask.ubDB[0]; //MOAMRn[7-0]
-   0D42 74 06              2999 	mov	a,#0x06
-   0D44 2D                 3000 	add	a,r5
-   0D45 F8                 3001 	mov	r0,a
-   0D46 E4                 3002 	clr	a
-   0D47 3E                 3003 	addc	a,r6
-   0D48 F9                 3004 	mov	r1,a
-   0D49 8F 03              3005 	mov	ar3,r7
-   0D4B 88 82              3006 	mov	dpl,r0
-   0D4D 89 83              3007 	mov	dph,r1
-   0D4F 8B F0              3008 	mov	b,r3
-   0D51 12 1D 2A           3009 	lcall	__gptrget
-   0D54 F5 DB              3010 	mov	_CAN_DATA0,a
+   0D3F 74 06              2999 	mov	a,#0x06
+   0D41 2D                 3000 	add	a,r5
+   0D42 F8                 3001 	mov	r0,a
+   0D43 E4                 3002 	clr	a
+   0D44 3E                 3003 	addc	a,r6
+   0D45 F9                 3004 	mov	r1,a
+   0D46 8F 03              3005 	mov	ar3,r7
+   0D48 88 82              3006 	mov	dpl,r0
+   0D4A 89 83              3007 	mov	dph,r1
+   0D4C 8B F0              3008 	mov	b,r3
+   0D4E 12 1D 22           3009 	lcall	__gptrget
+   0D51 F5 DB              3010 	mov	_CAN_DATA0,a
                     088E   3011 	C$CAN.C$1092$2$2 ==.
                            3012 ;	../CAN.C:1092: CAN_DATA1 = pstObj->ulMask.ubDB[1]; //MOAMRn[15-8]
-   0D56 74 06              3013 	mov	a,#0x06
-   0D58 2D                 3014 	add	a,r5
-   0D59 F5 3A              3015 	mov	_CAN_vConfigMsgObj_sloc0_1_0,a
-   0D5B E4                 3016 	clr	a
-   0D5C 3E                 3017 	addc	a,r6
-   0D5D F5 3B              3018 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 1),a
-   0D5F 8F 3C              3019 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 2),r7
-   0D61 74 01              3020 	mov	a,#0x01
-   0D63 25 3A              3021 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
-   0D65 FB                 3022 	mov	r3,a
-   0D66 E4                 3023 	clr	a
-   0D67 35 3B              3024 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
-   0D69 F8                 3025 	mov	r0,a
-   0D6A A9 3C              3026 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
-   0D6C 8B 82              3027 	mov	dpl,r3
-   0D6E 88 83              3028 	mov	dph,r0
-   0D70 89 F0              3029 	mov	b,r1
-   0D72 12 1D 2A           3030 	lcall	__gptrget
-   0D75 F5 DC              3031 	mov	_CAN_DATA1,a
+   0D53 74 06              3013 	mov	a,#0x06
+   0D55 2D                 3014 	add	a,r5
+   0D56 F5 3A              3015 	mov	_CAN_vConfigMsgObj_sloc0_1_0,a
+   0D58 E4                 3016 	clr	a
+   0D59 3E                 3017 	addc	a,r6
+   0D5A F5 3B              3018 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 1),a
+   0D5C 8F 3C              3019 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 2),r7
+   0D5E 74 01              3020 	mov	a,#0x01
+   0D60 25 3A              3021 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
+   0D62 FB                 3022 	mov	r3,a
+   0D63 E4                 3023 	clr	a
+   0D64 35 3B              3024 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
+   0D66 F8                 3025 	mov	r0,a
+   0D67 A9 3C              3026 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
+   0D69 8B 82              3027 	mov	dpl,r3
+   0D6B 88 83              3028 	mov	dph,r0
+   0D6D 89 F0              3029 	mov	b,r1
+   0D6F 12 1D 22           3030 	lcall	__gptrget
+   0D72 F5 DC              3031 	mov	_CAN_DATA1,a
                     08AF   3032 	C$CAN.C$1093$2$2 ==.
                            3033 ;	../CAN.C:1093: CAN_DATA2 = pstObj->ulMask.ubDB[2]; //MOAMRn[23-16]
-   0D77 74 02              3034 	mov	a,#0x02
-   0D79 25 3A              3035 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
-   0D7B FB                 3036 	mov	r3,a
-   0D7C E4                 3037 	clr	a
-   0D7D 35 3B              3038 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
-   0D7F F8                 3039 	mov	r0,a
-   0D80 A9 3C              3040 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
-   0D82 8B 82              3041 	mov	dpl,r3
-   0D84 88 83              3042 	mov	dph,r0
-   0D86 89 F0              3043 	mov	b,r1
-   0D88 12 1D 2A           3044 	lcall	__gptrget
-   0D8B F5 DD              3045 	mov	_CAN_DATA2,a
+   0D74 74 02              3034 	mov	a,#0x02
+   0D76 25 3A              3035 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
+   0D78 FB                 3036 	mov	r3,a
+   0D79 E4                 3037 	clr	a
+   0D7A 35 3B              3038 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
+   0D7C F8                 3039 	mov	r0,a
+   0D7D A9 3C              3040 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
+   0D7F 8B 82              3041 	mov	dpl,r3
+   0D81 88 83              3042 	mov	dph,r0
+   0D83 89 F0              3043 	mov	b,r1
+   0D85 12 1D 22           3044 	lcall	__gptrget
+   0D88 F5 DD              3045 	mov	_CAN_DATA2,a
                     08C5   3046 	C$CAN.C$1094$2$2 ==.
                            3047 ;	../CAN.C:1094: CAN_DATA3 |= (pstObj->ulMask.ubDB[3] & 0x1F);   //MOAMRn[31-24]
-   0D8D 74 03              3048 	mov	a,#0x03
-   0D8F 25 3A              3049 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
-   0D91 FB                 3050 	mov	r3,a
-   0D92 E4                 3051 	clr	a
-   0D93 35 3B              3052 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
-   0D95 F8                 3053 	mov	r0,a
-   0D96 A9 3C              3054 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
-   0D98 8B 82              3055 	mov	dpl,r3
-   0D9A 88 83              3056 	mov	dph,r0
-   0D9C 89 F0              3057 	mov	b,r1
-   0D9E 12 1D 2A           3058 	lcall	__gptrget
-   0DA1 FB                 3059 	mov	r3,a
-   0DA2 74 1F              3060 	mov	a,#0x1F
-   0DA4 5B                 3061 	anl	a,r3
-   0DA5 42 DE              3062 	orl	_CAN_DATA3,a
+   0D8A 74 03              3048 	mov	a,#0x03
+   0D8C 25 3A              3049 	add	a,_CAN_vConfigMsgObj_sloc0_1_0
+   0D8E FB                 3050 	mov	r3,a
+   0D8F E4                 3051 	clr	a
+   0D90 35 3B              3052 	addc	a,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
+   0D92 F8                 3053 	mov	r0,a
+   0D93 A9 3C              3054 	mov	r1,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
+   0D95 8B 82              3055 	mov	dpl,r3
+   0D97 88 83              3056 	mov	dph,r0
+   0D99 89 F0              3057 	mov	b,r1
+   0D9B 12 1D 22           3058 	lcall	__gptrget
+   0D9E FB                 3059 	mov	r3,a
+   0D9F 74 1F              3060 	mov	a,#0x1F
+   0DA1 5B                 3061 	anl	a,r3
+   0DA2 42 DE              3062 	orl	_CAN_DATA3,a
                     08DF   3063 	C$CAN.C$1096$2$2 ==.
                            3064 ;	../CAN.C:1096: CAN_vWriteEN(ALL_DATA_VALID); // Write mode is enabled
-   0DA7 75 D8 F1           3065 	mov	_CAN_ADCON,#0xF1
+   0DA4 75 D8 F1           3065 	mov	_CAN_ADCON,#0xF1
                     08E2   3066 	C$CAN.C$1193$1$1 ==.
                            3067 ;	../CAN.C:1193: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0DAA D0 03              3068 	pop	ar3
+   0DA7 D0 03              3068 	pop	ar3
                     08E4   3069 	C$CAN.C$1096$2$2 ==.
                            3070 ;	../CAN.C:1096: CAN_vWriteEN(ALL_DATA_VALID); // Write mode is enabled
-   0DAC                    3071 00116$:
-   0DAC E5 D8              3072 	mov	a,_CAN_ADCON
-   0DAE 20 E1 03           3073 	jb	acc.1,00200$
-   0DB1 02 0E A1           3074 	ljmp	00133$
-   0DB4                    3075 00200$:
-   0DB4 80 F6              3076 	sjmp	00116$
-   0DB6                    3077 00132$:
+   0DA9                    3071 00116$:
+   0DA9 E5 D8              3072 	mov	a,_CAN_ADCON
+   0DAB 20 E1 03           3073 	jb	acc.1,00200$
+   0DAE 02 0E 9E           3074 	ljmp	00133$
+   0DB1                    3075 00200$:
+   0DB1 80 F6              3076 	sjmp	00116$
+   0DB3                    3077 00132$:
                     08EE   3078 	C$CAN.C$1100$2$3 ==.
                            3079 ;	../CAN.C:1100: CAN_vReadEN();  // Read mode is enabled
-   0DB6 75 D8 00           3080 	mov	_CAN_ADCON,#0x00
-   0DB9                    3081 00119$:
-   0DB9 E5 D8              3082 	mov	a,_CAN_ADCON
-   0DBB 20 E1 FB           3083 	jb	acc.1,00119$
+   0DB3 75 D8 00           3080 	mov	_CAN_ADCON,#0x00
+   0DB6                    3081 00119$:
+   0DB6 E5 D8              3082 	mov	a,_CAN_ADCON
+   0DB8 20 E1 FB           3083 	jb	acc.1,00119$
                     08F6   3084 	C$CAN.C$1102$1$1 ==.
                            3085 ;	../CAN.C:1102: CAN_DATA3  &= ~0x3F;    //MOARn[31-24]
-   0DBE C0 03              3086 	push	ar3
-   0DC0 53 DE C0           3087 	anl	_CAN_DATA3,#0xC0
+   0DBB C0 03              3086 	push	ar3
+   0DBD 53 DE C0           3087 	anl	_CAN_DATA3,#0xC0
                     08FB   3088 	C$CAN.C$1106$2$3 ==.
                            3089 ;	../CAN.C:1106: ubTemp = ((pstObj->ulID.ubDB[0] & 0xC0) >> 6);
-   0DC3 74 02              3090 	mov	a,#0x02
-   0DC5 2D                 3091 	add	a,r5
-   0DC6 F5 3A              3092 	mov	_CAN_vConfigMsgObj_sloc0_1_0,a
-   0DC8 E4                 3093 	clr	a
-   0DC9 3E                 3094 	addc	a,r6
-   0DCA F5 3B              3095 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 1),a
-   0DCC 8F 3C              3096 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 2),r7
-   0DCE 85 3A 82           3097 	mov	dpl,_CAN_vConfigMsgObj_sloc0_1_0
-   0DD1 85 3B 83           3098 	mov	dph,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
-   0DD4 85 3C F0           3099 	mov	b,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
-   0DD7 12 1D 2A           3100 	lcall	__gptrget
-   0DDA 54 C0              3101 	anl	a,#0xC0
-   0DDC 23                 3102 	rl	a
-   0DDD 23                 3103 	rl	a
-   0DDE 54 03              3104 	anl	a,#0x03
-   0DE0 F5 39              3105 	mov	_CAN_vConfigMsgObj_ubTemp_1_1,a
+   0DC0 74 02              3090 	mov	a,#0x02
+   0DC2 2D                 3091 	add	a,r5
+   0DC3 F5 3A              3092 	mov	_CAN_vConfigMsgObj_sloc0_1_0,a
+   0DC5 E4                 3093 	clr	a
+   0DC6 3E                 3094 	addc	a,r6
+   0DC7 F5 3B              3095 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 1),a
+   0DC9 8F 3C              3096 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 2),r7
+   0DCB 85 3A 82           3097 	mov	dpl,_CAN_vConfigMsgObj_sloc0_1_0
+   0DCE 85 3B 83           3098 	mov	dph,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
+   0DD1 85 3C F0           3099 	mov	b,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
+   0DD4 12 1D 22           3100 	lcall	__gptrget
+   0DD7 54 C0              3101 	anl	a,#0xC0
+   0DD9 23                 3102 	rl	a
+   0DDA 23                 3103 	rl	a
+   0DDB 54 03              3104 	anl	a,#0x03
+   0DDD F5 39              3105 	mov	_CAN_vConfigMsgObj_ubTemp_1_1,a
                     091A   3106 	C$CAN.C$1108$2$3 ==.
                            3107 ;	../CAN.C:1108: CAN_DATA0 = 0x00;                   //MOARn[7-0]
-   0DE2 75 DB 00           3108 	mov	_CAN_DATA0,#0x00
+   0DDF 75 DB 00           3108 	mov	_CAN_DATA0,#0x00
                     091D   3109 	C$CAN.C$1109$2$3 ==.
                            3110 ;	../CAN.C:1109: CAN_DATA1 = 0x00;                   //MOARn[15-8]
-   0DE5 75 DC 00           3111 	mov	_CAN_DATA1,#0x00
+   0DE2 75 DC 00           3111 	mov	_CAN_DATA1,#0x00
                     0920   3112 	C$CAN.C$1110$2$3 ==.
                            3113 ;	../CAN.C:1110: CAN_DATA2 = (pstObj->ulID.ubDB[0] << 2);    //MOARn[16-23]
-   0DE8 85 3A 82           3114 	mov	dpl,_CAN_vConfigMsgObj_sloc0_1_0
-   0DEB 85 3B 83           3115 	mov	dph,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
-   0DEE 85 3C F0           3116 	mov	b,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
-   0DF1 12 1D 2A           3117 	lcall	__gptrget
-   0DF4 25 E0              3118 	add	a,acc
-   0DF6 25 E0              3119 	add	a,acc
-   0DF8 F5 DD              3120 	mov	_CAN_DATA2,a
+   0DE5 85 3A 82           3114 	mov	dpl,_CAN_vConfigMsgObj_sloc0_1_0
+   0DE8 85 3B 83           3115 	mov	dph,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
+   0DEB 85 3C F0           3116 	mov	b,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
+   0DEE 12 1D 22           3117 	lcall	__gptrget
+   0DF1 25 E0              3118 	add	a,acc
+   0DF3 25 E0              3119 	add	a,acc
+   0DF5 F5 DD              3120 	mov	_CAN_DATA2,a
                     0932   3121 	C$CAN.C$1111$2$3 ==.
                            3122 ;	../CAN.C:1111: CAN_DATA3 |= (((pstObj->ulID.ubDB[1] & 0x07) << 2) + ubTemp);   //MOARn[31-24]
-   0DFA 74 02              3123 	mov	a,#0x02
-   0DFC 2D                 3124 	add	a,r5
-   0DFD FB                 3125 	mov	r3,a
-   0DFE E4                 3126 	clr	a
-   0DFF 3E                 3127 	addc	a,r6
-   0E00 F8                 3128 	mov	r0,a
-   0E01 8F 01              3129 	mov	ar1,r7
-   0E03 0B                 3130 	inc	r3
-   0E04 BB 00 01           3131 	cjne	r3,#0x00,00202$
-   0E07 08                 3132 	inc	r0
-   0E08                    3133 00202$:
-   0E08 8B 82              3134 	mov	dpl,r3
-   0E0A 88 83              3135 	mov	dph,r0
-   0E0C 89 F0              3136 	mov	b,r1
-   0E0E 12 1D 2A           3137 	lcall	__gptrget
-   0E11 54 07              3138 	anl	a,#0x07
-   0E13 25 E0              3139 	add	a,acc
-   0E15 25 E0              3140 	add	a,acc
-   0E17 FB                 3141 	mov	r3,a
-   0E18 E5 39              3142 	mov	a,_CAN_vConfigMsgObj_ubTemp_1_1
-   0E1A 2B                 3143 	add	a,r3
-   0E1B 42 DE              3144 	orl	_CAN_DATA3,a
+   0DF7 74 02              3123 	mov	a,#0x02
+   0DF9 2D                 3124 	add	a,r5
+   0DFA FB                 3125 	mov	r3,a
+   0DFB E4                 3126 	clr	a
+   0DFC 3E                 3127 	addc	a,r6
+   0DFD F8                 3128 	mov	r0,a
+   0DFE 8F 01              3129 	mov	ar1,r7
+   0E00 0B                 3130 	inc	r3
+   0E01 BB 00 01           3131 	cjne	r3,#0x00,00202$
+   0E04 08                 3132 	inc	r0
+   0E05                    3133 00202$:
+   0E05 8B 82              3134 	mov	dpl,r3
+   0E07 88 83              3135 	mov	dph,r0
+   0E09 89 F0              3136 	mov	b,r1
+   0E0B 12 1D 22           3137 	lcall	__gptrget
+   0E0E 54 07              3138 	anl	a,#0x07
+   0E10 25 E0              3139 	add	a,acc
+   0E12 25 E0              3140 	add	a,acc
+   0E14 FB                 3141 	mov	r3,a
+   0E15 E5 39              3142 	mov	a,_CAN_vConfigMsgObj_ubTemp_1_1
+   0E17 2B                 3143 	add	a,r3
+   0E18 42 DE              3144 	orl	_CAN_DATA3,a
                     0955   3145 	C$CAN.C$1113$2$3 ==.
                            3146 ;	../CAN.C:1113: CAN_vWriteEN(ALL_DATA_VALID); // Write mode is enabled
-   0E1D 75 D8 F1           3147 	mov	_CAN_ADCON,#0xF1
+   0E1A 75 D8 F1           3147 	mov	_CAN_ADCON,#0xF1
                     0958   3148 	C$CAN.C$1193$1$1 ==.
                            3149 ;	../CAN.C:1193: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0E20 D0 03              3150 	pop	ar3
+   0E1D D0 03              3150 	pop	ar3
                     095A   3151 	C$CAN.C$1113$2$3 ==.
                            3152 ;	../CAN.C:1113: CAN_vWriteEN(ALL_DATA_VALID); // Write mode is enabled
-   0E22                    3153 00122$:
-   0E22 E5 D8              3154 	mov	a,_CAN_ADCON
-   0E24 20 E1 FB           3155 	jb	acc.1,00122$
+   0E1F                    3153 00122$:
+   0E1F E5 D8              3154 	mov	a,_CAN_ADCON
+   0E21 20 E1 FB           3155 	jb	acc.1,00122$
                     095F   3156 	C$CAN.C$1116$2$3 ==.
                            3157 ;	../CAN.C:1116: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0E27 75 D8 08           3158 	mov	_CAN_ADCON,#0x08
+   0E24 75 D8 08           3158 	mov	_CAN_ADCON,#0x08
                     0962   3159 	C$CAN.C$1119$2$3 ==.
                            3160 ;	../CAN.C:1119: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0E2A 75 D8 08           3161 	mov	_CAN_ADCON,#0x08
+   0E27 75 D8 08           3161 	mov	_CAN_ADCON,#0x08
                     0965   3162 	C$CAN.C$1122$2$3 ==.
                            3163 ;	../CAN.C:1122: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0E2D 75 D8 08           3164 	mov	_CAN_ADCON,#0x08
+   0E2A 75 D8 08           3164 	mov	_CAN_ADCON,#0x08
                     0968   3165 	C$CAN.C$1124$2$3 ==.
                            3166 ;	../CAN.C:1124: CAN_vReadEN();  // Read mode is enabled
-   0E30 75 D8 00           3167 	mov	_CAN_ADCON,#0x00
-   0E33                    3168 00125$:
-   0E33 E5 D8              3169 	mov	a,_CAN_ADCON
-   0E35 20 E1 FB           3170 	jb	acc.1,00125$
+   0E2D 75 D8 00           3167 	mov	_CAN_ADCON,#0x00
+   0E30                    3168 00125$:
+   0E30 E5 D8              3169 	mov	a,_CAN_ADCON
+   0E32 20 E1 FB           3170 	jb	acc.1,00125$
                     0970   3171 	C$CAN.C$1126$1$1 ==.
                            3172 ;	../CAN.C:1126: CAN_DATA3  &= ~0x1F;    //MOARn[31-24]
-   0E38 C0 03              3173 	push	ar3
-   0E3A 53 DE E0           3174 	anl	_CAN_DATA3,#0xE0
+   0E35 C0 03              3173 	push	ar3
+   0E37 53 DE E0           3174 	anl	_CAN_DATA3,#0xE0
                     0975   3175 	C$CAN.C$1131$2$3 ==.
                            3176 ;	../CAN.C:1131: ubTemp = ((pstObj->ulMask.ubDB[0] & 0xC0) >> 6);
-   0E3D 74 06              3177 	mov	a,#0x06
-   0E3F 2D                 3178 	add	a,r5
-   0E40 F5 3A              3179 	mov	_CAN_vConfigMsgObj_sloc0_1_0,a
-   0E42 E4                 3180 	clr	a
-   0E43 3E                 3181 	addc	a,r6
-   0E44 F5 3B              3182 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 1),a
-   0E46 8F 3C              3183 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 2),r7
-   0E48 85 3A 82           3184 	mov	dpl,_CAN_vConfigMsgObj_sloc0_1_0
-   0E4B 85 3B 83           3185 	mov	dph,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
-   0E4E 85 3C F0           3186 	mov	b,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
-   0E51 12 1D 2A           3187 	lcall	__gptrget
-   0E54 54 C0              3188 	anl	a,#0xC0
-   0E56 23                 3189 	rl	a
-   0E57 23                 3190 	rl	a
-   0E58 54 03              3191 	anl	a,#0x03
-   0E5A F5 39              3192 	mov	_CAN_vConfigMsgObj_ubTemp_1_1,a
+   0E3A 74 06              3177 	mov	a,#0x06
+   0E3C 2D                 3178 	add	a,r5
+   0E3D F5 3A              3179 	mov	_CAN_vConfigMsgObj_sloc0_1_0,a
+   0E3F E4                 3180 	clr	a
+   0E40 3E                 3181 	addc	a,r6
+   0E41 F5 3B              3182 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 1),a
+   0E43 8F 3C              3183 	mov	(_CAN_vConfigMsgObj_sloc0_1_0 + 2),r7
+   0E45 85 3A 82           3184 	mov	dpl,_CAN_vConfigMsgObj_sloc0_1_0
+   0E48 85 3B 83           3185 	mov	dph,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
+   0E4B 85 3C F0           3186 	mov	b,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
+   0E4E 12 1D 22           3187 	lcall	__gptrget
+   0E51 54 C0              3188 	anl	a,#0xC0
+   0E53 23                 3189 	rl	a
+   0E54 23                 3190 	rl	a
+   0E55 54 03              3191 	anl	a,#0x03
+   0E57 F5 39              3192 	mov	_CAN_vConfigMsgObj_ubTemp_1_1,a
                     0994   3193 	C$CAN.C$1133$2$3 ==.
                            3194 ;	../CAN.C:1133: CAN_DATA0 = 0x00;                   //MOAMRn[7-0]
-   0E5C 75 DB 00           3195 	mov	_CAN_DATA0,#0x00
+   0E59 75 DB 00           3195 	mov	_CAN_DATA0,#0x00
                     0997   3196 	C$CAN.C$1134$2$3 ==.
                            3197 ;	../CAN.C:1134: CAN_DATA1 = 0x00;                   //MOAMRn[15-8]
-   0E5F 75 DC 00           3198 	mov	_CAN_DATA1,#0x00
+   0E5C 75 DC 00           3198 	mov	_CAN_DATA1,#0x00
                     099A   3199 	C$CAN.C$1135$2$3 ==.
                            3200 ;	../CAN.C:1135: CAN_DATA2 = (pstObj->ulMask.ubDB[0] << 2);    //MOAMRn[16-23]
-   0E62 85 3A 82           3201 	mov	dpl,_CAN_vConfigMsgObj_sloc0_1_0
-   0E65 85 3B 83           3202 	mov	dph,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
-   0E68 85 3C F0           3203 	mov	b,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
-   0E6B 12 1D 2A           3204 	lcall	__gptrget
-   0E6E 25 E0              3205 	add	a,acc
-   0E70 25 E0              3206 	add	a,acc
-   0E72 F5 DD              3207 	mov	_CAN_DATA2,a
+   0E5F 85 3A 82           3201 	mov	dpl,_CAN_vConfigMsgObj_sloc0_1_0
+   0E62 85 3B 83           3202 	mov	dph,(_CAN_vConfigMsgObj_sloc0_1_0 + 1)
+   0E65 85 3C F0           3203 	mov	b,(_CAN_vConfigMsgObj_sloc0_1_0 + 2)
+   0E68 12 1D 22           3204 	lcall	__gptrget
+   0E6B 25 E0              3205 	add	a,acc
+   0E6D 25 E0              3206 	add	a,acc
+   0E6F F5 DD              3207 	mov	_CAN_DATA2,a
                     09AC   3208 	C$CAN.C$1136$2$3 ==.
                            3209 ;	../CAN.C:1136: CAN_DATA3 |= (((pstObj->ulMask.ubDB[1] & 0x07) << 2) + ubTemp);   //MOAMRn[31-24]
-   0E74 74 06              3210 	mov	a,#0x06
-   0E76 2D                 3211 	add	a,r5
-   0E77 FB                 3212 	mov	r3,a
-   0E78 E4                 3213 	clr	a
-   0E79 3E                 3214 	addc	a,r6
-   0E7A F8                 3215 	mov	r0,a
-   0E7B 8F 01              3216 	mov	ar1,r7
-   0E7D 0B                 3217 	inc	r3
-   0E7E BB 00 01           3218 	cjne	r3,#0x00,00205$
-   0E81 08                 3219 	inc	r0
-   0E82                    3220 00205$:
-   0E82 8B 82              3221 	mov	dpl,r3
-   0E84 88 83              3222 	mov	dph,r0
-   0E86 89 F0              3223 	mov	b,r1
-   0E88 12 1D 2A           3224 	lcall	__gptrget
-   0E8B 54 07              3225 	anl	a,#0x07
-   0E8D 25 E0              3226 	add	a,acc
-   0E8F 25 E0              3227 	add	a,acc
-   0E91 FB                 3228 	mov	r3,a
-   0E92 E5 39              3229 	mov	a,_CAN_vConfigMsgObj_ubTemp_1_1
-   0E94 2B                 3230 	add	a,r3
-   0E95 42 DE              3231 	orl	_CAN_DATA3,a
+   0E71 74 06              3210 	mov	a,#0x06
+   0E73 2D                 3211 	add	a,r5
+   0E74 FB                 3212 	mov	r3,a
+   0E75 E4                 3213 	clr	a
+   0E76 3E                 3214 	addc	a,r6
+   0E77 F8                 3215 	mov	r0,a
+   0E78 8F 01              3216 	mov	ar1,r7
+   0E7A 0B                 3217 	inc	r3
+   0E7B BB 00 01           3218 	cjne	r3,#0x00,00205$
+   0E7E 08                 3219 	inc	r0
+   0E7F                    3220 00205$:
+   0E7F 8B 82              3221 	mov	dpl,r3
+   0E81 88 83              3222 	mov	dph,r0
+   0E83 89 F0              3223 	mov	b,r1
+   0E85 12 1D 22           3224 	lcall	__gptrget
+   0E88 54 07              3225 	anl	a,#0x07
+   0E8A 25 E0              3226 	add	a,acc
+   0E8C 25 E0              3227 	add	a,acc
+   0E8E FB                 3228 	mov	r3,a
+   0E8F E5 39              3229 	mov	a,_CAN_vConfigMsgObj_ubTemp_1_1
+   0E91 2B                 3230 	add	a,r3
+   0E92 42 DE              3231 	orl	_CAN_DATA3,a
                     09CF   3232 	C$CAN.C$1138$2$3 ==.
                            3233 ;	../CAN.C:1138: CAN_vWriteEN(ALL_DATA_VALID); // Write mode is enabled
-   0E97 75 D8 F1           3234 	mov	_CAN_ADCON,#0xF1
+   0E94 75 D8 F1           3234 	mov	_CAN_ADCON,#0xF1
                     09D2   3235 	C$CAN.C$1193$1$1 ==.
                            3236 ;	../CAN.C:1193: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0E9A D0 03              3237 	pop	ar3
+   0E97 D0 03              3237 	pop	ar3
                     09D4   3238 	C$CAN.C$1138$2$3 ==.
                            3239 ;	../CAN.C:1138: CAN_vWriteEN(ALL_DATA_VALID); // Write mode is enabled
-   0E9C                    3240 00128$:
-   0E9C E5 D8              3241 	mov	a,_CAN_ADCON
-   0E9E 20 E1 FB           3242 	jb	acc.1,00128$
-   0EA1                    3243 00133$:
+   0E99                    3240 00128$:
+   0E99 E5 D8              3241 	mov	a,_CAN_ADCON
+   0E9B 20 E1 FB           3242 	jb	acc.1,00128$
+   0E9E                    3243 00133$:
                     09D9   3244 	C$CAN.C$1142$1$1 ==.
                            3245 ;	../CAN.C:1142: CAN_vWriteCANAddress(CAN_MOIPR(ubObjNr));
-   0EA1 74 02              3246 	mov	a,#0x02
-   0EA3 2B                 3247 	add	a,r3
-   0EA4 F5 D9              3248 	mov	_CAN_ADL,a
-   0EA6 74 02              3249 	mov	a,#0x02
-   0EA8 2A                 3250 	add	a,r2
-   0EA9 74 04              3251 	mov	a,#0x04
-   0EAB 3C                 3252 	addc	a,r4
-   0EAC F9                 3253 	mov	r1,a
-   0EAD 89 DA              3254 	mov	_CAN_ADH,r1
+   0E9E 74 02              3246 	mov	a,#0x02
+   0EA0 2B                 3247 	add	a,r3
+   0EA1 F5 D9              3248 	mov	_CAN_ADL,a
+   0EA3 74 02              3249 	mov	a,#0x02
+   0EA5 2A                 3250 	add	a,r2
+   0EA6 74 04              3251 	mov	a,#0x04
+   0EA8 3C                 3252 	addc	a,r4
+   0EA9 F9                 3253 	mov	r1,a
+   0EAA 89 DA              3254 	mov	_CAN_ADH,r1
                     09E7   3255 	C$CAN.C$1144$1$1 ==.
                            3256 ;	../CAN.C:1144: CAN_DATA2 = pstObj->uwCounter.ubDB[0];
-   0EAF C0 03              3257 	push	ar3
-   0EB1 74 12              3258 	mov	a,#0x12
-   0EB3 2D                 3259 	add	a,r5
-   0EB4 F8                 3260 	mov	r0,a
-   0EB5 E4                 3261 	clr	a
-   0EB6 3E                 3262 	addc	a,r6
-   0EB7 F9                 3263 	mov	r1,a
-   0EB8 8F 03              3264 	mov	ar3,r7
-   0EBA 88 82              3265 	mov	dpl,r0
-   0EBC 89 83              3266 	mov	dph,r1
-   0EBE 8B F0              3267 	mov	b,r3
-   0EC0 12 1D 2A           3268 	lcall	__gptrget
-   0EC3 F5 DD              3269 	mov	_CAN_DATA2,a
+   0EAC C0 03              3257 	push	ar3
+   0EAE 74 12              3258 	mov	a,#0x12
+   0EB0 2D                 3259 	add	a,r5
+   0EB1 F8                 3260 	mov	r0,a
+   0EB2 E4                 3261 	clr	a
+   0EB3 3E                 3262 	addc	a,r6
+   0EB4 F9                 3263 	mov	r1,a
+   0EB5 8F 03              3264 	mov	ar3,r7
+   0EB7 88 82              3265 	mov	dpl,r0
+   0EB9 89 83              3266 	mov	dph,r1
+   0EBB 8B F0              3267 	mov	b,r3
+   0EBD 12 1D 22           3268 	lcall	__gptrget
+   0EC0 F5 DD              3269 	mov	_CAN_DATA2,a
                     09FD   3270 	C$CAN.C$1145$1$1 ==.
                            3271 ;	../CAN.C:1145: CAN_DATA3 = pstObj->uwCounter.ubDB[1];
-   0EC5 74 12              3272 	mov	a,#0x12
-   0EC7 2D                 3273 	add	a,r5
-   0EC8 FB                 3274 	mov	r3,a
-   0EC9 E4                 3275 	clr	a
-   0ECA 3E                 3276 	addc	a,r6
-   0ECB F8                 3277 	mov	r0,a
-   0ECC 8F 01              3278 	mov	ar1,r7
-   0ECE 0B                 3279 	inc	r3
-   0ECF BB 00 01           3280 	cjne	r3,#0x00,00207$
-   0ED2 08                 3281 	inc	r0
-   0ED3                    3282 00207$:
-   0ED3 8B 82              3283 	mov	dpl,r3
-   0ED5 88 83              3284 	mov	dph,r0
-   0ED7 89 F0              3285 	mov	b,r1
-   0ED9 12 1D 2A           3286 	lcall	__gptrget
-   0EDC F5 DE              3287 	mov	_CAN_DATA3,a
+   0EC2 74 12              3272 	mov	a,#0x12
+   0EC4 2D                 3273 	add	a,r5
+   0EC5 FB                 3274 	mov	r3,a
+   0EC6 E4                 3275 	clr	a
+   0EC7 3E                 3276 	addc	a,r6
+   0EC8 F8                 3277 	mov	r0,a
+   0EC9 8F 01              3278 	mov	ar1,r7
+   0ECB 0B                 3279 	inc	r3
+   0ECC BB 00 01           3280 	cjne	r3,#0x00,00207$
+   0ECF 08                 3281 	inc	r0
+   0ED0                    3282 00207$:
+   0ED0 8B 82              3283 	mov	dpl,r3
+   0ED2 88 83              3284 	mov	dph,r0
+   0ED4 89 F0              3285 	mov	b,r1
+   0ED6 12 1D 22           3286 	lcall	__gptrget
+   0ED9 F5 DE              3287 	mov	_CAN_DATA3,a
                     0A16   3288 	C$CAN.C$1146$1$1 ==.
                            3289 ;	../CAN.C:1146: CAN_vWriteEN(D3_VALID + D2_VALID);   // Data3 and Data2 are Valid
-   0EDE 75 D8 C1           3290 	mov	_CAN_ADCON,#0xC1
+   0EDB 75 D8 C1           3290 	mov	_CAN_ADCON,#0xC1
                     0A19   3291 	C$CAN.C$1193$1$1 ==.
                            3292 ;	../CAN.C:1193: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0EE1 D0 03              3293 	pop	ar3
+   0EDE D0 03              3293 	pop	ar3
                     0A1B   3294 	C$CAN.C$1146$1$1 ==.
                            3295 ;	../CAN.C:1146: CAN_vWriteEN(D3_VALID + D2_VALID);   // Data3 and Data2 are Valid
-   0EE3                    3296 00134$:
-   0EE3 E5 D8              3297 	mov	a,_CAN_ADCON
-   0EE5 20 E1 FB           3298 	jb	acc.1,00134$
+   0EE0                    3296 00134$:
+   0EE0 E5 D8              3297 	mov	a,_CAN_ADCON
+   0EE2 20 E1 FB           3298 	jb	acc.1,00134$
                     0A20   3299 	C$CAN.C$1150$1$1 ==.
                            3300 ;	../CAN.C:1150: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0EE8 75 D8 08           3301 	mov	_CAN_ADCON,#0x08
+   0EE5 75 D8 08           3301 	mov	_CAN_ADCON,#0x08
                     0A23   3302 	C$CAN.C$1153$1$1 ==.
                            3303 ;	../CAN.C:1153: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0EEB 75 D8 08           3304 	mov	_CAN_ADCON,#0x08
+   0EE8 75 D8 08           3304 	mov	_CAN_ADCON,#0x08
                     0A26   3305 	C$CAN.C$1156$1$1 ==.
                            3306 ;	../CAN.C:1156: CAN_DATA3 = pstObj->ubMOdlc;
-   0EEE 8D 82              3307 	mov	dpl,r5
-   0EF0 8E 83              3308 	mov	dph,r6
-   0EF2 8F F0              3309 	mov	b,r7
-   0EF4 12 1D 2A           3310 	lcall	__gptrget
-   0EF7 F5 DE              3311 	mov	_CAN_DATA3,a
+   0EEB 8D 82              3307 	mov	dpl,r5
+   0EED 8E 83              3308 	mov	dph,r6
+   0EEF 8F F0              3309 	mov	b,r7
+   0EF1 12 1D 22           3310 	lcall	__gptrget
+   0EF4 F5 DE              3311 	mov	_CAN_DATA3,a
                     0A31   3312 	C$CAN.C$1157$1$1 ==.
                            3313 ;	../CAN.C:1157: CAN_vWriteEN(D3_VALID);   // Data3 is Valid for transmission
-   0EF9 75 D8 81           3314 	mov	_CAN_ADCON,#0x81
-   0EFC                    3315 00137$:
-   0EFC E5 D8              3316 	mov	a,_CAN_ADCON
-   0EFE 20 E1 FB           3317 	jb	acc.1,00137$
+   0EF6 75 D8 81           3314 	mov	_CAN_ADCON,#0x81
+   0EF9                    3315 00137$:
+   0EF9 E5 D8              3316 	mov	a,_CAN_ADCON
+   0EFB 20 E1 FB           3317 	jb	acc.1,00137$
                     0A39   3318 	C$CAN.C$1160$1$1 ==.
                            3319 ;	../CAN.C:1160: CAN_vWriteCANAddress(CAN_MOCTR(ubObjNr));
-   0F01 74 07              3320 	mov	a,#0x07
-   0F03 2B                 3321 	add	a,r3
-   0F04 F5 D9              3322 	mov	_CAN_ADL,a
-   0F06 74 07              3323 	mov	a,#0x07
-   0F08 2A                 3324 	add	a,r2
-   0F09 74 04              3325 	mov	a,#0x04
-   0F0B 3C                 3326 	addc	a,r4
-   0F0C FC                 3327 	mov	r4,a
-   0F0D 7A 00              3328 	mov	r2,#0x00
-   0F0F 8C DA              3329 	mov	_CAN_ADH,r4
+   0EFE 74 07              3320 	mov	a,#0x07
+   0F00 2B                 3321 	add	a,r3
+   0F01 F5 D9              3322 	mov	_CAN_ADL,a
+   0F03 74 07              3323 	mov	a,#0x07
+   0F05 2A                 3324 	add	a,r2
+   0F06 74 04              3325 	mov	a,#0x04
+   0F08 3C                 3326 	addc	a,r4
+   0F09 FC                 3327 	mov	r4,a
+   0F0A 7A 00              3328 	mov	r2,#0x00
+   0F0C 8C DA              3329 	mov	_CAN_ADH,r4
                     0A49   3330 	C$CAN.C$1161$1$1 ==.
                            3331 ;	../CAN.C:1161: CAN_vReadEN();   // Readmode is Enabled
-   0F11 75 D8 00           3332 	mov	_CAN_ADCON,#0x00
-   0F14                    3333 00140$:
-   0F14 E5 D8              3334 	mov	a,_CAN_ADCON
-   0F16 20 E1 FB           3335 	jb	acc.1,00140$
+   0F0E 75 D8 00           3332 	mov	_CAN_ADCON,#0x00
+   0F11                    3333 00140$:
+   0F11 E5 D8              3334 	mov	a,_CAN_ADCON
+   0F13 20 E1 FB           3335 	jb	acc.1,00140$
                     0A51   3336 	C$CAN.C$1163$1$1 ==.
                            3337 ;	../CAN.C:1163: if(CAN_DATA1 & 0x08)  // if transmit direction
-   0F19 E5 DC              3338 	mov	a,_CAN_DATA1
-   0F1B 20 E3 03           3339 	jb	acc.3,00211$
-   0F1E 02 10 49           3340 	ljmp	00156$
-   0F21                    3341 00211$:
+   0F16 E5 DC              3338 	mov	a,_CAN_DATA1
+   0F18 20 E3 03           3339 	jb	acc.3,00211$
+   0F1B 02 10 46           3340 	ljmp	00156$
+   0F1E                    3341 00211$:
                     0A59   3342 	C$CAN.C$1166$2$4 ==.
                            3343 ;	../CAN.C:1166: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0F21 75 D8 08           3344 	mov	_CAN_ADCON,#0x08
+   0F1E 75 D8 08           3344 	mov	_CAN_ADCON,#0x08
                     0A5C   3345 	C$CAN.C$1169$2$4 ==.
                            3346 ;	../CAN.C:1169: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0F24 75 D8 08           3347 	mov	_CAN_ADCON,#0x08
+   0F21 75 D8 08           3347 	mov	_CAN_ADCON,#0x08
                     0A5F   3348 	C$CAN.C$1171$2$4 ==.
                            3349 ;	../CAN.C:1171: CAN_vWriteCANData(pstObj->ulDATAH.ulVal);
-   0F27 74 0E              3350 	mov	a,#0x0E
-   0F29 2D                 3351 	add	a,r5
-   0F2A FA                 3352 	mov	r2,a
-   0F2B E4                 3353 	clr	a
-   0F2C 3E                 3354 	addc	a,r6
-   0F2D FB                 3355 	mov	r3,a
-   0F2E 8F 04              3356 	mov	ar4,r7
-   0F30 C0 05              3357 	push	ar5
-   0F32 C0 06              3358 	push	ar6
-   0F34 C0 07              3359 	push	ar7
-   0F36 8A 82              3360 	mov	dpl,r2
-   0F38 8B 83              3361 	mov	dph,r3
-   0F3A 8C F0              3362 	mov	b,r4
-   0F3C 12 1D 2A           3363 	lcall	__gptrget
-   0F3F F8                 3364 	mov	r0,a
-   0F40 A3                 3365 	inc	dptr
-   0F41 12 1D 2A           3366 	lcall	__gptrget
-   0F44 A3                 3367 	inc	dptr
-   0F45 12 1D 2A           3368 	lcall	__gptrget
-   0F48 A3                 3369 	inc	dptr
-   0F49 12 1D 2A           3370 	lcall	__gptrget
-   0F4C 79 00              3371 	mov	r1,#0x00
-   0F4E 88 DB              3372 	mov	_CAN_DATA0,r0
-   0F50 8A 82              3373 	mov	dpl,r2
-   0F52 8B 83              3374 	mov	dph,r3
-   0F54 8C F0              3375 	mov	b,r4
-   0F56 12 1D 2A           3376 	lcall	__gptrget
-   0F59 A3                 3377 	inc	dptr
-   0F5A 12 1D 2A           3378 	lcall	__gptrget
-   0F5D FE                 3379 	mov	r6,a
-   0F5E A3                 3380 	inc	dptr
-   0F5F 12 1D 2A           3381 	lcall	__gptrget
-   0F62 A3                 3382 	inc	dptr
-   0F63 12 1D 2A           3383 	lcall	__gptrget
-   0F66 8E DC              3384 	mov	_CAN_DATA1,r6
-   0F68 8A 82              3385 	mov	dpl,r2
-   0F6A 8B 83              3386 	mov	dph,r3
-   0F6C 8C F0              3387 	mov	b,r4
-   0F6E 12 1D 2A           3388 	lcall	__gptrget
-   0F71 A3                 3389 	inc	dptr
-   0F72 12 1D 2A           3390 	lcall	__gptrget
-   0F75 A3                 3391 	inc	dptr
-   0F76 12 1D 2A           3392 	lcall	__gptrget
-   0F79 FF                 3393 	mov	r7,a
-   0F7A A3                 3394 	inc	dptr
-   0F7B 12 1D 2A           3395 	lcall	__gptrget
-   0F7E 78 00              3396 	mov	r0,#0x00
-   0F80 8F DD              3397 	mov	_CAN_DATA2,r7
-   0F82 8A 82              3398 	mov	dpl,r2
-   0F84 8B 83              3399 	mov	dph,r3
-   0F86 8C F0              3400 	mov	b,r4
-   0F88 12 1D 2A           3401 	lcall	__gptrget
-   0F8B A3                 3402 	inc	dptr
-   0F8C 12 1D 2A           3403 	lcall	__gptrget
-   0F8F A3                 3404 	inc	dptr
-   0F90 12 1D 2A           3405 	lcall	__gptrget
-   0F93 A3                 3406 	inc	dptr
-   0F94 12 1D 2A           3407 	lcall	__gptrget
-   0F97 FD                 3408 	mov	r5,a
-   0F98 7A 00              3409 	mov	r2,#0x00
-   0F9A 7B 00              3410 	mov	r3,#0x00
-   0F9C 7C 00              3411 	mov	r4,#0x00
-   0F9E 8D DE              3412 	mov	_CAN_DATA3,r5
-   0FA0 75 D8 F1           3413 	mov	_CAN_ADCON,#0xF1
+   0F24 74 0E              3350 	mov	a,#0x0E
+   0F26 2D                 3351 	add	a,r5
+   0F27 FA                 3352 	mov	r2,a
+   0F28 E4                 3353 	clr	a
+   0F29 3E                 3354 	addc	a,r6
+   0F2A FB                 3355 	mov	r3,a
+   0F2B 8F 04              3356 	mov	ar4,r7
+   0F2D C0 05              3357 	push	ar5
+   0F2F C0 06              3358 	push	ar6
+   0F31 C0 07              3359 	push	ar7
+   0F33 8A 82              3360 	mov	dpl,r2
+   0F35 8B 83              3361 	mov	dph,r3
+   0F37 8C F0              3362 	mov	b,r4
+   0F39 12 1D 22           3363 	lcall	__gptrget
+   0F3C F8                 3364 	mov	r0,a
+   0F3D A3                 3365 	inc	dptr
+   0F3E 12 1D 22           3366 	lcall	__gptrget
+   0F41 A3                 3367 	inc	dptr
+   0F42 12 1D 22           3368 	lcall	__gptrget
+   0F45 A3                 3369 	inc	dptr
+   0F46 12 1D 22           3370 	lcall	__gptrget
+   0F49 79 00              3371 	mov	r1,#0x00
+   0F4B 88 DB              3372 	mov	_CAN_DATA0,r0
+   0F4D 8A 82              3373 	mov	dpl,r2
+   0F4F 8B 83              3374 	mov	dph,r3
+   0F51 8C F0              3375 	mov	b,r4
+   0F53 12 1D 22           3376 	lcall	__gptrget
+   0F56 A3                 3377 	inc	dptr
+   0F57 12 1D 22           3378 	lcall	__gptrget
+   0F5A FE                 3379 	mov	r6,a
+   0F5B A3                 3380 	inc	dptr
+   0F5C 12 1D 22           3381 	lcall	__gptrget
+   0F5F A3                 3382 	inc	dptr
+   0F60 12 1D 22           3383 	lcall	__gptrget
+   0F63 8E DC              3384 	mov	_CAN_DATA1,r6
+   0F65 8A 82              3385 	mov	dpl,r2
+   0F67 8B 83              3386 	mov	dph,r3
+   0F69 8C F0              3387 	mov	b,r4
+   0F6B 12 1D 22           3388 	lcall	__gptrget
+   0F6E A3                 3389 	inc	dptr
+   0F6F 12 1D 22           3390 	lcall	__gptrget
+   0F72 A3                 3391 	inc	dptr
+   0F73 12 1D 22           3392 	lcall	__gptrget
+   0F76 FF                 3393 	mov	r7,a
+   0F77 A3                 3394 	inc	dptr
+   0F78 12 1D 22           3395 	lcall	__gptrget
+   0F7B 78 00              3396 	mov	r0,#0x00
+   0F7D 8F DD              3397 	mov	_CAN_DATA2,r7
+   0F7F 8A 82              3398 	mov	dpl,r2
+   0F81 8B 83              3399 	mov	dph,r3
+   0F83 8C F0              3400 	mov	b,r4
+   0F85 12 1D 22           3401 	lcall	__gptrget
+   0F88 A3                 3402 	inc	dptr
+   0F89 12 1D 22           3403 	lcall	__gptrget
+   0F8C A3                 3404 	inc	dptr
+   0F8D 12 1D 22           3405 	lcall	__gptrget
+   0F90 A3                 3406 	inc	dptr
+   0F91 12 1D 22           3407 	lcall	__gptrget
+   0F94 FD                 3408 	mov	r5,a
+   0F95 7A 00              3409 	mov	r2,#0x00
+   0F97 7B 00              3410 	mov	r3,#0x00
+   0F99 7C 00              3411 	mov	r4,#0x00
+   0F9B 8D DE              3412 	mov	_CAN_DATA3,r5
+   0F9D 75 D8 F1           3413 	mov	_CAN_ADCON,#0xF1
                     0ADB   3414 	C$CAN.C$1193$1$1 ==.
                            3415 ;	../CAN.C:1193: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   0FA3 D0 07              3416 	pop	ar7
-   0FA5 D0 06              3417 	pop	ar6
-   0FA7 D0 05              3418 	pop	ar5
+   0FA0 D0 07              3416 	pop	ar7
+   0FA2 D0 06              3417 	pop	ar6
+   0FA4 D0 05              3418 	pop	ar5
                     0AE1   3419 	C$CAN.C$1171$2$4 ==.
                            3420 ;	../CAN.C:1171: CAN_vWriteCANData(pstObj->ulDATAH.ulVal);
-   0FA9                    3421 00143$:
-   0FA9 E5 D8              3422 	mov	a,_CAN_ADCON
-   0FAB 20 E1 FB           3423 	jb	acc.1,00143$
+   0FA6                    3421 00143$:
+   0FA6 E5 D8              3422 	mov	a,_CAN_ADCON
+   0FA8 20 E1 FB           3423 	jb	acc.1,00143$
                     0AE6   3424 	C$CAN.C$1174$2$4 ==.
                            3425 ;	../CAN.C:1174: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   0FAE 75 D8 08           3426 	mov	_CAN_ADCON,#0x08
+   0FAB 75 D8 08           3426 	mov	_CAN_ADCON,#0x08
                     0AE9   3427 	C$CAN.C$1176$2$4 ==.
                            3428 ;	../CAN.C:1176: CAN_vWriteCANData(pstObj->ulDATAL.ulVal);
-   0FB1 74 0A              3429 	mov	a,#0x0A
-   0FB3 2D                 3430 	add	a,r5
-   0FB4 FD                 3431 	mov	r5,a
-   0FB5 E4                 3432 	clr	a
-   0FB6 3E                 3433 	addc	a,r6
-   0FB7 FE                 3434 	mov	r6,a
-   0FB8 8D 82              3435 	mov	dpl,r5
-   0FBA 8E 83              3436 	mov	dph,r6
-   0FBC 8F F0              3437 	mov	b,r7
-   0FBE 12 1D 2A           3438 	lcall	__gptrget
-   0FC1 FA                 3439 	mov	r2,a
-   0FC2 A3                 3440 	inc	dptr
-   0FC3 12 1D 2A           3441 	lcall	__gptrget
-   0FC6 A3                 3442 	inc	dptr
-   0FC7 12 1D 2A           3443 	lcall	__gptrget
-   0FCA A3                 3444 	inc	dptr
-   0FCB 12 1D 2A           3445 	lcall	__gptrget
-   0FCE 8A DB              3446 	mov	_CAN_DATA0,r2
-   0FD0 8D 82              3447 	mov	dpl,r5
-   0FD2 8E 83              3448 	mov	dph,r6
-   0FD4 8F F0              3449 	mov	b,r7
-   0FD6 12 1D 2A           3450 	lcall	__gptrget
-   0FD9 A3                 3451 	inc	dptr
-   0FDA 12 1D 2A           3452 	lcall	__gptrget
-   0FDD FB                 3453 	mov	r3,a
-   0FDE A3                 3454 	inc	dptr
-   0FDF 12 1D 2A           3455 	lcall	__gptrget
-   0FE2 A3                 3456 	inc	dptr
-   0FE3 12 1D 2A           3457 	lcall	__gptrget
-   0FE6 8B DC              3458 	mov	_CAN_DATA1,r3
-   0FE8 8D 82              3459 	mov	dpl,r5
-   0FEA 8E 83              3460 	mov	dph,r6
-   0FEC 8F F0              3461 	mov	b,r7
-   0FEE 12 1D 2A           3462 	lcall	__gptrget
-   0FF1 A3                 3463 	inc	dptr
-   0FF2 12 1D 2A           3464 	lcall	__gptrget
-   0FF5 A3                 3465 	inc	dptr
-   0FF6 12 1D 2A           3466 	lcall	__gptrget
-   0FF9 FC                 3467 	mov	r4,a
-   0FFA A3                 3468 	inc	dptr
-   0FFB 12 1D 2A           3469 	lcall	__gptrget
-   0FFE 7B 00              3470 	mov	r3,#0x00
-   1000 78 00              3471 	mov	r0,#0x00
-   1002 8C DD              3472 	mov	_CAN_DATA2,r4
-   1004 8D 82              3473 	mov	dpl,r5
-   1006 8E 83              3474 	mov	dph,r6
-   1008 8F F0              3475 	mov	b,r7
-   100A 12 1D 2A           3476 	lcall	__gptrget
-   100D A3                 3477 	inc	dptr
-   100E 12 1D 2A           3478 	lcall	__gptrget
-   1011 A3                 3479 	inc	dptr
-   1012 12 1D 2A           3480 	lcall	__gptrget
-   1015 A3                 3481 	inc	dptr
-   1016 12 1D 2A           3482 	lcall	__gptrget
-   1019 FA                 3483 	mov	r2,a
-   101A 7D 00              3484 	mov	r5,#0x00
-   101C 7E 00              3485 	mov	r6,#0x00
-   101E 7F 00              3486 	mov	r7,#0x00
-   1020 8A DE              3487 	mov	_CAN_DATA3,r2
-   1022 75 D8 F1           3488 	mov	_CAN_ADCON,#0xF1
-   1025                    3489 00146$:
-   1025 E5 D8              3490 	mov	a,_CAN_ADCON
-   1027 20 E1 FB           3491 	jb	acc.1,00146$
+   0FAE 74 0A              3429 	mov	a,#0x0A
+   0FB0 2D                 3430 	add	a,r5
+   0FB1 FD                 3431 	mov	r5,a
+   0FB2 E4                 3432 	clr	a
+   0FB3 3E                 3433 	addc	a,r6
+   0FB4 FE                 3434 	mov	r6,a
+   0FB5 8D 82              3435 	mov	dpl,r5
+   0FB7 8E 83              3436 	mov	dph,r6
+   0FB9 8F F0              3437 	mov	b,r7
+   0FBB 12 1D 22           3438 	lcall	__gptrget
+   0FBE FA                 3439 	mov	r2,a
+   0FBF A3                 3440 	inc	dptr
+   0FC0 12 1D 22           3441 	lcall	__gptrget
+   0FC3 A3                 3442 	inc	dptr
+   0FC4 12 1D 22           3443 	lcall	__gptrget
+   0FC7 A3                 3444 	inc	dptr
+   0FC8 12 1D 22           3445 	lcall	__gptrget
+   0FCB 8A DB              3446 	mov	_CAN_DATA0,r2
+   0FCD 8D 82              3447 	mov	dpl,r5
+   0FCF 8E 83              3448 	mov	dph,r6
+   0FD1 8F F0              3449 	mov	b,r7
+   0FD3 12 1D 22           3450 	lcall	__gptrget
+   0FD6 A3                 3451 	inc	dptr
+   0FD7 12 1D 22           3452 	lcall	__gptrget
+   0FDA FB                 3453 	mov	r3,a
+   0FDB A3                 3454 	inc	dptr
+   0FDC 12 1D 22           3455 	lcall	__gptrget
+   0FDF A3                 3456 	inc	dptr
+   0FE0 12 1D 22           3457 	lcall	__gptrget
+   0FE3 8B DC              3458 	mov	_CAN_DATA1,r3
+   0FE5 8D 82              3459 	mov	dpl,r5
+   0FE7 8E 83              3460 	mov	dph,r6
+   0FE9 8F F0              3461 	mov	b,r7
+   0FEB 12 1D 22           3462 	lcall	__gptrget
+   0FEE A3                 3463 	inc	dptr
+   0FEF 12 1D 22           3464 	lcall	__gptrget
+   0FF2 A3                 3465 	inc	dptr
+   0FF3 12 1D 22           3466 	lcall	__gptrget
+   0FF6 FC                 3467 	mov	r4,a
+   0FF7 A3                 3468 	inc	dptr
+   0FF8 12 1D 22           3469 	lcall	__gptrget
+   0FFB 7B 00              3470 	mov	r3,#0x00
+   0FFD 78 00              3471 	mov	r0,#0x00
+   0FFF 8C DD              3472 	mov	_CAN_DATA2,r4
+   1001 8D 82              3473 	mov	dpl,r5
+   1003 8E 83              3474 	mov	dph,r6
+   1005 8F F0              3475 	mov	b,r7
+   1007 12 1D 22           3476 	lcall	__gptrget
+   100A A3                 3477 	inc	dptr
+   100B 12 1D 22           3478 	lcall	__gptrget
+   100E A3                 3479 	inc	dptr
+   100F 12 1D 22           3480 	lcall	__gptrget
+   1012 A3                 3481 	inc	dptr
+   1013 12 1D 22           3482 	lcall	__gptrget
+   1016 FA                 3483 	mov	r2,a
+   1017 7D 00              3484 	mov	r5,#0x00
+   1019 7E 00              3485 	mov	r6,#0x00
+   101B 7F 00              3486 	mov	r7,#0x00
+   101D 8A DE              3487 	mov	_CAN_DATA3,r2
+   101F 75 D8 F1           3488 	mov	_CAN_ADCON,#0xF1
+   1022                    3489 00146$:
+   1022 E5 D8              3490 	mov	a,_CAN_ADCON
+   1024 20 E1 FB           3491 	jb	acc.1,00146$
                     0B62   3492 	C$CAN.C$1179$2$4 ==.
                            3493 ;	../CAN.C:1179: CAN_ADCON = ADR_INC;   // Auto Increment the current address(+1)
-   102A 75 D8 04           3494 	mov	_CAN_ADCON,#0x04
+   1027 75 D8 04           3494 	mov	_CAN_ADCON,#0x04
                     0B65   3495 	C$CAN.C$1182$2$4 ==.
                            3496 ;	../CAN.C:1182: CAN_ADCON = ADR_INC;   // Auto Increment the current address(+1)
-   102D 75 D8 04           3497 	mov	_CAN_ADCON,#0x04
+   102A 75 D8 04           3497 	mov	_CAN_ADCON,#0x04
                     0B68   3498 	C$CAN.C$1185$2$4 ==.
                            3499 ;	../CAN.C:1185: CAN_ADCON = ADR_INC;   // Auto Increment the current address(+1)
-   1030 75 D8 04           3500 	mov	_CAN_ADCON,#0x04
+   102D 75 D8 04           3500 	mov	_CAN_ADCON,#0x04
                     0B6B   3501 	C$CAN.C$1187$2$4 ==.
                            3502 ;	../CAN.C:1187: CAN_vWriteCANData(0x06280040);  // set NEWDAT, reset RTSEL,
-   1033 75 DB 40           3503 	mov	_CAN_DATA0,#0x40
-   1036 75 DC 00           3504 	mov	_CAN_DATA1,#0x00
-   1039 75 DD 28           3505 	mov	_CAN_DATA2,#0x28
-   103C 75 DE 06           3506 	mov	_CAN_DATA3,#0x06
-   103F 75 D8 F1           3507 	mov	_CAN_ADCON,#0xF1
-   1042                    3508 00149$:
-   1042 E5 D8              3509 	mov	a,_CAN_ADCON
-   1044 30 E1 16           3510 	jnb	acc.1,00157$
-   1047 80 F9              3511 	sjmp	00149$
-   1049                    3512 00156$:
+   1030 75 DB 40           3503 	mov	_CAN_DATA0,#0x40
+   1033 75 DC 00           3504 	mov	_CAN_DATA1,#0x00
+   1036 75 DD 28           3505 	mov	_CAN_DATA2,#0x28
+   1039 75 DE 06           3506 	mov	_CAN_DATA3,#0x06
+   103C 75 D8 F1           3507 	mov	_CAN_ADCON,#0xF1
+   103F                    3508 00149$:
+   103F E5 D8              3509 	mov	a,_CAN_ADCON
+   1041 30 E1 16           3510 	jnb	acc.1,00157$
+   1044 80 F9              3511 	sjmp	00149$
+   1046                    3512 00156$:
                     0B81   3513 	C$CAN.C$1191$2$5 ==.
                            3514 ;	../CAN.C:1191: CAN_vWriteCANData(0x00200040);  // reset RTSEL, set MSGVAL
-   1049 75 DB 40           3515 	mov	_CAN_DATA0,#0x40
-   104C 75 DC 00           3516 	mov	_CAN_DATA1,#0x00
-   104F 75 DD 20           3517 	mov	_CAN_DATA2,#0x20
-   1052 75 DE 00           3518 	mov	_CAN_DATA3,#0x00
-   1055 75 D8 F1           3519 	mov	_CAN_ADCON,#0xF1
-   1058                    3520 00152$:
-   1058 E5 D8              3521 	mov	a,_CAN_ADCON
-   105A 20 E1 FB           3522 	jb	acc.1,00152$
-   105D                    3523 00157$:
+   1046 75 DB 40           3515 	mov	_CAN_DATA0,#0x40
+   1049 75 DC 00           3516 	mov	_CAN_DATA1,#0x00
+   104C 75 DD 20           3517 	mov	_CAN_DATA2,#0x20
+   104F 75 DE 00           3518 	mov	_CAN_DATA3,#0x00
+   1052 75 D8 F1           3519 	mov	_CAN_ADCON,#0xF1
+   1055                    3520 00152$:
+   1055 E5 D8              3521 	mov	a,_CAN_ADCON
+   1057 20 E1 FB           3522 	jb	acc.1,00152$
+   105A                    3523 00157$:
                     0B95   3524 	C$CAN.C$1193$1$1 ==.
                            3525 ;	../CAN.C:1193: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   105D D0 DE D0 DD D0 DC  3526 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   105A D0 DE D0 DD D0 DC  3526 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     0BA1   3527 	C$CAN.C$1194$1$1 ==.
                     0BA1   3528 	XG$CAN_vConfigMsgObj$0$0 ==.
-   1069 22                 3529 	ret
+   1066 22                 3529 	ret
                            3530 ;------------------------------------------------------------
                            3531 ;Allocation info for local variables in function 'CAN_vLoadData'
                            3532 ;------------------------------------------------------------
@@ -3550,160 +3550,160 @@
                            3540 ;	-----------------------------------------
                            3541 ;	 function CAN_vLoadData
                            3542 ;	-----------------------------------------
-   106A                    3543 _CAN_vLoadData:
-   106A AA 82              3544 	mov	r2,dpl
+   1067                    3543 _CAN_vLoadData:
+   1067 AA 82              3544 	mov	r2,dpl
                     0BA4   3545 	C$CAN.C$1227$1$1 ==.
                            3546 ;	../CAN.C:1227: CAN_pushAMRegs();    //   PUSH the CAN Access Mediator Register
-   106C                    3547 00101$:
-   106C E5 D8              3548 	mov	a,_CAN_ADCON
-   106E 20 E1 FB           3549 	jb	acc.1,00101$
-   1071 C0 D9 C0 DA C0 DB  3550 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   1069                    3547 00101$:
+   1069 E5 D8              3548 	mov	a,_CAN_ADCON
+   106B 20 E1 FB           3549 	jb	acc.1,00101$
+   106E C0 D9 C0 DA C0 DB  3550 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     0BB5   3551 	C$CAN.C$1229$1$1 ==.
                            3552 ;	../CAN.C:1229: CAN_vWriteCANAddress(CAN_MOCTR(ubObjNr));  // Addressing CAN_MOCTRn register
-   107D EA                 3553 	mov	a,r2
-   107E C4                 3554 	swap	a
-   107F 03                 3555 	rr	a
-   1080 54 F8              3556 	anl	a,#0xf8
-   1082 FB                 3557 	mov	r3,a
-   1083 74 07              3558 	mov	a,#0x07
-   1085 2B                 3559 	add	a,r3
-   1086 F5 D9              3560 	mov	_CAN_ADL,a
-   1088 EA                 3561 	mov	a,r2
-   1089 75 F0 08           3562 	mov	b,#0x08
-   108C A4                 3563 	mul	ab
-   108D 24 07              3564 	add	a,#0x07
-   108F 74 04              3565 	mov	a,#0x04
-   1091 35 F0              3566 	addc	a,b
-   1093 FB                 3567 	mov	r3,a
-   1094 7A 00              3568 	mov	r2,#0x00
-   1096 8B DA              3569 	mov	_CAN_ADH,r3
+   107A EA                 3553 	mov	a,r2
+   107B C4                 3554 	swap	a
+   107C 03                 3555 	rr	a
+   107D 54 F8              3556 	anl	a,#0xf8
+   107F FB                 3557 	mov	r3,a
+   1080 74 07              3558 	mov	a,#0x07
+   1082 2B                 3559 	add	a,r3
+   1083 F5 D9              3560 	mov	_CAN_ADL,a
+   1085 EA                 3561 	mov	a,r2
+   1086 75 F0 08           3562 	mov	b,#0x08
+   1089 A4                 3563 	mul	ab
+   108A 24 07              3564 	add	a,#0x07
+   108C 74 04              3565 	mov	a,#0x04
+   108E 35 F0              3566 	addc	a,b
+   1090 FB                 3567 	mov	r3,a
+   1091 7A 00              3568 	mov	r2,#0x00
+   1093 8B DA              3569 	mov	_CAN_ADH,r3
                     0BD0   3570 	C$CAN.C$1230$1$1 ==.
                            3571 ;	../CAN.C:1230: CAN_vWriteCANData(0x00080000);      // Set NEWDATA
-   1098 75 DB 00           3572 	mov	_CAN_DATA0,#0x00
-   109B 75 DC 00           3573 	mov	_CAN_DATA1,#0x00
-   109E 75 DD 08           3574 	mov	_CAN_DATA2,#0x08
-   10A1 75 DE 00           3575 	mov	_CAN_DATA3,#0x00
-   10A4 75 D8 F1           3576 	mov	_CAN_ADCON,#0xF1
-   10A7                    3577 00104$:
-   10A7 E5 D8              3578 	mov	a,_CAN_ADCON
-   10A9 20 E1 FB           3579 	jb	acc.1,00104$
+   1095 75 DB 00           3572 	mov	_CAN_DATA0,#0x00
+   1098 75 DC 00           3573 	mov	_CAN_DATA1,#0x00
+   109B 75 DD 08           3574 	mov	_CAN_DATA2,#0x08
+   109E 75 DE 00           3575 	mov	_CAN_DATA3,#0x00
+   10A1 75 D8 F1           3576 	mov	_CAN_ADCON,#0xF1
+   10A4                    3577 00104$:
+   10A4 E5 D8              3578 	mov	a,_CAN_ADCON
+   10A6 20 E1 FB           3579 	jb	acc.1,00104$
                     0BE4   3580 	C$CAN.C$1233$1$1 ==.
                            3581 ;	../CAN.C:1233: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   10AC 75 D8 08           3582 	mov	_CAN_ADCON,#0x08
+   10A9 75 D8 08           3582 	mov	_CAN_ADCON,#0x08
                     0BE7   3583 	C$CAN.C$1236$1$1 ==.
                            3584 ;	../CAN.C:1236: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   10AF 75 D8 08           3585 	mov	_CAN_ADCON,#0x08
+   10AC 75 D8 08           3585 	mov	_CAN_ADCON,#0x08
                     0BEA   3586 	C$CAN.C$1239$1$1 ==.
                            3587 ;	../CAN.C:1239: CAN_ADCON = ADR_DEC;   // Auto Decrement the current address(-1)
-   10B2 75 D8 08           3588 	mov	_CAN_ADCON,#0x08
+   10AF 75 D8 08           3588 	mov	_CAN_ADCON,#0x08
                     0BED   3589 	C$CAN.C$1241$1$1 ==.
                            3590 ;	../CAN.C:1241: CAN_vWriteCANData(*ulpubData); // Loading CAN_MODATALn
-   10B5 85 3D 40           3591 	mov	_CAN_vLoadData_sloc0_1_0,_CAN_vLoadData_PARM_2
-   10B8 85 3E 41           3592 	mov	(_CAN_vLoadData_sloc0_1_0 + 1),(_CAN_vLoadData_PARM_2 + 1)
-   10BB 85 3F 42           3593 	mov	(_CAN_vLoadData_sloc0_1_0 + 2),(_CAN_vLoadData_PARM_2 + 2)
-   10BE 85 40 82           3594 	mov	dpl,_CAN_vLoadData_sloc0_1_0
-   10C1 85 41 83           3595 	mov	dph,(_CAN_vLoadData_sloc0_1_0 + 1)
-   10C4 85 42 F0           3596 	mov	b,(_CAN_vLoadData_sloc0_1_0 + 2)
-   10C7 12 1D 2A           3597 	lcall	__gptrget
-   10CA FD                 3598 	mov	r5,a
-   10CB A3                 3599 	inc	dptr
-   10CC 12 1D 2A           3600 	lcall	__gptrget
-   10CF FE                 3601 	mov	r6,a
-   10D0 A3                 3602 	inc	dptr
-   10D1 12 1D 2A           3603 	lcall	__gptrget
-   10D4 FF                 3604 	mov	r7,a
-   10D5 A3                 3605 	inc	dptr
-   10D6 12 1D 2A           3606 	lcall	__gptrget
-   10D9 F8                 3607 	mov	r0,a
-   10DA 8D 01              3608 	mov	ar1,r5
-   10DC 89 DB              3609 	mov	_CAN_DATA0,r1
-   10DE 8E 03              3610 	mov	ar3,r6
-   10E0 8B DC              3611 	mov	_CAN_DATA1,r3
-   10E2 7A 00              3612 	mov	r2,#0x00
-   10E4 7B 00              3613 	mov	r3,#0x00
-   10E6 8F 04              3614 	mov	ar4,r7
-   10E8 79 00              3615 	mov	r1,#0x00
-   10EA 8C DD              3616 	mov	_CAN_DATA2,r4
-   10EC 7D 00              3617 	mov	r5,#0x00
-   10EE 7E 00              3618 	mov	r6,#0x00
-   10F0 7F 00              3619 	mov	r7,#0x00
-   10F2 88 DE              3620 	mov	_CAN_DATA3,r0
-   10F4 75 D8 F1           3621 	mov	_CAN_ADCON,#0xF1
-   10F7                    3622 00107$:
-   10F7 E5 D8              3623 	mov	a,_CAN_ADCON
-   10F9 20 E1 FB           3624 	jb	acc.1,00107$
+   10B2 85 3D 40           3591 	mov	_CAN_vLoadData_sloc0_1_0,_CAN_vLoadData_PARM_2
+   10B5 85 3E 41           3592 	mov	(_CAN_vLoadData_sloc0_1_0 + 1),(_CAN_vLoadData_PARM_2 + 1)
+   10B8 85 3F 42           3593 	mov	(_CAN_vLoadData_sloc0_1_0 + 2),(_CAN_vLoadData_PARM_2 + 2)
+   10BB 85 40 82           3594 	mov	dpl,_CAN_vLoadData_sloc0_1_0
+   10BE 85 41 83           3595 	mov	dph,(_CAN_vLoadData_sloc0_1_0 + 1)
+   10C1 85 42 F0           3596 	mov	b,(_CAN_vLoadData_sloc0_1_0 + 2)
+   10C4 12 1D 22           3597 	lcall	__gptrget
+   10C7 FD                 3598 	mov	r5,a
+   10C8 A3                 3599 	inc	dptr
+   10C9 12 1D 22           3600 	lcall	__gptrget
+   10CC FE                 3601 	mov	r6,a
+   10CD A3                 3602 	inc	dptr
+   10CE 12 1D 22           3603 	lcall	__gptrget
+   10D1 FF                 3604 	mov	r7,a
+   10D2 A3                 3605 	inc	dptr
+   10D3 12 1D 22           3606 	lcall	__gptrget
+   10D6 F8                 3607 	mov	r0,a
+   10D7 8D 01              3608 	mov	ar1,r5
+   10D9 89 DB              3609 	mov	_CAN_DATA0,r1
+   10DB 8E 03              3610 	mov	ar3,r6
+   10DD 8B DC              3611 	mov	_CAN_DATA1,r3
+   10DF 7A 00              3612 	mov	r2,#0x00
+   10E1 7B 00              3613 	mov	r3,#0x00
+   10E3 8F 04              3614 	mov	ar4,r7
+   10E5 79 00              3615 	mov	r1,#0x00
+   10E7 8C DD              3616 	mov	_CAN_DATA2,r4
+   10E9 7D 00              3617 	mov	r5,#0x00
+   10EB 7E 00              3618 	mov	r6,#0x00
+   10ED 7F 00              3619 	mov	r7,#0x00
+   10EF 88 DE              3620 	mov	_CAN_DATA3,r0
+   10F1 75 D8 F1           3621 	mov	_CAN_ADCON,#0xF1
+   10F4                    3622 00107$:
+   10F4 E5 D8              3623 	mov	a,_CAN_ADCON
+   10F6 20 E1 FB           3624 	jb	acc.1,00107$
                     0C34   3625 	C$CAN.C$1244$1$1 ==.
                            3626 ;	../CAN.C:1244: CAN_ADCON = ADR_INC;   // Auto Increment the current address(+1)
                     0C34   3627 	C$CAN.C$1246$1$1 ==.
                            3628 ;	../CAN.C:1246: ulpubData++;
-   10FC 74 04              3629 	mov	a,#0x04
-   10FE F5 D8              3630 	mov	_CAN_ADCON,a
-   1100 25 40              3631 	add	a,_CAN_vLoadData_sloc0_1_0
-   1102 F5 3D              3632 	mov	_CAN_vLoadData_PARM_2,a
-   1104 E4                 3633 	clr	a
-   1105 35 41              3634 	addc	a,(_CAN_vLoadData_sloc0_1_0 + 1)
-   1107 F5 3E              3635 	mov	(_CAN_vLoadData_PARM_2 + 1),a
-   1109 85 42 3F           3636 	mov	(_CAN_vLoadData_PARM_2 + 2),(_CAN_vLoadData_sloc0_1_0 + 2)
+   10F9 74 04              3629 	mov	a,#0x04
+   10FB F5 D8              3630 	mov	_CAN_ADCON,a
+   10FD 25 40              3631 	add	a,_CAN_vLoadData_sloc0_1_0
+   10FF F5 3D              3632 	mov	_CAN_vLoadData_PARM_2,a
+   1101 E4                 3633 	clr	a
+   1102 35 41              3634 	addc	a,(_CAN_vLoadData_sloc0_1_0 + 1)
+   1104 F5 3E              3635 	mov	(_CAN_vLoadData_PARM_2 + 1),a
+   1106 85 42 3F           3636 	mov	(_CAN_vLoadData_PARM_2 + 2),(_CAN_vLoadData_sloc0_1_0 + 2)
                     0C44   3637 	C$CAN.C$1248$1$1 ==.
                            3638 ;	../CAN.C:1248: CAN_vWriteCANData(*ulpubData); // Loading CAN_MODATAHn
-   110C AA 3D              3639 	mov	r2,_CAN_vLoadData_PARM_2
-   110E AB 3E              3640 	mov	r3,(_CAN_vLoadData_PARM_2 + 1)
-   1110 AC 3F              3641 	mov	r4,(_CAN_vLoadData_PARM_2 + 2)
-   1112 8A 82              3642 	mov	dpl,r2
-   1114 8B 83              3643 	mov	dph,r3
-   1116 8C F0              3644 	mov	b,r4
-   1118 12 1D 2A           3645 	lcall	__gptrget
-   111B FA                 3646 	mov	r2,a
-   111C A3                 3647 	inc	dptr
-   111D 12 1D 2A           3648 	lcall	__gptrget
-   1120 FB                 3649 	mov	r3,a
-   1121 A3                 3650 	inc	dptr
-   1122 12 1D 2A           3651 	lcall	__gptrget
-   1125 FC                 3652 	mov	r4,a
-   1126 A3                 3653 	inc	dptr
-   1127 12 1D 2A           3654 	lcall	__gptrget
-   112A FD                 3655 	mov	r5,a
-   112B 8A 06              3656 	mov	ar6,r2
-   112D 8E DB              3657 	mov	_CAN_DATA0,r6
-   112F 8B 07              3658 	mov	ar7,r3
-   1131 8F DC              3659 	mov	_CAN_DATA1,r7
-   1133 7E 00              3660 	mov	r6,#0x00
-   1135 7F 00              3661 	mov	r7,#0x00
-   1137 8C 00              3662 	mov	ar0,r4
-   1139 79 00              3663 	mov	r1,#0x00
-   113B 88 DD              3664 	mov	_CAN_DATA2,r0
-   113D 7A 00              3665 	mov	r2,#0x00
-   113F 7B 00              3666 	mov	r3,#0x00
-   1141 7C 00              3667 	mov	r4,#0x00
-   1143 8D DE              3668 	mov	_CAN_DATA3,r5
-   1145 75 D8 F1           3669 	mov	_CAN_ADCON,#0xF1
-   1148                    3670 00110$:
-   1148 E5 D8              3671 	mov	a,_CAN_ADCON
-   114A 20 E1 FB           3672 	jb	acc.1,00110$
+   1109 AA 3D              3639 	mov	r2,_CAN_vLoadData_PARM_2
+   110B AB 3E              3640 	mov	r3,(_CAN_vLoadData_PARM_2 + 1)
+   110D AC 3F              3641 	mov	r4,(_CAN_vLoadData_PARM_2 + 2)
+   110F 8A 82              3642 	mov	dpl,r2
+   1111 8B 83              3643 	mov	dph,r3
+   1113 8C F0              3644 	mov	b,r4
+   1115 12 1D 22           3645 	lcall	__gptrget
+   1118 FA                 3646 	mov	r2,a
+   1119 A3                 3647 	inc	dptr
+   111A 12 1D 22           3648 	lcall	__gptrget
+   111D FB                 3649 	mov	r3,a
+   111E A3                 3650 	inc	dptr
+   111F 12 1D 22           3651 	lcall	__gptrget
+   1122 FC                 3652 	mov	r4,a
+   1123 A3                 3653 	inc	dptr
+   1124 12 1D 22           3654 	lcall	__gptrget
+   1127 FD                 3655 	mov	r5,a
+   1128 8A 06              3656 	mov	ar6,r2
+   112A 8E DB              3657 	mov	_CAN_DATA0,r6
+   112C 8B 07              3658 	mov	ar7,r3
+   112E 8F DC              3659 	mov	_CAN_DATA1,r7
+   1130 7E 00              3660 	mov	r6,#0x00
+   1132 7F 00              3661 	mov	r7,#0x00
+   1134 8C 00              3662 	mov	ar0,r4
+   1136 79 00              3663 	mov	r1,#0x00
+   1138 88 DD              3664 	mov	_CAN_DATA2,r0
+   113A 7A 00              3665 	mov	r2,#0x00
+   113C 7B 00              3666 	mov	r3,#0x00
+   113E 7C 00              3667 	mov	r4,#0x00
+   1140 8D DE              3668 	mov	_CAN_DATA3,r5
+   1142 75 D8 F1           3669 	mov	_CAN_ADCON,#0xF1
+   1145                    3670 00110$:
+   1145 E5 D8              3671 	mov	a,_CAN_ADCON
+   1147 20 E1 FB           3672 	jb	acc.1,00110$
                     0C85   3673 	C$CAN.C$1251$1$1 ==.
                            3674 ;	../CAN.C:1251: CAN_ADCON = ADR_INC;   // Auto Increment the current address(+1)
-   114D 75 D8 04           3675 	mov	_CAN_ADCON,#0x04
+   114A 75 D8 04           3675 	mov	_CAN_ADCON,#0x04
                     0C88   3676 	C$CAN.C$1254$1$1 ==.
                            3677 ;	../CAN.C:1254: CAN_ADCON = ADR_INC;   // Auto Increment the current address(+1)
-   1150 75 D8 04           3678 	mov	_CAN_ADCON,#0x04
+   114D 75 D8 04           3678 	mov	_CAN_ADCON,#0x04
                     0C8B   3679 	C$CAN.C$1256$1$1 ==.
                            3680 ;	../CAN.C:1256: CAN_vWriteCANData(0x00200040);  // reset RTSEL, set MSGVAL
-   1153 75 DB 40           3681 	mov	_CAN_DATA0,#0x40
-   1156 75 DC 00           3682 	mov	_CAN_DATA1,#0x00
-   1159 75 DD 20           3683 	mov	_CAN_DATA2,#0x20
-   115C 75 DE 00           3684 	mov	_CAN_DATA3,#0x00
-   115F 75 D8 F1           3685 	mov	_CAN_ADCON,#0xF1
-   1162                    3686 00113$:
-   1162 E5 D8              3687 	mov	a,_CAN_ADCON
-   1164 20 E1 FB           3688 	jb	acc.1,00113$
+   1150 75 DB 40           3681 	mov	_CAN_DATA0,#0x40
+   1153 75 DC 00           3682 	mov	_CAN_DATA1,#0x00
+   1156 75 DD 20           3683 	mov	_CAN_DATA2,#0x20
+   1159 75 DE 00           3684 	mov	_CAN_DATA3,#0x00
+   115C 75 D8 F1           3685 	mov	_CAN_ADCON,#0xF1
+   115F                    3686 00113$:
+   115F E5 D8              3687 	mov	a,_CAN_ADCON
+   1161 20 E1 FB           3688 	jb	acc.1,00113$
                     0C9F   3689 	C$CAN.C$1258$1$1 ==.
                            3690 ;	../CAN.C:1258: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   1167 D0 DE D0 DD D0 DC  3691 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   1164 D0 DE D0 DD D0 DC  3691 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     0CAB   3692 	C$CAN.C$1260$1$1 ==.
                     0CAB   3693 	XG$CAN_vLoadData$0$0 ==.
-   1173 22                 3694 	ret
+   1170 22                 3694 	ret
                            3695 ;------------------------------------------------------------
                            3696 ;Allocation info for local variables in function 'CAN_ubDelMsgObj'
                            3697 ;------------------------------------------------------------
@@ -3716,76 +3716,76 @@
                            3704 ;	-----------------------------------------
                            3705 ;	 function CAN_ubDelMsgObj
                            3706 ;	-----------------------------------------
-   1174                    3707 _CAN_ubDelMsgObj:
-   1174 AA 82              3708 	mov	r2,dpl
+   1171                    3707 _CAN_ubDelMsgObj:
+   1171 AA 82              3708 	mov	r2,dpl
                     0CAE   3709 	C$CAN.C$1291$1$1 ==.
                            3710 ;	../CAN.C:1291: ubyte ubReturn = 0;
-   1176 7B 00              3711 	mov	r3,#0x00
+   1173 7B 00              3711 	mov	r3,#0x00
                     0CB0   3712 	C$CAN.C$1293$1$1 ==.
                            3713 ;	../CAN.C:1293: CAN_pushAMRegs();    //   PUSH the CAN Access Mediator Register
-   1178                    3714 00101$:
-   1178 E5 D8              3715 	mov	a,_CAN_ADCON
-   117A 20 E1 FB           3716 	jb	acc.1,00101$
-   117D C0 D9 C0 DA C0 DB  3717 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   1175                    3714 00101$:
+   1175 E5 D8              3715 	mov	a,_CAN_ADCON
+   1177 20 E1 FB           3716 	jb	acc.1,00101$
+   117A C0 D9 C0 DA C0 DB  3717 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     0CC1   3718 	C$CAN.C$1294$1$1 ==.
                            3719 ;	../CAN.C:1294: CAN_vWriteCANAddress(CAN_MOCTR(ubObjNr));
-   1189 EA                 3720 	mov	a,r2
-   118A C4                 3721 	swap	a
-   118B 03                 3722 	rr	a
-   118C 54 F8              3723 	anl	a,#0xf8
-   118E FC                 3724 	mov	r4,a
-   118F 74 07              3725 	mov	a,#0x07
-   1191 2C                 3726 	add	a,r4
-   1192 F5 D9              3727 	mov	_CAN_ADL,a
-   1194 EA                 3728 	mov	a,r2
-   1195 75 F0 08           3729 	mov	b,#0x08
-   1198 A4                 3730 	mul	ab
-   1199 24 07              3731 	add	a,#0x07
-   119B 74 04              3732 	mov	a,#0x04
-   119D 35 F0              3733 	addc	a,b
-   119F FC                 3734 	mov	r4,a
-   11A0 7A 00              3735 	mov	r2,#0x00
-   11A2 8C DA              3736 	mov	_CAN_ADH,r4
+   1186 EA                 3720 	mov	a,r2
+   1187 C4                 3721 	swap	a
+   1188 03                 3722 	rr	a
+   1189 54 F8              3723 	anl	a,#0xf8
+   118B FC                 3724 	mov	r4,a
+   118C 74 07              3725 	mov	a,#0x07
+   118E 2C                 3726 	add	a,r4
+   118F F5 D9              3727 	mov	_CAN_ADL,a
+   1191 EA                 3728 	mov	a,r2
+   1192 75 F0 08           3729 	mov	b,#0x08
+   1195 A4                 3730 	mul	ab
+   1196 24 07              3731 	add	a,#0x07
+   1198 74 04              3732 	mov	a,#0x04
+   119A 35 F0              3733 	addc	a,b
+   119C FC                 3734 	mov	r4,a
+   119D 7A 00              3735 	mov	r2,#0x00
+   119F 8C DA              3736 	mov	_CAN_ADH,r4
                     0CDC   3737 	C$CAN.C$1295$1$1 ==.
                            3738 ;	../CAN.C:1295: CAN_vReadEN();   // Readmode is Enabled
-   11A4 75 D8 00           3739 	mov	_CAN_ADCON,#0x00
-   11A7                    3740 00104$:
-   11A7 E5 D8              3741 	mov	a,_CAN_ADCON
-   11A9 20 E1 FB           3742 	jb	acc.1,00104$
+   11A1 75 D8 00           3739 	mov	_CAN_ADCON,#0x00
+   11A4                    3740 00104$:
+   11A4 E5 D8              3741 	mov	a,_CAN_ADCON
+   11A6 20 E1 FB           3742 	jb	acc.1,00104$
                     0CE4   3743 	C$CAN.C$1296$1$1 ==.
                            3744 ;	../CAN.C:1296: if(!((CAN_DATA1 & 0x01) | (CAN_DATA0 & 0x08)))  //if set TXRQ or NEWDAT
-   11AC 74 01              3745 	mov	a,#0x01
-   11AE 55 DC              3746 	anl	a,_CAN_DATA1
-   11B0 FA                 3747 	mov	r2,a
-   11B1 74 08              3748 	mov	a,#0x08
-   11B3 55 DB              3749 	anl	a,_CAN_DATA0
-   11B5 4A                 3750 	orl	a,r2
+   11A9 74 01              3745 	mov	a,#0x01
+   11AB 55 DC              3746 	anl	a,_CAN_DATA1
+   11AD FA                 3747 	mov	r2,a
+   11AE 74 08              3748 	mov	a,#0x08
+   11B0 55 DB              3749 	anl	a,_CAN_DATA0
+   11B2 4A                 3750 	orl	a,r2
                     0CEE   3751 	C$CAN.C$1298$2$2 ==.
                            3752 ;	../CAN.C:1298: CAN_vWriteCANData(0x00000020);  // reset MSGLST
-   11B6 70 13              3753 	jnz	00111$
-   11B8 75 DB 20           3754 	mov	_CAN_DATA0,#0x20
-   11BB F5 DC              3755 	mov	_CAN_DATA1,a
-   11BD F5 DD              3756 	mov	_CAN_DATA2,a
-   11BF F5 DE              3757 	mov	_CAN_DATA3,a
-   11C1 75 D8 F1           3758 	mov	_CAN_ADCON,#0xF1
-   11C4                    3759 00107$:
-   11C4 E5 D8              3760 	mov	a,_CAN_ADCON
-   11C6 20 E1 FB           3761 	jb	acc.1,00107$
+   11B3 70 13              3753 	jnz	00111$
+   11B5 75 DB 20           3754 	mov	_CAN_DATA0,#0x20
+   11B8 F5 DC              3755 	mov	_CAN_DATA1,a
+   11BA F5 DD              3756 	mov	_CAN_DATA2,a
+   11BC F5 DE              3757 	mov	_CAN_DATA3,a
+   11BE 75 D8 F1           3758 	mov	_CAN_ADCON,#0xF1
+   11C1                    3759 00107$:
+   11C1 E5 D8              3760 	mov	a,_CAN_ADCON
+   11C3 20 E1 FB           3761 	jb	acc.1,00107$
                     0D01   3762 	C$CAN.C$1299$2$2 ==.
                            3763 ;	../CAN.C:1299: ubReturn = 1;
-   11C9 7B 01              3764 	mov	r3,#0x01
-   11CB                    3765 00111$:
+   11C6 7B 01              3764 	mov	r3,#0x01
+   11C8                    3765 00111$:
                     0D03   3766 	C$CAN.C$1301$1$1 ==.
                            3767 ;	../CAN.C:1301: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   11CB D0 DE D0 DD D0 DC  3768 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   11C8 D0 DE D0 DD D0 DC  3768 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     0D0F   3769 	C$CAN.C$1303$1$1 ==.
                            3770 ;	../CAN.C:1303: return(ubReturn);
-   11D7 8B 82              3771 	mov	dpl,r3
+   11D4 8B 82              3771 	mov	dpl,r3
                     0D11   3772 	C$CAN.C$1304$1$1 ==.
                     0D11   3773 	XG$CAN_ubDelMsgObj$0$0 ==.
-   11D9 22                 3774 	ret
+   11D6 22                 3774 	ret
                            3775 ;------------------------------------------------------------
                            3776 ;Allocation info for local variables in function 'CAN_ubMsgLost'
                            3777 ;------------------------------------------------------------
@@ -3798,71 +3798,71 @@
                            3784 ;	-----------------------------------------
                            3785 ;	 function CAN_ubMsgLost
                            3786 ;	-----------------------------------------
-   11DA                    3787 _CAN_ubMsgLost:
-   11DA AA 82              3788 	mov	r2,dpl
+   11D7                    3787 _CAN_ubMsgLost:
+   11D7 AA 82              3788 	mov	r2,dpl
                     0D14   3789 	C$CAN.C$1336$1$1 ==.
                            3790 ;	../CAN.C:1336: ubyte ubReturn = 0;
-   11DC 7B 00              3791 	mov	r3,#0x00
+   11D9 7B 00              3791 	mov	r3,#0x00
                     0D16   3792 	C$CAN.C$1338$1$1 ==.
                            3793 ;	../CAN.C:1338: CAN_pushAMRegs();    //   PUSH the CAN Access Mediator Register
-   11DE                    3794 00101$:
-   11DE E5 D8              3795 	mov	a,_CAN_ADCON
-   11E0 20 E1 FB           3796 	jb	acc.1,00101$
-   11E3 C0 D9 C0 DA C0 DB  3797 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   11DB                    3794 00101$:
+   11DB E5 D8              3795 	mov	a,_CAN_ADCON
+   11DD 20 E1 FB           3796 	jb	acc.1,00101$
+   11E0 C0 D9 C0 DA C0 DB  3797 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     0D27   3798 	C$CAN.C$1340$1$1 ==.
                            3799 ;	../CAN.C:1340: CAN_vWriteCANAddress(CAN_MOCTR(ubObjNr));
-   11EF EA                 3800 	mov	a,r2
-   11F0 C4                 3801 	swap	a
-   11F1 03                 3802 	rr	a
-   11F2 54 F8              3803 	anl	a,#0xf8
-   11F4 FC                 3804 	mov	r4,a
-   11F5 74 07              3805 	mov	a,#0x07
-   11F7 2C                 3806 	add	a,r4
-   11F8 F5 D9              3807 	mov	_CAN_ADL,a
-   11FA EA                 3808 	mov	a,r2
-   11FB 75 F0 08           3809 	mov	b,#0x08
-   11FE A4                 3810 	mul	ab
-   11FF 24 07              3811 	add	a,#0x07
-   1201 74 04              3812 	mov	a,#0x04
-   1203 35 F0              3813 	addc	a,b
-   1205 FC                 3814 	mov	r4,a
-   1206 7A 00              3815 	mov	r2,#0x00
-   1208 8C DA              3816 	mov	_CAN_ADH,r4
+   11EC EA                 3800 	mov	a,r2
+   11ED C4                 3801 	swap	a
+   11EE 03                 3802 	rr	a
+   11EF 54 F8              3803 	anl	a,#0xf8
+   11F1 FC                 3804 	mov	r4,a
+   11F2 74 07              3805 	mov	a,#0x07
+   11F4 2C                 3806 	add	a,r4
+   11F5 F5 D9              3807 	mov	_CAN_ADL,a
+   11F7 EA                 3808 	mov	a,r2
+   11F8 75 F0 08           3809 	mov	b,#0x08
+   11FB A4                 3810 	mul	ab
+   11FC 24 07              3811 	add	a,#0x07
+   11FE 74 04              3812 	mov	a,#0x04
+   1200 35 F0              3813 	addc	a,b
+   1202 FC                 3814 	mov	r4,a
+   1203 7A 00              3815 	mov	r2,#0x00
+   1205 8C DA              3816 	mov	_CAN_ADH,r4
                     0D42   3817 	C$CAN.C$1341$1$1 ==.
                            3818 ;	../CAN.C:1341: CAN_vReadEN();   // Readmode is Enabled
-   120A 75 D8 00           3819 	mov	_CAN_ADCON,#0x00
-   120D                    3820 00104$:
-   120D E5 D8              3821 	mov	a,_CAN_ADCON
-   120F 20 E1 FB           3822 	jb	acc.1,00104$
+   1207 75 D8 00           3819 	mov	_CAN_ADCON,#0x00
+   120A                    3820 00104$:
+   120A E5 D8              3821 	mov	a,_CAN_ADCON
+   120C 20 E1 FB           3822 	jb	acc.1,00104$
                     0D4A   3823 	C$CAN.C$1343$1$1 ==.
                            3824 ;	../CAN.C:1343: if(CAN_DATA0 & 0x10) //if set MSGLST
-   1212 E5 DB              3825 	mov	a,_CAN_DATA0
-   1214 30 E4 16           3826 	jnb	acc.4,00111$
+   120F E5 DB              3825 	mov	a,_CAN_DATA0
+   1211 30 E4 16           3826 	jnb	acc.4,00111$
                     0D4F   3827 	C$CAN.C$1345$2$2 ==.
                            3828 ;	../CAN.C:1345: CAN_vWriteCANData(0x00000010);  // reset MSGLST
-   1217 75 DB 10           3829 	mov	_CAN_DATA0,#0x10
-   121A 75 DC 00           3830 	mov	_CAN_DATA1,#0x00
-   121D 75 DD 00           3831 	mov	_CAN_DATA2,#0x00
-   1220 75 DE 00           3832 	mov	_CAN_DATA3,#0x00
-   1223 75 D8 F1           3833 	mov	_CAN_ADCON,#0xF1
-   1226                    3834 00107$:
-   1226 E5 D8              3835 	mov	a,_CAN_ADCON
-   1228 20 E1 FB           3836 	jb	acc.1,00107$
+   1214 75 DB 10           3829 	mov	_CAN_DATA0,#0x10
+   1217 75 DC 00           3830 	mov	_CAN_DATA1,#0x00
+   121A 75 DD 00           3831 	mov	_CAN_DATA2,#0x00
+   121D 75 DE 00           3832 	mov	_CAN_DATA3,#0x00
+   1220 75 D8 F1           3833 	mov	_CAN_ADCON,#0xF1
+   1223                    3834 00107$:
+   1223 E5 D8              3835 	mov	a,_CAN_ADCON
+   1225 20 E1 FB           3836 	jb	acc.1,00107$
                     0D63   3837 	C$CAN.C$1346$2$2 ==.
                            3838 ;	../CAN.C:1346: ubReturn = 1;
-   122B 7B 01              3839 	mov	r3,#0x01
-   122D                    3840 00111$:
+   1228 7B 01              3839 	mov	r3,#0x01
+   122A                    3840 00111$:
                     0D65   3841 	C$CAN.C$1348$1$1 ==.
                            3842 ;	../CAN.C:1348: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   122D D0 DE D0 DD D0 DC  3843 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   122A D0 DE D0 DD D0 DC  3843 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     0D71   3844 	C$CAN.C$1350$1$1 ==.
                            3845 ;	../CAN.C:1350: return(ubReturn);
-   1239 8B 82              3846 	mov	dpl,r3
+   1236 8B 82              3846 	mov	dpl,r3
                     0D73   3847 	C$CAN.C$1351$1$1 ==.
                     0D73   3848 	XG$CAN_ubMsgLost$0$0 ==.
-   123B 22                 3849 	ret
+   1238 22                 3849 	ret
                            3850 ;------------------------------------------------------------
                            3851 ;Allocation info for local variables in function 'CAN_ubGetTxErrorCounter'
                            3852 ;------------------------------------------------------------
@@ -3875,52 +3875,52 @@
                            3859 ;	-----------------------------------------
                            3860 ;	 function CAN_ubGetTxErrorCounter
                            3861 ;	-----------------------------------------
-   123C                    3862 _CAN_ubGetTxErrorCounter:
-   123C AA 82              3863 	mov	r2,dpl
+   1239                    3862 _CAN_ubGetTxErrorCounter:
+   1239 AA 82              3863 	mov	r2,dpl
                     0D76   3864 	C$CAN.C$1385$1$1 ==.
                            3865 ;	../CAN.C:1385: CAN_pushAMRegs();    //   PUSH the CAN Access Mediator Register
-   123E                    3866 00101$:
-   123E E5 D8              3867 	mov	a,_CAN_ADCON
-   1240 20 E1 FB           3868 	jb	acc.1,00101$
-   1243 C0 D9 C0 DA C0 DB  3869 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   123B                    3866 00101$:
+   123B E5 D8              3867 	mov	a,_CAN_ADCON
+   123D 20 E1 FB           3868 	jb	acc.1,00101$
+   1240 C0 D9 C0 DA C0 DB  3869 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     0D87   3870 	C$CAN.C$1387$1$1 ==.
                            3871 ;	../CAN.C:1387: CAN_vWriteCANAddress(CAN_NECNT(ubNodeNr));
-   124F EA                 3872 	mov	a,r2
-   1250 03                 3873 	rr	a
-   1251 03                 3874 	rr	a
-   1252 54 C0              3875 	anl	a,#0xc0
-   1254 FB                 3876 	mov	r3,a
-   1255 74 85              3877 	mov	a,#0x85
-   1257 2B                 3878 	add	a,r3
-   1258 F5 D9              3879 	mov	_CAN_ADL,a
-   125A EA                 3880 	mov	a,r2
-   125B 75 F0 40           3881 	mov	b,#0x40
-   125E A4                 3882 	mul	ab
-   125F 24 85              3883 	add	a,#0x85
-   1261 E4                 3884 	clr	a
-   1262 35 F0              3885 	addc	a,b
-   1264 FB                 3886 	mov	r3,a
-   1265 7A 00              3887 	mov	r2,#0x00
-   1267 8B DA              3888 	mov	_CAN_ADH,r3
+   124C EA                 3872 	mov	a,r2
+   124D 03                 3873 	rr	a
+   124E 03                 3874 	rr	a
+   124F 54 C0              3875 	anl	a,#0xc0
+   1251 FB                 3876 	mov	r3,a
+   1252 74 85              3877 	mov	a,#0x85
+   1254 2B                 3878 	add	a,r3
+   1255 F5 D9              3879 	mov	_CAN_ADL,a
+   1257 EA                 3880 	mov	a,r2
+   1258 75 F0 40           3881 	mov	b,#0x40
+   125B A4                 3882 	mul	ab
+   125C 24 85              3883 	add	a,#0x85
+   125E E4                 3884 	clr	a
+   125F 35 F0              3885 	addc	a,b
+   1261 FB                 3886 	mov	r3,a
+   1262 7A 00              3887 	mov	r2,#0x00
+   1264 8B DA              3888 	mov	_CAN_ADH,r3
                     0DA1   3889 	C$CAN.C$1388$1$1 ==.
                            3890 ;	../CAN.C:1388: CAN_vReadEN(); // Read mode is enabled
-   1269 75 D8 00           3891 	mov	_CAN_ADCON,#0x00
-   126C                    3892 00104$:
-   126C E5 D8              3893 	mov	a,_CAN_ADCON
-   126E 20 E1 FB           3894 	jb	acc.1,00104$
+   1266 75 D8 00           3891 	mov	_CAN_ADCON,#0x00
+   1269                    3892 00104$:
+   1269 E5 D8              3893 	mov	a,_CAN_ADCON
+   126B 20 E1 FB           3894 	jb	acc.1,00104$
                     0DA9   3895 	C$CAN.C$1389$1$1 ==.
                            3896 ;	../CAN.C:1389: ubReturn = CAN_DATA1;
-   1271 85 DC 82           3897 	mov	dpl,_CAN_DATA1
+   126E 85 DC 82           3897 	mov	dpl,_CAN_DATA1
                     0DAC   3898 	C$CAN.C$1391$1$1 ==.
                            3899 ;	../CAN.C:1391: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   1274 D0 DE D0 DD D0 DC  3900 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   1271 D0 DE D0 DD D0 DC  3900 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     0DB8   3901 	C$CAN.C$1393$1$1 ==.
                            3902 ;	../CAN.C:1393: return(ubReturn);
                     0DB8   3903 	C$CAN.C$1394$1$1 ==.
                     0DB8   3904 	XG$CAN_ubGetTxErrorCounter$0$0 ==.
-   1280 22                 3905 	ret
+   127D 22                 3905 	ret
                            3906 ;------------------------------------------------------------
                            3907 ;Allocation info for local variables in function 'CAN_ubGetRxErrorCounter'
                            3908 ;------------------------------------------------------------
@@ -3933,52 +3933,52 @@
                            3915 ;	-----------------------------------------
                            3916 ;	 function CAN_ubGetRxErrorCounter
                            3917 ;	-----------------------------------------
-   1281                    3918 _CAN_ubGetRxErrorCounter:
-   1281 AA 82              3919 	mov	r2,dpl
+   127E                    3918 _CAN_ubGetRxErrorCounter:
+   127E AA 82              3919 	mov	r2,dpl
                     0DBB   3920 	C$CAN.C$1428$1$1 ==.
                            3921 ;	../CAN.C:1428: CAN_pushAMRegs();    //   PUSH the CAN Access Mediator Register
-   1283                    3922 00101$:
-   1283 E5 D8              3923 	mov	a,_CAN_ADCON
-   1285 20 E1 FB           3924 	jb	acc.1,00101$
-   1288 C0 D9 C0 DA C0 DB  3925 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   1280                    3922 00101$:
+   1280 E5 D8              3923 	mov	a,_CAN_ADCON
+   1282 20 E1 FB           3924 	jb	acc.1,00101$
+   1285 C0 D9 C0 DA C0 DB  3925 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     0DCC   3926 	C$CAN.C$1430$1$1 ==.
                            3927 ;	../CAN.C:1430: CAN_vWriteCANAddress(CAN_NECNT(ubNodeNr));
-   1294 EA                 3928 	mov	a,r2
-   1295 03                 3929 	rr	a
-   1296 03                 3930 	rr	a
-   1297 54 C0              3931 	anl	a,#0xc0
-   1299 FB                 3932 	mov	r3,a
-   129A 74 85              3933 	mov	a,#0x85
-   129C 2B                 3934 	add	a,r3
-   129D F5 D9              3935 	mov	_CAN_ADL,a
-   129F EA                 3936 	mov	a,r2
-   12A0 75 F0 40           3937 	mov	b,#0x40
-   12A3 A4                 3938 	mul	ab
-   12A4 24 85              3939 	add	a,#0x85
-   12A6 E4                 3940 	clr	a
-   12A7 35 F0              3941 	addc	a,b
-   12A9 FB                 3942 	mov	r3,a
-   12AA 7A 00              3943 	mov	r2,#0x00
-   12AC 8B DA              3944 	mov	_CAN_ADH,r3
+   1291 EA                 3928 	mov	a,r2
+   1292 03                 3929 	rr	a
+   1293 03                 3930 	rr	a
+   1294 54 C0              3931 	anl	a,#0xc0
+   1296 FB                 3932 	mov	r3,a
+   1297 74 85              3933 	mov	a,#0x85
+   1299 2B                 3934 	add	a,r3
+   129A F5 D9              3935 	mov	_CAN_ADL,a
+   129C EA                 3936 	mov	a,r2
+   129D 75 F0 40           3937 	mov	b,#0x40
+   12A0 A4                 3938 	mul	ab
+   12A1 24 85              3939 	add	a,#0x85
+   12A3 E4                 3940 	clr	a
+   12A4 35 F0              3941 	addc	a,b
+   12A6 FB                 3942 	mov	r3,a
+   12A7 7A 00              3943 	mov	r2,#0x00
+   12A9 8B DA              3944 	mov	_CAN_ADH,r3
                     0DE6   3945 	C$CAN.C$1431$1$1 ==.
                            3946 ;	../CAN.C:1431: CAN_vReadEN(); //Read mode is enabled
-   12AE 75 D8 00           3947 	mov	_CAN_ADCON,#0x00
-   12B1                    3948 00104$:
-   12B1 E5 D8              3949 	mov	a,_CAN_ADCON
-   12B3 20 E1 FB           3950 	jb	acc.1,00104$
+   12AB 75 D8 00           3947 	mov	_CAN_ADCON,#0x00
+   12AE                    3948 00104$:
+   12AE E5 D8              3949 	mov	a,_CAN_ADCON
+   12B0 20 E1 FB           3950 	jb	acc.1,00104$
                     0DEE   3951 	C$CAN.C$1432$1$1 ==.
                            3952 ;	../CAN.C:1432: ubReturn = CAN_DATA0;
-   12B6 85 DB 82           3953 	mov	dpl,_CAN_DATA0
+   12B3 85 DB 82           3953 	mov	dpl,_CAN_DATA0
                     0DF1   3954 	C$CAN.C$1434$1$1 ==.
                            3955 ;	../CAN.C:1434: CAN_popAMRegs();    //   POP the CAN Access Mediator Register
-   12B9 D0 DE D0 DD D0 DC  3956 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   12B6 D0 DE D0 DD D0 DC  3956 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     0DFD   3957 	C$CAN.C$1436$1$1 ==.
                            3958 ;	../CAN.C:1436: return(ubReturn);
                     0DFD   3959 	C$CAN.C$1437$1$1 ==.
                     0DFD   3960 	XG$CAN_ubGetRxErrorCounter$0$0 ==.
-   12C5 22                 3961 	ret
+   12C2 22                 3961 	ret
                            3962 	.area CSEG    (CODE)
                            3963 	.area CONST   (CODE)
                            3964 	.area XINIT   (CODE)

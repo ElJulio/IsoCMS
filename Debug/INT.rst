@@ -1356,7 +1356,7 @@
                            1356 ;	-----------------------------------------
                            1357 ;	 function INT_vInit
                            1358 ;	-----------------------------------------
-   134B                    1359 _INT_vInit:
+   1348                    1359 _INT_vInit:
                     0002   1360 	ar2 = 0x02
                     0003   1361 	ar3 = 0x03
                     0004   1362 	ar4 = 0x04
@@ -1367,28 +1367,28 @@
                     0001   1367 	ar1 = 0x01
                     0000   1368 	C$INT.C$151$1$1 ==.
                            1369 ;	../INT.C:151: NMICON        =  0x00;         //  NMI Control Register 
-   134B 75 BB 00           1370 	mov	_NMICON,#0x00
+   1348 75 BB 00           1370 	mov	_NMICON,#0x00
                     0003   1371 	C$INT.C$157$1$1 ==.
                            1372 ;	../INT.C:157: IT0 = 0;
-   134E C2 88              1373 	clr	_IT0
+   134B C2 88              1373 	clr	_IT0
                     0005   1374 	C$INT.C$168$1$1 ==.
                            1375 ;	../INT.C:168: IEN0          =  0x31;         //  interrupt enable  register 0
-   1350 75 A8 31           1376 	mov	_IEN0,#0x31
+   134D 75 A8 31           1376 	mov	_IEN0,#0x31
                     0008   1377 	C$INT.C$169$1$1 ==.
                            1378 ;	../INT.C:169: IEN1          =  0x10;         //  interrupt enable register 1
-   1353 75 E8 10           1379 	mov	_IEN1,#0x10
+   1350 75 E8 10           1379 	mov	_IEN1,#0x10
                     000B   1380 	C$INT.C$170$1$1 ==.
                            1381 ;	../INT.C:170: EXICON0       =  0x00;         // external interrupt trigger select 
-   1356 75 B7 00           1382 	mov	_EXICON0,#0x00
+   1353 75 B7 00           1382 	mov	_EXICON0,#0x00
                     000E   1383 	C$INT.C$172$1$1 ==.
                            1384 ;	../INT.C:172: EXICON1       =  0x00;         // external interrupt trigger select 
-   1359 75 BA 00           1385 	mov	_EXICON1,#0x00
+   1356 75 BA 00           1385 	mov	_EXICON1,#0x00
                     0011   1386 	C$INT.C$174$1$1 ==.
                            1387 ;	../INT.C:174: MODPISEL      =  0x00;         // peripheral input select register 
-   135C 75 B3 00           1388 	mov	_MODPISEL,#0x00
+   1359 75 B3 00           1388 	mov	_MODPISEL,#0x00
                     0014   1389 	C$INT.C$179$1$1 ==.
                     0014   1390 	XG$INT_vInit$0$0 ==.
-   135F 22                 1391 	ret
+   135C 22                 1391 	ret
                            1392 ;------------------------------------------------------------
                            1393 ;Allocation info for local variables in function 'INT_viExt0'
                            1394 ;------------------------------------------------------------
@@ -1399,60 +1399,60 @@
                            1399 ;	-----------------------------------------
                            1400 ;	 function INT_viExt0
                            1401 ;	-----------------------------------------
-   1360                    1402 _INT_viExt0:
-   1360 C0 22              1403 	push	bits
-   1362 C0 E0              1404 	push	acc
-   1364 C0 F0              1405 	push	b
-   1366 C0 82              1406 	push	dpl
-   1368 C0 83              1407 	push	dph
-   136A C0 02              1408 	push	(0+2)
-   136C C0 03              1409 	push	(0+3)
-   136E C0 04              1410 	push	(0+4)
-   1370 C0 05              1411 	push	(0+5)
-   1372 C0 06              1412 	push	(0+6)
-   1374 C0 07              1413 	push	(0+7)
-   1376 C0 00              1414 	push	(0+0)
-   1378 C0 01              1415 	push	(0+1)
-   137A C0 D0              1416 	push	psw
-   137C 75 D0 00           1417 	mov	psw,#0x00
+   135D                    1402 _INT_viExt0:
+   135D C0 22              1403 	push	bits
+   135F C0 E0              1404 	push	acc
+   1361 C0 F0              1405 	push	b
+   1363 C0 82              1406 	push	dpl
+   1365 C0 83              1407 	push	dph
+   1367 C0 02              1408 	push	(0+2)
+   1369 C0 03              1409 	push	(0+3)
+   136B C0 04              1410 	push	(0+4)
+   136D C0 05              1411 	push	(0+5)
+   136F C0 06              1412 	push	(0+6)
+   1371 C0 07              1413 	push	(0+7)
+   1373 C0 00              1414 	push	(0+0)
+   1375 C0 01              1415 	push	(0+1)
+   1377 C0 D0              1416 	push	psw
+   1379 75 D0 00           1417 	mov	psw,#0x00
                     0034   1418 	C$INT.C$224$2$2 ==.
                            1419 ;	../INT.C:224: pushsyscon();                  // push the current RMAP
-   137F C0 8F              1420 	 push 0x8F 
+   137C C0 8F              1420 	 push 0x8F 
                     0036   1421 	C$INT.C$225$1$1 ==.
                            1422 ;	../INT.C:225: RESET_RMAP();                  // resets RMAP
-   1381 53 8F FE           1423 	anl	_SYSCON0,#0xFE
+   137E 53 8F FE           1423 	anl	_SYSCON0,#0xFE
                     0039   1424 	C$INT.C$227$1$1 ==.
                            1425 ;	../INT.C:227: SFR_PAGE(_su0, SST3);          // switch to page0
-   1384 75 BF B0           1426 	mov	_SCU_PAGE,#0xB0
+   1381 75 BF B0           1426 	mov	_SCU_PAGE,#0xB0
                     003C   1427 	C$INT.C$228$1$1 ==.
                            1428 ;	../INT.C:228: IRCON0 &= ~(ubyte)0x01; //   clear EXINT0
-   1387 53 B4 FE           1429 	anl	_IRCON0,#0xFE
+   1384 53 B4 FE           1429 	anl	_IRCON0,#0xFE
                     003F   1430 	C$INT.C$232$1$1 ==.
                            1431 ;	../INT.C:232: current_resultInterruptCall();
-   138A 12 19 AE           1432 	lcall	_current_resultInterruptCall
+   1387 12 19 A6           1432 	lcall	_current_resultInterruptCall
                     0042   1433 	C$INT.C$243$1$1 ==.
                            1434 ;	../INT.C:243: SFR_PAGE(_su0, RST3);          // restore the old SCU page
-   138D 75 BF F0           1435 	mov	_SCU_PAGE,#0xF0
+   138A 75 BF F0           1435 	mov	_SCU_PAGE,#0xF0
                     0045   1436 	C$INT.C$245$2$3 ==.
                            1437 ;	../INT.C:245: popsyscon();                   // restore the old RMAP
-   1390 D0 8F              1438 	 pop 0x8F 
-   1392 D0 D0              1439 	pop	psw
-   1394 D0 01              1440 	pop	(0+1)
-   1396 D0 00              1441 	pop	(0+0)
-   1398 D0 07              1442 	pop	(0+7)
-   139A D0 06              1443 	pop	(0+6)
-   139C D0 05              1444 	pop	(0+5)
-   139E D0 04              1445 	pop	(0+4)
-   13A0 D0 03              1446 	pop	(0+3)
-   13A2 D0 02              1447 	pop	(0+2)
-   13A4 D0 83              1448 	pop	dph
-   13A6 D0 82              1449 	pop	dpl
-   13A8 D0 F0              1450 	pop	b
-   13AA D0 E0              1451 	pop	acc
-   13AC D0 22              1452 	pop	bits
+   138D D0 8F              1438 	 pop 0x8F 
+   138F D0 D0              1439 	pop	psw
+   1391 D0 01              1440 	pop	(0+1)
+   1393 D0 00              1441 	pop	(0+0)
+   1395 D0 07              1442 	pop	(0+7)
+   1397 D0 06              1443 	pop	(0+6)
+   1399 D0 05              1444 	pop	(0+5)
+   139B D0 04              1445 	pop	(0+4)
+   139D D0 03              1446 	pop	(0+3)
+   139F D0 02              1447 	pop	(0+2)
+   13A1 D0 83              1448 	pop	dph
+   13A3 D0 82              1449 	pop	dpl
+   13A5 D0 F0              1450 	pop	b
+   13A7 D0 E0              1451 	pop	acc
+   13A9 D0 22              1452 	pop	bits
                     0063   1453 	C$INT.C$247$2$3 ==.
                     0063   1454 	XG$INT_viExt0$0$0 ==.
-   13AE 32                 1455 	reti
+   13AB 32                 1455 	reti
                            1456 	.area CSEG    (CODE)
                            1457 	.area CONST   (CODE)
                            1458 	.area XINIT   (CODE)

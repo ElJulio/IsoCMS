@@ -326,7 +326,6 @@ S _CCU6_CC63SRLH Def9B9A
 S _IRDY Def00B0
 S _P2_7 Def00A7
 S _P3_6 Def00B6
-S _CAN_vTransmit Ref0000
 S G$OV$0$0 Def00D2
 S G$T21_RC2H$0$0 Def00C3
 S G$CCU6_TCTR0H$0$0 Def00A7
@@ -892,14 +891,13 @@ S A$current_controller$1377 Def0017
 S A$current_controller$1359 Def0007
 S A$current_controller$1378 Def0018
 S A$current_controller$1379 Def001A
-S C$current_controller.c$20$1$1 Def0009
-S C$current_controller.c$21$1$1 Def0012
-S C$current_controller.c$22$1$1 Def0017
-S C$current_controller.c$23$1$1 Def001C
-S C$current_controller.c$19$1$1 Def0000
+S C$current_controller.c$20$2$1 Def0000
+S C$current_controller.c$21$2$1 Def0009
+S C$current_controller.c$22$2$1 Def0012
+S C$current_controller.c$23$2$1 Def0017
+S C$current_controller.c$24$2$1 Def001C
 A GSFINAL size 0 flags 20 addr 0
-A CSEG size 11C flags 20 addr 0
-S C$current_controller.c$59$2$6 Def008E
+A CSEG size 117 flags 20 addr 0
 S XG$current_evaluation$0$0 Def00AD
 S _save_act_current Def00B0
 S G$current_evaluation$0$0 Def0000
@@ -942,6 +940,7 @@ S A$current_controller$1443 Def002A
 S A$current_controller$1434 Def0019
 S A$current_controller$1416 Def0000
 S G$save_act_current$0$0 Def00B0
+S A$current_controller$1660 Def0115
 S A$current_controller$1570 Def00C9
 S A$current_controller$1561 Def00BA
 S A$current_controller$1552 Def00B0
@@ -965,7 +964,7 @@ S A$current_controller$1454 Def003A
 S A$current_controller$1436 Def001D
 S A$current_controller$1427 Def0010
 S A$current_controller$1418 Def0005
-S A$current_controller$1653 Def0112
+S A$current_controller$1653 Def0111
 S A$current_controller$1644 Def0103
 S A$current_controller$1626 Def00EA
 S A$current_controller$1572 Def00CC
@@ -978,7 +977,6 @@ S A$current_controller$1455 Def003C
 S A$current_controller$1446 Def002C
 S A$current_controller$1437 Def001E
 S A$current_controller$1428 Def0011
-S A$current_controller$1672 Def0119
 S A$current_controller$1645 Def0106
 S A$current_controller$1627 Def00EC
 S A$current_controller$1591 Def00CF
@@ -990,7 +988,6 @@ S A$current_controller$1465 Def0046
 S A$current_controller$1447 Def002F
 S A$current_controller$1438 Def0020
 S A$current_controller$1429 Def0014
-S A$current_controller$1655 Def0115
 S A$current_controller$1646 Def0109
 S A$current_controller$1637 Def00F6
 S A$current_controller$1628 Def00ED
@@ -1002,8 +999,8 @@ S A$current_controller$1484 Def005F
 S A$current_controller$1466 Def0049
 S A$current_controller$1448 Def0031
 S A$current_controller$1439 Def0021
-S C$current_controller.c$103$1$1 Def0116
-S C$current_controller.c$102$2$1 Def0116
+S C$current_controller.c$102$2$1 Def0115
+S A$current_controller$1656 Def0113
 S A$current_controller$1647 Def010C
 S A$current_controller$1638 Def00F9
 S A$current_controller$1629 Def00EF
@@ -1017,7 +1014,6 @@ S A$current_controller$1485 Def0062
 S A$current_controller$1467 Def004B
 S A$current_controller$1458 Def003E
 S A$current_controller$1449 Def0033
-S C$current_controller.c$104$1$1 Def0119
 S A$current_controller$1639 Def00FC
 S A$current_controller$1594 Def00D4
 S A$current_controller$1567 Def00C4
@@ -1027,6 +1023,7 @@ S A$current_controller$1486 Def0065
 S A$current_controller$1477 Def0052
 S A$current_controller$1459 Def0041
 S _current_controller_soft_reset Def00CF
+S A$current_controller$1676 Def0116
 S A$current_controller$1595 Def00D6
 S A$current_controller$1568 Def00C5
 S A$current_controller$1559 Def00B8
@@ -1038,53 +1035,56 @@ S A$current_controller$1569 Def00C7
 S A$current_controller$1497 Def007F
 S A$current_controller$1488 Def006B
 S A$current_controller$1479 Def0057
-S A$current_controller$1669 Def0116
+S C$current_controller.c$106$2$1 Def0116
 S A$current_controller$1597 Def00DA
 S A$current_controller$1498 Def0081
 S A$current_controller$1489 Def006E
 S A$current_controller$1598 Def00DC
+S C$current_controller.c$108$2$1 Def0116
 S A$current_controller$1599 Def00DE
 S _current_send_CAN_0x60 Def00E6
 S _current_send_CAN_0x70 Def0116
 S XG$current_controller_soft_reset$0$0 Def00E5
-S C$current_controller.c$50$2$1 Def005C
-S C$current_controller.c$40$2$2 Def0016
-S C$current_controller.c$35$0$0 Def0000
-S C$current_controller.c$41$2$2 Def002C
+S C$current_controller.c$40$2$2 Def000E
+S C$current_controller.c$51$2$1 Def005C
+S C$current_controller.c$50$2$2 Def0052
+S C$current_controller.c$41$2$2 Def0016
+S C$current_controller.c$36$0$0 Def0000
 S C$current_controller.c$80$1$1 Def00CF
-S C$current_controller.c$42$2$2 Def003E
-S XG$current_send_CAN_0x60$0$0 Def0112
-S C$current_controller.c$81$1$1 Def00E0
-S C$current_controller.c$63$1$1 Def0096
-S XG$current_send_CAN_0x70$0$0 Def0119
-S C$current_controller.c$82$1$1 Def00E5
+S C$current_controller.c$42$2$2 Def002C
+S XG$current_send_CAN_0x60$0$0 Def0115
+S C$current_controller.c$90$1$1 Def00F6
+S C$current_controller.c$81$1$1 Def00CF
+S C$current_controller.c$43$2$2 Def003E
+S XG$current_send_CAN_0x70$0$0 Def0116
+S C$current_controller.c$82$1$1 Def00E0
 S G$current_controller_soft_reset$0$0 Def00CF
-S C$current_controller.c$73$1$1 Def00B2
-S C$current_controller.c$72$2$1 Def00B0
-S C$current_controller.c$37$1$1 Def0000
-S C$current_controller.c$90$2$2 Def0100
-S C$current_controller.c$74$1$1 Def00CE
-S C$current_controller.c$91$2$2 Def010F
-S C$current_controller.c$55$2$2 Def0087
-S C$current_controller.c$51$3$5 Def0076
-S C$current_controller.c$44$3$3 Def0043
-S C$current_controller.c$52$3$5 Def0084
-S C$current_controller.c$38$2$2 Def0008
+S C$current_controller.c$64$1$1 Def0096
+S C$current_controller.c$83$1$1 Def00E5
+S C$current_controller.c$74$1$1 Def00B2
+S C$current_controller.c$73$2$1 Def00B0
+S C$current_controller.c$38$1$1 Def0000
+S C$current_controller.c$91$2$2 Def0100
+S C$current_controller.c$75$1$1 Def00CE
+S C$current_controller.c$60$2$6 Def008E
+S C$current_controller.c$92$2$2 Def010F
+S C$current_controller.c$56$2$2 Def0087
+S C$current_controller.c$52$3$5 Def0076
+S C$current_controller.c$45$3$3 Def0043
 S _current_evaluation Def0000
-S C$current_controller.c$86$1$1 Def00E6
-S C$current_controller.c$39$2$2 Def000E
-S C$current_controller.c$87$1$1 Def00EA
-S C$current_controller.c$78$1$1 Def00CF
-S C$current_controller.c$68$2$1 Def00AD
-S C$current_controller.c$49$2$2 Def0052
-S C$current_controller.c$88$1$1 Def00F6
+S C$current_controller.c$93$2$2 Def0111
+S C$current_controller.c$53$3$5 Def0084
+S C$current_controller.c$39$2$2 Def0008
+S C$current_controller.c$94$2$2 Def0113
+S C$current_controller.c$87$1$1 Def00E6
+S C$current_controller.c$88$1$1 Def00EA
 S C$current_controller.c$79$1$1 Def00CF
-S C$current_controller.c$47$3$4 Def004D
+S C$current_controller.c$69$2$1 Def00AD
 S C$current_controller.c$89$1$1 Def00F6
 S G$current_send_CAN_0x60$0$0 Def00E6
-S C$current_controller.c$98$2$1 Def0112
-S C$current_controller.c$65$2$7 Def00AD
+S C$current_controller.c$48$3$4 Def004D
 S G$current_send_CAN_0x70$0$0 Def0116
+S C$current_controller.c$66$2$7 Def00AD
 A CONST size 0 flags 20 addr 0
 A XINIT size 0 flags 20 addr 0
 A CABS size 0 flags 28 addr 0
@@ -1135,7 +1135,7 @@ R 00 00 00 15 02 03 01 14 00 08 00 15
 T 00 08
 R 00 00 00 15
 T 00 08 12 00 00 12 00 B0 05
-R 00 00 00 15 02 03 01 90 00 06 00 15
+R 00 00 00 15 02 03 01 8F 00 06 00 15
 T 00 0F 00 00 08 E4 B5 00 00 08 02 05
 R 00 00 00 15 F1 21 02 00 03 F1 21 07 00 03
 T 00 15 00 00 09
@@ -1143,9 +1143,9 @@ R 00 00 00 15 F1 21 02 00 03
 T 00 16
 R 00 00 00 15
 T 00 16 12 00 00 AA 82 AB 83 C3 74 30 9A 74 F5 8B
-R 00 00 00 15 02 03 01 90
+R 00 00 00 15 02 03 01 8F
 T 00 24 F0 63 F0 80 95 F0 40 17 12 00 00 AA 82 AB
-R 00 00 00 15 02 0B 01 90
+R 00 00 00 15 02 0B 01 8F
 T 00 32 83 C3 EA 94 D0 EB 64 80 94 0A 40 05 12
 R 00 00 00 15
 T 00 3F 00 00 50 0A
@@ -1173,7 +1173,7 @@ R 00 00 00 15 F1 21 02 00 03 F1 21 07 00 03
 T 00 6F 00 00 02 F0 E5 00 00 03 12
 R 00 00 00 15 F1 21 02 00 03 F1 21 07 00 03
 T 00 74 00 00 85 82 00 00 04 85 83
-R 00 00 00 15 02 02 01 BD F1 21 06 00 03
+R 00 00 00 15 02 02 01 BC F1 21 06 00 03
 T 00 7B 00 00 05 85 F0 00 00 06 F5
 R 00 00 00 15 F1 21 02 00 03 F1 21 07 00 03
 T 00 80 00 00 07 12 00 E6 12
@@ -1250,13 +1250,13 @@ T 01 02 00 00 0E 75 00 00 01
 R 00 00 00 15 F1 01 02 00 03 F1 23 06 00 00
 T 01 05 00 00 0E 75 00 00 02 40 75 82 00 12
 R 00 00 00 15 F1 81 02 00 03 F1 23 06 00 00
-T 01 0D 00 00 75 82 00 02 00 00
-R 00 00 00 15 02 02 01 8F 02 08 01 43
+T 01 0D 00 00 C2 87 C2 97 C2 96
+R 00 00 00 15 02 02 01 8E
 T 01 15
 R 00 00 00 15
 T 01 15 22
 R 00 00 00 15
 T 01 16
 R 00 00 00 15
-T 01 16 75 82 00 02 00 00
-R 00 00 00 15 02 06 01 43
+T 01 16 22
+R 00 00 00 15

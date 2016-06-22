@@ -1341,7 +1341,7 @@
                            1341 ;	-----------------------------------------
                            1342 ;	 function T2_vInit
                            1343 ;	-----------------------------------------
-   1716                    1344 _T2_vInit:
+   1713                    1344 _T2_vInit:
                     0002   1345 	ar2 = 0x02
                     0003   1346 	ar3 = 0x03
                     0004   1347 	ar4 = 0x04
@@ -1352,21 +1352,21 @@
                     0001   1352 	ar1 = 0x01
                     0000   1353 	C$T2.C$152$1$1 ==.
                            1354 ;	../T2.C:152: T2_T2LH       =  0x8AD0;       // load timer 2 reload/capture register low 
-   1716 75 C4 D0           1355 	mov	_T2_T2LH,#0xD0
-   1719 75 C5 8A           1356 	mov	(_T2_T2LH >> 8),#0x8A
+   1713 75 C4 D0           1355 	mov	_T2_T2LH,#0xD0
+   1716 75 C5 8A           1356 	mov	(_T2_T2LH >> 8),#0x8A
                     0006   1357 	C$T2.C$155$1$1 ==.
                            1358 ;	../T2.C:155: T2_RC2LH      =  0x8AD0;       // load timer 2 reload/capture register low 
-   171C 75 C2 D0           1359 	mov	_T2_RC2LH,#0xD0
-   171F 75 C3 8A           1360 	mov	(_T2_RC2LH >> 8),#0x8A
+   1719 75 C2 D0           1359 	mov	_T2_RC2LH,#0xD0
+   171C 75 C3 8A           1360 	mov	(_T2_RC2LH >> 8),#0x8A
                     000C   1361 	C$T2.C$157$1$1 ==.
                            1362 ;	../T2.C:157: T2_T2MOD      =  0x18;         // load timer 2 mode register
-   1722 75 C1 18           1363 	mov	_T2_T2MOD,#0x18
+   171F 75 C1 18           1363 	mov	_T2_T2MOD,#0x18
                     000F   1364 	C$T2.C$165$1$1 ==.
                            1365 ;	../T2.C:165: TR2 = 1; //   start timer
-   1725 D2 C2              1366 	setb	_TR2
+   1722 D2 C2              1366 	setb	_TR2
                     0011   1367 	C$T2.C$167$1$1 ==.
                     0011   1368 	XG$T2_vInit$0$0 ==.
-   1727 22                 1369 	ret
+   1724 22                 1369 	ret
                            1370 	.area CSEG    (CODE)
                            1371 	.area CONST   (CODE)
                            1372 	.area XINIT   (CODE)

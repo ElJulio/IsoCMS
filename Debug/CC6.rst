@@ -1341,7 +1341,7 @@
                            1341 ;	-----------------------------------------
                            1342 ;	 function CC6_vInit
                            1343 ;	-----------------------------------------
-   12C6                    1344 _CC6_vInit:
+   12C3                    1344 _CC6_vInit:
                     0002   1345 	ar2 = 0x02
                     0003   1346 	ar3 = 0x03
                     0004   1347 	ar4 = 0x04
@@ -1352,139 +1352,139 @@
                     0001   1352 	ar1 = 0x01
                     0000   1353 	C$CC6.C$128$1$1 ==.
                            1354 ;	../CC6.C:128: SFR_PAGE(_cc1, noSST);         // switch to page 1
-   12C6 75 A3 01           1355 	mov	_CCU6_PAGE,#0x01
+   12C3 75 A3 01           1355 	mov	_CCU6_PAGE,#0x01
                     0003   1356 	C$CC6.C$134$1$1 ==.
                            1357 ;	../CC6.C:134: CCU6_TCTR0L    =  0x00;        // load CCU6 timer control register 0 low
-   12C9 75 A6 00           1358 	mov	_CCU6_TCTR0L,#0x00
+   12C6 75 A6 00           1358 	mov	_CCU6_TCTR0L,#0x00
                     0006   1359 	C$CC6.C$135$1$1 ==.
                            1360 ;	../CC6.C:135: CCU6_TCTR0H    =  0x00;        // load CCU6 timer control register 0 high
-   12CC 75 A7 00           1361 	mov	_CCU6_TCTR0H,#0x00
+   12C9 75 A7 00           1361 	mov	_CCU6_TCTR0H,#0x00
                     0009   1362 	C$CC6.C$148$1$1 ==.
                            1363 ;	../CC6.C:148: CCU6_T12PRL    =  0x02;        // load CCU6 T12 period register low
-   12CF 75 9C 02           1364 	mov	_CCU6_T12PRL,#0x02
+   12CC 75 9C 02           1364 	mov	_CCU6_T12PRL,#0x02
                     000C   1365 	C$CC6.C$149$1$1 ==.
                            1366 ;	../CC6.C:149: CCU6_T12PRH    =  0x00;        // load CCU6 T12 period register lhigh
-   12D2 75 9D 00           1367 	mov	_CCU6_T12PRH,#0x00
+   12CF 75 9D 00           1367 	mov	_CCU6_T12PRH,#0x00
                     000F   1368 	C$CC6.C$162$1$1 ==.
                            1369 ;	../CC6.C:162: CCU6_T13PRL    =  0x01;        // load CCU6 T13 period register low
-   12D5 75 9E 01           1370 	mov	_CCU6_T13PRL,#0x01
+   12D2 75 9E 01           1370 	mov	_CCU6_T13PRL,#0x01
                     0012   1371 	C$CC6.C$163$1$1 ==.
                            1372 ;	../CC6.C:163: CCU6_T13PRH    =  0x00;        // load CCU6 T13 period register high
-   12D8 75 9F 00           1373 	mov	_CCU6_T13PRH,#0x00
+   12D5 75 9F 00           1373 	mov	_CCU6_T13PRH,#0x00
                     0015   1374 	C$CC6.C$169$1$1 ==.
                            1375 ;	../CC6.C:169: CCU6_T12DTCL   =  0x01;        // load CCU6 dead time control register low 
-   12DB 75 A4 01           1376 	mov	_CCU6_T12DTCL,#0x01
+   12D8 75 A4 01           1376 	mov	_CCU6_T12DTCL,#0x01
                     0018   1377 	C$CC6.C$172$1$1 ==.
                            1378 ;	../CC6.C:172: CCU6_T12DTCH   =  0x00;        // load CCU6 dead time control register high 
-   12DE 75 A5 00           1379 	mov	_CCU6_T12DTCH,#0x00
+   12DB 75 A5 00           1379 	mov	_CCU6_T12DTCH,#0x00
                     001B   1380 	C$CC6.C$175$1$1 ==.
                            1381 ;	../CC6.C:175: SFR_PAGE(_cc0, noSST);         // switch to page 0
-   12E1 75 A3 00           1382 	mov	_CCU6_PAGE,#0x00
+   12DE 75 A3 00           1382 	mov	_CCU6_PAGE,#0x00
                     001E   1383 	C$CC6.C$201$1$1 ==.
                            1384 ;	../CC6.C:201: CCU6_CC62SRL   =  0x01;        // load CCU6 capture/compare shadow register 
-   12E4 75 FE 01           1385 	mov	_CCU6_CC62SRL,#0x01
+   12E1 75 FE 01           1385 	mov	_CCU6_CC62SRL,#0x01
                     0021   1386 	C$CC6.C$203$1$1 ==.
                            1387 ;	../CC6.C:203: CCU6_CC62SRH   =  0x00;        // load CCU6 capture/compare shadow register 
-   12E7 75 FF 00           1388 	mov	_CCU6_CC62SRH,#0x00
+   12E4 75 FF 00           1388 	mov	_CCU6_CC62SRH,#0x00
                     0024   1389 	C$CC6.C$213$1$1 ==.
                            1390 ;	../CC6.C:213: CCU6_CC63SRL   =  0x00;        // load CCU6 capture/compare shadow register 
-   12EA 75 9A 00           1391 	mov	_CCU6_CC63SRL,#0x00
+   12E7 75 9A 00           1391 	mov	_CCU6_CC63SRL,#0x00
                     0027   1392 	C$CC6.C$215$1$1 ==.
                            1393 ;	../CC6.C:215: CCU6_CC63SRH   =  0x00;        // load CCU6 capture/compare shadow register 
-   12ED 75 9B 00           1394 	mov	_CCU6_CC63SRH,#0x00
+   12EA 75 9B 00           1394 	mov	_CCU6_CC63SRH,#0x00
                     002A   1395 	C$CC6.C$223$1$1 ==.
                            1396 ;	../CC6.C:223: CCU6_MCMOUTSL  =  0x00;        // load CCU6 multi channel mode output 
-   12F0 75 9E 00           1397 	mov	_CCU6_MCMOUTSL,#0x00
+   12ED 75 9E 00           1397 	mov	_CCU6_MCMOUTSL,#0x00
                     002D   1398 	C$CC6.C$225$1$1 ==.
                            1399 ;	../CC6.C:225: CCU6_MCMOUTSH  =  0x00;        // load CCU6 multi channel mode output 
-   12F3 75 9F 00           1400 	mov	_CCU6_MCMOUTSH,#0x00
+   12F0 75 9F 00           1400 	mov	_CCU6_MCMOUTSH,#0x00
                     0030   1401 	C$CC6.C$228$1$1 ==.
                            1402 ;	../CC6.C:228: SFR_PAGE(_cc2, noSST);         // switch to page 2
-   12F6 75 A3 02           1403 	mov	_CCU6_PAGE,#0x02
+   12F3 75 A3 02           1403 	mov	_CCU6_PAGE,#0x02
                     0033   1404 	C$CC6.C$234$1$1 ==.
                            1405 ;	../CC6.C:234: CCU6_TCTR2L    =  0x00;        // load CCU6 timer control register 2 low
-   12F9 75 FA 00           1406 	mov	_CCU6_TCTR2L,#0x00
+   12F6 75 FA 00           1406 	mov	_CCU6_TCTR2L,#0x00
                     0036   1407 	C$CC6.C$235$1$1 ==.
                            1408 ;	../CC6.C:235: CCU6_TCTR2H    =  0x00;        // load CCU6 timer control register 2 high
-   12FC 75 FB 00           1409 	mov	_CCU6_TCTR2H,#0x00
+   12F9 75 FB 00           1409 	mov	_CCU6_TCTR2H,#0x00
                     0039   1410 	C$CC6.C$247$1$1 ==.
                            1411 ;	../CC6.C:247: CCU6_TRPCTRL   =  0x00;        // load CCU6 trap control register low
-   12FF 75 FE 00           1412 	mov	_CCU6_TRPCTRL,#0x00
+   12FC 75 FE 00           1412 	mov	_CCU6_TRPCTRL,#0x00
                     003C   1413 	C$CC6.C$248$1$1 ==.
                            1414 ;	../CC6.C:248: CCU6_TRPCTRH   =  0x00;        // load CCU6 trap control register high
-   1302 75 FF 00           1415 	mov	_CCU6_TRPCTRH,#0x00
+   12FF 75 FF 00           1415 	mov	_CCU6_TRPCTRH,#0x00
                     003F   1416 	C$CC6.C$255$1$1 ==.
                            1417 ;	../CC6.C:255: CCU6_MODCTRL   =  0x20;        // load CCU6 modulation control register low
-   1305 75 FC 20           1418 	mov	_CCU6_MODCTRL,#0x20
+   1302 75 FC 20           1418 	mov	_CCU6_MODCTRL,#0x20
                     0042   1419 	C$CC6.C$256$1$1 ==.
                            1420 ;	../CC6.C:256: CCU6_MODCTRH   =  0x00;        // load CCU6 modulation control register high
-   1308 75 FD 00           1421 	mov	_CCU6_MODCTRH,#0x00
+   1305 75 FD 00           1421 	mov	_CCU6_MODCTRH,#0x00
                     0045   1422 	C$CC6.C$262$1$1 ==.
                            1423 ;	../CC6.C:262: CCU6_MCMCTR    =  0x00;        // load CCU6 multi channel mode control 
-   130B 75 A7 00           1424 	mov	_CCU6_MCMCTR,#0x00
+   1308 75 A7 00           1424 	mov	_CCU6_MCMCTR,#0x00
                     0048   1425 	C$CC6.C$269$1$1 ==.
                            1426 ;	../CC6.C:269: CCU6_T12MSELL  =  0x00;        // load CCU6 T12 campture/compare mode 
-   130E 75 9A 00           1427 	mov	_CCU6_T12MSELL,#0x00
+   130B 75 9A 00           1427 	mov	_CCU6_T12MSELL,#0x00
                     004B   1428 	C$CC6.C$272$1$1 ==.
                            1429 ;	../CC6.C:272: CCU6_T12MSELH  =  0x02;        // load CCU6 T12 campture/compare mode 
-   1311 75 9B 02           1430 	mov	_CCU6_T12MSELH,#0x02
+   130E 75 9B 02           1430 	mov	_CCU6_T12MSELH,#0x02
                     004E   1431 	C$CC6.C$278$1$1 ==.
                            1432 ;	../CC6.C:278: CCU6_PSLR      =  0x00;        // load CCU6 passive state level register low
-   1314 75 A6 00           1433 	mov	_CCU6_PSLR,#0x00
+   1311 75 A6 00           1433 	mov	_CCU6_PSLR,#0x00
                     0051   1434 	C$CC6.C$291$1$1 ==.
                            1435 ;	../CC6.C:291: CCU6_INPL      =  0x00;        // load CCU6 capture/compare interrupt node 
-   1317 75 9E 00           1436 	mov	_CCU6_INPL,#0x00
+   1314 75 9E 00           1436 	mov	_CCU6_INPL,#0x00
                     0054   1437 	C$CC6.C$293$1$1 ==.
                            1438 ;	../CC6.C:293: CCU6_INPH      =  0x00;        // load CCU6 capture/compare interrupt node 
-   131A 75 9F 00           1439 	mov	_CCU6_INPH,#0x00
+   1317 75 9F 00           1439 	mov	_CCU6_INPH,#0x00
                     0057   1440 	C$CC6.C$296$1$1 ==.
                            1441 ;	../CC6.C:296: CCU6_IENL      =  0x00;        // load CCU6 capture/compare interrupt 
-   131D 75 9C 00           1442 	mov	_CCU6_IENL,#0x00
+   131A 75 9C 00           1442 	mov	_CCU6_IENL,#0x00
                     005A   1443 	C$CC6.C$298$1$1 ==.
                            1444 ;	../CC6.C:298: CCU6_IENH      =  0x00;        // load CCU6 capture/compare interrupt 
-   1320 75 9D 00           1445 	mov	_CCU6_IENH,#0x00
+   131D 75 9D 00           1445 	mov	_CCU6_IENH,#0x00
                     005D   1446 	C$CC6.C$301$1$1 ==.
                            1447 ;	../CC6.C:301: SFR_PAGE(_cc3, noSST);         // switch to page 3
-   1323 75 A3 03           1448 	mov	_CCU6_PAGE,#0x03
+   1320 75 A3 03           1448 	mov	_CCU6_PAGE,#0x03
                     0060   1449 	C$CC6.C$307$1$1 ==.
                            1450 ;	../CC6.C:307: CCU6_CMPSTATH  =  0x20;        // load CCU6 compare status register high
-   1326 75 FF 20           1451 	mov	_CCU6_CMPSTATH,#0x20
+   1323 75 FF 20           1451 	mov	_CCU6_CMPSTATH,#0x20
                     0063   1452 	C$CC6.C$317$1$1 ==.
                            1453 ;	../CC6.C:317: CCU6_PISEL0L   =  0x00;        // load CCU6 Port Input Select Register 0 Low
-   1329 75 9E 00           1454 	mov	_CCU6_PISEL0L,#0x00
+   1326 75 9E 00           1454 	mov	_CCU6_PISEL0L,#0x00
                     0066   1455 	C$CC6.C$324$1$1 ==.
                            1456 ;	../CC6.C:324: CCU6_PISEL0H   =  0x00;        // load CCU6 Port Input Select Register 0 
-   132C 75 9F 00           1457 	mov	_CCU6_PISEL0H,#0x00
+   1329 75 9F 00           1457 	mov	_CCU6_PISEL0H,#0x00
                     0069   1458 	C$CC6.C$329$1$1 ==.
                            1459 ;	../CC6.C:329: CCU6_PISEL2    =  0x00;        // load CCU6 Port Input Select Register 2
-   132F 75 A4 00           1460 	mov	_CCU6_PISEL2,#0x00
+   132C 75 A4 00           1460 	mov	_CCU6_PISEL2,#0x00
                     006C   1461 	C$CC6.C$334$1$1 ==.
                            1462 ;	../CC6.C:334: SFR_PAGE(_pp2, noSST);         // switch to page 2
-   1332 75 B2 02           1463 	mov	_PORT_PAGE,#0x02
+   132F 75 B2 02           1463 	mov	_PORT_PAGE,#0x02
                     006F   1464 	C$CC6.C$336$1$1 ==.
                            1465 ;	../CC6.C:336: P3_ALTSEL0      |= 0x20;    //  set AltSel0 
-   1335 43 B0 20           1466 	orl	_P3_ALTSEL0,#0x20
+   1332 43 B0 20           1466 	orl	_P3_ALTSEL0,#0x20
                     0072   1467 	C$CC6.C$337$1$1 ==.
                            1468 ;	../CC6.C:337: P3_ALTSEL1      &= ~(ubyte)0x20;    //  set AltSel1
-   1338 53 B1 DF           1469 	anl	_P3_ALTSEL1,#0xDF
+   1335 53 B1 DF           1469 	anl	_P3_ALTSEL1,#0xDF
                     0075   1470 	C$CC6.C$339$1$1 ==.
                            1471 ;	../CC6.C:339: SFR_PAGE(_pp0, noSST);         // switch to page 0
-   133B 75 B2 00           1472 	mov	_PORT_PAGE,#0x00
+   1338 75 B2 00           1472 	mov	_PORT_PAGE,#0x00
                     0078   1473 	C$CC6.C$340$1$1 ==.
                            1474 ;	../CC6.C:340: P3_DIR          |= 0x20;    //  set Direction as Output
-   133E 43 B1 20           1475 	orl	_P3_DIR,#0x20
+   133B 43 B1 20           1475 	orl	_P3_DIR,#0x20
                     007B   1476 	C$CC6.C$354$1$1 ==.
                            1477 ;	../CC6.C:354: SFR_PAGE(_cc0, noSST);         // switch to page 0
-   1341 75 A3 00           1478 	mov	_CCU6_PAGE,#0x00
+   133E 75 A3 00           1478 	mov	_CCU6_PAGE,#0x00
                     007E   1479 	C$CC6.C$361$1$1 ==.
                            1480 ;	../CC6.C:361: CCU6_TCTR4L    =  0x40;        // load CCU6 timer control register 4 low
-   1344 75 9C 40           1481 	mov	_CCU6_TCTR4L,#0x40
+   1341 75 9C 40           1481 	mov	_CCU6_TCTR4L,#0x40
                     0081   1482 	C$CC6.C$363$1$1 ==.
                            1483 ;	../CC6.C:363: CCU6_TCTR4H    =  0x40;        // load CCU6 timer control register 4 high
-   1347 75 9D 40           1484 	mov	_CCU6_TCTR4H,#0x40
+   1344 75 9D 40           1484 	mov	_CCU6_TCTR4H,#0x40
                     0084   1485 	C$CC6.C$369$1$1 ==.
                     0084   1486 	XG$CC6_vInit$0$0 ==.
-   134A 22                 1487 	ret
+   1347 22                 1487 	ret
                            1488 	.area CSEG    (CODE)
                            1489 	.area CONST   (CODE)
                            1490 	.area XINIT   (CODE)

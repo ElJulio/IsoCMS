@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 2.9.0 #5416 (Feb  7 2011) (MSVC)
-                              4 ; This file was generated Fri Jun 17 14:55:27 2016
+                              4 ; This file was generated Wed Jun 22 13:10:30 2016
                               5 ;--------------------------------------------------------
                               6 	.module MAIN
                               7 	.optsdcc -mxc800 --model-small
@@ -1371,7 +1371,7 @@
                            1371 	.area HOME    (CODE)
                            1372 	.area HOME    (CODE)
    0056                    1373 __sdcc_program_startup:
-   0056 12s00r36           1374 	lcall	_main
+   0056 12s00r33           1374 	lcall	_main
                            1375 ;	return from main will lock up
    0059 80 FE              1376 	sjmp .
                            1377 ;--------------------------------------------------------
@@ -1412,76 +1412,73 @@
                     000C   1412 	C$MAIN.C$154$1$1 ==.
                            1413 ;	../MAIN.C:154: INT_vInit();
    000C 12s00r00           1414 	lcall	_INT_vInit
-                    000F   1415 	C$MAIN.C$157$1$1 ==.
-                           1416 ;	../MAIN.C:157: UART_vInit();
-   000F 12s00r00           1417 	lcall	_UART_vInit
-                    0012   1418 	C$MAIN.C$160$1$1 ==.
-                           1419 ;	../MAIN.C:160: T01_vInit();
-   0012 12s00r00           1420 	lcall	_T01_vInit
-                    0015   1421 	C$MAIN.C$163$1$1 ==.
-                           1422 ;	../MAIN.C:163: T2_vInit();
-   0015 12s00r00           1423 	lcall	_T2_vInit
-                    0018   1424 	C$MAIN.C$166$1$1 ==.
-                           1425 ;	../MAIN.C:166: T21_vInit();
-   0018 12s00r00           1426 	lcall	_T21_vInit
-                    001B   1427 	C$MAIN.C$169$1$1 ==.
-                           1428 ;	../MAIN.C:169: CC6_vInit();
-   001B 12s00r00           1429 	lcall	_CC6_vInit
-                    001E   1430 	C$MAIN.C$172$1$1 ==.
-                           1431 ;	../MAIN.C:172: CAN_vInit();
-   001E 12s00r00           1432 	lcall	_CAN_vInit
-                    0021   1433 	C$MAIN.C$175$1$1 ==.
-                           1434 ;	../MAIN.C:175: SHINT_vInit();
-   0021 12s00r00           1435 	lcall	_SHINT_vInit
-                    0024   1436 	C$MAIN.C$179$1$1 ==.
-                           1437 ;	../MAIN.C:179: IP            =  0x21;         // load Interrupt Priority Register
-   0024 75 B8 21           1438 	mov	_IP,#0x21
-                    0027   1439 	C$MAIN.C$180$1$1 ==.
-                           1440 ;	../MAIN.C:180: IPH           =  0x01;         // load Interrupt Priority High Register
-   0027 75 B9 01           1441 	mov	_IPH,#0x01
-                    002A   1442 	C$MAIN.C$181$1$1 ==.
-                           1443 ;	../MAIN.C:181: IP1           =  0x00;         // load Interrupt Priority 1 Register
-   002A 75 F8 00           1444 	mov	_IP1,#0x00
-                    002D   1445 	C$MAIN.C$182$1$1 ==.
-                           1446 ;	../MAIN.C:182: IPH1          =  0x10;         // load Interrupt Priority 1 High Register
-   002D 75 F9 10           1447 	mov	_IPH1,#0x10
-                    0030   1448 	C$MAIN.C$191$1$1 ==.
-                           1449 ;	../MAIN.C:191: SYSCON0 |= 0x10;
-   0030 43 8F 10           1450 	orl	_SYSCON0,#0x10
-                    0033   1451 	C$MAIN.C$197$1$1 ==.
-                           1452 ;	../MAIN.C:197: EA            =  1;           
-   0033 D2 AF              1453 	setb	_EA
-                    0035   1454 	C$MAIN.C$199$1$1 ==.
-                    0035   1455 	XG$MAIN_vInit$0$0 ==.
-   0035 22                 1456 	ret
+                    000F   1415 	C$MAIN.C$160$1$1 ==.
+                           1416 ;	../MAIN.C:160: T01_vInit();
+   000F 12s00r00           1417 	lcall	_T01_vInit
+                    0012   1418 	C$MAIN.C$163$1$1 ==.
+                           1419 ;	../MAIN.C:163: T2_vInit();
+   0012 12s00r00           1420 	lcall	_T2_vInit
+                    0015   1421 	C$MAIN.C$166$1$1 ==.
+                           1422 ;	../MAIN.C:166: T21_vInit();
+   0015 12s00r00           1423 	lcall	_T21_vInit
+                    0018   1424 	C$MAIN.C$169$1$1 ==.
+                           1425 ;	../MAIN.C:169: CC6_vInit();
+   0018 12s00r00           1426 	lcall	_CC6_vInit
+                    001B   1427 	C$MAIN.C$172$1$1 ==.
+                           1428 ;	../MAIN.C:172: CAN_vInit();
+   001B 12s00r00           1429 	lcall	_CAN_vInit
+                    001E   1430 	C$MAIN.C$175$1$1 ==.
+                           1431 ;	../MAIN.C:175: SHINT_vInit();
+   001E 12s00r00           1432 	lcall	_SHINT_vInit
+                    0021   1433 	C$MAIN.C$179$1$1 ==.
+                           1434 ;	../MAIN.C:179: IP            =  0x21;         // load Interrupt Priority Register
+   0021 75 B8 21           1435 	mov	_IP,#0x21
+                    0024   1436 	C$MAIN.C$180$1$1 ==.
+                           1437 ;	../MAIN.C:180: IPH           =  0x01;         // load Interrupt Priority High Register
+   0024 75 B9 01           1438 	mov	_IPH,#0x01
+                    0027   1439 	C$MAIN.C$181$1$1 ==.
+                           1440 ;	../MAIN.C:181: IP1           =  0x00;         // load Interrupt Priority 1 Register
+   0027 75 F8 00           1441 	mov	_IP1,#0x00
+                    002A   1442 	C$MAIN.C$182$1$1 ==.
+                           1443 ;	../MAIN.C:182: IPH1          =  0x10;         // load Interrupt Priority 1 High Register
+   002A 75 F9 10           1444 	mov	_IPH1,#0x10
+                    002D   1445 	C$MAIN.C$191$1$1 ==.
+                           1446 ;	../MAIN.C:191: SYSCON0 |= 0x10;
+   002D 43 8F 10           1447 	orl	_SYSCON0,#0x10
+                    0030   1448 	C$MAIN.C$197$1$1 ==.
+                           1449 ;	../MAIN.C:197: EA            =  1;           
+   0030 D2 AF              1450 	setb	_EA
+                    0032   1451 	C$MAIN.C$199$1$1 ==.
+                    0032   1452 	XG$MAIN_vInit$0$0 ==.
+   0032 22                 1453 	ret
+                           1454 ;------------------------------------------------------------
+                           1455 ;Allocation info for local variables in function 'main'
+                           1456 ;------------------------------------------------------------
                            1457 ;------------------------------------------------------------
-                           1458 ;Allocation info for local variables in function 'main'
-                           1459 ;------------------------------------------------------------
-                           1460 ;------------------------------------------------------------
-                    0036   1461 	G$main$0$0 ==.
-                    0036   1462 	C$MAIN.C$223$1$1 ==.
-                           1463 ;	../MAIN.C:223: void main(void)
-                           1464 ;	-----------------------------------------
-                           1465 ;	 function main
-                           1466 ;	-----------------------------------------
-   0036                    1467 _main:
-                    0036   1468 	C$MAIN.C$229$1$1 ==.
-                           1469 ;	../MAIN.C:229: MAIN_vInit();
-   0036 12s00r00           1470 	lcall	_MAIN_vInit
-                    0039   1471 	C$MAIN.C$232$1$1 ==.
-                           1472 ;	../MAIN.C:232: if(current_init()==0){
-   0039 12s00r00           1473 	lcall	_current_init
-   003C 40 02              1474 	jc	00104$
-                    003E   1475 	C$MAIN.C$233$2$2 ==.
-                           1476 ;	../MAIN.C:233: IO_vTogglePin(P0_7);
-   003E B2 87              1477 	cpl	_P0_7
-                    0040   1478 	C$MAIN.C$243$1$1 ==.
-                           1479 ;	../MAIN.C:243: while(1)
-   0040                    1480 00104$:
-                    0040   1481 	C$MAIN.C$252$1$1 ==.
-                    0040   1482 	XG$main$0$0 ==.
-   0040 80 FE              1483 	sjmp	00104$
-                           1484 	.area CSEG    (CODE)
-                           1485 	.area CONST   (CODE)
-                           1486 	.area XINIT   (CODE)
-                           1487 	.area CABS    (ABS,CODE)
+                    0033   1458 	G$main$0$0 ==.
+                    0033   1459 	C$MAIN.C$223$1$1 ==.
+                           1460 ;	../MAIN.C:223: void main(void)
+                           1461 ;	-----------------------------------------
+                           1462 ;	 function main
+                           1463 ;	-----------------------------------------
+   0033                    1464 _main:
+                    0033   1465 	C$MAIN.C$229$1$1 ==.
+                           1466 ;	../MAIN.C:229: MAIN_vInit();
+   0033 12s00r00           1467 	lcall	_MAIN_vInit
+                    0036   1468 	C$MAIN.C$232$1$1 ==.
+                           1469 ;	../MAIN.C:232: if(current_init()==0){
+   0036 12s00r00           1470 	lcall	_current_init
+   0039 40 02              1471 	jc	00104$
+                    003B   1472 	C$MAIN.C$233$2$2 ==.
+                           1473 ;	../MAIN.C:233: IO_vTogglePin(P0_7);
+   003B B2 87              1474 	cpl	_P0_7
+                    003D   1475 	C$MAIN.C$243$1$1 ==.
+                           1476 ;	../MAIN.C:243: while(1)
+   003D                    1477 00104$:
+                    003D   1478 	C$MAIN.C$252$1$1 ==.
+                    003D   1479 	XG$main$0$0 ==.
+   003D 80 FE              1480 	sjmp	00104$
+                           1481 	.area CSEG    (CODE)
+                           1482 	.area CONST   (CODE)
+                           1483 	.area XINIT   (CODE)
+                           1484 	.area CABS    (ABS,CODE)

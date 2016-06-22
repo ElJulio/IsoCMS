@@ -9,6 +9,7 @@
 //	includes
 /////////////////////////////////////////////
 #include "MAIN.H"
+#include "IO.H"
 #include "current_controller.h"
 #include "current_management.h"
 
@@ -88,7 +89,10 @@ void current_send_CAN_0x60(int current){
 	ulong *cur_ptr = &cur;
 	if(CAN_ubRequestMsgObj(0)){
 		CAN_vLoadData(0,cur_ptr);
-		CAN_vTransmit(0);
+		IO_vResetPin(P0_7);
+		IO_vResetPin(P1_7);
+		IO_vResetPin(P1_6);
+		//CAN_vTransmit(0);
 
 
 	}
@@ -100,5 +104,5 @@ void current_send_CAN_0x60(int current){
 //	current_send_CAN_0x70
 /////////////////////////////////////////////
 void current_send_CAN_0x70(void){
-	CAN_vTransmit(0);
+	//CAN_vTransmit(0);
 }

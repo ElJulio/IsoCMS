@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 2.9.0 #5416 (Feb  7 2011) (MSVC)
-; This file was generated Fri Jun 17 14:55:27 2016
+; This file was generated Wed Jun 22 13:10:30 2016
 ;--------------------------------------------------------
 	.module MAIN
 	.optsdcc -mxc800 --model-small
@@ -1412,9 +1412,6 @@ _MAIN_vInit:
 	C$MAIN.C$154$1$1 ==.
 ;	../MAIN.C:154: INT_vInit();
 	lcall	_INT_vInit
-	C$MAIN.C$157$1$1 ==.
-;	../MAIN.C:157: UART_vInit();
-	lcall	_UART_vInit
 	C$MAIN.C$160$1$1 ==.
 ;	../MAIN.C:160: T01_vInit();
 	lcall	_T01_vInit

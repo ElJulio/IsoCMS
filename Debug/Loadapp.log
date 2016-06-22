@@ -1,0 +1,44 @@
+
+HiTOP5 symbol loader for SDCC 8051 Compiler (CDB format) 
+Copyright (c) 1997-2006          Hitex Development Tools GmbH
+
+
+Version: 5.40.832.0 (BE: Mar  3 2010, FE: Dec  9 2010)
+ 
+Include module "_SFRs" 
+Include module "MAIN" 
+Include module "ASIC_driver" 
+Include module "CAN" 
+Include module "CC6" 
+Include module "INT" 
+Include module "IO" 
+Include module "ITOA" 
+Include module "SHARED_INT" 
+Include module "T01" 
+Include module "T2" 
+Include module "T21" 
+Include module "UART" 
+Include module "current_controller" 
+Include module "current_management" 
+Include module "MemInitxc88x" 
+Include module "startupxc886" 
+
+Writing blocks 
+Writing symbols 
+
+
+Object file statistic
+---------------------
+Code Size:     0
+Publics:       439
+Types:         667
+Modules:       17
+Symbols:       1430
+Source files:  16
+Source lines:  4675
+ 
+
+
+Object File "C:\Users\Julius\Dropbox\Uni\Semester_6\AtomobielEL\IsoCMS\Debug\isocms_v_0_1.cdb" successfully processed
+
+Used memory:    2469 kByte,    Used disk space:    0 kByte 

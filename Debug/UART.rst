@@ -1378,7 +1378,7 @@
                            1378 ;	-----------------------------------------
                            1379 ;	 function UART_Transmit
                            1380 ;	-----------------------------------------
-   1740                    1381 _UART_Transmit:
+   173D                    1381 _UART_Transmit:
                     0002   1382 	ar2 = 0x02
                     0003   1383 	ar3 = 0x03
                     0004   1384 	ar4 = 0x04
@@ -1387,48 +1387,48 @@
                     0007   1387 	ar7 = 0x07
                     0000   1388 	ar0 = 0x00
                     0001   1389 	ar1 = 0x01
-   1740 85 82 74           1390 	mov	_strcpy_PARM_2,dpl
-   1743 85 83 75           1391 	mov	(_strcpy_PARM_2 + 1),dph
-   1746 85 F0 76           1392 	mov	(_strcpy_PARM_2 + 2),b
+   173D 85 82 74           1390 	mov	_strcpy_PARM_2,dpl
+   1740 85 83 75           1391 	mov	(_strcpy_PARM_2 + 1),dph
+   1743 85 F0 76           1392 	mov	(_strcpy_PARM_2 + 2),b
                     0009   1393 	C$UART.C$48$1$0 ==.
                            1394 ;	../UART.C:48: char error[] =  "SIZRERROR\0";
-   1749 75 57 53           1395 	mov	_UART_Transmit_error_1_1,#0x53
-   174C 75 58 49           1396 	mov	(_UART_Transmit_error_1_1 + 0x0001),#0x49
-   174F 75 59 5A           1397 	mov	(_UART_Transmit_error_1_1 + 0x0002),#0x5A
-   1752 75 5A 52           1398 	mov	(_UART_Transmit_error_1_1 + 0x0003),#0x52
-   1755 75 5B 45           1399 	mov	(_UART_Transmit_error_1_1 + 0x0004),#0x45
-   1758 75 5C 52           1400 	mov	(_UART_Transmit_error_1_1 + 0x0005),#0x52
-   175B 75 5D 52           1401 	mov	(_UART_Transmit_error_1_1 + 0x0006),#0x52
-   175E 75 5E 4F           1402 	mov	(_UART_Transmit_error_1_1 + 0x0007),#0x4F
-   1761 75 5F 52           1403 	mov	(_UART_Transmit_error_1_1 + 0x0008),#0x52
-   1764 75 60 00           1404 	mov	(_UART_Transmit_error_1_1 + 0x0009),#0x00
-   1767 75 61 00           1405 	mov	(_UART_Transmit_error_1_1 + 0x000a),#0x00
+   1746 75 57 53           1395 	mov	_UART_Transmit_error_1_1,#0x53
+   1749 75 58 49           1396 	mov	(_UART_Transmit_error_1_1 + 0x0001),#0x49
+   174C 75 59 5A           1397 	mov	(_UART_Transmit_error_1_1 + 0x0002),#0x5A
+   174F 75 5A 52           1398 	mov	(_UART_Transmit_error_1_1 + 0x0003),#0x52
+   1752 75 5B 45           1399 	mov	(_UART_Transmit_error_1_1 + 0x0004),#0x45
+   1755 75 5C 52           1400 	mov	(_UART_Transmit_error_1_1 + 0x0005),#0x52
+   1758 75 5D 52           1401 	mov	(_UART_Transmit_error_1_1 + 0x0006),#0x52
+   175B 75 5E 4F           1402 	mov	(_UART_Transmit_error_1_1 + 0x0007),#0x4F
+   175E 75 5F 52           1403 	mov	(_UART_Transmit_error_1_1 + 0x0008),#0x52
+   1761 75 60 00           1404 	mov	(_UART_Transmit_error_1_1 + 0x0009),#0x00
+   1764 75 61 00           1405 	mov	(_UART_Transmit_error_1_1 + 0x000a),#0x00
                     002A   1406 	C$UART.C$56$2$3 ==.
                            1407 ;	../UART.C:56: strcpy(UartBuffer,text);
-   176A 90 F3 E8           1408 	mov	dptr,#_UartBuffer
-   176D 75 F0 00           1409 	mov	b,#0x00
-   1770 12 1B 4C           1410 	lcall	_strcpy
+   1767 90 F3 E8           1408 	mov	dptr,#_UartBuffer
+   176A 75 F0 00           1409 	mov	b,#0x00
+   176D 12 1B 44           1410 	lcall	_strcpy
                     0033   1411 	C$UART.C$57$2$3 ==.
                            1412 ;	../UART.C:57: ucount = 0;
-   1773 E4                 1413 	clr	a
-   1774 F5 55              1414 	mov	_ucount,a
-   1776 F5 56              1415 	mov	(_ucount + 1),a
+   1770 E4                 1413 	clr	a
+   1771 F5 55              1414 	mov	_ucount,a
+   1773 F5 56              1415 	mov	(_ucount + 1),a
                     0038   1416 	C$UART.C$58$2$3 ==.
                            1417 ;	../UART.C:58: UART_vSendData8(UartBuffer[ucount]);
-   1778 90 F3 E8           1418 	mov	dptr,#_UartBuffer
-   177B E0                 1419 	movx	a,@dptr
-   177C F5 82              1420 	mov	dpl,a
-   177E 12 18 21           1421 	lcall	_UART_vSendData8
+   1775 90 F3 E8           1418 	mov	dptr,#_UartBuffer
+   1778 E0                 1419 	movx	a,@dptr
+   1779 F5 82              1420 	mov	dpl,a
+   177B 12 18 1E           1421 	lcall	_UART_vSendData8
                     0041   1422 	C$UART.C$59$2$3 ==.
                            1423 ;	../UART.C:59: ucount++;
-   1781 05 55              1424 	inc	_ucount
-   1783 E4                 1425 	clr	a
-   1784 B5 55 02           1426 	cjne	a,_ucount,00106$
-   1787 05 56              1427 	inc	(_ucount + 1)
-   1789                    1428 00106$:
+   177E 05 55              1424 	inc	_ucount
+   1780 E4                 1425 	clr	a
+   1781 B5 55 02           1426 	cjne	a,_ucount,00106$
+   1784 05 56              1427 	inc	(_ucount + 1)
+   1786                    1428 00106$:
                     0049   1429 	C$UART.C$61$1$1 ==.
                     0049   1430 	XG$UART_Transmit$0$0 ==.
-   1789 22                 1431 	ret
+   1786 22                 1431 	ret
                            1432 ;------------------------------------------------------------
                            1433 ;Allocation info for local variables in function 'UART_vInit'
                            1434 ;------------------------------------------------------------
@@ -1439,43 +1439,43 @@
                            1439 ;	-----------------------------------------
                            1440 ;	 function UART_vInit
                            1441 ;	-----------------------------------------
-   178A                    1442 _UART_vInit:
+   1787                    1442 _UART_vInit:
                     004A   1443 	C$UART.C$162$1$1 ==.
                            1444 ;	../UART.C:162: SFR_PAGE(_pp2, noSST);         // switch to page 2 without saving
-   178A 75 B2 02           1445 	mov	_PORT_PAGE,#0x02
+   1787 75 B2 02           1445 	mov	_PORT_PAGE,#0x02
                     004D   1446 	C$UART.C$163$1$1 ==.
                            1447 ;	../UART.C:163: P1_ALTSEL0   &= ~(ubyte)0x02;  // configure alternate function register 0
-   178D 53 90 FD           1448 	anl	_P1_ALTSEL0,#0xFD
+   178A 53 90 FD           1448 	anl	_P1_ALTSEL0,#0xFD
                     0050   1449 	C$UART.C$164$1$1 ==.
                            1450 ;	../UART.C:164: P1_ALTSEL1   |=  (ubyte)0x02;  // configure alternate function register 1
-   1790 43 91 02           1451 	orl	_P1_ALTSEL1,#0x02
+   178D 43 91 02           1451 	orl	_P1_ALTSEL1,#0x02
                     0053   1452 	C$UART.C$165$1$1 ==.
                            1453 ;	../UART.C:165: SFR_PAGE(_pp0, noSST);         // switch to page 0 without saving
-   1793 75 B2 00           1454 	mov	_PORT_PAGE,#0x00
+   1790 75 B2 00           1454 	mov	_PORT_PAGE,#0x00
                     0056   1455 	C$UART.C$166$1$1 ==.
                            1456 ;	../UART.C:166: P1_DIR       |=  (ubyte)0x02;  // set output direction
-   1796 43 91 02           1457 	orl	_P1_DIR,#0x02
+   1793 43 91 02           1457 	orl	_P1_DIR,#0x02
                     0059   1458 	C$UART.C$169$1$1 ==.
                            1459 ;	../UART.C:169: MODPISEL     &= ~(ubyte)0x01;  // configure peripheral input select register
-   1799 53 B3 FE           1460 	anl	_MODPISEL,#0xFE
+   1796 53 B3 FE           1460 	anl	_MODPISEL,#0xFE
                     005C   1461 	C$UART.C$170$1$1 ==.
                            1462 ;	../UART.C:170: BCON          =  0x00;         // reset baudrate timer/reload register
-   179C 75 BD 00           1463 	mov	_BCON,#0x00
+   1799 75 BD 00           1463 	mov	_BCON,#0x00
                     005F   1464 	C$UART.C$171$1$1 ==.
                            1465 ;	../UART.C:171: SCON          =  0x50;         // load serial channel control register
-   179F 75 98 50           1466 	mov	_SCON,#0x50
+   179C 75 98 50           1466 	mov	_SCON,#0x50
                     0062   1467 	C$UART.C$180$1$1 ==.
                            1468 ;	../UART.C:180: BG            =  0x9B;         // load baudrate timer/reload register
-   17A2 75 BE 9B           1469 	mov	_BG,#0x9B
+   179F 75 BE 9B           1469 	mov	_BG,#0x9B
                     0065   1470 	C$UART.C$181$1$1 ==.
                            1471 ;	../UART.C:181: BCON         |=  0x01;         // load baud rate control register
-   17A5 43 BD 01           1472 	orl	_BCON,#0x01
+   17A2 43 BD 01           1472 	orl	_BCON,#0x01
                     0068   1473 	C$UART.C$189$1$1 ==.
                            1474 ;	../UART.C:189: ES = 1;
-   17A8 D2 AC              1475 	setb	_ES
+   17A5 D2 AC              1475 	setb	_ES
                     006A   1476 	C$UART.C$191$1$1 ==.
                     006A   1477 	XG$UART_vInit$0$0 ==.
-   17AA 22                 1478 	ret
+   17A7 22                 1478 	ret
                            1479 ;------------------------------------------------------------
                            1480 ;Allocation info for local variables in function 'UART_viIsr'
                            1481 ;------------------------------------------------------------
@@ -1486,92 +1486,92 @@
                            1486 ;	-----------------------------------------
                            1487 ;	 function UART_viIsr
                            1488 ;	-----------------------------------------
-   17AB                    1489 _UART_viIsr:
-   17AB C0 22              1490 	push	bits
-   17AD C0 E0              1491 	push	acc
-   17AF C0 F0              1492 	push	b
-   17B1 C0 82              1493 	push	dpl
-   17B3 C0 83              1494 	push	dph
-   17B5 C0 02              1495 	push	(0+2)
-   17B7 C0 03              1496 	push	(0+3)
-   17B9 C0 04              1497 	push	(0+4)
-   17BB C0 05              1498 	push	(0+5)
-   17BD C0 06              1499 	push	(0+6)
-   17BF C0 07              1500 	push	(0+7)
-   17C1 C0 00              1501 	push	(0+0)
-   17C3 C0 01              1502 	push	(0+1)
-   17C5 C0 D0              1503 	push	psw
-   17C7 75 D0 00           1504 	mov	psw,#0x00
+   17A8                    1489 _UART_viIsr:
+   17A8 C0 22              1490 	push	bits
+   17AA C0 E0              1491 	push	acc
+   17AC C0 F0              1492 	push	b
+   17AE C0 82              1493 	push	dpl
+   17B0 C0 83              1494 	push	dph
+   17B2 C0 02              1495 	push	(0+2)
+   17B4 C0 03              1496 	push	(0+3)
+   17B6 C0 04              1497 	push	(0+4)
+   17B8 C0 05              1498 	push	(0+5)
+   17BA C0 06              1499 	push	(0+6)
+   17BC C0 07              1500 	push	(0+7)
+   17BE C0 00              1501 	push	(0+0)
+   17C0 C0 01              1502 	push	(0+1)
+   17C2 C0 D0              1503 	push	psw
+   17C4 75 D0 00           1504 	mov	psw,#0x00
                     008A   1505 	C$UART.C$234$2$2 ==.
                            1506 ;	../UART.C:234: pushsyscon();                  // push the current RMAP
-   17CA C0 8F              1507 	 push 0x8F 
+   17C7 C0 8F              1507 	 push 0x8F 
                     008C   1508 	C$UART.C$235$1$1 ==.
                            1509 ;	../UART.C:235: RESET_RMAP();                  // resets RMAP
-   17CC 53 8F FE           1510 	anl	_SYSCON0,#0xFE
+   17C9 53 8F FE           1510 	anl	_SYSCON0,#0xFE
                     008F   1511 	C$UART.C$236$1$1 ==.
                            1512 ;	../UART.C:236: SFR_PAGE(_su0, SST0);          // switch to page 0
-   17CF 75 BF 80           1513 	mov	_SCU_PAGE,#0x80
+   17CC 75 BF 80           1513 	mov	_SCU_PAGE,#0x80
                     0092   1514 	C$UART.C$237$1$1 ==.
                            1515 ;	../UART.C:237: if (TI)
                     0092   1516 	C$UART.C$241$2$3 ==.
                            1517 ;	../UART.C:241: TI = 0;
-   17D2 10 99 02           1518 	jbc	_TI,00112$
-   17D5 80 1D              1519 	sjmp	00104$
-   17D7                    1520 00112$:
+   17CF 10 99 02           1518 	jbc	_TI,00112$
+   17D2 80 1D              1519 	sjmp	00104$
+   17D4                    1520 00112$:
                     0097   1521 	C$UART.C$242$2$3 ==.
                            1522 ;	../UART.C:242: if(UartBuffer[ucount] != '\0'){
-   17D7 E5 55              1523 	mov	a,_ucount
-   17D9 24 E8              1524 	add	a,#_UartBuffer
-   17DB F5 82              1525 	mov	dpl,a
-   17DD E5 56              1526 	mov	a,(_ucount + 1)
-   17DF 34 F3              1527 	addc	a,#(_UartBuffer >> 8)
-   17E1 F5 83              1528 	mov	dph,a
-   17E3 E0                 1529 	movx	a,@dptr
-   17E4 FA                 1530 	mov	r2,a
-   17E5 60 0D              1531 	jz	00104$
+   17D4 E5 55              1523 	mov	a,_ucount
+   17D6 24 E8              1524 	add	a,#_UartBuffer
+   17D8 F5 82              1525 	mov	dpl,a
+   17DA E5 56              1526 	mov	a,(_ucount + 1)
+   17DC 34 F3              1527 	addc	a,#(_UartBuffer >> 8)
+   17DE F5 83              1528 	mov	dph,a
+   17E0 E0                 1529 	movx	a,@dptr
+   17E1 FA                 1530 	mov	r2,a
+   17E2 60 0D              1531 	jz	00104$
                     00A7   1532 	C$UART.C$243$3$4 ==.
                            1533 ;	../UART.C:243: UART_vSendData8(UartBuffer[ucount]);
-   17E7 8A 82              1534 	mov	dpl,r2
-   17E9 12 18 21           1535 	lcall	_UART_vSendData8
+   17E4 8A 82              1534 	mov	dpl,r2
+   17E6 12 18 1E           1535 	lcall	_UART_vSendData8
                     00AC   1536 	C$UART.C$244$3$4 ==.
                            1537 ;	../UART.C:244: ucount++;
-   17EC 05 55              1538 	inc	_ucount
-   17EE E4                 1539 	clr	a
-   17EF B5 55 02           1540 	cjne	a,_ucount,00114$
-   17F2 05 56              1541 	inc	(_ucount + 1)
-   17F4                    1542 00114$:
-   17F4                    1543 00104$:
+   17E9 05 55              1538 	inc	_ucount
+   17EB E4                 1539 	clr	a
+   17EC B5 55 02           1540 	cjne	a,_ucount,00114$
+   17EF 05 56              1541 	inc	(_ucount + 1)
+   17F1                    1542 00114$:
+   17F1                    1543 00104$:
                     00B4   1544 	C$UART.C$249$1$1 ==.
                            1545 ;	../UART.C:249: if (RI)
                     00B4   1546 	C$UART.C$253$2$5 ==.
                            1547 ;	../UART.C:253: RI = 0;
-   17F4 10 98 02           1548 	jbc	_RI,00115$
-   17F7 80 00              1549 	sjmp	00106$
-   17F9                    1550 00115$:
-   17F9                    1551 00106$:
+   17F1 10 98 02           1548 	jbc	_RI,00115$
+   17F4 80 00              1549 	sjmp	00106$
+   17F6                    1550 00115$:
+   17F6                    1551 00106$:
                     00B9   1552 	C$UART.C$262$1$1 ==.
                            1553 ;	../UART.C:262: SFR_PAGE(_su0, RST0);          // restore the old page
-   17F9 75 BF C0           1554 	mov	_SCU_PAGE,#0xC0
+   17F6 75 BF C0           1554 	mov	_SCU_PAGE,#0xC0
                     00BC   1555 	C$UART.C$264$2$6 ==.
                            1556 ;	../UART.C:264: popsyscon();                   // restore the old RMAP
-   17FC D0 8F              1557 	 pop 0x8F 
-   17FE D0 D0              1558 	pop	psw
-   1800 D0 01              1559 	pop	(0+1)
-   1802 D0 00              1560 	pop	(0+0)
-   1804 D0 07              1561 	pop	(0+7)
-   1806 D0 06              1562 	pop	(0+6)
-   1808 D0 05              1563 	pop	(0+5)
-   180A D0 04              1564 	pop	(0+4)
-   180C D0 03              1565 	pop	(0+3)
-   180E D0 02              1566 	pop	(0+2)
-   1810 D0 83              1567 	pop	dph
-   1812 D0 82              1568 	pop	dpl
-   1814 D0 F0              1569 	pop	b
-   1816 D0 E0              1570 	pop	acc
-   1818 D0 22              1571 	pop	bits
+   17F9 D0 8F              1557 	 pop 0x8F 
+   17FB D0 D0              1558 	pop	psw
+   17FD D0 01              1559 	pop	(0+1)
+   17FF D0 00              1560 	pop	(0+0)
+   1801 D0 07              1561 	pop	(0+7)
+   1803 D0 06              1562 	pop	(0+6)
+   1805 D0 05              1563 	pop	(0+5)
+   1807 D0 04              1564 	pop	(0+4)
+   1809 D0 03              1565 	pop	(0+3)
+   180B D0 02              1566 	pop	(0+2)
+   180D D0 83              1567 	pop	dph
+   180F D0 82              1568 	pop	dpl
+   1811 D0 F0              1569 	pop	b
+   1813 D0 E0              1570 	pop	acc
+   1815 D0 22              1571 	pop	bits
                     00DA   1572 	C$UART.C$266$2$6 ==.
                     00DA   1573 	XG$UART_viIsr$0$0 ==.
-   181A 32                 1574 	reti
+   1817 32                 1574 	reti
                            1575 ;------------------------------------------------------------
                            1576 ;Allocation info for local variables in function 'UART_ubGetData8'
                            1577 ;------------------------------------------------------------
@@ -1582,16 +1582,16 @@
                            1582 ;	-----------------------------------------
                            1583 ;	 function UART_ubGetData8
                            1584 ;	-----------------------------------------
-   181B                    1585 _UART_ubGetData8:
+   1818                    1585 _UART_ubGetData8:
                     00DB   1586 	C$UART.C$290$1$1 ==.
                            1587 ;	../UART.C:290: RI = 0;
-   181B C2 98              1588 	clr	_RI
+   1818 C2 98              1588 	clr	_RI
                     00DD   1589 	C$UART.C$293$1$1 ==.
                            1590 ;	../UART.C:293: return(SBUF);
-   181D 85 99 82           1591 	mov	dpl,_SBUF
+   181A 85 99 82           1591 	mov	dpl,_SBUF
                     00E0   1592 	C$UART.C$295$1$1 ==.
                     00E0   1593 	XG$UART_ubGetData8$0$0 ==.
-   1820 22                 1594 	ret
+   181D 22                 1594 	ret
                            1595 ;------------------------------------------------------------
                            1596 ;Allocation info for local variables in function 'UART_vSendData8'
                            1597 ;------------------------------------------------------------
@@ -1603,17 +1603,17 @@
                            1603 ;	-----------------------------------------
                            1604 ;	 function UART_vSendData8
                            1605 ;	-----------------------------------------
-   1821                    1606 _UART_vSendData8:
-   1821 AA 82              1607 	mov	r2,dpl
+   181E                    1606 _UART_vSendData8:
+   181E AA 82              1607 	mov	r2,dpl
                     00E3   1608 	C$UART.C$320$1$1 ==.
                            1609 ;	../UART.C:320: TI = 0;
-   1823 C2 99              1610 	clr	_TI
+   1820 C2 99              1610 	clr	_TI
                     00E5   1611 	C$UART.C$323$1$1 ==.
                            1612 ;	../UART.C:323: SBUF = ubData;
-   1825 8A 99              1613 	mov	_SBUF,r2
+   1822 8A 99              1613 	mov	_SBUF,r2
                     00E7   1614 	C$UART.C$324$1$1 ==.
                     00E7   1615 	XG$UART_vSendData8$0$0 ==.
-   1827 22                 1616 	ret
+   1824 22                 1616 	ret
                            1617 	.area CSEG    (CODE)
                            1618 	.area CONST   (CODE)
                            1619 	.area XINIT   (CODE)

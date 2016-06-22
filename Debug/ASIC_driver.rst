@@ -1506,7 +1506,7 @@
                            1506 ;	-----------------------------------------
                            1507 ;	 function asic_dir
                            1508 ;	-----------------------------------------
-   0164                    1509 _asic_dir:
+   0161                    1509 _asic_dir:
                     0002   1510 	ar2 = 0x02
                     0003   1511 	ar3 = 0x03
                     0004   1512 	ar4 = 0x04
@@ -1515,12 +1515,12 @@
                     0007   1515 	ar7 = 0x07
                     0000   1516 	ar0 = 0x00
                     0001   1517 	ar1 = 0x01
-   0164 85 82 08           1518 	mov	_asic_direction,dpl
+   0161 85 82 08           1518 	mov	_asic_direction,dpl
                     0003   1519 	C$ASIC_driver.c$33$1$1 ==.
                            1520 ;	../ASIC_driver.c:33: asic_direction = dir;
                     0003   1521 	C$ASIC_driver.c$34$1$1 ==.
                     0003   1522 	XG$asic_dir$0$0 ==.
-   0167 22                 1523 	ret
+   0164 22                 1523 	ret
                            1524 ;------------------------------------------------------------
                            1525 ;Allocation info for local variables in function 'asic_reg'
                            1526 ;------------------------------------------------------------
@@ -1532,13 +1532,13 @@
                            1532 ;	-----------------------------------------
                            1533 ;	 function asic_reg
                            1534 ;	-----------------------------------------
-   0168                    1535 _asic_reg:
-   0168 85 82 09           1536 	mov	_asic_register,dpl
+   0165                    1535 _asic_reg:
+   0165 85 82 09           1536 	mov	_asic_register,dpl
                     0007   1537 	C$ASIC_driver.c$37$1$1 ==.
                            1538 ;	../ASIC_driver.c:37: asic_register = reg;
                     0007   1539 	C$ASIC_driver.c$38$1$1 ==.
                     0007   1540 	XG$asic_reg$0$0 ==.
-   016B 22                 1541 	ret
+   0168 22                 1541 	ret
                            1542 ;------------------------------------------------------------
                            1543 ;Allocation info for local variables in function 'asic_dat'
                            1544 ;------------------------------------------------------------
@@ -1551,91 +1551,91 @@
                            1551 ;	-----------------------------------------
                            1552 ;	 function asic_dat
                            1553 ;	-----------------------------------------
-   016C                    1554 _asic_dat:
+   0169                    1554 _asic_dat:
                     0008   1555 	C$ASIC_driver.c$41$1$1 ==.
                            1556 ;	../ASIC_driver.c:41: asic_data &= ~((long)0xff<<(byte*8));
-   016C E5 82              1557 	mov	a,dpl
-   016E 75 F0 08           1558 	mov	b,#0x08
-   0171 A4                 1559 	mul	ab
-   0172 FA                 1560 	mov	r2,a
-   0173 AB F0              1561 	mov	r3,b
-   0175 8A F0              1562 	mov	b,r2
-   0177 05 F0              1563 	inc	b
-   0179 7C FF              1564 	mov	r4,#0xFF
-   017B 7D 00              1565 	mov	r5,#0x00
-   017D 7E 00              1566 	mov	r6,#0x00
-   017F 7F 00              1567 	mov	r7,#0x00
-   0181 80 0C              1568 	sjmp	00104$
-   0183                    1569 00103$:
-   0183 EC                 1570 	mov	a,r4
-   0184 2C                 1571 	add	a,r4
-   0185 FC                 1572 	mov	r4,a
-   0186 ED                 1573 	mov	a,r5
-   0187 33                 1574 	rlc	a
-   0188 FD                 1575 	mov	r5,a
-   0189 EE                 1576 	mov	a,r6
-   018A 33                 1577 	rlc	a
-   018B FE                 1578 	mov	r6,a
-   018C EF                 1579 	mov	a,r7
-   018D 33                 1580 	rlc	a
-   018E FF                 1581 	mov	r7,a
-   018F                    1582 00104$:
-   018F D5 F0 F1           1583 	djnz	b,00103$
-   0192 EC                 1584 	mov	a,r4
-   0193 F4                 1585 	cpl	a
-   0194 FC                 1586 	mov	r4,a
-   0195 ED                 1587 	mov	a,r5
-   0196 F4                 1588 	cpl	a
-   0197 FD                 1589 	mov	r5,a
-   0198 EE                 1590 	mov	a,r6
-   0199 F4                 1591 	cpl	a
-   019A FE                 1592 	mov	r6,a
-   019B EF                 1593 	mov	a,r7
-   019C F4                 1594 	cpl	a
-   019D FF                 1595 	mov	r7,a
-   019E EC                 1596 	mov	a,r4
-   019F 52 0A              1597 	anl	_asic_data,a
-   01A1 ED                 1598 	mov	a,r5
-   01A2 52 0B              1599 	anl	(_asic_data + 1),a
-   01A4 EE                 1600 	mov	a,r6
-   01A5 52 0C              1601 	anl	(_asic_data + 2),a
-   01A7 EF                 1602 	mov	a,r7
-   01A8 52 0D              1603 	anl	(_asic_data + 3),a
+   0169 E5 82              1557 	mov	a,dpl
+   016B 75 F0 08           1558 	mov	b,#0x08
+   016E A4                 1559 	mul	ab
+   016F FA                 1560 	mov	r2,a
+   0170 AB F0              1561 	mov	r3,b
+   0172 8A F0              1562 	mov	b,r2
+   0174 05 F0              1563 	inc	b
+   0176 7C FF              1564 	mov	r4,#0xFF
+   0178 7D 00              1565 	mov	r5,#0x00
+   017A 7E 00              1566 	mov	r6,#0x00
+   017C 7F 00              1567 	mov	r7,#0x00
+   017E 80 0C              1568 	sjmp	00104$
+   0180                    1569 00103$:
+   0180 EC                 1570 	mov	a,r4
+   0181 2C                 1571 	add	a,r4
+   0182 FC                 1572 	mov	r4,a
+   0183 ED                 1573 	mov	a,r5
+   0184 33                 1574 	rlc	a
+   0185 FD                 1575 	mov	r5,a
+   0186 EE                 1576 	mov	a,r6
+   0187 33                 1577 	rlc	a
+   0188 FE                 1578 	mov	r6,a
+   0189 EF                 1579 	mov	a,r7
+   018A 33                 1580 	rlc	a
+   018B FF                 1581 	mov	r7,a
+   018C                    1582 00104$:
+   018C D5 F0 F1           1583 	djnz	b,00103$
+   018F EC                 1584 	mov	a,r4
+   0190 F4                 1585 	cpl	a
+   0191 FC                 1586 	mov	r4,a
+   0192 ED                 1587 	mov	a,r5
+   0193 F4                 1588 	cpl	a
+   0194 FD                 1589 	mov	r5,a
+   0195 EE                 1590 	mov	a,r6
+   0196 F4                 1591 	cpl	a
+   0197 FE                 1592 	mov	r6,a
+   0198 EF                 1593 	mov	a,r7
+   0199 F4                 1594 	cpl	a
+   019A FF                 1595 	mov	r7,a
+   019B EC                 1596 	mov	a,r4
+   019C 52 0A              1597 	anl	_asic_data,a
+   019E ED                 1598 	mov	a,r5
+   019F 52 0B              1599 	anl	(_asic_data + 1),a
+   01A1 EE                 1600 	mov	a,r6
+   01A2 52 0C              1601 	anl	(_asic_data + 2),a
+   01A4 EF                 1602 	mov	a,r7
+   01A5 52 0D              1603 	anl	(_asic_data + 3),a
                     0046   1604 	C$ASIC_driver.c$42$1$1 ==.
                            1605 ;	../ASIC_driver.c:42: asic_data |= ((long)dat<<(byte*8));
-   01AA AC 1A              1606 	mov	r4,_asic_dat_PARM_2
-   01AC 7D 00              1607 	mov	r5,#0x00
-   01AE 7E 00              1608 	mov	r6,#0x00
-   01B0 7F 00              1609 	mov	r7,#0x00
-   01B2 8A F0              1610 	mov	b,r2
-   01B4 05 F0              1611 	inc	b
-   01B6 80 0C              1612 	sjmp	00106$
-   01B8                    1613 00105$:
-   01B8 EC                 1614 	mov	a,r4
-   01B9 2C                 1615 	add	a,r4
-   01BA FC                 1616 	mov	r4,a
-   01BB ED                 1617 	mov	a,r5
-   01BC 33                 1618 	rlc	a
-   01BD FD                 1619 	mov	r5,a
-   01BE EE                 1620 	mov	a,r6
-   01BF 33                 1621 	rlc	a
-   01C0 FE                 1622 	mov	r6,a
-   01C1 EF                 1623 	mov	a,r7
-   01C2 33                 1624 	rlc	a
-   01C3 FF                 1625 	mov	r7,a
-   01C4                    1626 00106$:
-   01C4 D5 F0 F1           1627 	djnz	b,00105$
-   01C7 EC                 1628 	mov	a,r4
-   01C8 42 0A              1629 	orl	_asic_data,a
-   01CA ED                 1630 	mov	a,r5
-   01CB 42 0B              1631 	orl	(_asic_data + 1),a
-   01CD EE                 1632 	mov	a,r6
-   01CE 42 0C              1633 	orl	(_asic_data + 2),a
-   01D0 EF                 1634 	mov	a,r7
-   01D1 42 0D              1635 	orl	(_asic_data + 3),a
+   01A7 AC 1A              1606 	mov	r4,_asic_dat_PARM_2
+   01A9 7D 00              1607 	mov	r5,#0x00
+   01AB 7E 00              1608 	mov	r6,#0x00
+   01AD 7F 00              1609 	mov	r7,#0x00
+   01AF 8A F0              1610 	mov	b,r2
+   01B1 05 F0              1611 	inc	b
+   01B3 80 0C              1612 	sjmp	00106$
+   01B5                    1613 00105$:
+   01B5 EC                 1614 	mov	a,r4
+   01B6 2C                 1615 	add	a,r4
+   01B7 FC                 1616 	mov	r4,a
+   01B8 ED                 1617 	mov	a,r5
+   01B9 33                 1618 	rlc	a
+   01BA FD                 1619 	mov	r5,a
+   01BB EE                 1620 	mov	a,r6
+   01BC 33                 1621 	rlc	a
+   01BD FE                 1622 	mov	r6,a
+   01BE EF                 1623 	mov	a,r7
+   01BF 33                 1624 	rlc	a
+   01C0 FF                 1625 	mov	r7,a
+   01C1                    1626 00106$:
+   01C1 D5 F0 F1           1627 	djnz	b,00105$
+   01C4 EC                 1628 	mov	a,r4
+   01C5 42 0A              1629 	orl	_asic_data,a
+   01C7 ED                 1630 	mov	a,r5
+   01C8 42 0B              1631 	orl	(_asic_data + 1),a
+   01CA EE                 1632 	mov	a,r6
+   01CB 42 0C              1633 	orl	(_asic_data + 2),a
+   01CD EF                 1634 	mov	a,r7
+   01CE 42 0D              1635 	orl	(_asic_data + 3),a
                     006F   1636 	C$ASIC_driver.c$43$1$1 ==.
                     006F   1637 	XG$asic_dat$0$0 ==.
-   01D3 22                 1638 	ret
+   01D0 22                 1638 	ret
                            1639 ;------------------------------------------------------------
                            1640 ;Allocation info for local variables in function 'asic_datL'
                            1641 ;------------------------------------------------------------
@@ -1647,29 +1647,29 @@
                            1647 ;	-----------------------------------------
                            1648 ;	 function asic_datL
                            1649 ;	-----------------------------------------
-   01D4                    1650 _asic_datL:
-   01D4 AA 82              1651 	mov	r2,dpl
-   01D6 AB 83              1652 	mov	r3,dph
+   01D1                    1650 _asic_datL:
+   01D1 AA 82              1651 	mov	r2,dpl
+   01D3 AB 83              1652 	mov	r3,dph
                     0074   1653 	C$ASIC_driver.c$46$1$1 ==.
                            1654 ;	../ASIC_driver.c:46: asic_data &= 0xFFFF0000;
-   01D8 75 0A 00           1655 	mov	_asic_data,#0x00
+   01D5 75 0A 00           1655 	mov	_asic_data,#0x00
                     0077   1656 	C$ASIC_driver.c$47$1$1 ==.
                            1657 ;	../ASIC_driver.c:47: asic_data |= dat; 
-   01DB E4                 1658 	clr	a
-   01DC F5 0B              1659 	mov	(_asic_data + 1),a
-   01DE FC                 1660 	mov	r4,a
-   01DF FD                 1661 	mov	r5,a
-   01E0 EA                 1662 	mov	a,r2
-   01E1 42 0A              1663 	orl	_asic_data,a
-   01E3 EB                 1664 	mov	a,r3
-   01E4 42 0B              1665 	orl	(_asic_data + 1),a
-   01E6 EC                 1666 	mov	a,r4
-   01E7 42 0C              1667 	orl	(_asic_data + 2),a
-   01E9 ED                 1668 	mov	a,r5
-   01EA 42 0D              1669 	orl	(_asic_data + 3),a
+   01D8 E4                 1658 	clr	a
+   01D9 F5 0B              1659 	mov	(_asic_data + 1),a
+   01DB FC                 1660 	mov	r4,a
+   01DC FD                 1661 	mov	r5,a
+   01DD EA                 1662 	mov	a,r2
+   01DE 42 0A              1663 	orl	_asic_data,a
+   01E0 EB                 1664 	mov	a,r3
+   01E1 42 0B              1665 	orl	(_asic_data + 1),a
+   01E3 EC                 1666 	mov	a,r4
+   01E4 42 0C              1667 	orl	(_asic_data + 2),a
+   01E6 ED                 1668 	mov	a,r5
+   01E7 42 0D              1669 	orl	(_asic_data + 3),a
                     0088   1670 	C$ASIC_driver.c$48$1$1 ==.
                     0088   1671 	XG$asic_datL$0$0 ==.
-   01EC 22                 1672 	ret
+   01E9 22                 1672 	ret
                            1673 ;------------------------------------------------------------
                            1674 ;Allocation info for local variables in function 'asic_datH'
                            1675 ;------------------------------------------------------------
@@ -1681,29 +1681,29 @@
                            1681 ;	-----------------------------------------
                            1682 ;	 function asic_datH
                            1683 ;	-----------------------------------------
-   01ED                    1684 _asic_datH:
-   01ED AA 82              1685 	mov	r2,dpl
-   01EF AB 83              1686 	mov	r3,dph
+   01EA                    1684 _asic_datH:
+   01EA AA 82              1685 	mov	r2,dpl
+   01EC AB 83              1686 	mov	r3,dph
                     008D   1687 	C$ASIC_driver.c$51$1$1 ==.
                            1688 ;	../ASIC_driver.c:51: asic_data &= 0x0000FFFF;
-   01F1 75 0C 00           1689 	mov	(_asic_data + 2),#0x00
-   01F4 75 0D 00           1690 	mov	(_asic_data + 3),#0x00
+   01EE 75 0C 00           1689 	mov	(_asic_data + 2),#0x00
+   01F1 75 0D 00           1690 	mov	(_asic_data + 3),#0x00
                     0093   1691 	C$ASIC_driver.c$52$1$1 ==.
                            1692 ;	../ASIC_driver.c:52: asic_data |= ((unsigned long)dat)<<16; 
-   01F7 8B 05              1693 	mov	ar5,r3
-   01F9 8A 04              1694 	mov	ar4,r2
-   01FB E4                 1695 	clr	a
-   01FC FB                 1696 	mov	r3,a
-   01FD 42 0A              1697 	orl	_asic_data,a
-   01FF EB                 1698 	mov	a,r3
-   0200 42 0B              1699 	orl	(_asic_data + 1),a
-   0202 EC                 1700 	mov	a,r4
-   0203 42 0C              1701 	orl	(_asic_data + 2),a
-   0205 ED                 1702 	mov	a,r5
-   0206 42 0D              1703 	orl	(_asic_data + 3),a
+   01F4 8B 05              1693 	mov	ar5,r3
+   01F6 8A 04              1694 	mov	ar4,r2
+   01F8 E4                 1695 	clr	a
+   01F9 FB                 1696 	mov	r3,a
+   01FA 42 0A              1697 	orl	_asic_data,a
+   01FC EB                 1698 	mov	a,r3
+   01FD 42 0B              1699 	orl	(_asic_data + 1),a
+   01FF EC                 1700 	mov	a,r4
+   0200 42 0C              1701 	orl	(_asic_data + 2),a
+   0202 ED                 1702 	mov	a,r5
+   0203 42 0D              1703 	orl	(_asic_data + 3),a
                     00A4   1704 	C$ASIC_driver.c$53$1$1 ==.
                     00A4   1705 	XG$asic_datH$0$0 ==.
-   0208 22                 1706 	ret
+   0205 22                 1706 	ret
                            1707 ;------------------------------------------------------------
                            1708 ;Allocation info for local variables in function 'asic_len'
                            1709 ;------------------------------------------------------------
@@ -1715,13 +1715,13 @@
                            1715 ;	-----------------------------------------
                            1716 ;	 function asic_len
                            1717 ;	-----------------------------------------
-   0209                    1718 _asic_len:
-   0209 85 82 12           1719 	mov	_asic_length,dpl
+   0206                    1718 _asic_len:
+   0206 85 82 12           1719 	mov	_asic_length,dpl
                     00A8   1720 	C$ASIC_driver.c$56$1$1 ==.
                            1721 ;	../ASIC_driver.c:56: asic_length = len;
                     00A8   1722 	C$ASIC_driver.c$57$1$1 ==.
                     00A8   1723 	XG$asic_len$0$0 ==.
-   020C 22                 1724 	ret
+   0209 22                 1724 	ret
                            1725 ;------------------------------------------------------------
                            1726 ;Allocation info for local variables in function 'asic_startCLK'
                            1727 ;------------------------------------------------------------
@@ -1732,13 +1732,13 @@
                            1732 ;	-----------------------------------------
                            1733 ;	 function asic_startCLK
                            1734 ;	-----------------------------------------
-   020D                    1735 _asic_startCLK:
+   020A                    1735 _asic_startCLK:
                     00A9   1736 	C$ASIC_driver.c$60$1$1 ==.
                            1737 ;	../ASIC_driver.c:60: CC6_vStartTmr(CC6_TIMER_12);
-   020D 43 9C 02           1738 	orl	_CCU6_TCTR4L,#0x02
+   020A 43 9C 02           1738 	orl	_CCU6_TCTR4L,#0x02
                     00AC   1739 	C$ASIC_driver.c$61$1$1 ==.
                     00AC   1740 	XG$asic_startCLK$0$0 ==.
-   0210 22                 1741 	ret
+   020D 22                 1741 	ret
                            1742 ;------------------------------------------------------------
                            1743 ;Allocation info for local variables in function 'asic_stopCLK'
                            1744 ;------------------------------------------------------------
@@ -1749,13 +1749,13 @@
                            1749 ;	-----------------------------------------
                            1750 ;	 function asic_stopCLK
                            1751 ;	-----------------------------------------
-   0211                    1752 _asic_stopCLK:
+   020E                    1752 _asic_stopCLK:
                     00AD   1753 	C$ASIC_driver.c$64$1$1 ==.
                            1754 ;	../ASIC_driver.c:64: CC6_vStopTmr(CC6_TIMER_12);
-   0211 43 9C 01           1755 	orl	_CCU6_TCTR4L,#0x01
+   020E 43 9C 01           1755 	orl	_CCU6_TCTR4L,#0x01
                     00B0   1756 	C$ASIC_driver.c$65$1$1 ==.
                     00B0   1757 	XG$asic_stopCLK$0$0 ==.
-   0214 22                 1758 	ret
+   0211 22                 1758 	ret
                            1759 ;------------------------------------------------------------
                            1760 ;Allocation info for local variables in function 'asic_isBusy'
                            1761 ;------------------------------------------------------------
@@ -1766,13 +1766,13 @@
                            1766 ;	-----------------------------------------
                            1767 ;	 function asic_isBusy
                            1768 ;	-----------------------------------------
-   0215                    1769 _asic_isBusy:
+   0212                    1769 _asic_isBusy:
                     00B1   1770 	C$ASIC_driver.c$68$1$1 ==.
                            1771 ;	../ASIC_driver.c:68: return asic_busy;
-   0215 A2 00              1772 	mov	c,_asic_busy
+   0212 A2 00              1772 	mov	c,_asic_busy
                     00B3   1773 	C$ASIC_driver.c$69$1$1 ==.
                     00B3   1774 	XG$asic_isBusy$0$0 ==.
-   0217 22                 1775 	ret
+   0214 22                 1775 	ret
                            1776 ;------------------------------------------------------------
                            1777 ;Allocation info for local variables in function 'asic_getData'
                            1778 ;------------------------------------------------------------
@@ -1783,16 +1783,16 @@
                            1783 ;	-----------------------------------------
                            1784 ;	 function asic_getData
                            1785 ;	-----------------------------------------
-   0218                    1786 _asic_getData:
+   0215                    1786 _asic_getData:
                     00B4   1787 	C$ASIC_driver.c$72$1$1 ==.
                            1788 ;	../ASIC_driver.c:72: return asic_readdata;
-   0218 85 0E 82           1789 	mov	dpl,_asic_readdata
-   021B 85 0F 83           1790 	mov	dph,(_asic_readdata + 1)
-   021E 85 10 F0           1791 	mov	b,(_asic_readdata + 2)
-   0221 E5 11              1792 	mov	a,(_asic_readdata + 3)
+   0215 85 0E 82           1789 	mov	dpl,_asic_readdata
+   0218 85 0F 83           1790 	mov	dph,(_asic_readdata + 1)
+   021B 85 10 F0           1791 	mov	b,(_asic_readdata + 2)
+   021E E5 11              1792 	mov	a,(_asic_readdata + 3)
                     00BF   1793 	C$ASIC_driver.c$73$1$1 ==.
                     00BF   1794 	XG$asic_getData$0$0 ==.
-   0223 22                 1795 	ret
+   0220 22                 1795 	ret
                            1796 ;------------------------------------------------------------
                            1797 ;Allocation info for local variables in function 'asic_getDataL'
                            1798 ;------------------------------------------------------------
@@ -1803,14 +1803,14 @@
                            1803 ;	-----------------------------------------
                            1804 ;	 function asic_getDataL
                            1805 ;	-----------------------------------------
-   0224                    1806 _asic_getDataL:
+   0221                    1806 _asic_getDataL:
                     00C0   1807 	C$ASIC_driver.c$76$1$1 ==.
                            1808 ;	../ASIC_driver.c:76: return (unsigned int)asic_readdata;
-   0224 85 0E 82           1809 	mov	dpl,_asic_readdata
-   0227 85 0F 83           1810 	mov	dph,(_asic_readdata + 1)
+   0221 85 0E 82           1809 	mov	dpl,_asic_readdata
+   0224 85 0F 83           1810 	mov	dph,(_asic_readdata + 1)
                     00C6   1811 	C$ASIC_driver.c$77$1$1 ==.
                     00C6   1812 	XG$asic_getDataL$0$0 ==.
-   022A 22                 1813 	ret
+   0227 22                 1813 	ret
                            1814 ;------------------------------------------------------------
                            1815 ;Allocation info for local variables in function 'asic_getDataH'
                            1816 ;------------------------------------------------------------
@@ -1821,14 +1821,14 @@
                            1821 ;	-----------------------------------------
                            1822 ;	 function asic_getDataH
                            1823 ;	-----------------------------------------
-   022B                    1824 _asic_getDataH:
+   0228                    1824 _asic_getDataH:
                     00C7   1825 	C$ASIC_driver.c$80$1$1 ==.
                            1826 ;	../ASIC_driver.c:80: return (unsigned int)(asic_readdata>>16);
-   022B 85 10 82           1827 	mov	dpl,(_asic_readdata + 2)
-   022E 85 11 83           1828 	mov	dph,(_asic_readdata + 3)
+   0228 85 10 82           1827 	mov	dpl,(_asic_readdata + 2)
+   022B 85 11 83           1828 	mov	dph,(_asic_readdata + 3)
                     00CD   1829 	C$ASIC_driver.c$81$1$1 ==.
                     00CD   1830 	XG$asic_getDataH$0$0 ==.
-   0231 22                 1831 	ret
+   022E 22                 1831 	ret
                            1832 ;------------------------------------------------------------
                            1833 ;Allocation info for local variables in function 'asic_send'
                            1834 ;------------------------------------------------------------
@@ -1839,50 +1839,50 @@
                            1839 ;	-----------------------------------------
                            1840 ;	 function asic_send
                            1841 ;	-----------------------------------------
-   0232                    1842 _asic_send:
+   022F                    1842 _asic_send:
                     00CE   1843 	C$ASIC_driver.c$85$1$1 ==.
                            1844 ;	../ASIC_driver.c:85: asic_busy=1;
-   0232 D2 00              1845 	setb	_asic_busy
+   022F D2 00              1845 	setb	_asic_busy
                     00D0   1846 	C$ASIC_driver.c$86$1$1 ==.
                            1847 ;	../ASIC_driver.c:86: asic_bitcounter=0; 
                     00D0   1848 	C$ASIC_driver.c$87$1$1 ==.
                            1849 ;	../ASIC_driver.c:87: asic_datState=ASIC_DATSTATE_START;
                     00D0   1850 	C$ASIC_driver.c$88$1$1 ==.
                            1851 ;	../ASIC_driver.c:88: asic_clkState=ASIC_CLKSTATE_START;
-   0234 E4                 1852 	clr	a
-   0235 F5 13              1853 	mov	_asic_bitcounter,a
-   0237 F5 14              1854 	mov	(_asic_bitcounter + 1),a
-   0239 F5 16              1855 	mov	_asic_datState,a
-   023B F5 15              1856 	mov	_asic_clkState,a
+   0231 E4                 1852 	clr	a
+   0232 F5 13              1853 	mov	_asic_bitcounter,a
+   0234 F5 14              1854 	mov	(_asic_bitcounter + 1),a
+   0236 F5 16              1855 	mov	_asic_datState,a
+   0238 F5 15              1856 	mov	_asic_clkState,a
                     00D9   1857 	C$ASIC_driver.c$89$2$2 ==.
                            1858 ;	../ASIC_driver.c:89: T01_vLoadTmr(0,0x1010);
-   023D 75 8C 10           1859 	mov	_TH0,#0x10
-   0240 75 8A 10           1860 	mov	_TL0,#0x10
+   023A 75 8C 10           1859 	mov	_TH0,#0x10
+   023D 75 8A 10           1860 	mov	_TL0,#0x10
                     00DF   1861 	C$ASIC_driver.c$90$1$1 ==.
                            1862 ;	../ASIC_driver.c:90: T01_vStartTmr(0);
-   0243 D2 8C              1863 	setb	_TR0
+   0240 D2 8C              1863 	setb	_TR0
                     00E1   1864 	C$ASIC_driver.c$91$1$1 ==.
                            1865 ;	../ASIC_driver.c:91: while(asic_busy){
-   0245                    1866 00103$:
-   0245 30 00 0A           1867 	jnb	_asic_busy,00105$
+   0242                    1866 00103$:
+   0242 30 00 0A           1867 	jnb	_asic_busy,00105$
                     00E4   1868 	C$ASIC_driver.c$92$2$3 ==.
                            1869 ;	../ASIC_driver.c:92: if(TF0){
                     00E4   1870 	C$ASIC_driver.c$93$3$4 ==.
                            1871 ;	../ASIC_driver.c:93: TF0=0;
-   0248 10 8D 02           1872 	jbc	_TF0,00112$
-   024B 80 F8              1873 	sjmp	00103$
-   024D                    1874 00112$:
+   0245 10 8D 02           1872 	jbc	_TF0,00112$
+   0248 80 F8              1873 	sjmp	00103$
+   024A                    1874 00112$:
                     00E9   1875 	C$ASIC_driver.c$94$3$4 ==.
                            1876 ;	../ASIC_driver.c:94: asic_transmissionInterruptCall();
-   024D 12 04 44           1877 	lcall	_asic_transmissionInterruptCall
-   0250 80 F3              1878 	sjmp	00103$
-   0252                    1879 00105$:
+   024A 12 04 41           1877 	lcall	_asic_transmissionInterruptCall
+   024D 80 F3              1878 	sjmp	00103$
+   024F                    1879 00105$:
                     00EE   1880 	C$ASIC_driver.c$97$1$1 ==.
                            1881 ;	../ASIC_driver.c:97: T01_vStopTmr(0);
-   0252 C2 8C              1882 	clr	_TR0
+   024F C2 8C              1882 	clr	_TR0
                     00F0   1883 	C$ASIC_driver.c$98$1$1 ==.
                     00F0   1884 	XG$asic_send$0$0 ==.
-   0254 22                 1885 	ret
+   0251 22                 1885 	ret
                            1886 ;------------------------------------------------------------
                            1887 ;Allocation info for local variables in function 'asic_sub_clk110'
                            1888 ;------------------------------------------------------------
@@ -1893,35 +1893,35 @@
                            1893 ;	-----------------------------------------
                            1894 ;	 function asic_sub_clk110
                            1895 ;	-----------------------------------------
-   0255                    1896 _asic_sub_clk110:
+   0252                    1896 _asic_sub_clk110:
                     00F1   1897 	C$ASIC_driver.c$102$1$1 ==.
                            1898 ;	../ASIC_driver.c:102: bit r = 1;
-   0255 D2 01              1899 	setb	_asic_sub_clk110_r_1_1
+   0252 D2 01              1899 	setb	_asic_sub_clk110_r_1_1
                     00F3   1900 	C$ASIC_driver.c$103$1$1 ==.
                            1901 ;	../ASIC_driver.c:103: if (asic_clkcounter==2){
-   0257 74 02              1902 	mov	a,#0x02
-   0259 B5 17 0A           1903 	cjne	a,_asic_clkcounter,00102$
+   0254 74 02              1902 	mov	a,#0x02
+   0256 B5 17 0A           1903 	cjne	a,_asic_clkcounter,00102$
                     00F8   1904 	C$ASIC_driver.c$104$2$2 ==.
                            1905 ;	../ASIC_driver.c:104: r = 0;
-   025C C2 01              1906 	clr	_asic_sub_clk110_r_1_1
+   0259 C2 01              1906 	clr	_asic_sub_clk110_r_1_1
                     00FA   1907 	C$ASIC_driver.c$105$2$2 ==.
                            1908 ;	../ASIC_driver.c:105: asic_clkcounter=0;					
-   025E 75 17 00           1909 	mov	_asic_clkcounter,#0x00
+   025B 75 17 00           1909 	mov	_asic_clkcounter,#0x00
                     00FD   1910 	C$ASIC_driver.c$106$2$2 ==.
                            1911 ;	../ASIC_driver.c:106: asic_clkState=ASIC_CLKSTATE_NORMAL;
-   0261 75 15 01           1912 	mov	_asic_clkState,#0x01
-   0264 80 02              1913 	sjmp	00103$
-   0266                    1914 00102$:
+   025E 75 15 01           1912 	mov	_asic_clkState,#0x01
+   0261 80 02              1913 	sjmp	00103$
+   0263                    1914 00102$:
                     0102   1915 	C$ASIC_driver.c$108$2$3 ==.
                            1916 ;	../ASIC_driver.c:108: asic_clkcounter++;
-   0266 05 17              1917 	inc	_asic_clkcounter
-   0268                    1918 00103$:
+   0263 05 17              1917 	inc	_asic_clkcounter
+   0265                    1918 00103$:
                     0104   1919 	C$ASIC_driver.c$110$1$1 ==.
                            1920 ;	../ASIC_driver.c:110: return r;		
-   0268 A2 01              1921 	mov	c,_asic_sub_clk110_r_1_1
+   0265 A2 01              1921 	mov	c,_asic_sub_clk110_r_1_1
                     0106   1922 	C$ASIC_driver.c$111$1$1 ==.
                     0106   1923 	XG$asic_sub_clk110$0$0 ==.
-   026A 22                 1924 	ret
+   0267 22                 1924 	ret
                            1925 ;------------------------------------------------------------
                            1926 ;Allocation info for local variables in function 'asic_sub_clk0110'
                            1927 ;------------------------------------------------------------
@@ -1932,43 +1932,43 @@
                            1932 ;	-----------------------------------------
                            1933 ;	 function asic_sub_clk0110
                            1934 ;	-----------------------------------------
-   026B                    1935 _asic_sub_clk0110:
+   0268                    1935 _asic_sub_clk0110:
                     0107   1936 	C$ASIC_driver.c$114$1$1 ==.
                            1937 ;	../ASIC_driver.c:114: bit r = 1;
-   026B D2 02              1938 	setb	_asic_sub_clk0110_r_1_1
+   0268 D2 02              1938 	setb	_asic_sub_clk0110_r_1_1
                     0109   1939 	C$ASIC_driver.c$115$1$1 ==.
                            1940 ;	../ASIC_driver.c:115: if(asic_clkcounter==0){
-   026D E5 17              1941 	mov	a,_asic_clkcounter
-   026F 70 02              1942 	jnz	00102$
+   026A E5 17              1941 	mov	a,_asic_clkcounter
+   026C 70 02              1942 	jnz	00102$
                     010D   1943 	C$ASIC_driver.c$116$2$2 ==.
                            1944 ;	../ASIC_driver.c:116: r = 0;
-   0271 C2 02              1945 	clr	_asic_sub_clk0110_r_1_1
-   0273                    1946 00102$:
+   026E C2 02              1945 	clr	_asic_sub_clk0110_r_1_1
+   0270                    1946 00102$:
                     010F   1947 	C$ASIC_driver.c$118$1$1 ==.
                            1948 ;	../ASIC_driver.c:118: if (asic_clkcounter==3){
-   0273 74 03              1949 	mov	a,#0x03
-   0275 B5 17 0A           1950 	cjne	a,_asic_clkcounter,00104$
+   0270 74 03              1949 	mov	a,#0x03
+   0272 B5 17 0A           1950 	cjne	a,_asic_clkcounter,00104$
                     0114   1951 	C$ASIC_driver.c$119$2$3 ==.
                            1952 ;	../ASIC_driver.c:119: r = 0;
-   0278 C2 02              1953 	clr	_asic_sub_clk0110_r_1_1
+   0275 C2 02              1953 	clr	_asic_sub_clk0110_r_1_1
                     0116   1954 	C$ASIC_driver.c$120$2$3 ==.
                            1955 ;	../ASIC_driver.c:120: asic_clkcounter=0;
-   027A 75 17 00           1956 	mov	_asic_clkcounter,#0x00
+   0277 75 17 00           1956 	mov	_asic_clkcounter,#0x00
                     0119   1957 	C$ASIC_driver.c$121$2$3 ==.
                            1958 ;	../ASIC_driver.c:121: asic_clkState=ASIC_CLKSTATE_IDLE;		
-   027D 75 15 03           1959 	mov	_asic_clkState,#0x03
-   0280 80 02              1960 	sjmp	00105$
-   0282                    1961 00104$:
+   027A 75 15 03           1959 	mov	_asic_clkState,#0x03
+   027D 80 02              1960 	sjmp	00105$
+   027F                    1961 00104$:
                     011E   1962 	C$ASIC_driver.c$123$2$4 ==.
                            1963 ;	../ASIC_driver.c:123: asic_clkcounter++;
-   0282 05 17              1964 	inc	_asic_clkcounter
-   0284                    1965 00105$:
+   027F 05 17              1964 	inc	_asic_clkcounter
+   0281                    1965 00105$:
                     0120   1966 	C$ASIC_driver.c$125$1$1 ==.
                            1967 ;	../ASIC_driver.c:125: return r;		
-   0284 A2 02              1968 	mov	c,_asic_sub_clk0110_r_1_1
+   0281 A2 02              1968 	mov	c,_asic_sub_clk0110_r_1_1
                     0122   1969 	C$ASIC_driver.c$126$1$1 ==.
                     0122   1970 	XG$asic_sub_clk0110$0$0 ==.
-   0286 22                 1971 	ret
+   0283 22                 1971 	ret
                            1972 ;------------------------------------------------------------
                            1973 ;Allocation info for local variables in function 'asic_sub_clk010'
                            1974 ;------------------------------------------------------------
@@ -1979,72 +1979,72 @@
                            1979 ;	-----------------------------------------
                            1980 ;	 function asic_sub_clk010
                            1981 ;	-----------------------------------------
-   0287                    1982 _asic_sub_clk010:
+   0284                    1982 _asic_sub_clk010:
                     0123   1983 	C$ASIC_driver.c$131$1$1 ==.
                            1984 ;	../ASIC_driver.c:131: bit r = 0;
-   0287 C2 03              1985 	clr	_asic_sub_clk010_r_1_1
+   0284 C2 03              1985 	clr	_asic_sub_clk010_r_1_1
                     0125   1986 	C$ASIC_driver.c$132$1$1 ==.
                            1987 ;	../ASIC_driver.c:132: if (asic_clkcounter==1){
-   0289 74 01              1988 	mov	a,#0x01
-   028B B5 17 02           1989 	cjne	a,_asic_clkcounter,00102$
+   0286 74 01              1988 	mov	a,#0x01
+   0288 B5 17 02           1989 	cjne	a,_asic_clkcounter,00102$
                     012A   1990 	C$ASIC_driver.c$133$2$2 ==.
                            1991 ;	../ASIC_driver.c:133: r = 1;
-   028E D2 03              1992 	setb	_asic_sub_clk010_r_1_1
-   0290                    1993 00102$:
+   028B D2 03              1992 	setb	_asic_sub_clk010_r_1_1
+   028D                    1993 00102$:
                     012C   1994 	C$ASIC_driver.c$136$1$1 ==.
                            1995 ;	../ASIC_driver.c:136: if(asic_clkcounter==2){
-   0290 74 02              1996 	mov	a,#0x02
-   0292 B5 17 2D           1997 	cjne	a,_asic_clkcounter,00109$
+   028D 74 02              1996 	mov	a,#0x02
+   028F B5 17 2D           1997 	cjne	a,_asic_clkcounter,00109$
                     0131   1998 	C$ASIC_driver.c$137$2$3 ==.
                            1999 ;	../ASIC_driver.c:137: asic_clkcounter=0;
-   0295 75 17 00           2000 	mov	_asic_clkcounter,#0x00
+   0292 75 17 00           2000 	mov	_asic_clkcounter,#0x00
                     0134   2001 	C$ASIC_driver.c$138$2$3 ==.
                            2002 ;	../ASIC_driver.c:138: if(asic_clk_help==4+asic_length){
-   0298 AA 12              2003 	mov	r2,_asic_length
-   029A 7B 00              2004 	mov	r3,#0x00
-   029C 74 04              2005 	mov	a,#0x04
-   029E 2A                 2006 	add	a,r2
-   029F FA                 2007 	mov	r2,a
-   02A0 E4                 2008 	clr	a
-   02A1 3B                 2009 	addc	a,r3
-   02A2 FB                 2010 	mov	r3,a
-   02A3 AC 1B              2011 	mov	r4,_asic_clk_help
-   02A5 7D 00              2012 	mov	r5,#0x00
-   02A7 EC                 2013 	mov	a,r4
-   02A8 B5 02 0C           2014 	cjne	a,ar2,00104$
-   02AB ED                 2015 	mov	a,r5
-   02AC B5 03 08           2016 	cjne	a,ar3,00104$
+   0295 AA 12              2003 	mov	r2,_asic_length
+   0297 7B 00              2004 	mov	r3,#0x00
+   0299 74 04              2005 	mov	a,#0x04
+   029B 2A                 2006 	add	a,r2
+   029C FA                 2007 	mov	r2,a
+   029D E4                 2008 	clr	a
+   029E 3B                 2009 	addc	a,r3
+   029F FB                 2010 	mov	r3,a
+   02A0 AC 1B              2011 	mov	r4,_asic_clk_help
+   02A2 7D 00              2012 	mov	r5,#0x00
+   02A4 EC                 2013 	mov	a,r4
+   02A5 B5 02 0C           2014 	cjne	a,ar2,00104$
+   02A8 ED                 2015 	mov	a,r5
+   02A9 B5 03 08           2016 	cjne	a,ar3,00104$
                     014B   2017 	C$ASIC_driver.c$139$3$4 ==.
                            2018 ;	../ASIC_driver.c:139: asic_clk_help=0;
-   02AF 75 1B 00           2019 	mov	_asic_clk_help,#0x00
+   02AC 75 1B 00           2019 	mov	_asic_clk_help,#0x00
                     014E   2020 	C$ASIC_driver.c$140$3$4 ==.
                            2021 ;	../ASIC_driver.c:140: asic_clkState=ASIC_CLKSTATE_EXEPTION;
-   02B2 75 15 02           2022 	mov	_asic_clkState,#0x02
-   02B5 80 02              2023 	sjmp	00105$
-   02B7                    2024 00104$:
+   02AF 75 15 02           2022 	mov	_asic_clkState,#0x02
+   02B2 80 02              2023 	sjmp	00105$
+   02B4                    2024 00104$:
                     0153   2025 	C$ASIC_driver.c$142$3$5 ==.
                            2026 ;	../ASIC_driver.c:142: asic_clk_help++;
-   02B7 05 1B              2027 	inc	_asic_clk_help
-   02B9                    2028 00105$:
+   02B4 05 1B              2027 	inc	_asic_clk_help
+   02B6                    2028 00105$:
                     0155   2029 	C$ASIC_driver.c$144$2$3 ==.
                            2030 ;	../ASIC_driver.c:144: if(asic_datState==ASIC_DATSTATE_READ){
-   02B9 74 04              2031 	mov	a,#0x04
-   02BB B5 16 06           2032 	cjne	a,_asic_datState,00110$
+   02B6 74 04              2031 	mov	a,#0x04
+   02B8 B5 16 06           2032 	cjne	a,_asic_datState,00110$
                     015A   2033 	C$ASIC_driver.c$145$3$6 ==.
                            2034 ;	../ASIC_driver.c:145: r = 1;
-   02BE D2 03              2035 	setb	_asic_sub_clk010_r_1_1
-   02C0 80 02              2036 	sjmp	00110$
-   02C2                    2037 00109$:
+   02BB D2 03              2035 	setb	_asic_sub_clk010_r_1_1
+   02BD 80 02              2036 	sjmp	00110$
+   02BF                    2037 00109$:
                     015E   2038 	C$ASIC_driver.c$148$2$7 ==.
                            2039 ;	../ASIC_driver.c:148: asic_clkcounter++;
-   02C2 05 17              2040 	inc	_asic_clkcounter
-   02C4                    2041 00110$:
+   02BF 05 17              2040 	inc	_asic_clkcounter
+   02C1                    2041 00110$:
                     0160   2042 	C$ASIC_driver.c$150$1$1 ==.
                            2043 ;	../ASIC_driver.c:150: return r;		
-   02C4 A2 03              2044 	mov	c,_asic_sub_clk010_r_1_1
+   02C1 A2 03              2044 	mov	c,_asic_sub_clk010_r_1_1
                     0162   2045 	C$ASIC_driver.c$151$1$1 ==.
                     0162   2046 	XG$asic_sub_clk010$0$0 ==.
-   02C6 22                 2047 	ret
+   02C3 22                 2047 	ret
                            2048 ;------------------------------------------------------------
                            2049 ;Allocation info for local variables in function 'asic_sub_dat100'
                            2050 ;------------------------------------------------------------
@@ -2055,40 +2055,40 @@
                            2055 ;	-----------------------------------------
                            2056 ;	 function asic_sub_dat100
                            2057 ;	-----------------------------------------
-   02C7                    2058 _asic_sub_dat100:
+   02C4                    2058 _asic_sub_dat100:
                     0163   2059 	C$ASIC_driver.c$154$1$1 ==.
                            2060 ;	../ASIC_driver.c:154: bit r = 0;
-   02C7 C2 04              2061 	clr	_asic_sub_dat100_r_1_1
+   02C4 C2 04              2061 	clr	_asic_sub_dat100_r_1_1
                     0165   2062 	C$ASIC_driver.c$155$1$1 ==.
                            2063 ;	../ASIC_driver.c:155: if (asic_datcounter==0){
-   02C9 E5 18              2064 	mov	a,_asic_datcounter
-   02CB 70 02              2065 	jnz	00102$
+   02C6 E5 18              2064 	mov	a,_asic_datcounter
+   02C8 70 02              2065 	jnz	00102$
                     0169   2066 	C$ASIC_driver.c$156$2$2 ==.
                            2067 ;	../ASIC_driver.c:156: r = 1;
-   02CD D2 04              2068 	setb	_asic_sub_dat100_r_1_1
-   02CF                    2069 00102$:
+   02CA D2 04              2068 	setb	_asic_sub_dat100_r_1_1
+   02CC                    2069 00102$:
                     016B   2070 	C$ASIC_driver.c$158$1$1 ==.
                            2071 ;	../ASIC_driver.c:158: if(asic_datcounter==2){
-   02CF 74 02              2072 	mov	a,#0x02
-   02D1 B5 18 08           2073 	cjne	a,_asic_datcounter,00104$
+   02CC 74 02              2072 	mov	a,#0x02
+   02CE B5 18 08           2073 	cjne	a,_asic_datcounter,00104$
                     0170   2074 	C$ASIC_driver.c$159$2$3 ==.
                            2075 ;	../ASIC_driver.c:159: asic_datcounter=0;
-   02D4 75 18 00           2076 	mov	_asic_datcounter,#0x00
+   02D1 75 18 00           2076 	mov	_asic_datcounter,#0x00
                     0173   2077 	C$ASIC_driver.c$160$2$3 ==.
                            2078 ;	../ASIC_driver.c:160: asic_datState=ASIC_DATSTATE_DIRECTION;
-   02D7 75 16 01           2079 	mov	_asic_datState,#0x01
-   02DA 80 02              2080 	sjmp	00105$
-   02DC                    2081 00104$:
+   02D4 75 16 01           2079 	mov	_asic_datState,#0x01
+   02D7 80 02              2080 	sjmp	00105$
+   02D9                    2081 00104$:
                     0178   2082 	C$ASIC_driver.c$162$2$4 ==.
                            2083 ;	../ASIC_driver.c:162: asic_datcounter++;
-   02DC 05 18              2084 	inc	_asic_datcounter
-   02DE                    2085 00105$:
+   02D9 05 18              2084 	inc	_asic_datcounter
+   02DB                    2085 00105$:
                     017A   2086 	C$ASIC_driver.c$164$1$1 ==.
                            2087 ;	../ASIC_driver.c:164: return r;		
-   02DE A2 04              2088 	mov	c,_asic_sub_dat100_r_1_1
+   02DB A2 04              2088 	mov	c,_asic_sub_dat100_r_1_1
                     017C   2089 	C$ASIC_driver.c$165$1$1 ==.
                     017C   2090 	XG$asic_sub_dat100$0$0 ==.
-   02E0 22                 2091 	ret
+   02DD 22                 2091 	ret
                            2092 ;------------------------------------------------------------
                            2093 ;Allocation info for local variables in function 'asic_sub_datDIR'
                            2094 ;------------------------------------------------------------
@@ -2099,39 +2099,39 @@
                            2099 ;	-----------------------------------------
                            2100 ;	 function asic_sub_datDIR
                            2101 ;	-----------------------------------------
-   02E1                    2102 _asic_sub_datDIR:
+   02DE                    2102 _asic_sub_datDIR:
                     017D   2103 	C$ASIC_driver.c$168$1$1 ==.
                            2104 ;	../ASIC_driver.c:168: bit r = (asic_direction==1);
-   02E1 74 01              2105 	mov	a,#0x01
-   02E3 B5 08 03           2106 	cjne	a,_asic_direction,00107$
-   02E6 D3                 2107 	setb	c
-   02E7 80 01              2108 	sjmp	00108$
-   02E9                    2109 00107$:
-   02E9 C3                 2110 	clr	c
-   02EA                    2111 00108$:
-   02EA 92 05              2112 	mov	_asic_sub_datDIR_r_1_1,c
+   02DE 74 01              2105 	mov	a,#0x01
+   02E0 B5 08 03           2106 	cjne	a,_asic_direction,00107$
+   02E3 D3                 2107 	setb	c
+   02E4 80 01              2108 	sjmp	00108$
+   02E6                    2109 00107$:
+   02E6 C3                 2110 	clr	c
+   02E7                    2111 00108$:
+   02E7 92 05              2112 	mov	_asic_sub_datDIR_r_1_1,c
                     0188   2113 	C$ASIC_driver.c$170$1$1 ==.
                            2114 ;	../ASIC_driver.c:170: if(asic_datcounter==2){
-   02EC 74 02              2115 	mov	a,#0x02
-   02EE B5 18 08           2116 	cjne	a,_asic_datcounter,00102$
+   02E9 74 02              2115 	mov	a,#0x02
+   02EB B5 18 08           2116 	cjne	a,_asic_datcounter,00102$
                     018D   2117 	C$ASIC_driver.c$171$2$2 ==.
                            2118 ;	../ASIC_driver.c:171: asic_datcounter=0;
-   02F1 75 18 00           2119 	mov	_asic_datcounter,#0x00
+   02EE 75 18 00           2119 	mov	_asic_datcounter,#0x00
                     0190   2120 	C$ASIC_driver.c$172$2$2 ==.
                            2121 ;	../ASIC_driver.c:172: asic_datState=ASIC_DATSTATE_ADDRESS;
-   02F4 75 16 02           2122 	mov	_asic_datState,#0x02
-   02F7 80 02              2123 	sjmp	00103$
-   02F9                    2124 00102$:
+   02F1 75 16 02           2122 	mov	_asic_datState,#0x02
+   02F4 80 02              2123 	sjmp	00103$
+   02F6                    2124 00102$:
                     0195   2125 	C$ASIC_driver.c$174$2$3 ==.
                            2126 ;	../ASIC_driver.c:174: asic_datcounter++;
-   02F9 05 18              2127 	inc	_asic_datcounter
-   02FB                    2128 00103$:
+   02F6 05 18              2127 	inc	_asic_datcounter
+   02F8                    2128 00103$:
                     0197   2129 	C$ASIC_driver.c$176$1$1 ==.
                            2130 ;	../ASIC_driver.c:176: return r;		
-   02FB A2 05              2131 	mov	c,_asic_sub_datDIR_r_1_1
+   02F8 A2 05              2131 	mov	c,_asic_sub_datDIR_r_1_1
                     0199   2132 	C$ASIC_driver.c$177$1$1 ==.
                     0199   2133 	XG$asic_sub_datDIR$0$0 ==.
-   02FD 22                 2134 	ret
+   02FA 22                 2134 	ret
                            2135 ;------------------------------------------------------------
                            2136 ;Allocation info for local variables in function 'asic_sub_datADR'
                            2137 ;------------------------------------------------------------
@@ -2143,60 +2143,60 @@
                            2143 ;	-----------------------------------------
                            2144 ;	 function asic_sub_datADR
                            2145 ;	-----------------------------------------
-   02FE                    2146 _asic_sub_datADR:
+   02FB                    2146 _asic_sub_datADR:
                     019A   2147 	C$ASIC_driver.c$180$1$1 ==.
                            2148 ;	../ASIC_driver.c:180: unsigned char bitpos = (~(asic_datcounter/3))-252;
-   02FE 75 F0 03           2149 	mov	b,#0x03
-   0301 E5 18              2150 	mov	a,_asic_datcounter
-   0303 84                 2151 	div	ab
-   0304 F4                 2152 	cpl	a
-   0305 FA                 2153 	mov	r2,a
-   0306 24 04              2154 	add	a,#0x04
+   02FB 75 F0 03           2149 	mov	b,#0x03
+   02FE E5 18              2150 	mov	a,_asic_datcounter
+   0300 84                 2151 	div	ab
+   0301 F4                 2152 	cpl	a
+   0302 FA                 2153 	mov	r2,a
+   0303 24 04              2154 	add	a,#0x04
                     01A4   2155 	C$ASIC_driver.c$182$1$1 ==.
                            2156 ;	../ASIC_driver.c:182: bit r = ((asic_register>>bitpos)&0x01);
-   0308 F5 F0              2157 	mov	b,a
-   030A 05 F0              2158 	inc	b
-   030C E5 09              2159 	mov	a,_asic_register
-   030E 80 02              2160 	sjmp	00112$
-   0310                    2161 00111$:
-   0310 C3                 2162 	clr	c
-   0311 13                 2163 	rrc	a
-   0312                    2164 00112$:
-   0312 D5 F0 FB           2165 	djnz	b,00111$
-   0315 FA                 2166 	mov	r2,a
-   0316 13                 2167 	rrc	a
-   0317 92 06              2168 	mov	_asic_sub_datADR_r_1_1,c
+   0305 F5 F0              2157 	mov	b,a
+   0307 05 F0              2158 	inc	b
+   0309 E5 09              2159 	mov	a,_asic_register
+   030B 80 02              2160 	sjmp	00112$
+   030D                    2161 00111$:
+   030D C3                 2162 	clr	c
+   030E 13                 2163 	rrc	a
+   030F                    2164 00112$:
+   030F D5 F0 FB           2165 	djnz	b,00111$
+   0312 FA                 2166 	mov	r2,a
+   0313 13                 2167 	rrc	a
+   0314 92 06              2168 	mov	_asic_sub_datADR_r_1_1,c
                     01B5   2169 	C$ASIC_driver.c$184$1$1 ==.
                            2170 ;	../ASIC_driver.c:184: if(asic_datcounter==11){
-   0319 74 0B              2171 	mov	a,#0x0B
-   031B B5 18 11           2172 	cjne	a,_asic_datcounter,00105$
+   0316 74 0B              2171 	mov	a,#0x0B
+   0318 B5 18 11           2172 	cjne	a,_asic_datcounter,00105$
                     01BA   2173 	C$ASIC_driver.c$185$2$2 ==.
                            2174 ;	../ASIC_driver.c:185: asic_datcounter=0;
-   031E 75 18 00           2175 	mov	_asic_datcounter,#0x00
+   031B 75 18 00           2175 	mov	_asic_datcounter,#0x00
                     01BD   2176 	C$ASIC_driver.c$186$2$2 ==.
                            2177 ;	../ASIC_driver.c:186: if(asic_direction==0){
-   0321 E5 08              2178 	mov	a,_asic_direction
-   0323 70 05              2179 	jnz	00102$
+   031E E5 08              2178 	mov	a,_asic_direction
+   0320 70 05              2179 	jnz	00102$
                     01C1   2180 	C$ASIC_driver.c$187$3$3 ==.
                            2181 ;	../ASIC_driver.c:187: asic_datState=ASIC_DATSTATE_REGESTER;
-   0325 75 16 03           2182 	mov	_asic_datState,#0x03
-   0328 80 07              2183 	sjmp	00106$
-   032A                    2184 00102$:
+   0322 75 16 03           2182 	mov	_asic_datState,#0x03
+   0325 80 07              2183 	sjmp	00106$
+   0327                    2184 00102$:
                     01C6   2185 	C$ASIC_driver.c$189$3$4 ==.
                            2186 ;	../ASIC_driver.c:189: asic_datState=ASIC_DATSTATE_READ;
-   032A 75 16 04           2187 	mov	_asic_datState,#0x04
-   032D 80 02              2188 	sjmp	00106$
-   032F                    2189 00105$:
+   0327 75 16 04           2187 	mov	_asic_datState,#0x04
+   032A 80 02              2188 	sjmp	00106$
+   032C                    2189 00105$:
                     01CB   2190 	C$ASIC_driver.c$192$2$5 ==.
                            2191 ;	../ASIC_driver.c:192: asic_datcounter++;
-   032F 05 18              2192 	inc	_asic_datcounter
-   0331                    2193 00106$:
+   032C 05 18              2192 	inc	_asic_datcounter
+   032E                    2193 00106$:
                     01CD   2194 	C$ASIC_driver.c$194$1$1 ==.
                            2195 ;	../ASIC_driver.c:194: return r;		
-   0331 A2 06              2196 	mov	c,_asic_sub_datADR_r_1_1
+   032E A2 06              2196 	mov	c,_asic_sub_datADR_r_1_1
                     01CF   2197 	C$ASIC_driver.c$195$1$1 ==.
                     01CF   2198 	XG$asic_sub_datADR$0$0 ==.
-   0333 22                 2199 	ret
+   0330 22                 2199 	ret
                            2200 ;------------------------------------------------------------
                            2201 ;Allocation info for local variables in function 'asic_sub_datREG'
                            2202 ;------------------------------------------------------------
@@ -2208,85 +2208,85 @@
                            2208 ;	-----------------------------------------
                            2209 ;	 function asic_sub_datREG
                            2210 ;	-----------------------------------------
-   0334                    2211 _asic_sub_datREG:
+   0331                    2211 _asic_sub_datREG:
                     01D0   2212 	C$ASIC_driver.c$198$1$1 ==.
                            2213 ;	../ASIC_driver.c:198: unsigned char bitpos = (~(asic_datcounter/3))-(256-asic_length);
-   0334 75 F0 03           2214 	mov	b,#0x03
-   0337 E5 18              2215 	mov	a,_asic_datcounter
-   0339 84                 2216 	div	ab
-   033A F4                 2217 	cpl	a
-   033B FA                 2218 	mov	r2,a
-   033C AB 12              2219 	mov	r3,_asic_length
-   033E C3                 2220 	clr	c
-   033F E4                 2221 	clr	a
-   0340 9B                 2222 	subb	a,r3
-   0341 FB                 2223 	mov	r3,a
-   0342 EA                 2224 	mov	a,r2
-   0343 C3                 2225 	clr	c
-   0344 9B                 2226 	subb	a,r3
-   0345 FA                 2227 	mov	r2,a
+   0331 75 F0 03           2214 	mov	b,#0x03
+   0334 E5 18              2215 	mov	a,_asic_datcounter
+   0336 84                 2216 	div	ab
+   0337 F4                 2217 	cpl	a
+   0338 FA                 2218 	mov	r2,a
+   0339 AB 12              2219 	mov	r3,_asic_length
+   033B C3                 2220 	clr	c
+   033C E4                 2221 	clr	a
+   033D 9B                 2222 	subb	a,r3
+   033E FB                 2223 	mov	r3,a
+   033F EA                 2224 	mov	a,r2
+   0340 C3                 2225 	clr	c
+   0341 9B                 2226 	subb	a,r3
+   0342 FA                 2227 	mov	r2,a
                     01E2   2228 	C$ASIC_driver.c$200$1$1 ==.
                            2229 ;	../ASIC_driver.c:200: bit r = ((asic_data>>bitpos)&0x00000001);
-   0346 8A F0              2230 	mov	b,r2
-   0348 05 F0              2231 	inc	b
-   034A AA 0A              2232 	mov	r2,_asic_data
-   034C AB 0B              2233 	mov	r3,(_asic_data + 1)
-   034E AC 0C              2234 	mov	r4,(_asic_data + 2)
-   0350 AD 0D              2235 	mov	r5,(_asic_data + 3)
-   0352 80 0D              2236 	sjmp	00108$
-   0354                    2237 00107$:
-   0354 C3                 2238 	clr	c
-   0355 ED                 2239 	mov	a,r5
-   0356 13                 2240 	rrc	a
-   0357 FD                 2241 	mov	r5,a
-   0358 EC                 2242 	mov	a,r4
-   0359 13                 2243 	rrc	a
-   035A FC                 2244 	mov	r4,a
-   035B EB                 2245 	mov	a,r3
-   035C 13                 2246 	rrc	a
-   035D FB                 2247 	mov	r3,a
-   035E EA                 2248 	mov	a,r2
-   035F 13                 2249 	rrc	a
-   0360 FA                 2250 	mov	r2,a
-   0361                    2251 00108$:
-   0361 D5 F0 F0           2252 	djnz	b,00107$
-   0364 EA                 2253 	mov	a,r2
-   0365 13                 2254 	rrc	a
-   0366 92 07              2255 	mov	_asic_sub_datREG_r_1_1,c
+   0343 8A F0              2230 	mov	b,r2
+   0345 05 F0              2231 	inc	b
+   0347 AA 0A              2232 	mov	r2,_asic_data
+   0349 AB 0B              2233 	mov	r3,(_asic_data + 1)
+   034B AC 0C              2234 	mov	r4,(_asic_data + 2)
+   034D AD 0D              2235 	mov	r5,(_asic_data + 3)
+   034F 80 0D              2236 	sjmp	00108$
+   0351                    2237 00107$:
+   0351 C3                 2238 	clr	c
+   0352 ED                 2239 	mov	a,r5
+   0353 13                 2240 	rrc	a
+   0354 FD                 2241 	mov	r5,a
+   0355 EC                 2242 	mov	a,r4
+   0356 13                 2243 	rrc	a
+   0357 FC                 2244 	mov	r4,a
+   0358 EB                 2245 	mov	a,r3
+   0359 13                 2246 	rrc	a
+   035A FB                 2247 	mov	r3,a
+   035B EA                 2248 	mov	a,r2
+   035C 13                 2249 	rrc	a
+   035D FA                 2250 	mov	r2,a
+   035E                    2251 00108$:
+   035E D5 F0 F0           2252 	djnz	b,00107$
+   0361 EA                 2253 	mov	a,r2
+   0362 13                 2254 	rrc	a
+   0363 92 07              2255 	mov	_asic_sub_datREG_r_1_1,c
                     0204   2256 	C$ASIC_driver.c$202$1$1 ==.
                            2257 ;	../ASIC_driver.c:202: if(asic_datcounter==(asic_length*3)){
-   0368 E5 12              2258 	mov	a,_asic_length
-   036A 75 F0 03           2259 	mov	b,#0x03
-   036D A4                 2260 	mul	ab
-   036E FA                 2261 	mov	r2,a
-   036F AB F0              2262 	mov	r3,b
-   0371 AC 18              2263 	mov	r4,_asic_datcounter
-   0373 7D 00              2264 	mov	r5,#0x00
-   0375 EC                 2265 	mov	a,r4
-   0376 B5 02 0E           2266 	cjne	a,ar2,00102$
-   0379 ED                 2267 	mov	a,r5
-   037A B5 03 0A           2268 	cjne	a,ar3,00102$
+   0365 E5 12              2258 	mov	a,_asic_length
+   0367 75 F0 03           2259 	mov	b,#0x03
+   036A A4                 2260 	mul	ab
+   036B FA                 2261 	mov	r2,a
+   036C AB F0              2262 	mov	r3,b
+   036E AC 18              2263 	mov	r4,_asic_datcounter
+   0370 7D 00              2264 	mov	r5,#0x00
+   0372 EC                 2265 	mov	a,r4
+   0373 B5 02 0E           2266 	cjne	a,ar2,00102$
+   0376 ED                 2267 	mov	a,r5
+   0377 B5 03 0A           2268 	cjne	a,ar3,00102$
                     0219   2269 	C$ASIC_driver.c$203$2$2 ==.
                            2270 ;	../ASIC_driver.c:203: asic_datcounter=0;
-   037D 75 18 00           2271 	mov	_asic_datcounter,#0x00
+   037A 75 18 00           2271 	mov	_asic_datcounter,#0x00
                     021C   2272 	C$ASIC_driver.c$204$2$2 ==.
                            2273 ;	../ASIC_driver.c:204: r=0;
-   0380 C2 07              2274 	clr	_asic_sub_datREG_r_1_1
+   037D C2 07              2274 	clr	_asic_sub_datREG_r_1_1
                     021E   2275 	C$ASIC_driver.c$205$2$2 ==.
                            2276 ;	../ASIC_driver.c:205: asic_datState=ASIC_DATSTATE_EXEPTION;
-   0382 75 16 05           2277 	mov	_asic_datState,#0x05
-   0385 80 02              2278 	sjmp	00103$
-   0387                    2279 00102$:
+   037F 75 16 05           2277 	mov	_asic_datState,#0x05
+   0382 80 02              2278 	sjmp	00103$
+   0384                    2279 00102$:
                     0223   2280 	C$ASIC_driver.c$207$2$3 ==.
                            2281 ;	../ASIC_driver.c:207: asic_datcounter++;
-   0387 05 18              2282 	inc	_asic_datcounter
-   0389                    2283 00103$:
+   0384 05 18              2282 	inc	_asic_datcounter
+   0386                    2283 00103$:
                     0225   2284 	C$ASIC_driver.c$209$1$1 ==.
                            2285 ;	../ASIC_driver.c:209: return r;		
-   0389 A2 07              2286 	mov	c,_asic_sub_datREG_r_1_1
+   0386 A2 07              2286 	mov	c,_asic_sub_datREG_r_1_1
                     0227   2287 	C$ASIC_driver.c$210$1$1 ==.
                     0227   2288 	XG$asic_sub_datREG$0$0 ==.
-   038B 22                 2289 	ret
+   0388 22                 2289 	ret
                            2290 ;------------------------------------------------------------
                            2291 ;Allocation info for local variables in function 'asic_sub_datREAD'
                            2292 ;------------------------------------------------------------
@@ -2299,113 +2299,113 @@
                            2299 ;	-----------------------------------------
                            2300 ;	 function asic_sub_datREAD
                            2301 ;	-----------------------------------------
-   038C                    2302 _asic_sub_datREAD:
+   0389                    2302 _asic_sub_datREAD:
                     0228   2303 	C$ASIC_driver.c$213$1$1 ==.
                            2304 ;	../ASIC_driver.c:213: unsigned char bitpos = (~(asic_datcounter/3))-(256-asic_length);
-   038C 75 F0 03           2305 	mov	b,#0x03
-   038F E5 18              2306 	mov	a,_asic_datcounter
-   0391 84                 2307 	div	ab
-   0392 F4                 2308 	cpl	a
-   0393 FA                 2309 	mov	r2,a
-   0394 AB 12              2310 	mov	r3,_asic_length
-   0396 C3                 2311 	clr	c
-   0397 E4                 2312 	clr	a
-   0398 9B                 2313 	subb	a,r3
-   0399 FB                 2314 	mov	r3,a
-   039A EA                 2315 	mov	a,r2
-   039B C3                 2316 	clr	c
-   039C 9B                 2317 	subb	a,r3
-   039D FA                 2318 	mov	r2,a
+   0389 75 F0 03           2305 	mov	b,#0x03
+   038C E5 18              2306 	mov	a,_asic_datcounter
+   038E 84                 2307 	div	ab
+   038F F4                 2308 	cpl	a
+   0390 FA                 2309 	mov	r2,a
+   0391 AB 12              2310 	mov	r3,_asic_length
+   0393 C3                 2311 	clr	c
+   0394 E4                 2312 	clr	a
+   0395 9B                 2313 	subb	a,r3
+   0396 FB                 2314 	mov	r3,a
+   0397 EA                 2315 	mov	a,r2
+   0398 C3                 2316 	clr	c
+   0399 9B                 2317 	subb	a,r3
+   039A FA                 2318 	mov	r2,a
                     023A   2319 	C$ASIC_driver.c$214$1$1 ==.
                            2320 ;	../ASIC_driver.c:214: if(asic_datcounter==0){
-   039E E5 18              2321 	mov	a,_asic_datcounter
+   039B E5 18              2321 	mov	a,_asic_datcounter
                     023C   2322 	C$ASIC_driver.c$215$2$2 ==.
                            2323 ;	../ASIC_driver.c:215: asic_readdata = 0x00000000;
-   03A0 70 1C              2324 	jnz	00102$
-   03A2 F5 0E              2325 	mov	_asic_readdata,a
-   03A4 F5 0F              2326 	mov	(_asic_readdata + 1),a
-   03A6 F5 10              2327 	mov	(_asic_readdata + 2),a
-   03A8 F5 11              2328 	mov	(_asic_readdata + 3),a
+   039D 70 1C              2324 	jnz	00102$
+   039F F5 0E              2325 	mov	_asic_readdata,a
+   03A1 F5 0F              2326 	mov	(_asic_readdata + 1),a
+   03A3 F5 10              2327 	mov	(_asic_readdata + 2),a
+   03A5 F5 11              2328 	mov	(_asic_readdata + 3),a
                     0246   2329 	C$ASIC_driver.c$216$3$3 ==.
                            2330 ;	../ASIC_driver.c:216: IO_vSetInput(P0, 0x10);
-   03AA 74 80              2331 	mov	a,#0x80
-   03AC 55 A8              2332 	anl	a,_IEN0
-   03AE FB                 2333 	mov	r3,a
-   03AF 53 A8 7F           2334 	anl	_IEN0,#0x7F
-   03B2 75 B2 90           2335 	mov	_PORT_PAGE,#0x90
-   03B5 53 86 EF           2336 	anl	_P0_DIR,#0xEF
-   03B8 75 B2 D0           2337 	mov	_PORT_PAGE,#0xD0
-   03BB EB                 2338 	mov	a,r3
-   03BC 42 A8              2339 	orl	_IEN0,a
-   03BE                    2340 00102$:
+   03A7 74 80              2331 	mov	a,#0x80
+   03A9 55 A8              2332 	anl	a,_IEN0
+   03AB FB                 2333 	mov	r3,a
+   03AC 53 A8 7F           2334 	anl	_IEN0,#0x7F
+   03AF 75 B2 90           2335 	mov	_PORT_PAGE,#0x90
+   03B2 53 86 EF           2336 	anl	_P0_DIR,#0xEF
+   03B5 75 B2 D0           2337 	mov	_PORT_PAGE,#0xD0
+   03B8 EB                 2338 	mov	a,r3
+   03B9 42 A8              2339 	orl	_IEN0,a
+   03BB                    2340 00102$:
                     025A   2341 	C$ASIC_driver.c$219$1$1 ==.
                            2342 ;	../ASIC_driver.c:219: if(asic_datcounter%3==2&&ASIC_DAT==1){
-   03BE 75 F0 03           2343 	mov	b,#0x03
-   03C1 E5 18              2344 	mov	a,_asic_datcounter
-   03C3 84                 2345 	div	ab
-   03C4 AB F0              2346 	mov	r3,b
-   03C6 BB 02 2C           2347 	cjne	r3,#0x02,00104$
-   03C9 30 84 29           2348 	jnb	_P0_4,00104$
+   03BB 75 F0 03           2343 	mov	b,#0x03
+   03BE E5 18              2344 	mov	a,_asic_datcounter
+   03C0 84                 2345 	div	ab
+   03C1 AB F0              2346 	mov	r3,b
+   03C3 BB 02 2C           2347 	cjne	r3,#0x02,00104$
+   03C6 30 84 29           2348 	jnb	_P0_4,00104$
                     0268   2349 	C$ASIC_driver.c$220$2$4 ==.
                            2350 ;	../ASIC_driver.c:220: asic_readdata|=((long)0x00000001)<<bitpos;
-   03CC 8A F0              2351 	mov	b,r2
-   03CE 05 F0              2352 	inc	b
-   03D0 7A 01              2353 	mov	r2,#0x01
-   03D2 7B 00              2354 	mov	r3,#0x00
-   03D4 7C 00              2355 	mov	r4,#0x00
-   03D6 7D 00              2356 	mov	r5,#0x00
-   03D8 80 0C              2357 	sjmp	00120$
-   03DA                    2358 00119$:
-   03DA EA                 2359 	mov	a,r2
-   03DB 2A                 2360 	add	a,r2
-   03DC FA                 2361 	mov	r2,a
-   03DD EB                 2362 	mov	a,r3
-   03DE 33                 2363 	rlc	a
-   03DF FB                 2364 	mov	r3,a
-   03E0 EC                 2365 	mov	a,r4
-   03E1 33                 2366 	rlc	a
-   03E2 FC                 2367 	mov	r4,a
-   03E3 ED                 2368 	mov	a,r5
-   03E4 33                 2369 	rlc	a
-   03E5 FD                 2370 	mov	r5,a
-   03E6                    2371 00120$:
-   03E6 D5 F0 F1           2372 	djnz	b,00119$
-   03E9 EA                 2373 	mov	a,r2
-   03EA 42 0E              2374 	orl	_asic_readdata,a
-   03EC EB                 2375 	mov	a,r3
-   03ED 42 0F              2376 	orl	(_asic_readdata + 1),a
-   03EF EC                 2377 	mov	a,r4
-   03F0 42 10              2378 	orl	(_asic_readdata + 2),a
-   03F2 ED                 2379 	mov	a,r5
-   03F3 42 11              2380 	orl	(_asic_readdata + 3),a
-   03F5                    2381 00104$:
+   03C9 8A F0              2351 	mov	b,r2
+   03CB 05 F0              2352 	inc	b
+   03CD 7A 01              2353 	mov	r2,#0x01
+   03CF 7B 00              2354 	mov	r3,#0x00
+   03D1 7C 00              2355 	mov	r4,#0x00
+   03D3 7D 00              2356 	mov	r5,#0x00
+   03D5 80 0C              2357 	sjmp	00120$
+   03D7                    2358 00119$:
+   03D7 EA                 2359 	mov	a,r2
+   03D8 2A                 2360 	add	a,r2
+   03D9 FA                 2361 	mov	r2,a
+   03DA EB                 2362 	mov	a,r3
+   03DB 33                 2363 	rlc	a
+   03DC FB                 2364 	mov	r3,a
+   03DD EC                 2365 	mov	a,r4
+   03DE 33                 2366 	rlc	a
+   03DF FC                 2367 	mov	r4,a
+   03E0 ED                 2368 	mov	a,r5
+   03E1 33                 2369 	rlc	a
+   03E2 FD                 2370 	mov	r5,a
+   03E3                    2371 00120$:
+   03E3 D5 F0 F1           2372 	djnz	b,00119$
+   03E6 EA                 2373 	mov	a,r2
+   03E7 42 0E              2374 	orl	_asic_readdata,a
+   03E9 EB                 2375 	mov	a,r3
+   03EA 42 0F              2376 	orl	(_asic_readdata + 1),a
+   03EC EC                 2377 	mov	a,r4
+   03ED 42 10              2378 	orl	(_asic_readdata + 2),a
+   03EF ED                 2379 	mov	a,r5
+   03F0 42 11              2380 	orl	(_asic_readdata + 3),a
+   03F2                    2381 00104$:
                     0291   2382 	C$ASIC_driver.c$223$1$1 ==.
                            2383 ;	../ASIC_driver.c:223: if(asic_datcounter==(asic_length*3)){
-   03F5 E5 12              2384 	mov	a,_asic_length
-   03F7 75 F0 03           2385 	mov	b,#0x03
-   03FA A4                 2386 	mul	ab
-   03FB FA                 2387 	mov	r2,a
-   03FC AB F0              2388 	mov	r3,b
-   03FE AC 18              2389 	mov	r4,_asic_datcounter
-   0400 7D 00              2390 	mov	r5,#0x00
-   0402 EC                 2391 	mov	a,r4
-   0403 B5 02 0B           2392 	cjne	a,ar2,00107$
-   0406 ED                 2393 	mov	a,r5
-   0407 B5 03 07           2394 	cjne	a,ar3,00107$
+   03F2 E5 12              2384 	mov	a,_asic_length
+   03F4 75 F0 03           2385 	mov	b,#0x03
+   03F7 A4                 2386 	mul	ab
+   03F8 FA                 2387 	mov	r2,a
+   03F9 AB F0              2388 	mov	r3,b
+   03FB AC 18              2389 	mov	r4,_asic_datcounter
+   03FD 7D 00              2390 	mov	r5,#0x00
+   03FF EC                 2391 	mov	a,r4
+   0400 B5 02 0B           2392 	cjne	a,ar2,00107$
+   0403 ED                 2393 	mov	a,r5
+   0404 B5 03 07           2394 	cjne	a,ar3,00107$
                     02A6   2395 	C$ASIC_driver.c$224$2$5 ==.
                            2396 ;	../ASIC_driver.c:224: asic_datcounter=0;
-   040A 75 18 00           2397 	mov	_asic_datcounter,#0x00
+   0407 75 18 00           2397 	mov	_asic_datcounter,#0x00
                     02A9   2398 	C$ASIC_driver.c$225$2$5 ==.
                            2399 ;	../ASIC_driver.c:225: asic_datState=ASIC_DATSTATE_EXEPTION;
-   040D 75 16 05           2400 	mov	_asic_datState,#0x05
-   0410 22                 2401 	ret
-   0411                    2402 00107$:
+   040A 75 16 05           2400 	mov	_asic_datState,#0x05
+   040D 22                 2401 	ret
+   040E                    2402 00107$:
                     02AD   2403 	C$ASIC_driver.c$227$2$6 ==.
                            2404 ;	../ASIC_driver.c:227: asic_datcounter++;
-   0411 05 18              2405 	inc	_asic_datcounter
+   040E 05 18              2405 	inc	_asic_datcounter
                     02AF   2406 	C$ASIC_driver.c$229$1$1 ==.
                     02AF   2407 	XG$asic_sub_datREAD$0$0 ==.
-   0413 22                 2408 	ret
+   0410 22                 2408 	ret
                            2409 ;------------------------------------------------------------
                            2410 ;Allocation info for local variables in function 'asic_sub_datEXP'
                            2411 ;------------------------------------------------------------
@@ -2417,54 +2417,54 @@
                            2417 ;	-----------------------------------------
                            2418 ;	 function asic_sub_datEXP
                            2419 ;	-----------------------------------------
-   0414                    2420 _asic_sub_datEXP:
+   0411                    2420 _asic_sub_datEXP:
                     02B0   2421 	C$ASIC_driver.c$232$1$1 ==.
                            2422 ;	../ASIC_driver.c:232: bit r= 1;
-   0414 D2 08              2423 	setb	_asic_sub_datEXP_r_1_1
+   0411 D2 08              2423 	setb	_asic_sub_datEXP_r_1_1
                     02B2   2424 	C$ASIC_driver.c$233$1$1 ==.
                            2425 ;	../ASIC_driver.c:233: if(asic_datcounter==0){
-   0416 E5 18              2426 	mov	a,_asic_datcounter
-   0418 70 18              2427 	jnz	00102$
+   0413 E5 18              2426 	mov	a,_asic_datcounter
+   0415 70 18              2427 	jnz	00102$
                     02B6   2428 	C$ASIC_driver.c$234$2$2 ==.
                            2429 ;	../ASIC_driver.c:234: ASIC_DAT = 0;
-   041A C2 84              2430 	clr	_P0_4
+   0417 C2 84              2430 	clr	_P0_4
                     02B8   2431 	C$ASIC_driver.c$235$3$3 ==.
                            2432 ;	../ASIC_driver.c:235: IO_vSetOutput(P0, 0x10);
-   041C 74 80              2433 	mov	a,#0x80
-   041E 55 A8              2434 	anl	a,_IEN0
-   0420 FA                 2435 	mov	r2,a
-   0421 53 A8 7F           2436 	anl	_IEN0,#0x7F
-   0424 75 B2 90           2437 	mov	_PORT_PAGE,#0x90
-   0427 43 86 10           2438 	orl	_P0_DIR,#0x10
-   042A 75 B2 D0           2439 	mov	_PORT_PAGE,#0xD0
-   042D EA                 2440 	mov	a,r2
-   042E 42 A8              2441 	orl	_IEN0,a
+   0419 74 80              2433 	mov	a,#0x80
+   041B 55 A8              2434 	anl	a,_IEN0
+   041D FA                 2435 	mov	r2,a
+   041E 53 A8 7F           2436 	anl	_IEN0,#0x7F
+   0421 75 B2 90           2437 	mov	_PORT_PAGE,#0x90
+   0424 43 86 10           2438 	orl	_P0_DIR,#0x10
+   0427 75 B2 D0           2439 	mov	_PORT_PAGE,#0xD0
+   042A EA                 2440 	mov	a,r2
+   042B 42 A8              2441 	orl	_IEN0,a
                     02CC   2442 	C$ASIC_driver.c$236$2$2 ==.
                            2443 ;	../ASIC_driver.c:236: r = 0;
-   0430 C2 08              2444 	clr	_asic_sub_datEXP_r_1_1
-   0432                    2445 00102$:
+   042D C2 08              2444 	clr	_asic_sub_datEXP_r_1_1
+   042F                    2445 00102$:
                     02CE   2446 	C$ASIC_driver.c$238$1$1 ==.
                            2447 ;	../ASIC_driver.c:238: if(asic_datcounter==2){
-   0432 74 02              2448 	mov	a,#0x02
-   0434 B5 18 08           2449 	cjne	a,_asic_datcounter,00104$
+   042F 74 02              2448 	mov	a,#0x02
+   0431 B5 18 08           2449 	cjne	a,_asic_datcounter,00104$
                     02D3   2450 	C$ASIC_driver.c$239$2$4 ==.
                            2451 ;	../ASIC_driver.c:239: asic_datcounter=0;
-   0437 75 18 00           2452 	mov	_asic_datcounter,#0x00
+   0434 75 18 00           2452 	mov	_asic_datcounter,#0x00
                     02D6   2453 	C$ASIC_driver.c$240$2$4 ==.
                            2454 ;	../ASIC_driver.c:240: asic_datState=ASIC_DATSTATE_IDLE;
-   043A 75 16 06           2455 	mov	_asic_datState,#0x06
-   043D 80 02              2456 	sjmp	00105$
-   043F                    2457 00104$:
+   0437 75 16 06           2455 	mov	_asic_datState,#0x06
+   043A 80 02              2456 	sjmp	00105$
+   043C                    2457 00104$:
                     02DB   2458 	C$ASIC_driver.c$242$2$5 ==.
                            2459 ;	../ASIC_driver.c:242: asic_datcounter++;
-   043F 05 18              2460 	inc	_asic_datcounter
-   0441                    2461 00105$:
+   043C 05 18              2460 	inc	_asic_datcounter
+   043E                    2461 00105$:
                     02DD   2462 	C$ASIC_driver.c$244$1$1 ==.
                            2463 ;	../ASIC_driver.c:244: return r;		
-   0441 A2 08              2464 	mov	c,_asic_sub_datEXP_r_1_1
+   043E A2 08              2464 	mov	c,_asic_sub_datEXP_r_1_1
                     02DF   2465 	C$ASIC_driver.c$245$1$1 ==.
                     02DF   2466 	XG$asic_sub_datEXP$0$0 ==.
-   0443 22                 2467 	ret
+   0440 22                 2467 	ret
                            2468 ;------------------------------------------------------------
                            2469 ;Allocation info for local variables in function 'asic_transmissionInterruptCall'
                            2470 ;------------------------------------------------------------
@@ -2475,148 +2475,148 @@
                            2475 ;	-----------------------------------------
                            2476 ;	 function asic_transmissionInterruptCall
                            2477 ;	-----------------------------------------
-   0444                    2478 _asic_transmissionInterruptCall:
+   0441                    2478 _asic_transmissionInterruptCall:
                     02E0   2479 	C$ASIC_driver.c$250$1$1 ==.
                            2480 ;	../ASIC_driver.c:250: switch(asic_clkState){
-   0444 E4                 2481 	clr	a
-   0445 B5 15 02           2482 	cjne	a,_asic_clkState,00122$
-   0448 80 0E              2483 	sjmp	00101$
-   044A                    2484 00122$:
-   044A 74 01              2485 	mov	a,#0x01
-   044C B5 15 02           2486 	cjne	a,_asic_clkState,00123$
-   044F 80 0E              2487 	sjmp	00102$
-   0451                    2488 00123$:
-   0451 74 02              2489 	mov	a,#0x02
+   0441 E4                 2481 	clr	a
+   0442 B5 15 02           2482 	cjne	a,_asic_clkState,00122$
+   0445 80 0E              2483 	sjmp	00101$
+   0447                    2484 00122$:
+   0447 74 01              2485 	mov	a,#0x01
+   0449 B5 15 02           2486 	cjne	a,_asic_clkState,00123$
+   044C 80 0E              2487 	sjmp	00102$
+   044E                    2488 00123$:
+   044E 74 02              2489 	mov	a,#0x02
                     02EF   2490 	C$ASIC_driver.c$251$2$2 ==.
                            2491 ;	../ASIC_driver.c:251: case ASIC_CLKSTATE_START:
-   0453 B5 15 15           2492 	cjne	a,_asic_clkState,00104$
-   0456 80 0E              2493 	sjmp	00103$
-   0458                    2494 00101$:
+   0450 B5 15 15           2492 	cjne	a,_asic_clkState,00104$
+   0453 80 0E              2493 	sjmp	00103$
+   0455                    2494 00101$:
                     02F4   2495 	C$ASIC_driver.c$252$2$2 ==.
                            2496 ;	../ASIC_driver.c:252: ASIC_CLK = asic_sub_clk110(); 	
-   0458 12 02 55           2497 	lcall	_asic_sub_clk110
-   045B 92 83              2498 	mov	_P0_3,c
+   0455 12 02 52           2497 	lcall	_asic_sub_clk110
+   0458 92 83              2498 	mov	_P0_3,c
                     02F9   2499 	C$ASIC_driver.c$253$2$2 ==.
                            2500 ;	../ASIC_driver.c:253: break;
                     02F9   2501 	C$ASIC_driver.c$254$2$2 ==.
                            2502 ;	../ASIC_driver.c:254: case ASIC_CLKSTATE_NORMAL:
-   045D 80 0C              2503 	sjmp	00104$
-   045F                    2504 00102$:
+   045A 80 0C              2503 	sjmp	00104$
+   045C                    2504 00102$:
                     02FB   2505 	C$ASIC_driver.c$255$2$2 ==.
                            2506 ;	../ASIC_driver.c:255: ASIC_CLK = asic_sub_clk010();
-   045F 12 02 87           2507 	lcall	_asic_sub_clk010
-   0462 92 83              2508 	mov	_P0_3,c
+   045C 12 02 84           2507 	lcall	_asic_sub_clk010
+   045F 92 83              2508 	mov	_P0_3,c
                     0300   2509 	C$ASIC_driver.c$256$2$2 ==.
                            2510 ;	../ASIC_driver.c:256: break;		
                     0300   2511 	C$ASIC_driver.c$257$2$2 ==.
                            2512 ;	../ASIC_driver.c:257: case ASIC_CLKSTATE_EXEPTION:
-   0464 80 05              2513 	sjmp	00104$
-   0466                    2514 00103$:
+   0461 80 05              2513 	sjmp	00104$
+   0463                    2514 00103$:
                     0302   2515 	C$ASIC_driver.c$258$2$2 ==.
                            2516 ;	../ASIC_driver.c:258: ASIC_CLK = asic_sub_clk0110();			
-   0466 12 02 6B           2517 	lcall	_asic_sub_clk0110
-   0469 92 83              2518 	mov	_P0_3,c
+   0463 12 02 68           2517 	lcall	_asic_sub_clk0110
+   0466 92 83              2518 	mov	_P0_3,c
                     0307   2519 	C$ASIC_driver.c$260$1$1 ==.
                            2520 ;	../ASIC_driver.c:260: }
-   046B                    2521 00104$:
+   0468                    2521 00104$:
                     0307   2522 	C$ASIC_driver.c$262$1$1 ==.
                            2523 ;	../ASIC_driver.c:262: switch(asic_datState){
-   046B E5 16              2524 	mov	a,_asic_datState
-   046D 24 FA              2525 	add	a,#0xff - 0x05
-   046F 40 42              2526 	jc	00111$
-   0471 E5 16              2527 	mov	a,_asic_datState
-   0473 25 16              2528 	add	a,_asic_datState
-   0475 25 16              2529 	add	a,_asic_datState
-   0477 90 04 7B           2530 	mov	dptr,#00126$
-   047A 73                 2531 	jmp	@a+dptr
-   047B                    2532 00126$:
-   047B 02 04 8D           2533 	ljmp	00105$
-   047E 02 04 94           2534 	ljmp	00106$
-   0481 02 04 9B           2535 	ljmp	00107$
-   0484 02 04 A2           2536 	ljmp	00108$
-   0487 02 04 A9           2537 	ljmp	00109$
-   048A 02 04 AE           2538 	ljmp	00110$
+   0468 E5 16              2524 	mov	a,_asic_datState
+   046A 24 FA              2525 	add	a,#0xff - 0x05
+   046C 40 42              2526 	jc	00111$
+   046E E5 16              2527 	mov	a,_asic_datState
+   0470 25 16              2528 	add	a,_asic_datState
+   0472 25 16              2529 	add	a,_asic_datState
+   0474 90 04 78           2530 	mov	dptr,#00126$
+   0477 73                 2531 	jmp	@a+dptr
+   0478                    2532 00126$:
+   0478 02 04 8A           2533 	ljmp	00105$
+   047B 02 04 91           2534 	ljmp	00106$
+   047E 02 04 98           2535 	ljmp	00107$
+   0481 02 04 9F           2536 	ljmp	00108$
+   0484 02 04 A6           2537 	ljmp	00109$
+   0487 02 04 AB           2538 	ljmp	00110$
                     0329   2539 	C$ASIC_driver.c$263$2$3 ==.
                            2540 ;	../ASIC_driver.c:263: case ASIC_DATSTATE_START:
-   048D                    2541 00105$:
+   048A                    2541 00105$:
                     0329   2542 	C$ASIC_driver.c$264$2$3 ==.
                            2543 ;	../ASIC_driver.c:264: ASIC_DAT = asic_sub_dat100();
-   048D 12 02 C7           2544 	lcall	_asic_sub_dat100
-   0490 92 84              2545 	mov	_P0_4,c
+   048A 12 02 C4           2544 	lcall	_asic_sub_dat100
+   048D 92 84              2545 	mov	_P0_4,c
                     032E   2546 	C$ASIC_driver.c$265$2$3 ==.
                            2547 ;	../ASIC_driver.c:265: break;
                     032E   2548 	C$ASIC_driver.c$266$2$3 ==.
                            2549 ;	../ASIC_driver.c:266: case ASIC_DATSTATE_DIRECTION:
-   0492 80 1F              2550 	sjmp	00111$
-   0494                    2551 00106$:
+   048F 80 1F              2550 	sjmp	00111$
+   0491                    2551 00106$:
                     0330   2552 	C$ASIC_driver.c$267$2$3 ==.
                            2553 ;	../ASIC_driver.c:267: ASIC_DAT = asic_sub_datDIR();
-   0494 12 02 E1           2554 	lcall	_asic_sub_datDIR
-   0497 92 84              2555 	mov	_P0_4,c
+   0491 12 02 DE           2554 	lcall	_asic_sub_datDIR
+   0494 92 84              2555 	mov	_P0_4,c
                     0335   2556 	C$ASIC_driver.c$268$2$3 ==.
                            2557 ;	../ASIC_driver.c:268: break;		
                     0335   2558 	C$ASIC_driver.c$269$2$3 ==.
                            2559 ;	../ASIC_driver.c:269: case ASIC_DATSTATE_ADDRESS:
-   0499 80 18              2560 	sjmp	00111$
-   049B                    2561 00107$:
+   0496 80 18              2560 	sjmp	00111$
+   0498                    2561 00107$:
                     0337   2562 	C$ASIC_driver.c$270$2$3 ==.
                            2563 ;	../ASIC_driver.c:270: ASIC_DAT = asic_sub_datADR(); 		
-   049B 12 02 FE           2564 	lcall	_asic_sub_datADR
-   049E 92 84              2565 	mov	_P0_4,c
+   0498 12 02 FB           2564 	lcall	_asic_sub_datADR
+   049B 92 84              2565 	mov	_P0_4,c
                     033C   2566 	C$ASIC_driver.c$271$2$3 ==.
                            2567 ;	../ASIC_driver.c:271: break;
                     033C   2568 	C$ASIC_driver.c$272$2$3 ==.
                            2569 ;	../ASIC_driver.c:272: case ASIC_DATSTATE_REGESTER:
-   04A0 80 11              2570 	sjmp	00111$
-   04A2                    2571 00108$:
+   049D 80 11              2570 	sjmp	00111$
+   049F                    2571 00108$:
                     033E   2572 	C$ASIC_driver.c$273$2$3 ==.
                            2573 ;	../ASIC_driver.c:273: ASIC_DAT = asic_sub_datREG(); 		
-   04A2 12 03 34           2574 	lcall	_asic_sub_datREG
-   04A5 92 84              2575 	mov	_P0_4,c
+   049F 12 03 31           2574 	lcall	_asic_sub_datREG
+   04A2 92 84              2575 	mov	_P0_4,c
                     0343   2576 	C$ASIC_driver.c$274$2$3 ==.
                            2577 ;	../ASIC_driver.c:274: break;
                     0343   2578 	C$ASIC_driver.c$275$2$3 ==.
                            2579 ;	../ASIC_driver.c:275: case ASIC_DATSTATE_READ:
-   04A7 80 0A              2580 	sjmp	00111$
-   04A9                    2581 00109$:
+   04A4 80 0A              2580 	sjmp	00111$
+   04A6                    2581 00109$:
                     0345   2582 	C$ASIC_driver.c$276$2$3 ==.
                            2583 ;	../ASIC_driver.c:276: asic_sub_datREAD();	
-   04A9 12 03 8C           2584 	lcall	_asic_sub_datREAD
+   04A6 12 03 89           2584 	lcall	_asic_sub_datREAD
                     0348   2585 	C$ASIC_driver.c$277$2$3 ==.
                            2586 ;	../ASIC_driver.c:277: break;
                     0348   2587 	C$ASIC_driver.c$278$2$3 ==.
                            2588 ;	../ASIC_driver.c:278: case ASIC_DATSTATE_EXEPTION:
-   04AC 80 05              2589 	sjmp	00111$
-   04AE                    2590 00110$:
+   04A9 80 05              2589 	sjmp	00111$
+   04AB                    2590 00110$:
                     034A   2591 	C$ASIC_driver.c$279$2$3 ==.
                            2592 ;	../ASIC_driver.c:279: ASIC_DAT = asic_sub_datEXP(); 		
-   04AE 12 04 14           2593 	lcall	_asic_sub_datEXP
-   04B1 92 84              2594 	mov	_P0_4,c
+   04AB 12 04 11           2593 	lcall	_asic_sub_datEXP
+   04AE 92 84              2594 	mov	_P0_4,c
                     034F   2595 	C$ASIC_driver.c$281$1$1 ==.
                            2596 ;	../ASIC_driver.c:281: }
-   04B3                    2597 00111$:
+   04B0                    2597 00111$:
                     034F   2598 	C$ASIC_driver.c$283$1$1 ==.
                            2599 ;	../ASIC_driver.c:283: if(asic_datState==ASIC_DATSTATE_IDLE||asic_clkState==ASIC_CLKSTATE_IDLE){
-   04B3 74 06              2600 	mov	a,#0x06
-   04B5 B5 16 02           2601 	cjne	a,_asic_datState,00127$
-   04B8 80 05              2602 	sjmp	00112$
-   04BA                    2603 00127$:
-   04BA 74 03              2604 	mov	a,#0x03
-   04BC B5 15 08           2605 	cjne	a,_asic_clkState,00115$
-   04BF                    2606 00112$:
+   04B0 74 06              2600 	mov	a,#0x06
+   04B2 B5 16 02           2601 	cjne	a,_asic_datState,00127$
+   04B5 80 05              2602 	sjmp	00112$
+   04B7                    2603 00127$:
+   04B7 74 03              2604 	mov	a,#0x03
+   04B9 B5 15 08           2605 	cjne	a,_asic_clkState,00115$
+   04BC                    2606 00112$:
                     035B   2607 	C$ASIC_driver.c$284$2$4 ==.
                            2608 ;	../ASIC_driver.c:284: asic_datcounter=0;
-   04BF 75 18 00           2609 	mov	_asic_datcounter,#0x00
+   04BC 75 18 00           2609 	mov	_asic_datcounter,#0x00
                     035E   2610 	C$ASIC_driver.c$285$2$4 ==.
                            2611 ;	../ASIC_driver.c:285: asic_clkcounter=0;
-   04C2 75 17 00           2612 	mov	_asic_clkcounter,#0x00
+   04BF 75 17 00           2612 	mov	_asic_clkcounter,#0x00
                     0361   2613 	C$ASIC_driver.c$286$2$4 ==.
                            2614 ;	../ASIC_driver.c:286: asic_busy=0;
-   04C5 C2 00              2615 	clr	_asic_busy
-   04C7                    2616 00115$:
+   04C2 C2 00              2615 	clr	_asic_busy
+   04C4                    2616 00115$:
                     0363   2617 	C$ASIC_driver.c$288$2$1 ==.
                     0363   2618 	XG$asic_transmissionInterruptCall$0$0 ==.
-   04C7 22                 2619 	ret
+   04C4 22                 2619 	ret
                            2620 	.area CSEG    (CODE)
                            2621 	.area CONST   (CODE)
                            2622 	.area XINIT   (CODE)

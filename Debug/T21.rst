@@ -1341,7 +1341,7 @@
                            1341 ;	-----------------------------------------
                            1342 ;	 function T21_vInit
                            1343 ;	-----------------------------------------
-   1728                    1344 _T21_vInit:
+   1725                    1344 _T21_vInit:
                     0002   1345 	ar2 = 0x02
                     0003   1346 	ar3 = 0x03
                     0004   1347 	ar4 = 0x04
@@ -1352,31 +1352,31 @@
                     0001   1352 	ar1 = 0x01
                     0000   1353 	C$T21.C$153$1$1 ==.
                            1354 ;	../T21.C:153: SET_RMAP();                   
-   1728 43 8F 01           1355 	orl	_SYSCON0,#0x01
+   1725 43 8F 01           1355 	orl	_SYSCON0,#0x01
                     0003   1356 	C$T21.C$155$1$1 ==.
                            1357 ;	../T21.C:155: T21_T2L       =  0x30;         // load timer 21  register,   low byte
-   172B 75 C4 30           1358 	mov	_T21_T2L,#0x30
+   1728 75 C4 30           1358 	mov	_T21_T2L,#0x30
                     0006   1359 	C$T21.C$157$1$1 ==.
                            1360 ;	../T21.C:157: T21_T2H       =  0xF8;         // load timer 21  register,   high byte
-   172E 75 C5 F8           1361 	mov	_T21_T2H,#0xF8
+   172B 75 C5 F8           1361 	mov	_T21_T2H,#0xF8
                     0009   1362 	C$T21.C$159$1$1 ==.
                            1363 ;	../T21.C:159: T21_RC2L      =  0x30;         // load timer 21 reload/capture register,   
-   1731 75 C2 30           1364 	mov	_T21_RC2L,#0x30
+   172E 75 C2 30           1364 	mov	_T21_RC2L,#0x30
                     000C   1365 	C$T21.C$161$1$1 ==.
                            1366 ;	../T21.C:161: T21_RC2H      =  0xF8;         // load timer 21 reload/capture register,   
-   1734 75 C3 F8           1367 	mov	_T21_RC2H,#0xF8
+   1731 75 C3 F8           1367 	mov	_T21_RC2H,#0xF8
                     000F   1368 	C$T21.C$163$1$1 ==.
                            1369 ;	../T21.C:163: T21_T2MOD     =  0x00;         // load timer 21 mode register
-   1737 75 C1 00           1370 	mov	_T21_T2MOD,#0x00
+   1734 75 C1 00           1370 	mov	_T21_T2MOD,#0x00
                     0012   1371 	C$T21.C$170$1$1 ==.
                            1372 ;	../T21.C:170: TR2 = 1; //   start timer
-   173A D2 C2              1373 	setb	_TR2
+   1737 D2 C2              1373 	setb	_TR2
                     0014   1374 	C$T21.C$172$1$1 ==.
                            1375 ;	../T21.C:172: RESET_RMAP();                 
-   173C 53 8F FE           1376 	anl	_SYSCON0,#0xFE
+   1739 53 8F FE           1376 	anl	_SYSCON0,#0xFE
                     0017   1377 	C$T21.C$174$1$1 ==.
                     0017   1378 	XG$T21_vInit$0$0 ==.
-   173F 22                 1379 	ret
+   173C 22                 1379 	ret
                            1380 	.area CSEG    (CODE)
                            1381 	.area CONST   (CODE)
                            1382 	.area XINIT   (CODE)

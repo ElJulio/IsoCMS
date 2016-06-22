@@ -1369,7 +1369,7 @@
                            1369 ;	-----------------------------------------
                            1370 ;	 function SHINT_vInit
                            1371 ;	-----------------------------------------
-   150A                    1372 _SHINT_vInit:
+   1507                    1372 _SHINT_vInit:
                     0002   1373 	ar2 = 0x02
                     0003   1374 	ar3 = 0x03
                     0004   1375 	ar4 = 0x04
@@ -1380,13 +1380,13 @@
                     0001   1380 	ar1 = 0x01
                     0000   1381 	C$SHARED_INT.C$134$1$1 ==.
                            1382 ;	../SHARED_INT.C:134: IEN0         |=  0x20;         // load interrupt enable register 0
-   150A 43 A8 20           1383 	orl	_IEN0,#0x20
+   1507 43 A8 20           1383 	orl	_IEN0,#0x20
                     0003   1384 	C$SHARED_INT.C$140$1$1 ==.
                            1385 ;	../SHARED_INT.C:140: IEN1         |=  0x14;         // load interrupt enable register 1
-   150D 43 E8 14           1386 	orl	_IEN1,#0x14
+   150A 43 E8 14           1386 	orl	_IEN1,#0x14
                     0006   1387 	C$SHARED_INT.C$148$1$1 ==.
                     0006   1388 	XG$SHINT_vInit$0$0 ==.
-   1510 22                 1389 	ret
+   150D 22                 1389 	ret
                            1390 ;------------------------------------------------------------
                            1391 ;Allocation info for local variables in function 'SHINT_viXINTR5Isr'
                            1392 ;------------------------------------------------------------
@@ -1402,316 +1402,316 @@
                            1402 ;	-----------------------------------------
                            1403 ;	 function SHINT_viXINTR5Isr
                            1404 ;	-----------------------------------------
-   1511                    1405 _SHINT_viXINTR5Isr:
-   1511 C0 E0              1406 	push	acc
-   1513 C0 F0              1407 	push	b
-   1515 C0 02              1408 	push	ar2
-   1517 C0 03              1409 	push	ar3
-   1519 C0 04              1410 	push	ar4
-   151B C0 05              1411 	push	ar5
-   151D C0 06              1412 	push	ar6
-   151F C0 D0              1413 	push	psw
-   1521 75 D0 00           1414 	mov	psw,#0x00
+   150E                    1405 _SHINT_viXINTR5Isr:
+   150E C0 E0              1406 	push	acc
+   1510 C0 F0              1407 	push	b
+   1512 C0 02              1408 	push	ar2
+   1514 C0 03              1409 	push	ar3
+   1516 C0 04              1410 	push	ar4
+   1518 C0 05              1411 	push	ar5
+   151A C0 06              1412 	push	ar6
+   151C C0 D0              1413 	push	psw
+   151E 75 D0 00           1414 	mov	psw,#0x00
                     001A   1415 	C$SHARED_INT.C$199$1$1 ==.
                            1416 ;	../SHARED_INT.C:199: volatile ubyte ubTempVarObjHandler = 0;
-   1524 75 50 00           1417 	mov	_SHINT_viXINTR5Isr_ubTempVarObjHandler_1_1,#0x00
+   1521 75 50 00           1417 	mov	_SHINT_viXINTR5Isr_ubTempVarObjHandler_1_1,#0x00
                     001D   1418 	C$SHARED_INT.C$206$2$2 ==.
                            1419 ;	../SHARED_INT.C:206: pushsyscon();                  // push the current RMAP
-   1527 C0 8F              1420 	 push 0x8F 
+   1524 C0 8F              1420 	 push 0x8F 
                     001F   1421 	C$SHARED_INT.C$207$1$1 ==.
                            1422 ;	../SHARED_INT.C:207: RESET_RMAP();                  // resets RMAP
-   1529 53 8F FE           1423 	anl	_SYSCON0,#0xFE
+   1526 53 8F FE           1423 	anl	_SYSCON0,#0xFE
                     0022   1424 	C$SHARED_INT.C$209$1$1 ==.
                            1425 ;	../SHARED_INT.C:209: CAN_pushAMRegs();              // push the CAN Access Mediator Registers
-   152C                    1426 00101$:
-   152C E5 D8              1427 	mov	a,_CAN_ADCON
-   152E 20 E1 FB           1428 	jb	acc.1,00101$
-   1531 C0 D9 C0 DA C0 DB  1429 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
+   1529                    1426 00101$:
+   1529 E5 D8              1427 	mov	a,_CAN_ADCON
+   152B 20 E1 FB           1428 	jb	acc.1,00101$
+   152E C0 D9 C0 DA C0 DB  1429 	 push 0xD9 push 0xDA push 0xDB push 0xDC push 0xDD push 0xDE 
         C0 DC C0 DD C0 DE
                     0033   1430 	C$SHARED_INT.C$211$1$1 ==.
                            1431 ;	../SHARED_INT.C:211: SFR_PAGE(_su0, SST1);          // switch to page 0
-   153D 75 BF 90           1432 	mov	_SCU_PAGE,#0x90
+   153A 75 BF 90           1432 	mov	_SCU_PAGE,#0x90
                     0036   1433 	C$SHARED_INT.C$215$1$1 ==.
                            1434 ;	../SHARED_INT.C:215: if (TF2)
                     0036   1435 	C$SHARED_INT.C$219$2$3 ==.
                            1436 ;	../SHARED_INT.C:219: TF2 = 0;
-   1540 10 C7 02           1437 	jbc	_TF2,00168$
-   1543 80 00              1438 	sjmp	00105$
-   1545                    1439 00168$:
-   1545                    1440 00105$:
+   153D 10 C7 02           1437 	jbc	_TF2,00168$
+   1540 80 00              1438 	sjmp	00105$
+   1542                    1439 00168$:
+   1542                    1440 00105$:
                     003B   1441 	C$SHARED_INT.C$231$1$1 ==.
                            1442 ;	../SHARED_INT.C:231: if (((IRCON2 & 0x01) != 0))
-   1545 E5 B6              1443 	mov	a,_IRCON2
-   1547 20 E0 03           1444 	jb	acc.0,00169$
-   154A 02 16 78           1445 	ljmp	00141$
-   154D                    1446 00169$:
+   1542 E5 B6              1443 	mov	a,_IRCON2
+   1544 20 E0 03           1444 	jb	acc.0,00169$
+   1547 02 16 75           1445 	ljmp	00141$
+   154A                    1446 00169$:
                     0043   1447 	C$SHARED_INT.C$234$2$4 ==.
                            1448 ;	../SHARED_INT.C:234: IRCON2 &= ~(ubyte)0x01; //   clear CANSRC0
-   154D 53 B6 FE           1449 	anl	_IRCON2,#0xFE
+   154A 53 B6 FE           1449 	anl	_IRCON2,#0xFE
                     0046   1450 	C$SHARED_INT.C$240$2$4 ==.
                            1451 ;	../SHARED_INT.C:240: CAN_vWriteCANAddress(CAN_NSR1);
-   1550 75 D9 C1           1452 	mov	_CAN_ADL,#0xC1
-   1553 75 DA 00           1453 	mov	_CAN_ADH,#0x00
+   154D 75 D9 C1           1452 	mov	_CAN_ADL,#0xC1
+   1550 75 DA 00           1453 	mov	_CAN_ADH,#0x00
                     004C   1454 	C$SHARED_INT.C$241$2$4 ==.
                            1455 ;	../SHARED_INT.C:241: CAN_vReadEN();
-   1556 75 D8 00           1456 	mov	_CAN_ADCON,#0x00
-   1559                    1457 00106$:
-   1559 E5 D8              1458 	mov	a,_CAN_ADCON
-   155B 20 E1 FB           1459 	jb	acc.1,00106$
+   1553 75 D8 00           1456 	mov	_CAN_ADCON,#0x00
+   1556                    1457 00106$:
+   1556 E5 D8              1458 	mov	a,_CAN_ADCON
+   1558 20 E1 FB           1459 	jb	acc.1,00106$
                     0054   1460 	C$SHARED_INT.C$242$2$4 ==.
                            1461 ;	../SHARED_INT.C:242: ubNSRL = CAN_DATA0;
-   155E AA DB              1462 	mov	r2,_CAN_DATA0
+   155B AA DB              1462 	mov	r2,_CAN_DATA0
                     0056   1463 	C$SHARED_INT.C$273$2$4 ==.
                            1464 ;	../SHARED_INT.C:273: CAN_vWriteCANAddress(CAN_NSR1); // Addressing CAN_NSR1
-   1560 75 D9 C1           1465 	mov	_CAN_ADL,#0xC1
-   1563 75 DA 00           1466 	mov	_CAN_ADH,#0x00
+   155D 75 D9 C1           1465 	mov	_CAN_ADL,#0xC1
+   1560 75 DA 00           1466 	mov	_CAN_ADH,#0x00
                     005C   1467 	C$SHARED_INT.C$274$2$4 ==.
                            1468 ;	../SHARED_INT.C:274: CAN_DATA0   =  ~(ubNSRL & ubResetLEC);       // load CAN_NSR1 status register[7-0]
-   1566 53 02 3F           1469 	anl	ar2,#0x3F
-   1569 EA                 1470 	mov	a,r2
-   156A F4                 1471 	cpl	a
-   156B F5 DB              1472 	mov	_CAN_DATA0,a
+   1563 53 02 3F           1469 	anl	ar2,#0x3F
+   1566 EA                 1470 	mov	a,r2
+   1567 F4                 1471 	cpl	a
+   1568 F5 DB              1472 	mov	_CAN_DATA0,a
                     0063   1473 	C$SHARED_INT.C$275$2$4 ==.
                            1474 ;	../SHARED_INT.C:275: CAN_vWriteEN(D0_VALID);  // Data0 Valid for
-   156D 75 D8 11           1475 	mov	_CAN_ADCON,#0x11
-   1570                    1476 00109$:
-   1570 E5 D8              1477 	mov	a,_CAN_ADCON
-   1572 20 E1 FB           1478 	jb	acc.1,00109$
+   156A 75 D8 11           1475 	mov	_CAN_ADCON,#0x11
+   156D                    1476 00109$:
+   156D E5 D8              1477 	mov	a,_CAN_ADCON
+   156F 20 E1 FB           1478 	jb	acc.1,00109$
                     006B   1479 	C$SHARED_INT.C$282$2$4 ==.
                            1480 ;	../SHARED_INT.C:282: CAN_vWriteCANAddress(CAN_MSIMASK);    // set message index mask register
-   1575 75 D9 70           1481 	mov	_CAN_ADL,#0x70
-   1578 75 DA 00           1482 	mov	_CAN_ADH,#0x00
+   1572 75 D9 70           1481 	mov	_CAN_ADL,#0x70
+   1575 75 DA 00           1482 	mov	_CAN_ADH,#0x00
                     0071   1483 	C$SHARED_INT.C$283$2$4 ==.
                            1484 ;	../SHARED_INT.C:283: CAN_DATA0   =   0x83;        // set message index mask register
-   157B 75 DB 83           1485 	mov	_CAN_DATA0,#0x83
+   1578 75 DB 83           1485 	mov	_CAN_DATA0,#0x83
                     0074   1486 	C$SHARED_INT.C$284$2$4 ==.
                            1487 ;	../SHARED_INT.C:284: CAN_DATA1   =   0x00;        // set message index mask register
-   157E 75 DC 00           1488 	mov	_CAN_DATA1,#0x00
+   157B 75 DC 00           1488 	mov	_CAN_DATA1,#0x00
                     0077   1489 	C$SHARED_INT.C$285$2$4 ==.
                            1490 ;	../SHARED_INT.C:285: CAN_DATA2   =   0x00;        // set message index mask register
-   1581 75 DD 00           1491 	mov	_CAN_DATA2,#0x00
+   157E 75 DD 00           1491 	mov	_CAN_DATA2,#0x00
                     007A   1492 	C$SHARED_INT.C$286$2$4 ==.
                            1493 ;	../SHARED_INT.C:286: CAN_DATA3   =   0x00;        // set message index mask register
-   1584 75 DE 00           1494 	mov	_CAN_DATA3,#0x00
+   1581 75 DE 00           1494 	mov	_CAN_DATA3,#0x00
                     007D   1495 	C$SHARED_INT.C$288$2$4 ==.
                            1496 ;	../SHARED_INT.C:288: CAN_vWriteEN(ALL_DATA_VALID); // Write mode Enabled
-   1587 75 D8 F1           1497 	mov	_CAN_ADCON,#0xF1
-   158A                    1498 00112$:
-   158A E5 D8              1499 	mov	a,_CAN_ADCON
-   158C 20 E1 FB           1500 	jb	acc.1,00112$
+   1584 75 D8 F1           1497 	mov	_CAN_ADCON,#0xF1
+   1587                    1498 00112$:
+   1587 E5 D8              1499 	mov	a,_CAN_ADCON
+   1589 20 E1 FB           1500 	jb	acc.1,00112$
                     0085   1501 	C$SHARED_INT.C$293$2$4 ==.
                            1502 ;	../SHARED_INT.C:293: CAN_vWriteCANAddress(CAN_MSID0);   // message index register
-   158F 75 D9 50           1503 	mov	_CAN_ADL,#0x50
-   1592 75 DA 00           1504 	mov	_CAN_ADH,#0x00
+   158C 75 D9 50           1503 	mov	_CAN_ADL,#0x50
+   158F 75 DA 00           1504 	mov	_CAN_ADH,#0x00
                     008B   1505 	C$SHARED_INT.C$294$2$4 ==.
                            1506 ;	../SHARED_INT.C:294: CAN_vReadEN();               // Read Mode is enabled
-   1595 75 D8 00           1507 	mov	_CAN_ADCON,#0x00
-   1598                    1508 00115$:
-   1598 E5 D8              1509 	mov	a,_CAN_ADCON
-   159A 20 E1 FB           1510 	jb	acc.1,00115$
+   1592 75 D8 00           1507 	mov	_CAN_ADCON,#0x00
+   1595                    1508 00115$:
+   1595 E5 D8              1509 	mov	a,_CAN_ADCON
+   1597 20 E1 FB           1510 	jb	acc.1,00115$
                     0093   1511 	C$SHARED_INT.C$296$2$4 ==.
                            1512 ;	../SHARED_INT.C:296: ubTempMsgID = CAN_DATA0;
-   159D AA DB              1513 	mov	r2,_CAN_DATA0
+   159A AA DB              1513 	mov	r2,_CAN_DATA0
                     0095   1514 	C$SHARED_INT.C$298$2$4 ==.
                            1515 ;	../SHARED_INT.C:298: if(ubTempMsgID != 0x20)
-   159F BA 20 03           1516 	cjne	r2,#0x20,00174$
-   15A2 02 16 78           1517 	ljmp	00141$
-   15A5                    1518 00174$:
+   159C BA 20 03           1516 	cjne	r2,#0x20,00174$
+   159F 02 16 75           1517 	ljmp	00141$
+   15A2                    1518 00174$:
                     009B   1519 	C$SHARED_INT.C$300$3$6 ==.
                            1520 ;	../SHARED_INT.C:300: do
-   15A5                    1521 00135$:
+   15A2                    1521 00135$:
                     009B   1522 	C$SHARED_INT.C$302$4$7 ==.
                            1523 ;	../SHARED_INT.C:302: CAN_vWriteCANAddress(CAN_MOCTR(ubTempMsgID)); // Addressing CAN_MOCTRn
-   15A5 EA                 1524 	mov	a,r2
-   15A6 C4                 1525 	swap	a
-   15A7 03                 1526 	rr	a
-   15A8 54 F8              1527 	anl	a,#0xf8
-   15AA FB                 1528 	mov	r3,a
-   15AB 74 07              1529 	mov	a,#0x07
-   15AD 2B                 1530 	add	a,r3
-   15AE F5 D9              1531 	mov	_CAN_ADL,a
-   15B0 EA                 1532 	mov	a,r2
-   15B1 75 F0 08           1533 	mov	b,#0x08
-   15B4 A4                 1534 	mul	ab
-   15B5 24 07              1535 	add	a,#0x07
-   15B7 74 04              1536 	mov	a,#0x04
-   15B9 35 F0              1537 	addc	a,b
-   15BB FC                 1538 	mov	r4,a
-   15BC 7B 00              1539 	mov	r3,#0x00
-   15BE 8C DA              1540 	mov	_CAN_ADH,r4
+   15A2 EA                 1524 	mov	a,r2
+   15A3 C4                 1525 	swap	a
+   15A4 03                 1526 	rr	a
+   15A5 54 F8              1527 	anl	a,#0xf8
+   15A7 FB                 1528 	mov	r3,a
+   15A8 74 07              1529 	mov	a,#0x07
+   15AA 2B                 1530 	add	a,r3
+   15AB F5 D9              1531 	mov	_CAN_ADL,a
+   15AD EA                 1532 	mov	a,r2
+   15AE 75 F0 08           1533 	mov	b,#0x08
+   15B1 A4                 1534 	mul	ab
+   15B2 24 07              1535 	add	a,#0x07
+   15B4 74 04              1536 	mov	a,#0x04
+   15B6 35 F0              1537 	addc	a,b
+   15B8 FC                 1538 	mov	r4,a
+   15B9 7B 00              1539 	mov	r3,#0x00
+   15BB 8C DA              1540 	mov	_CAN_ADH,r4
                     00B6   1541 	C$SHARED_INT.C$303$4$7 ==.
                            1542 ;	../SHARED_INT.C:303: CAN_vReadEN();               // Read Mode is enabled
-   15C0 75 D8 00           1543 	mov	_CAN_ADCON,#0x00
-   15C3                    1544 00118$:
-   15C3 E5 D8              1545 	mov	a,_CAN_ADCON
-   15C5 20 E1 FB           1546 	jb	acc.1,00118$
+   15BD 75 D8 00           1543 	mov	_CAN_ADCON,#0x00
+   15C0                    1544 00118$:
+   15C0 E5 D8              1545 	mov	a,_CAN_ADCON
+   15C2 20 E1 FB           1546 	jb	acc.1,00118$
                     00BE   1547 	C$SHARED_INT.C$304$4$7 ==.
                            1548 ;	../SHARED_INT.C:304: ubTempVarObjHandler = CAN_DATA0;
-   15C8 85 DB 50           1549 	mov	_SHINT_viXINTR5Isr_ubTempVarObjHandler_1_1,_CAN_DATA0
+   15C5 85 DB 50           1549 	mov	_SHINT_viXINTR5Isr_ubTempVarObjHandler_1_1,_CAN_DATA0
                     00C1   1550 	C$SHARED_INT.C$306$4$7 ==.
                            1551 ;	../SHARED_INT.C:306: ulBit_Pos_Mask.ulVal = ((unsigned long) 1 << ubTempMsgID);
-   15CB 8A F0              1552 	mov	b,r2
-   15CD 05 F0              1553 	inc	b
-   15CF 7B 01              1554 	mov	r3,#0x01
-   15D1 7C 00              1555 	mov	r4,#0x00
-   15D3 7D 00              1556 	mov	r5,#0x00
-   15D5 7E 00              1557 	mov	r6,#0x00
-   15D7 80 0C              1558 	sjmp	00177$
-   15D9                    1559 00176$:
-   15D9 EB                 1560 	mov	a,r3
-   15DA 2B                 1561 	add	a,r3
-   15DB FB                 1562 	mov	r3,a
-   15DC EC                 1563 	mov	a,r4
-   15DD 33                 1564 	rlc	a
-   15DE FC                 1565 	mov	r4,a
-   15DF ED                 1566 	mov	a,r5
-   15E0 33                 1567 	rlc	a
-   15E1 FD                 1568 	mov	r5,a
-   15E2 EE                 1569 	mov	a,r6
-   15E3 33                 1570 	rlc	a
-   15E4 FE                 1571 	mov	r6,a
-   15E5                    1572 00177$:
-   15E5 D5 F0 F1           1573 	djnz	b,00176$
-   15E8 8B 51              1574 	mov	_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1,r3
-   15EA 8C 52              1575 	mov	(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 1),r4
-   15EC 8D 53              1576 	mov	(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 2),r5
-   15EE 8E 54              1577 	mov	(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 3),r6
+   15C8 8A F0              1552 	mov	b,r2
+   15CA 05 F0              1553 	inc	b
+   15CC 7B 01              1554 	mov	r3,#0x01
+   15CE 7C 00              1555 	mov	r4,#0x00
+   15D0 7D 00              1556 	mov	r5,#0x00
+   15D2 7E 00              1557 	mov	r6,#0x00
+   15D4 80 0C              1558 	sjmp	00177$
+   15D6                    1559 00176$:
+   15D6 EB                 1560 	mov	a,r3
+   15D7 2B                 1561 	add	a,r3
+   15D8 FB                 1562 	mov	r3,a
+   15D9 EC                 1563 	mov	a,r4
+   15DA 33                 1564 	rlc	a
+   15DB FC                 1565 	mov	r4,a
+   15DC ED                 1566 	mov	a,r5
+   15DD 33                 1567 	rlc	a
+   15DE FD                 1568 	mov	r5,a
+   15DF EE                 1569 	mov	a,r6
+   15E0 33                 1570 	rlc	a
+   15E1 FE                 1571 	mov	r6,a
+   15E2                    1572 00177$:
+   15E2 D5 F0 F1           1573 	djnz	b,00176$
+   15E5 8B 51              1574 	mov	_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1,r3
+   15E7 8C 52              1575 	mov	(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 1),r4
+   15E9 8D 53              1576 	mov	(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 2),r5
+   15EB 8E 54              1577 	mov	(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 3),r6
                     00E6   1578 	C$SHARED_INT.C$307$4$7 ==.
                            1579 ;	../SHARED_INT.C:307: CAN_vWriteCANAddress(CAN_MSPND0); // Addressing CAN_MSPND0
-   15F0 75 D9 48           1580 	mov	_CAN_ADL,#0x48
-   15F3 75 DA 00           1581 	mov	_CAN_ADH,#0x00
+   15ED 75 D9 48           1580 	mov	_CAN_ADL,#0x48
+   15F0 75 DA 00           1581 	mov	_CAN_ADH,#0x00
                     00EC   1582 	C$SHARED_INT.C$309$4$7 ==.
                            1583 ;	../SHARED_INT.C:309: CAN_DATA0 = ~ulBit_Pos_Mask.ubDB[0]; // clear message pending register
-   15F6 E5 51              1584 	mov	a,_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1
-   15F8 F4                 1585 	cpl	a
-   15F9 F5 DB              1586 	mov	_CAN_DATA0,a
+   15F3 E5 51              1584 	mov	a,_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1
+   15F5 F4                 1585 	cpl	a
+   15F6 F5 DB              1586 	mov	_CAN_DATA0,a
                     00F1   1587 	C$SHARED_INT.C$310$4$7 ==.
                            1588 ;	../SHARED_INT.C:310: CAN_DATA1 = ~ulBit_Pos_Mask.ubDB[1]; // clear message pending register
-   15FB E5 52              1589 	mov	a,(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 0x0001)
-   15FD F4                 1590 	cpl	a
-   15FE F5 DC              1591 	mov	_CAN_DATA1,a
+   15F8 E5 52              1589 	mov	a,(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 0x0001)
+   15FA F4                 1590 	cpl	a
+   15FB F5 DC              1591 	mov	_CAN_DATA1,a
                     00F6   1592 	C$SHARED_INT.C$311$4$7 ==.
                            1593 ;	../SHARED_INT.C:311: CAN_DATA2 = ~ulBit_Pos_Mask.ubDB[2]; // clear message pending register
-   1600 E5 53              1594 	mov	a,(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 0x0002)
-   1602 F4                 1595 	cpl	a
-   1603 F5 DD              1596 	mov	_CAN_DATA2,a
+   15FD E5 53              1594 	mov	a,(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 0x0002)
+   15FF F4                 1595 	cpl	a
+   1600 F5 DD              1596 	mov	_CAN_DATA2,a
                     00FB   1597 	C$SHARED_INT.C$312$4$7 ==.
                            1598 ;	../SHARED_INT.C:312: CAN_DATA3 = ~ulBit_Pos_Mask.ubDB[3]; // clear message pending register
-   1605 E5 54              1599 	mov	a,(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 0x0003)
-   1607 F4                 1600 	cpl	a
-   1608 F5 DE              1601 	mov	_CAN_DATA3,a
+   1602 E5 54              1599 	mov	a,(_SHINT_viXINTR5Isr_ulBit_Pos_Mask_1_1 + 0x0003)
+   1604 F4                 1600 	cpl	a
+   1605 F5 DE              1601 	mov	_CAN_DATA3,a
                     0100   1602 	C$SHARED_INT.C$313$4$7 ==.
                            1603 ;	../SHARED_INT.C:313: CAN_vWriteEN(ALL_DATA_VALID);  // Write mode Enabled
-   160A 75 D8 F1           1604 	mov	_CAN_ADCON,#0xF1
-   160D                    1605 00121$:
-   160D E5 D8              1606 	mov	a,_CAN_ADCON
-   160F 20 E1 FB           1607 	jb	acc.1,00121$
+   1607 75 D8 F1           1604 	mov	_CAN_ADCON,#0xF1
+   160A                    1605 00121$:
+   160A E5 D8              1606 	mov	a,_CAN_ADCON
+   160C 20 E1 FB           1607 	jb	acc.1,00121$
                     0108   1608 	C$SHARED_INT.C$337$4$7 ==.
                            1609 ;	../SHARED_INT.C:337: if( ubTempVarObjHandler & MOSTAT_TXPND)   // if TXPND is set
-   1612 E5 50              1610 	mov	a,_SHINT_viXINTR5Isr_ubTempVarObjHandler_1_1
-   1614 30 E1 2F           1611 	jnb	acc.1,00128$
+   160F E5 50              1610 	mov	a,_SHINT_viXINTR5Isr_ubTempVarObjHandler_1_1
+   1611 30 E1 2F           1611 	jnb	acc.1,00128$
                     010D   1612 	C$SHARED_INT.C$341$5$8 ==.
                            1613 ;	../SHARED_INT.C:341: CAN_vWriteCANAddress(CAN_MOCTR(ubTempMsgID)); // Addressing CAN_MOCTRn
-   1617 EA                 1614 	mov	a,r2
-   1618 C4                 1615 	swap	a
-   1619 03                 1616 	rr	a
-   161A 54 F8              1617 	anl	a,#0xf8
-   161C FB                 1618 	mov	r3,a
-   161D 74 07              1619 	mov	a,#0x07
-   161F 2B                 1620 	add	a,r3
-   1620 F5 D9              1621 	mov	_CAN_ADL,a
-   1622 EA                 1622 	mov	a,r2
-   1623 75 F0 08           1623 	mov	b,#0x08
-   1626 A4                 1624 	mul	ab
-   1627 24 07              1625 	add	a,#0x07
-   1629 74 04              1626 	mov	a,#0x04
-   162B 35 F0              1627 	addc	a,b
-   162D FC                 1628 	mov	r4,a
-   162E 7B 00              1629 	mov	r3,#0x00
-   1630 8C DA              1630 	mov	_CAN_ADH,r4
+   1614 EA                 1614 	mov	a,r2
+   1615 C4                 1615 	swap	a
+   1616 03                 1616 	rr	a
+   1617 54 F8              1617 	anl	a,#0xf8
+   1619 FB                 1618 	mov	r3,a
+   161A 74 07              1619 	mov	a,#0x07
+   161C 2B                 1620 	add	a,r3
+   161D F5 D9              1621 	mov	_CAN_ADL,a
+   161F EA                 1622 	mov	a,r2
+   1620 75 F0 08           1623 	mov	b,#0x08
+   1623 A4                 1624 	mul	ab
+   1624 24 07              1625 	add	a,#0x07
+   1626 74 04              1626 	mov	a,#0x04
+   1628 35 F0              1627 	addc	a,b
+   162A FC                 1628 	mov	r4,a
+   162B 7B 00              1629 	mov	r3,#0x00
+   162D 8C DA              1630 	mov	_CAN_ADH,r4
                     0128   1631 	C$SHARED_INT.C$343$5$8 ==.
                            1632 ;	../SHARED_INT.C:343: CAN_DATA0 = (MOSTAT_TXPND + MOSTAT_NEWDAT); // load CAN Data Register 0
-   1632 75 DB 0A           1633 	mov	_CAN_DATA0,#0x0A
+   162F 75 DB 0A           1633 	mov	_CAN_DATA0,#0x0A
                     012B   1634 	C$SHARED_INT.C$344$5$8 ==.
                            1635 ;	../SHARED_INT.C:344: CAN_DATA1 = 0x00; // load CAN Data Register 1
-   1635 75 DC 00           1636 	mov	_CAN_DATA1,#0x00
+   1632 75 DC 00           1636 	mov	_CAN_DATA1,#0x00
                     012E   1637 	C$SHARED_INT.C$345$5$8 ==.
                            1638 ;	../SHARED_INT.C:345: CAN_DATA2 = 0x00; // load CAN Data Register 2
-   1638 75 DD 00           1639 	mov	_CAN_DATA2,#0x00
+   1635 75 DD 00           1639 	mov	_CAN_DATA2,#0x00
                     0131   1640 	C$SHARED_INT.C$346$5$8 ==.
                            1641 ;	../SHARED_INT.C:346: CAN_DATA3 = 0x00; // load CAN Data Register 3
-   163B 75 DE 00           1642 	mov	_CAN_DATA3,#0x00
+   1638 75 DE 00           1642 	mov	_CAN_DATA3,#0x00
                     0134   1643 	C$SHARED_INT.C$347$5$8 ==.
                            1644 ;	../SHARED_INT.C:347: CAN_vWriteEN(ALL_DATA_VALID); // Writemode is Enabled
-   163E 75 D8 F1           1645 	mov	_CAN_ADCON,#0xF1
-   1641                    1646 00124$:
-   1641 E5 D8              1647 	mov	a,_CAN_ADCON
-   1643 20 E1 FB           1648 	jb	acc.1,00124$
-   1646                    1649 00128$:
+   163B 75 D8 F1           1645 	mov	_CAN_ADCON,#0xF1
+   163E                    1646 00124$:
+   163E E5 D8              1647 	mov	a,_CAN_ADCON
+   1640 20 E1 FB           1648 	jb	acc.1,00124$
+   1643                    1649 00128$:
                     013C   1650 	C$SHARED_INT.C$352$4$7 ==.
                            1651 ;	../SHARED_INT.C:352: CAN_vWriteCANAddress(CAN_MSIMASK);    // set message index mask register
-   1646 75 D9 70           1652 	mov	_CAN_ADL,#0x70
-   1649 75 DA 00           1653 	mov	_CAN_ADH,#0x00
+   1643 75 D9 70           1652 	mov	_CAN_ADL,#0x70
+   1646 75 DA 00           1653 	mov	_CAN_ADH,#0x00
                     0142   1654 	C$SHARED_INT.C$353$4$7 ==.
                            1655 ;	../SHARED_INT.C:353: CAN_DATA0  =   0x83;       // set message index mask register
-   164C 75 DB 83           1656 	mov	_CAN_DATA0,#0x83
+   1649 75 DB 83           1656 	mov	_CAN_DATA0,#0x83
                     0145   1657 	C$SHARED_INT.C$354$4$7 ==.
                            1658 ;	../SHARED_INT.C:354: CAN_DATA1  =   0x00;       // set message index mask register
-   164F 75 DC 00           1659 	mov	_CAN_DATA1,#0x00
+   164C 75 DC 00           1659 	mov	_CAN_DATA1,#0x00
                     0148   1660 	C$SHARED_INT.C$355$4$7 ==.
                            1661 ;	../SHARED_INT.C:355: CAN_DATA2  =   0x00;       // set message index mask register
-   1652 75 DD 00           1662 	mov	_CAN_DATA2,#0x00
+   164F 75 DD 00           1662 	mov	_CAN_DATA2,#0x00
                     014B   1663 	C$SHARED_INT.C$356$4$7 ==.
                            1664 ;	../SHARED_INT.C:356: CAN_DATA3  =   0x00;       // set message index mask register
-   1655 75 DE 00           1665 	mov	_CAN_DATA3,#0x00
+   1652 75 DE 00           1665 	mov	_CAN_DATA3,#0x00
                     014E   1666 	C$SHARED_INT.C$358$4$7 ==.
                            1667 ;	../SHARED_INT.C:358: CAN_vWriteEN(ALL_DATA_VALID); // Write mode Enabled
-   1658 75 D8 F1           1668 	mov	_CAN_ADCON,#0xF1
-   165B                    1669 00129$:
-   165B E5 D8              1670 	mov	a,_CAN_ADCON
-   165D 20 E1 FB           1671 	jb	acc.1,00129$
+   1655 75 D8 F1           1668 	mov	_CAN_ADCON,#0xF1
+   1658                    1669 00129$:
+   1658 E5 D8              1670 	mov	a,_CAN_ADCON
+   165A 20 E1 FB           1671 	jb	acc.1,00129$
                     0156   1672 	C$SHARED_INT.C$364$4$7 ==.
                            1673 ;	../SHARED_INT.C:364: CAN_vWriteCANAddress(CAN_MSID0);   // message index register
-   1660 75 D9 50           1674 	mov	_CAN_ADL,#0x50
-   1663 75 DA 00           1675 	mov	_CAN_ADH,#0x00
+   165D 75 D9 50           1674 	mov	_CAN_ADL,#0x50
+   1660 75 DA 00           1675 	mov	_CAN_ADH,#0x00
                     015C   1676 	C$SHARED_INT.C$365$4$7 ==.
                            1677 ;	../SHARED_INT.C:365: CAN_vReadEN();               // Read Mode is enabled
-   1666 75 D8 00           1678 	mov	_CAN_ADCON,#0x00
-   1669                    1679 00132$:
-   1669 E5 D8              1680 	mov	a,_CAN_ADCON
-   166B 20 E1 FB           1681 	jb	acc.1,00132$
+   1663 75 D8 00           1678 	mov	_CAN_ADCON,#0x00
+   1666                    1679 00132$:
+   1666 E5 D8              1680 	mov	a,_CAN_ADCON
+   1668 20 E1 FB           1681 	jb	acc.1,00132$
                     0164   1682 	C$SHARED_INT.C$366$4$7 ==.
                            1683 ;	../SHARED_INT.C:366: ubTempMsgID = CAN_DATA0;
-   166E AA DB              1684 	mov	r2,_CAN_DATA0
+   166B AA DB              1684 	mov	r2,_CAN_DATA0
                     0166   1685 	C$SHARED_INT.C$368$3$6 ==.
                            1686 ;	../SHARED_INT.C:368: }while (ubTempMsgID != 0x20); // end while
-   1670 BA 20 02           1687 	cjne	r2,#0x20,00183$
-   1673 80 03              1688 	sjmp	00184$
-   1675                    1689 00183$:
-   1675 02 15 A5           1690 	ljmp	00135$
-   1678                    1691 00184$:
-   1678                    1692 00141$:
+   166D BA 20 02           1687 	cjne	r2,#0x20,00183$
+   1670 80 03              1688 	sjmp	00184$
+   1672                    1689 00183$:
+   1672 02 15 A2           1690 	ljmp	00135$
+   1675                    1691 00184$:
+   1675                    1692 00141$:
                     016E   1693 	C$SHARED_INT.C$383$1$1 ==.
                            1694 ;	../SHARED_INT.C:383: SFR_PAGE(_su0, RST1);          // restore the old SCU page
-   1678 75 BF D0           1695 	mov	_SCU_PAGE,#0xD0
+   1675 75 BF D0           1695 	mov	_SCU_PAGE,#0xD0
                     0171   1696 	C$SHARED_INT.C$385$1$1 ==.
                            1697 ;	../SHARED_INT.C:385: CAN_popAMRegs();               // restore the CAN Access Mediator Registers
-   167B D0 DE D0 DD D0 DC  1698 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
+   1678 D0 DE D0 DD D0 DC  1698 	 pop 0xDE pop 0xDD pop 0xDC pop 0xDB pop 0xDA pop 0xD9 
         D0 DB D0 DA D0 D9
                     017D   1699 	C$SHARED_INT.C$387$2$9 ==.
                            1700 ;	../SHARED_INT.C:387: popsyscon();                   // restore the old RMAP
-   1687 D0 8F              1701 	 pop 0x8F 
-   1689 D0 D0              1702 	pop	psw
-   168B D0 06              1703 	pop	ar6
-   168D D0 05              1704 	pop	ar5
-   168F D0 04              1705 	pop	ar4
-   1691 D0 03              1706 	pop	ar3
-   1693 D0 02              1707 	pop	ar2
-   1695 D0 F0              1708 	pop	b
-   1697 D0 E0              1709 	pop	acc
+   1684 D0 8F              1701 	 pop 0x8F 
+   1686 D0 D0              1702 	pop	psw
+   1688 D0 06              1703 	pop	ar6
+   168A D0 05              1704 	pop	ar5
+   168C D0 04              1705 	pop	ar4
+   168E D0 03              1706 	pop	ar3
+   1690 D0 02              1707 	pop	ar2
+   1692 D0 F0              1708 	pop	b
+   1694 D0 E0              1709 	pop	acc
                     018F   1710 	C$SHARED_INT.C$389$2$9 ==.
                     018F   1711 	XG$SHINT_viXINTR5Isr$0$0 ==.
-   1699 32                 1712 	reti
+   1696 32                 1712 	reti
                            1713 ;	eliminated unneeded push/pop ar0
                            1714 ;	eliminated unneeded push/pop ar1
                            1715 ;	eliminated unneeded push/pop dpl
@@ -1726,14 +1726,14 @@
                            1724 ;	-----------------------------------------
                            1725 ;	 function get_current_values
                            1726 ;	-----------------------------------------
-   169A                    1727 _get_current_values:
+   1697                    1727 _get_current_values:
                     0190   1728 	C$SHARED_INT.C$435$1$1 ==.
                            1729 ;	../SHARED_INT.C:435: return current_values_500;
-   169A 90 F0 00           1730 	mov	dptr,#_current_values_500
-   169D 75 F0 00           1731 	mov	b,#0x00
+   1697 90 F0 00           1730 	mov	dptr,#_current_values_500
+   169A 75 F0 00           1731 	mov	b,#0x00
                     0196   1732 	C$SHARED_INT.C$436$1$1 ==.
                     0196   1733 	XG$get_current_values$0$0 ==.
-   16A0 22                 1734 	ret
+   169D 22                 1734 	ret
                            1735 ;------------------------------------------------------------
                            1736 ;Allocation info for local variables in function 'SHINT_viXINTR8Isr'
                            1737 ;------------------------------------------------------------
@@ -1746,59 +1746,59 @@
                            1744 ;	-----------------------------------------
                            1745 ;	 function SHINT_viXINTR8Isr
                            1746 ;	-----------------------------------------
-   16A1                    1747 _SHINT_viXINTR8Isr:
-   16A1 C0 22              1748 	push	bits
-   16A3 C0 E0              1749 	push	acc
-   16A5 C0 F0              1750 	push	b
-   16A7 C0 82              1751 	push	dpl
-   16A9 C0 83              1752 	push	dph
-   16AB C0 02              1753 	push	(0+2)
-   16AD C0 03              1754 	push	(0+3)
-   16AF C0 04              1755 	push	(0+4)
-   16B1 C0 05              1756 	push	(0+5)
-   16B3 C0 06              1757 	push	(0+6)
-   16B5 C0 07              1758 	push	(0+7)
-   16B7 C0 00              1759 	push	(0+0)
-   16B9 C0 01              1760 	push	(0+1)
-   16BB C0 D0              1761 	push	psw
-   16BD 75 D0 00           1762 	mov	psw,#0x00
+   169E                    1747 _SHINT_viXINTR8Isr:
+   169E C0 22              1748 	push	bits
+   16A0 C0 E0              1749 	push	acc
+   16A2 C0 F0              1750 	push	b
+   16A4 C0 82              1751 	push	dpl
+   16A6 C0 83              1752 	push	dph
+   16A8 C0 02              1753 	push	(0+2)
+   16AA C0 03              1754 	push	(0+3)
+   16AC C0 04              1755 	push	(0+4)
+   16AE C0 05              1756 	push	(0+5)
+   16B0 C0 06              1757 	push	(0+6)
+   16B2 C0 07              1758 	push	(0+7)
+   16B4 C0 00              1759 	push	(0+0)
+   16B6 C0 01              1760 	push	(0+1)
+   16B8 C0 D0              1761 	push	psw
+   16BA 75 D0 00           1762 	mov	psw,#0x00
                     01B6   1763 	C$SHARED_INT.C$447$2$2 ==.
                            1764 ;	../SHARED_INT.C:447: pushsyscon();                  // push the current RMAP
-   16C0 C0 8F              1765 	 push 0x8F 
+   16BD C0 8F              1765 	 push 0x8F 
                     01B8   1766 	C$SHARED_INT.C$448$1$1 ==.
                            1767 ;	../SHARED_INT.C:448: SET_RMAP();                    // sets RMAP
-   16C2 43 8F 01           1768 	orl	_SYSCON0,#0x01
+   16BF 43 8F 01           1768 	orl	_SYSCON0,#0x01
                     01BB   1769 	C$SHARED_INT.C$452$1$1 ==.
                            1770 ;	../SHARED_INT.C:452: if (TF2)
                     01BB   1771 	C$SHARED_INT.C$456$2$3 ==.
                            1772 ;	../SHARED_INT.C:456: TF2 = 0;
-   16C5 10 C7 02           1773 	jbc	_TF2,00106$
-   16C8 80 03              1774 	sjmp	00102$
-   16CA                    1775 00106$:
+   16C2 10 C7 02           1773 	jbc	_TF2,00106$
+   16C5 80 03              1774 	sjmp	00102$
+   16C7                    1775 00106$:
                     01C0   1776 	C$SHARED_INT.C$460$2$3 ==.
                            1777 ;	../SHARED_INT.C:460: current_evaluation();
-   16CA 12 18 28           1778 	lcall	_current_evaluation
-   16CD                    1779 00102$:
+   16C7 12 18 25           1778 	lcall	_current_evaluation
+   16CA                    1779 00102$:
                     01C3   1780 	C$SHARED_INT.C$469$2$4 ==.
                            1781 ;	../SHARED_INT.C:469: popsyscon();                   // restore the old RMAP
-   16CD D0 8F              1782 	 pop 0x8F 
-   16CF D0 D0              1783 	pop	psw
-   16D1 D0 01              1784 	pop	(0+1)
-   16D3 D0 00              1785 	pop	(0+0)
-   16D5 D0 07              1786 	pop	(0+7)
-   16D7 D0 06              1787 	pop	(0+6)
-   16D9 D0 05              1788 	pop	(0+5)
-   16DB D0 04              1789 	pop	(0+4)
-   16DD D0 03              1790 	pop	(0+3)
-   16DF D0 02              1791 	pop	(0+2)
-   16E1 D0 83              1792 	pop	dph
-   16E3 D0 82              1793 	pop	dpl
-   16E5 D0 F0              1794 	pop	b
-   16E7 D0 E0              1795 	pop	acc
-   16E9 D0 22              1796 	pop	bits
+   16CA D0 8F              1782 	 pop 0x8F 
+   16CC D0 D0              1783 	pop	psw
+   16CE D0 01              1784 	pop	(0+1)
+   16D0 D0 00              1785 	pop	(0+0)
+   16D2 D0 07              1786 	pop	(0+7)
+   16D4 D0 06              1787 	pop	(0+6)
+   16D6 D0 05              1788 	pop	(0+5)
+   16D8 D0 04              1789 	pop	(0+4)
+   16DA D0 03              1790 	pop	(0+3)
+   16DC D0 02              1791 	pop	(0+2)
+   16DE D0 83              1792 	pop	dph
+   16E0 D0 82              1793 	pop	dpl
+   16E2 D0 F0              1794 	pop	b
+   16E4 D0 E0              1795 	pop	acc
+   16E6 D0 22              1796 	pop	bits
                     01E1   1797 	C$SHARED_INT.C$471$2$4 ==.
                     01E1   1798 	XG$SHINT_viXINTR8Isr$0$0 ==.
-   16EB 32                 1799 	reti
+   16E8 32                 1799 	reti
                            1800 ;------------------------------------------------------------
                            1801 ;Allocation info for local variables in function 'SHINT_viXINTR10Isr'
                            1802 ;------------------------------------------------------------
@@ -1809,35 +1809,35 @@
                            1807 ;	-----------------------------------------
                            1808 ;	 function SHINT_viXINTR10Isr
                            1809 ;	-----------------------------------------
-   16EC                    1810 _SHINT_viXINTR10Isr:
-   16EC C0 E0              1811 	push	acc
+   16E9                    1810 _SHINT_viXINTR10Isr:
+   16E9 C0 E0              1811 	push	acc
                     01E4   1812 	C$SHARED_INT.C$521$2$2 ==.
                            1813 ;	../SHARED_INT.C:521: pushsyscon();                  // push the current RMAP
-   16EE C0 8F              1814 	 push 0x8F 
+   16EB C0 8F              1814 	 push 0x8F 
                     01E6   1815 	C$SHARED_INT.C$522$1$1 ==.
                            1816 ;	../SHARED_INT.C:522: RESET_RMAP();                  // resets RMAP
-   16F0 53 8F FE           1817 	anl	_SYSCON0,#0xFE
+   16ED 53 8F FE           1817 	anl	_SYSCON0,#0xFE
                     01E9   1818 	C$SHARED_INT.C$524$1$1 ==.
                            1819 ;	../SHARED_INT.C:524: SFR_PAGE(_su3, SST2);          // switch to page 3
-   16F3 75 BF A3           1820 	mov	_SCU_PAGE,#0xA3
+   16F0 75 BF A3           1820 	mov	_SCU_PAGE,#0xA3
                     01EC   1821 	C$SHARED_INT.C$528$1$1 ==.
                            1822 ;	../SHARED_INT.C:528: if (IRCON3 & 0x01)  //  if CCU6SR0
-   16F6 E5 B4              1823 	mov	a,_IRCON3
-   16F8 30 E0 03           1824 	jnb	acc.0,00102$
+   16F3 E5 B4              1823 	mov	a,_IRCON3
+   16F5 30 E0 03           1824 	jnb	acc.0,00102$
                     01F1   1825 	C$SHARED_INT.C$530$2$3 ==.
                            1826 ;	../SHARED_INT.C:530: IRCON3 &= ~(ubyte)0x01;
-   16FB 53 B4 FE           1827 	anl	_IRCON3,#0xFE
-   16FE                    1828 00102$:
+   16F8 53 B4 FE           1827 	anl	_IRCON3,#0xFE
+   16FB                    1828 00102$:
                     01F4   1829 	C$SHARED_INT.C$543$1$1 ==.
                            1830 ;	../SHARED_INT.C:543: SFR_PAGE(_su3, RST2);          // restore the old SCU page
-   16FE 75 BF E3           1831 	mov	_SCU_PAGE,#0xE3
+   16FB 75 BF E3           1831 	mov	_SCU_PAGE,#0xE3
                     01F7   1832 	C$SHARED_INT.C$545$2$4 ==.
                            1833 ;	../SHARED_INT.C:545: popsyscon();                   // restore the old RMAP
-   1701 D0 8F              1834 	 pop 0x8F 
-   1703 D0 E0              1835 	pop	acc
+   16FE D0 8F              1834 	 pop 0x8F 
+   1700 D0 E0              1835 	pop	acc
                     01FB   1836 	C$SHARED_INT.C$547$2$4 ==.
                     01FB   1837 	XG$SHINT_viXINTR10Isr$0$0 ==.
-   1705 32                 1838 	reti
+   1702 32                 1838 	reti
                            1839 ;	eliminated unneeded push/pop psw
                            1840 ;	eliminated unneeded push/pop dpl
                            1841 ;	eliminated unneeded push/pop dph

@@ -429,6 +429,7 @@ S:G$T01_vInit$0$0({2}DF,SV:S),C,0,0
 S:G$T2_vInit$0$0({2}DF,SV:S),C,0,0
 S:G$T21_vInit$0$0({2}DF,SV:S),C,0,0
 S:G$CC6_vInit$0$0({2}DF,SV:S),C,0,0
+S:G$current_evaluation$0$0({2}DF,SV:S),C,0,0
 S:G$CAN_vInit$0$0({2}DF,SV:S),C,0,0
 S:G$CAN_vGetMsgObj$0$0({2}DF,SV:S),C,0,0
 S:G$CAN_ubRequestMsgObj$0$0({2}DF,SC:U),C,0,0
@@ -449,7 +450,7 @@ S:G$UART_viIsr$0$0({2}DF,SV:S),C,0,0
 S:G$SHINT_viXINTR8Isr$0$0({2}DF,SV:S),C,0,0
 S:G$SHINT_viXINTR5Isr$0$0({2}DF,SV:S),C,0,0
 S:G$SHINT_viXINTR10Isr$0$0({2}DF,SV:S),C,0,0
-S:G$CURRENT_isOverflow$0$0({2}DF,SB0$1:U),C,0,0
+S:G$current_isOverflow$0$0({2}DF,SB0$1:U),C,0,0
 S:G$current_isNewValueStored$0$0({2}DF,SB0$1:U),C,0,0
 S:G$current_getResult$0$0({2}DF,SI:S),C,0,0
 S:G$current_resultInterruptCall$0$0({2}DF,SV:S),C,0,0

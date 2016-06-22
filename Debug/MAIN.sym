@@ -35,13 +35,12 @@ Symbol Table
  16 A$MAIN$1444                                                    002A GR
  16 A$MAIN$1447                                                    002D GR
  16 A$MAIN$1450                                                    0030 GR
- 16 A$MAIN$1453                                                    0033 GR
- 16 A$MAIN$1456                                                    0035 GR
+ 16 A$MAIN$1453                                                    0032 GR
+ 16 A$MAIN$1467                                                    0033 GR
  16 A$MAIN$1470                                                    0036 GR
- 16 A$MAIN$1473                                                    0039 GR
- 16 A$MAIN$1474                                                    003C GR
- 16 A$MAIN$1477                                                    003E GR
- 16 A$MAIN$1483                                                    0040 GR
+ 16 A$MAIN$1471                                                    0039 GR
+ 16 A$MAIN$1474                                                    003B GR
+ 16 A$MAIN$1480                                                    003D GR
     AC                                                             00D6 
     ACC                                                            00E0 
     ACC.0                                                          00E0 
@@ -67,26 +66,25 @@ Symbol Table
  16 C$MAIN.C$142$1$1                                            =  0006 GR
  16 C$MAIN.C$151$1$1                                            =  0009 GR
  16 C$MAIN.C$154$1$1                                            =  000C GR
- 16 C$MAIN.C$157$1$1                                            =  000F GR
- 16 C$MAIN.C$160$1$1                                            =  0012 GR
- 16 C$MAIN.C$163$1$1                                            =  0015 GR
- 16 C$MAIN.C$166$1$1                                            =  0018 GR
- 16 C$MAIN.C$169$1$1                                            =  001B GR
- 16 C$MAIN.C$172$1$1                                            =  001E GR
- 16 C$MAIN.C$175$1$1                                            =  0021 GR
- 16 C$MAIN.C$179$1$1                                            =  0024 GR
- 16 C$MAIN.C$180$1$1                                            =  0027 GR
- 16 C$MAIN.C$181$1$1                                            =  002A GR
- 16 C$MAIN.C$182$1$1                                            =  002D GR
- 16 C$MAIN.C$191$1$1                                            =  0030 GR
- 16 C$MAIN.C$197$1$1                                            =  0033 GR
- 16 C$MAIN.C$199$1$1                                            =  0035 GR
- 16 C$MAIN.C$223$1$1                                            =  0036 GR
- 16 C$MAIN.C$229$1$1                                            =  0036 GR
- 16 C$MAIN.C$232$1$1                                            =  0039 GR
- 16 C$MAIN.C$233$2$2                                            =  003E GR
- 16 C$MAIN.C$243$1$1                                            =  0040 GR
- 16 C$MAIN.C$252$1$1                                            =  0040 GR
+ 16 C$MAIN.C$160$1$1                                            =  000F GR
+ 16 C$MAIN.C$163$1$1                                            =  0012 GR
+ 16 C$MAIN.C$166$1$1                                            =  0015 GR
+ 16 C$MAIN.C$169$1$1                                            =  0018 GR
+ 16 C$MAIN.C$172$1$1                                            =  001B GR
+ 16 C$MAIN.C$175$1$1                                            =  001E GR
+ 16 C$MAIN.C$179$1$1                                            =  0021 GR
+ 16 C$MAIN.C$180$1$1                                            =  0024 GR
+ 16 C$MAIN.C$181$1$1                                            =  0027 GR
+ 16 C$MAIN.C$182$1$1                                            =  002A GR
+ 16 C$MAIN.C$191$1$1                                            =  002D GR
+ 16 C$MAIN.C$197$1$1                                            =  0030 GR
+ 16 C$MAIN.C$199$1$1                                            =  0032 GR
+ 16 C$MAIN.C$223$1$1                                            =  0033 GR
+ 16 C$MAIN.C$229$1$1                                            =  0033 GR
+ 16 C$MAIN.C$232$1$1                                            =  0036 GR
+ 16 C$MAIN.C$233$2$2                                            =  003B GR
+ 16 C$MAIN.C$243$1$1                                            =  003D GR
+ 16 C$MAIN.C$252$1$1                                            =  003D GR
     CPRL2                                                          00C8 
     CT2                                                            00C9 
     CY                                                             00D7 
@@ -518,7 +516,7 @@ Symbol Table
     G$WDTREL$0$0                                                =  00BC G
     G$WDTWINB$0$0                                               =  00BD G
     G$XADDRH$0$0                                                =  00B3 G
- 16 G$main$0$0                                                  =  0036 GR
+ 16 G$main$0$0                                                  =  0033 GR
     IE                                                             00A8 
     IE.0                                                           00A8 
     IE.1                                                           00A9 
@@ -652,8 +650,8 @@ Symbol Table
     TR1                                                            008E 
     TR2                                                            00CA 
     TXD                                                            00B1 
- 16 XG$MAIN_vInit$0$0                                           =  0035 GR
- 16 XG$main$0$0                                                 =  0040 GR
+ 16 XG$MAIN_vInit$0$0                                           =  0032 GR
+ 16 XG$main$0$0                                                 =  003D GR
     _AC                                                         =  00D6 G
     _ACC                                                        =  00E0 G
     _ADC_CHCTR0                                                 =  00CA G
@@ -1076,7 +1074,6 @@ Symbol Table
     _UART1_FDSTEP                                               =  00CD G
     _UART1_SBUF                                                 =  00C9 G
     _UART1_SCON                                                 =  00C8 G
-    _UART_vInit                                                    **** GX
     _UART_viIsr                                                    **** GX
     _WDTCON                                                     =  00BB G
     _WDTH                                                       =  00BF G
@@ -1092,7 +1089,7 @@ Symbol Table
     __xc800_genXINIT                                               **** GX
     __xc800_genXRAMCLEAR                                           **** GX
     _current_init                                                  **** GX
- 16 _main                                                          0036 GR
+ 16 _main                                                          0033 GR
     a                                                              00D6 
     ac                                                             00D6 
     acc                                                            00E0 
@@ -1296,7 +1293,7 @@ Area Table
   13 GSINIT5                                                                            size    0   flags 20
   14 GSINIT                                                                             size    0   flags 20
   15 GSFINAL                                                                            size    3   flags 20
-  16 CSEG                                                                               size   42   flags 20
+  16 CSEG                                                                               size   3F   flags 20
   17 CONST                                                                              size    0   flags 20
   18 XINIT                                                                              size    0   flags 20
   19 CABS                                                                               size    0   flags 28
